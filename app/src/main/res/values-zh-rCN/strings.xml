@@ -1,0 +1,8 @@
+<resources>
+    <string-array name="main_view_pager_tab">
+        <item>首页</item>
+        <item>发现</item>
+        <item>附近</item>
+        <item>更多</item>
+    </string-array>
+</resources>
