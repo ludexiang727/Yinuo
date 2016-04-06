@@ -3,6 +3,8 @@ package com.yinuo.adapter;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 /**
  * Created by ludexiang on 2016/4/5.
@@ -29,7 +31,14 @@ public class HomePageListViewAdapter extends BaseAdapter {
         return null;
     }
 
-    private final class ViewHolder {
+    @Override
+    public int getViewTypeCount() {
+        return super.getViewTypeCount();
+    }
 
+    private final class ViewHolder {
+        private TextView cardTitle;
+        private ImageView cardImg;
+        private TextView cardSummary;
     }
 }
