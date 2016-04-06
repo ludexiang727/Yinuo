@@ -19,4 +19,6 @@ public class HomeListView extends ListView {
     public HomeListView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
     }
+
+
 }
