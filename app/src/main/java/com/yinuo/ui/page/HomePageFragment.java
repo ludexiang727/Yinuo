@@ -4,11 +4,10 @@ import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.ListView;
 
 import com.yinuo.R;
 import com.yinuo.base.BaseFragment;
-import com.yinuo.ui.component.widget.HomeListView;
+import com.yinuo.ui.component.widget.view.HomePageListView;
 import com.yinuo.ui.component.widget.Loading;
 
 /**
@@ -16,7 +15,7 @@ import com.yinuo.ui.component.widget.Loading;
  */
 public class HomePageFragment extends BaseFragment {
 
-    private HomeListView mListView;
+    private HomePageListView mListView;
     @Override
     public int pageLayoutId() {
         return R.layout.fragment_home_page_layout;
@@ -33,7 +32,7 @@ public class HomePageFragment extends BaseFragment {
         mLoading = (Loading) view.findViewById(R.id.home_page_loading);
         mLoading.loading();
 
-        mListView = (HomeListView) view.findViewById(android.R.id.list);
+        mListView = (HomePageListView) view.findViewById(android.R.id.list);
 
     }
 }

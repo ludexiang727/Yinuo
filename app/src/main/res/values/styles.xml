@@ -17,4 +17,10 @@
 
     <style name="AppTheme.PopupOverlay" parent="ThemeOverlay.AppCompat.Light" />
 
+    <!-- home page begin -->
+    <style name="HomePageCardTitle" parent="TextAppearance.AppCompat.Widget.TextView.SpinnerItem">
+        <item name="android:textSize">@dimen/home_page_card_detail_title_size</item>
+    </style>
+    <!-- home page end-->
+
 </resources>
