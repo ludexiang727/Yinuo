@@ -13,7 +13,7 @@ import com.android.volley.toolbox.ImageLoader;
 import com.android.volley.toolbox.NetworkImageView;
 import com.android.volley.toolbox.Volley;
 import com.yinuo.R;
-import com.yinuo.dao.HomePageDataDao;
+import com.yinuo.mode.HomePageDataMode;
 import com.yinuo.net.utils.NetBitmapCache;
 import com.yinuo.ui.component.widget.view.HomePageTagTextView;
 
@@ -25,7 +25,7 @@ import java.util.List;
  *
  * extends NetBaseObject so far support getItemType 1 after getItemType is 2 or more
  */
-public class HomePageListViewAdapter <T extends HomePageDataDao> extends BaseAdapter {
+public class HomePageListViewAdapter <T extends HomePageDataMode> extends BaseAdapter {
 
     private Context mContext;
     private LayoutInflater mInflater;

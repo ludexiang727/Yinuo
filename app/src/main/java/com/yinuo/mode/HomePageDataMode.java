@@ -1,4 +1,4 @@
-package com.yinuo.dao;
+package com.yinuo.mode;
 
 import com.yinuo.base.BaseObject;
 
@@ -8,7 +8,7 @@ import java.util.List;
 /**
  * Created by ludexiang on 2016/4/7.
  */
-public class HomePageDataDao extends BaseObject {
+public class HomePageDataMode extends BaseObject {
     private String mImgURL;
     /** 1 collectioned 0 uncollecion*/
     private int mCollectioned;
@@ -68,7 +68,7 @@ public class HomePageDataDao extends BaseObject {
 
     @Override
     public String toString() {
-        return "HomePageDataDao{" +
+        return "HomePageDataMode{" +
                 "mAttention=" + mAttention +
                 ", mImgURL='" + mImgURL + '\'' +
                 ", mCollectioned=" + mCollectioned +
