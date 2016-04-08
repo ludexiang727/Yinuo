@@ -9,12 +9,8 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.android.volley.toolbox.ImageLoader;
-import com.android.volley.toolbox.NetworkImageView;
-import com.android.volley.toolbox.Volley;
 import com.yinuo.R;
 import com.yinuo.mode.HomePageDataMode;
-import com.yinuo.net.utils.NetBitmapCache;
 import com.yinuo.ui.component.widget.view.HomePageTagTextView;
 
 import java.util.ArrayList;
@@ -35,6 +31,12 @@ public class HomePageListViewAdapter <T extends HomePageDataMode> extends BaseAd
         mContext = context;
 
         mInflater = LayoutInflater.from(mContext);
+    }
+
+    public void setCards(List<T> t) {
+        if (t != null) {
+            mBindData.addAll(t);
+        }
     }
 
     @Override
@@ -59,7 +61,7 @@ public class HomePageListViewAdapter <T extends HomePageDataMode> extends BaseAd
             holder = new ViewHolder();
             convertView = mInflater.inflate(R.layout.home_page_listview_sub_layout, null);
 
-            holder.cardImg = (NetworkImageView) convertView.findViewById(R.id.home_page_card_img);
+            holder.cardImg = (ImageView) convertView.findViewById(R.id.home_page_card_img);
             holder.cardCollection = (ImageView) convertView.findViewById(R.id.home_page_card_detail_option_collection);
             holder.cardAttention = (TextView) convertView.findViewById(R.id.home_page_card_detail_option_attention);
             holder.cardTitle = (TextView) convertView.findViewById(R.id.home_page_card_detail_title);
@@ -76,7 +78,7 @@ public class HomePageListViewAdapter <T extends HomePageDataMode> extends BaseAd
     }
 
     private final class ViewHolder implements View.OnClickListener {
-        private NetworkImageView cardImg;
+        private ImageView cardImg;
         private ImageView cardCollection;
         private TextView cardAttention;
         private TextView cardTitle;
@@ -91,9 +93,8 @@ public class HomePageListViewAdapter <T extends HomePageDataMode> extends BaseAd
 
     private void bindView(ViewHolder holder, int position) {
         for (T bind : mBindData) {
-            holder.cardImg.setImageUrl(bind.getImgURL(), new ImageLoader(Volley.newRequestQueue(mContext), new NetBitmapCache()));
             holder.cardTitle.setText(bind.getTitle());
-            holder.cardAttention.setText(bind.getAttention());
+            holder.cardAttention.setText(String.valueOf(bind.getAttention()));
             holder.cardSummary.setText(bind.getSummary());
             holder.cardCollection.setImageResource(bind.getCollectioned() == 1 ? 0 : 0);
             holder.cardCollection.setOnClickListener(holder);

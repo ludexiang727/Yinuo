@@ -5,7 +5,8 @@
     android:layout_height="wrap_content"
     android:background="@android:color/white">
 
-    <com.android.volley.toolbox.NetworkImageView
+    <!--<com.android.volley.toolbox.NetworkImageView-->
+    <ImageView
         android:id="@+id/home_page_card_img"
         android:layout_width="@dimen/home_page_card_image_width"
         android:layout_height="@dimen/home_page_card_image_height"

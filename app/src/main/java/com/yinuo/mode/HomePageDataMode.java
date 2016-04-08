@@ -38,7 +38,7 @@ public class HomePageDataMode extends BaseObject {
         return mImgURL;
     }
 
-    public void setmImgURL(String imgURL) {
+    public void setImgURL(String imgURL) {
         this.mImgURL = imgURL;
     }
 

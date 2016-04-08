@@ -1,8 +1,11 @@
 package com.yinuo.utils;
 
 import android.content.Context;
+import android.os.Environment;
 import android.util.DisplayMetrics;
 import android.view.WindowManager;
+
+import java.io.File;
 
 /**
  * Created by ludexiang on 2016/4/6.
@@ -21,5 +24,13 @@ public class AppUtils {
         screen[0] = outMetrics.widthPixels;
         screen[1] = outMetrics.heightPixels;
         return screen;
+    }
+
+    public static String[] split(String banners, String split) {
+        if (StringUtils.isEmpty(banners)) {
+            return new String[0];
+        }
+
+        return banners.split(split);
     }
 }

@@ -1,1 +1,1 @@
-include ':app', ':volley', ':okhttp-2.7.5', ':okio-1.6.0'
+include ':app', ':okhttp-2.7.5', ':okio-1.6.0'

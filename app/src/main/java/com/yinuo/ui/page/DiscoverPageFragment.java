@@ -17,6 +17,5 @@ public class DiscoverPageFragment extends BaseFragment {
 
     @Override
     public void initialize(View view) {
-
     }
 }

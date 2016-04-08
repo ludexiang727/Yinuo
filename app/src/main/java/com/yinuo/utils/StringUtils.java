@@ -6,7 +6,8 @@ package com.yinuo.utils;
 public class StringUtils {
 
     public static boolean isEmpty(String content) {
-        if (content == null || "".equals(content) || content.length() == 0) {
+        if (content == null || "".equals(content) || content.length() == 0
+                || "null".equalsIgnoreCase(content) || "{}".equalsIgnoreCase(content)) {
             return true;
         }
         return false;
