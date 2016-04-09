@@ -2,6 +2,8 @@ package com.yinuo.ui.component.widget.view;
 
 import android.content.Context;
 import android.util.AttributeSet;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ListView;
 
 import com.yinuo.adapter.HomePageListViewAdapter;
@@ -13,10 +15,10 @@ import java.util.List;
 /**
  * Created by ludexiang on 2016/4/5.
  */
-public class HomePageListView extends ListView {
+public class HomePageListView extends ListView implements AdapterView.OnItemClickListener {
     private HomePageListViewAdapter mPageAdapter;
     private Context mContext;
-    private List<HomePageDataMode> mCardLists = new ArrayList<HomePageDataMode>();
+    private List<HomePageDataMode> mCardLists = null;
 
     public HomePageListView(Context context) {
         this(context, null);
@@ -31,11 +33,12 @@ public class HomePageListView extends ListView {
 
         mContext = context;
         mPageAdapter = new HomePageListViewAdapter(mContext);
+        setOnItemClickListener(this);
     }
 
     public void setCardLists(List<HomePageDataMode> cards) {
         if (cards != null) {
-            mCardLists.addAll(cards);
+            mCardLists = cards;
         }
 
         mPageAdapter.setCards(mCardLists);
@@ -44,5 +47,10 @@ public class HomePageListView extends ListView {
 
     public HomePageListViewAdapter getPageAdapter() {
         return mPageAdapter;
+    }
+
+    @Override
+    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+
     }
 }

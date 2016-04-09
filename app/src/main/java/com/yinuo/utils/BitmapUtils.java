@@ -3,6 +3,8 @@ package com.yinuo.utils;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 
+import com.nostra13.universalimageloader.core.ImageLoader;
+
 /**
  * Created by ludexiang on 2016/4/6.
  * BitmapUtils used by ImageView

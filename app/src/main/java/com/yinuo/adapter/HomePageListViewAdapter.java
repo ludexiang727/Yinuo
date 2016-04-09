@@ -1,6 +1,7 @@
 package com.yinuo.adapter;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -9,9 +10,13 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.nostra13.universalimageloader.core.assist.FailReason;
+import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 import com.yinuo.R;
 import com.yinuo.mode.HomePageDataMode;
 import com.yinuo.ui.component.widget.view.HomePageTagTextView;
+import com.yinuo.utils.ImageLoaderHelper;
+import com.yinuo.utils.ResUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -25,7 +30,7 @@ public class HomePageListViewAdapter <T extends HomePageDataMode> extends BaseAd
 
     private Context mContext;
     private LayoutInflater mInflater;
-    private List<T> mBindData = new ArrayList<T>();
+    private List<T> mBindData = null;
 
     public HomePageListViewAdapter (Context context) {
         mContext = context;
@@ -35,18 +40,18 @@ public class HomePageListViewAdapter <T extends HomePageDataMode> extends BaseAd
 
     public void setCards(List<T> t) {
         if (t != null) {
-            mBindData.addAll(t);
+            mBindData = t;
         }
     }
 
     @Override
     public int getCount() {
-        return mBindData.size();
+        return mBindData != null ? mBindData.size() : 0;
     }
 
     @Override
     public Object getItem(int position) {
-        return mBindData.size() > 0 ? mBindData.get(position) : null;
+        return mBindData != null && mBindData.size() > 0 ? mBindData.get(position) : null;
     }
 
     @Override
@@ -59,7 +64,7 @@ public class HomePageListViewAdapter <T extends HomePageDataMode> extends BaseAd
         ViewHolder holder;
         if (convertView == null) {
             holder = new ViewHolder();
-            convertView = mInflater.inflate(R.layout.home_page_listview_sub_layout, null);
+            convertView = mInflater.inflate(R.layout.home_page_listview_sub_layout, parent, false);
 
             holder.cardImg = (ImageView) convertView.findViewById(R.id.home_page_card_img);
             holder.cardCollection = (ImageView) convertView.findViewById(R.id.home_page_card_detail_option_collection);
@@ -91,18 +96,42 @@ public class HomePageListViewAdapter <T extends HomePageDataMode> extends BaseAd
         }
     }
 
-    private void bindView(ViewHolder holder, int position) {
-        for (T bind : mBindData) {
-            holder.cardTitle.setText(bind.getTitle());
-            holder.cardAttention.setText(String.valueOf(bind.getAttention()));
-            holder.cardSummary.setText(bind.getSummary());
-            holder.cardCollection.setImageResource(bind.getCollectioned() == 1 ? 0 : 0);
-            holder.cardCollection.setOnClickListener(holder);
-            List<String> tags = bind.getTags();
-            for (String tag : tags) {
-                HomePageTagTextView homePageTag = new HomePageTagTextView(mContext);
-                holder.cardTagsLayout.addView(homePageTag);
+    private void bindView(final ViewHolder holder, int position) {
+        HomePageDataMode bind = mBindData.get(position);
+        ImageLoaderHelper.getInstance().loadImage(bind.getImgURL(), new ImageLoadingListener() {
+            @Override
+            public void onLoadingStarted(String imageUri, View view) {
+
             }
+
+            @Override
+            public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
+
+            }
+
+            @Override
+            public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
+                if (loadedImage != null) {
+                    holder.cardImg.setImageBitmap(loadedImage);
+                }
+            }
+
+            @Override
+            public void onLoadingCancelled(String imageUri, View view) {
+
+            }
+        });
+        holder.cardTitle.setText(bind.getTitle());
+        holder.cardAttention.setText(String.format(ResUtils.getString(mContext, R.string.home_page_card_details_attention), bind.getAttention()));
+        holder.cardSummary.setText(bind.getSummary());
+        holder.cardCollection.setImageResource(bind.getCollectioned() == 1 ? 0 : 0);
+        holder.cardCollection.setOnClickListener(holder);
+        List<String> tags = bind.getTags();
+        holder.cardTagsLayout.removeAllViews();
+        for (String tag : tags) {
+            HomePageTagTextView homePageTag = new HomePageTagTextView(mContext);
+            homePageTag.setText(tag, HomePageTagTextView.TagBackGroundType.BLUE);
+            holder.cardTagsLayout.addView(homePageTag);
         }
     }
 }

@@ -8,6 +8,7 @@
     <dimen name="fab_margin">16dp</dimen>
 
     <!-- home page begin -->
+    <dimen name="home_page_card_layout_margin">10dp</dimen>
     <dimen name="home_page_card_image_width">75dp</dimen>
     <dimen name="home_page_card_image_height">75dp</dimen>
     <dimen name="home_page_card_image_margin">10dp</dimen>

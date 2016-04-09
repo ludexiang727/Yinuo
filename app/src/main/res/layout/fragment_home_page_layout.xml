@@ -10,7 +10,9 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
-        android:divider="@null"/>
+        android:divider="@null"
+        android:listSelector="@drawable/list_selector_transparent"
+        android:cacheColorHint="@android:color/transparent"/>
 
     <!-- loading -->
     <com.yinuo.ui.component.widget.Loading

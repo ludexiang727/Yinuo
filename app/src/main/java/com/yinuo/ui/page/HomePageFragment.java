@@ -77,7 +77,7 @@ public class HomePageFragment extends BaseFragment {
             if (cards != null) {
                 mCardLists.addAll(cards);
             }
-            if (mBanners.size() == 0) {
+            if (mBanners.size() == 0 && obj.getHomePageBanners() != null) {
                 mBanners.addAll(obj.getHomePageBanners());
             }
 

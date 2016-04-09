@@ -5,4 +5,6 @@
         <item>附近</item>
         <item>更多</item>
     </string-array>
+
+    <string name="home_page_card_details_attention">%1$s关注</string>
 </resources>
