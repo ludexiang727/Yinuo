@@ -3,6 +3,7 @@ package com.yinuo.ui.page;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -24,8 +25,9 @@ import java.util.List;
 /**
  * Created by ludexiang on 2016/4/5.
  */
-public class HomePageFragment extends BaseFragment {
+public class HomePageFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener {
 
+    private SwipeRefreshLayout mSwipeRefreshLayout;
     private HomePageListView mListView;
     private int mPageIndex = 1;
     private static final int PAGE_COUNT = 10;
@@ -53,9 +55,10 @@ public class HomePageFragment extends BaseFragment {
         mLoading = (Loading) view.findViewById(R.id.home_page_loading);
         mLoading.loading();
 
+        mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.home_page_swipe_refresh_layout);
+        mSwipeRefreshLayout.setOnRefreshListener(this);
         mListView = (HomePageListView) view.findViewById(android.R.id.list);
         mListView.setCardLists(mCardLists);
-
     }
 
     private void loadData() {
@@ -98,5 +101,10 @@ public class HomePageFragment extends BaseFragment {
                 }
             }
         }
+    }
+
+    @Override
+    public void onRefresh() {
+
     }
 }

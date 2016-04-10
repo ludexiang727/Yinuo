@@ -21,7 +21,7 @@ public abstract class BaseFragment extends Fragment implements IRequestListener<
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(pageLayoutId(), container, false);
+        View view = inflater.inflate(pageLayoutId(), null);
         initialize(view);
         return view;
     }
