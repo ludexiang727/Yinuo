@@ -122,4 +122,9 @@ public class HomePageFragment extends BaseFragment implements SwipeRefreshLayout
     public void onLoadMore() {
         Log.e("ldx", "onLoadMore...........");
     }
+
+    @Override
+    public void onTransation() {
+        
+    }
 }

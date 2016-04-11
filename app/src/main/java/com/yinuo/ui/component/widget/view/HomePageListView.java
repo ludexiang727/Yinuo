@@ -1,6 +1,7 @@
 package com.yinuo.ui.component.widget.view;
 
 import android.content.Context;
+import android.support.v4.app.ActivityOptionsCompat;
 import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.util.Log;
@@ -70,6 +71,7 @@ public class HomePageListView extends ListView implements AdapterView.OnItemClic
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Log.e("ldx", "position ..........." + position);
+
     }
 
     @Override
@@ -87,4 +89,6 @@ public class HomePageListView extends ListView implements AdapterView.OnItemClic
     public void setBanners(List<HomePageBanners> banners) {
         mFlipperViewGroup.setFlipperView(banners);
     }
+
+
 }
