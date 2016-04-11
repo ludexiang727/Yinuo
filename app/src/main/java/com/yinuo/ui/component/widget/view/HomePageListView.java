@@ -15,6 +15,7 @@ import android.widget.ListView;
 import com.yinuo.R;
 import com.yinuo.adapter.HomePageListViewAdapter;
 import com.yinuo.listener.IDynamicLoadListener;
+import com.yinuo.listener.ITransationSceneListener;
 import com.yinuo.mode.HomePageBanners;
 import com.yinuo.mode.HomePageDataMode;
 
@@ -30,6 +31,7 @@ public class HomePageListView extends ListView implements AdapterView.OnItemClic
     private List<HomePageDataMode> mCardLists = null;
     private FlipperViewGroup mFlipperViewGroup;
     private IDynamicLoadListener mDynamicLoadListener;
+    private ITransationSceneListener mSceneListener;
 
     public HomePageListView(Context context) {
         this(context, null);
@@ -64,14 +66,17 @@ public class HomePageListView extends ListView implements AdapterView.OnItemClic
         return mPageAdapter;
     }
 
-    public void setLoadListener(IDynamicLoadListener listener) {
-        mDynamicLoadListener = listener;
+    public void setListener(IDynamicLoadListener loadListener, ITransationSceneListener sceneListener) {
+        mDynamicLoadListener = loadListener;
+        mSceneListener = sceneListener;
     }
 
     @Override
     public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
         Log.e("ldx", "position ..........." + position);
-
+        if (mSceneListener != null) {
+            mSceneListener.onTransation(position);
+        }
     }
 
     @Override

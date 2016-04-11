@@ -14,7 +14,7 @@
     <dimen name="home_page_card_image_height">75dp</dimen>
     <dimen name="home_page_card_image_margin">10dp</dimen>
     <dimen name="home_page_listview_header_height">150dp</dimen>
-    <dimen name="home_page_card_elevation">3dp</dimen>
+    <dimen name="home_page_card_elevation">1.5dp</dimen>
     <dimen name="home_page_card_detail_layout_margin_left">6dp</dimen>
     <dimen name="home_page_card_detail_layout_margin_top">10dp</dimen>
     <dimen name="home_page_card_detail_layout_margin_right">10dp</dimen>

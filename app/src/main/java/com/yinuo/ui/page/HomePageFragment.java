@@ -1,5 +1,6 @@
 package com.yinuo.ui.page;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -20,6 +21,7 @@ import com.yinuo.net.request.NetRequest;
 import com.yinuo.net.response.NetHomePageObj;
 import com.yinuo.ui.component.widget.view.HomePageListView;
 import com.yinuo.ui.component.widget.Loading;
+import com.yinuo.ui.sub.HomePageDetailsActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -61,7 +63,7 @@ public class HomePageFragment extends BaseFragment implements SwipeRefreshLayout
         mSwipeRefreshLayout.setOnRefreshListener(this);
         mListView = (HomePageListView) view.findViewById(android.R.id.list);
         mListView.setCardLists(mCardLists);
-        mListView.setLoadListener(this);
+        mListView.setListener(this, this);
     }
 
     private void loadData() {
@@ -124,7 +126,9 @@ public class HomePageFragment extends BaseFragment implements SwipeRefreshLayout
     }
 
     @Override
-    public void onTransation() {
-        
+    public void onTransation(int position) {
+        mListView.getPageAdapter().getItem(position);
+        Intent details = new Intent(getActivity(), HomePageDetailsActivity.class);
+        getActivity().startActivity(details);
     }
 }

@@ -48,7 +48,7 @@ public abstract class BaseFragment extends Fragment implements IRequestListener<
 
     /** Activity scene anim -- Activity 转场动画*/
     @Override
-    public void onTransation() {
+    public void onTransation(int position) {
 
     }
 }
