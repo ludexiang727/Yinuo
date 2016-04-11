@@ -3,6 +3,7 @@ package com.yinuo.ui.page;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v4.view.ViewPager;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -11,6 +12,7 @@ import android.view.ViewGroup;
 
 import com.yinuo.R;
 import com.yinuo.base.BaseFragment;
+import com.yinuo.mode.HomePageBanners;
 import com.yinuo.mode.HomePageDataMode;
 import com.yinuo.net.IRequestListener;
 import com.yinuo.net.base.NetBaseObject;
@@ -33,7 +35,7 @@ public class HomePageFragment extends BaseFragment implements SwipeRefreshLayout
     private static final int PAGE_COUNT = 10;
     private int mDataCount;
     private List<HomePageDataMode> mCardLists = new ArrayList<HomePageDataMode>();
-    private List<String> mBanners = new ArrayList<String>();
+    private List<HomePageBanners> mBanners = new ArrayList<HomePageBanners>();
     private UIHandler mHandler = new UIHandler();
     private Loading mLoading;
 
@@ -59,6 +61,7 @@ public class HomePageFragment extends BaseFragment implements SwipeRefreshLayout
         mSwipeRefreshLayout.setOnRefreshListener(this);
         mListView = (HomePageListView) view.findViewById(android.R.id.list);
         mListView.setCardLists(mCardLists);
+        mListView.setLoadListener(this);
     }
 
     private void loadData() {
@@ -80,8 +83,10 @@ public class HomePageFragment extends BaseFragment implements SwipeRefreshLayout
             if (cards != null) {
                 mCardLists.addAll(cards);
             }
-            if (mBanners.size() == 0 && obj.getHomePageBanners() != null) {
+            if (/*mBanners.size() == 0 && */obj.getHomePageBanners() != null) {
+                mBanners.clear();
                 mBanners.addAll(obj.getHomePageBanners());
+                mHandler.sendEmptyMessage(UIHandler.NOTIFY_HEADER_BANNERS);
             }
 
             mHandler.sendEmptyMessage(UIHandler.NOTIFY_DATA_CHANGED);
@@ -90,6 +95,7 @@ public class HomePageFragment extends BaseFragment implements SwipeRefreshLayout
 
     private final class UIHandler extends Handler {
         private static final int NOTIFY_DATA_CHANGED = 0x000;
+        private static final int NOTIFY_HEADER_BANNERS = 0x001;
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
@@ -99,6 +105,10 @@ public class HomePageFragment extends BaseFragment implements SwipeRefreshLayout
                     mListView.getPageAdapter().notifyDataSetChanged();
                     break;
                 }
+                case NOTIFY_HEADER_BANNERS: {
+                    mListView.setBanners(mBanners);
+                    break;
+                }
             }
         }
     }
@@ -106,5 +116,10 @@ public class HomePageFragment extends BaseFragment implements SwipeRefreshLayout
     @Override
     public void onRefresh() {
 
+    }
+
+    @Override
+    public void onLoadMore() {
+        Log.e("ldx", "onLoadMore...........");
     }
 }

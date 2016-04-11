@@ -1,17 +1,20 @@
 <?xml version="1.0" encoding="utf-8"?>
-<FrameLayout
+<android.support.v7.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:layout_margin="@dimen/home_page_card_view_margin"
+    android:foreground="?android:attr/selectableItemBackground"
+    tools:cardElevation="@dimen/home_page_card_elevation"
+    tools:cardUseCompatPadding="true"
+    tools:cardPreventCornerOverlap="true">
 
     <RelativeLayout
         xmlns:android="http://schemas.android.com/apk/res/android"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_marginLeft="@dimen/home_page_card_layout_margin"
-        android:layout_marginRight="@dimen/home_page_card_layout_margin"
-        android:layout_marginBottom="@dimen/home_page_card_layout_margin"
-        android:background="@android:color/white">
+        android:layout_height="wrap_content">
 
         <ImageView
             android:id="@+id/home_page_card_img"
@@ -64,6 +67,7 @@
                         android:id="@+id/home_page_card_detail_option_attention"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
+                        android:textSize="@dimen/home_page_card_detail_attention_size"
                         android:text="1200关注"/>
                 </LinearLayout>
 
@@ -93,4 +97,4 @@
                 android:text="summary a summary abc summary cd summary d summary summary summary summary summary summary summary summary summary summary summary summary ..."/>
         </LinearLayout>
     </RelativeLayout>
-</FrameLayout>
+</android.support.v7.widget.CardView>

@@ -9,4 +9,8 @@ public class ResUtils {
     public static String getString(Context context, int strId) {
         return context.getString(strId);
     }
+
+    public static int getInt(Context context, int intId) {
+        return context.getResources().getDimensionPixelOffset(intId);
+    }
 }

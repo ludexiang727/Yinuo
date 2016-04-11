@@ -1,13 +1,11 @@
 package com.yinuo.net.response;
 
-import android.util.Log;
-
+import com.yinuo.mode.HomePageBanners;
 import com.yinuo.mode.HomePageDataMode;
 import com.yinuo.net.base.NetBaseObject;
 import com.yinuo.net.utils.NetConstant;
 import com.yinuo.net.utils.NetParseUtils;
 import com.yinuo.utils.AppUtils;
-import com.yinuo.utils.StringUtils;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -22,19 +20,17 @@ import java.util.List;
 public class NetHomePageObj extends NetBaseObject {
     private List<HomePageDataMode> mModeLists;
     private int mDataCount;
-    private List<String> mHomePageBanners;
+    private List<HomePageBanners> mHomePageBanners;
 
     @Override
     protected void parse(JSONObject obj) {
         mModeLists = new ArrayList<HomePageDataMode>();
-        mHomePageBanners = new ArrayList<String>();
+        mHomePageBanners = new ArrayList<HomePageBanners>();
         mDataCount = NetParseUtils.getInt(NetConstant.NET_JSON_FIELD_DATA_COUNT, obj);
-        String banners = NetParseUtils.getString(NetConstant.NET_JSON_FIELD_PAGE_BANNERS, obj);
-        for (String img : AppUtils.split(banners, ",")) {
-            mHomePageBanners.add(img);
-        }
+        JSONArray banners = NetParseUtils.getArray(NetConstant.NET_JSON_FIELD_PAGE_BANNERS, obj);
+        parseBannersArray(banners);
         JSONArray array = NetParseUtils.getArray(NetConstant.NET_JSON_FIELD_PAGE_LISTS, obj);
-        parseArray(array);
+        parseCardArray(array);
     }
 
     public int getDataTotalCount() {
@@ -45,11 +41,11 @@ public class NetHomePageObj extends NetBaseObject {
         return mModeLists;
     }
 
-    public List<String> getHomePageBanners() {
+    public List<HomePageBanners> getHomePageBanners() {
         return mHomePageBanners;
     }
 
-    private void parseArray(JSONArray array) {
+    private void parseCardArray(JSONArray array) {
         if (array != null) {
             int len = array.length();
             for (int i = 0; i < len; ++i) {
@@ -73,6 +69,25 @@ public class NetHomePageObj extends NetBaseObject {
                     }
                     mode.setTags(cardTags);
                     mModeLists.add(mode);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
+            }
+        }
+    }
+
+    private void parseBannersArray(JSONArray array) {
+        if (array != null) {
+            int len = array.length();
+            for (int i = 0; i < len; ++i) {
+                HomePageBanners banners = new HomePageBanners();
+                try {
+                    JSONObject obj = array.getJSONObject(i);
+                    String url = NetParseUtils.getString(NetConstant.NET_JSON_HOME_BANNER_IMG_URL, obj);
+                    String redirect = NetParseUtils.getString(NetConstant.NET_JSON_HOME_BANNER_REDIRECT_URL, obj);
+                    banners.setBannerURL(url);
+                    banners.setRedirectURL(redirect);
+                    mHomePageBanners.add(banners);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }

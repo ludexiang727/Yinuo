@@ -30,6 +30,8 @@ public class NetConstant {
     // json
     public static final String NET_JSON_FIELD_DATA_COUNT = "home_page_data_count";
     public static final String NET_JSON_FIELD_PAGE_BANNERS = "home_page_banners";
+    public static final String NET_JSON_HOME_BANNER_IMG_URL = "banners_image_url";
+    public static final String NET_JSON_HOME_BANNER_REDIRECT_URL = "banners_redirect_url";
     public static final String NET_JSON_FIELD_PAGE_LISTS = "home_page_lists";
     public static final String NET_JSON_HOME_CARD_IMG = "card_img";
     public static final String NET_JSON_HOME_CARD_TITLE = "card_title";

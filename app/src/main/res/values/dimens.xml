@@ -8,10 +8,13 @@
     <dimen name="fab_margin">16dp</dimen>
 
     <!-- home page begin -->
+    <dimen name="home_page_card_view_margin">0dp</dimen>
     <dimen name="home_page_card_layout_margin">10dp</dimen>
     <dimen name="home_page_card_image_width">75dp</dimen>
     <dimen name="home_page_card_image_height">75dp</dimen>
     <dimen name="home_page_card_image_margin">10dp</dimen>
+    <dimen name="home_page_listview_header_height">150dp</dimen>
+    <dimen name="home_page_card_elevation">3dp</dimen>
     <dimen name="home_page_card_detail_layout_margin_left">6dp</dimen>
     <dimen name="home_page_card_detail_layout_margin_top">10dp</dimen>
     <dimen name="home_page_card_detail_layout_margin_right">10dp</dimen>
@@ -22,5 +25,8 @@
     <dimen name="home_page_card_detail_title_size">20sp</dimen>
     <dimen name="home_page_card_detail_tag_radius">2dp</dimen>
     <dimen name="home_page_card_detail_tag_line">1px</dimen>
+    <dimen name="home_page_card_detail_tag_size">5sp</dimen>
+    <dimen name="home_page_card_detail_tag_padding">5dp</dimen>
+    <dimen name="home_page_card_detail_attention_size">10sp</dimen>
     <!-- home page end -->
 </resources>
