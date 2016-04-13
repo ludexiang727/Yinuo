@@ -7,22 +7,19 @@ import android.content.Context;
 import android.graphics.Bitmap;
 import android.os.Handler;
 import android.os.Looper;
-import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.View;
 import android.view.ViewConfiguration;
 import android.view.ViewGroup;
-import android.view.ViewParent;
 import android.widget.ImageView;
-import android.widget.ListView;
 import android.widget.Scroller;
 
 import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
-import com.yinuo.mode.HomePageBanners;
+import com.yinuo.base.BaseObject;
+import com.yinuo.mode.HomePageBannersMode;
 import com.yinuo.utils.ImageLoaderHelper;
 
 public class FlipperViewGroup extends ViewGroup implements Runnable {
@@ -135,6 +132,9 @@ public class FlipperViewGroup extends ViewGroup implements Runnable {
 
 	@Override
 	public boolean onInterceptTouchEvent(MotionEvent ev) {
+		if (mSize <= 1) {
+			return super.onInterceptTouchEvent(ev);
+		}
 		/**
 		 * This method JUST determines whether we want to intercept the motion.
 		 * If we return true, onTouchEvent will be called and we do the actual
@@ -618,6 +618,9 @@ public class FlipperViewGroup extends ViewGroup implements Runnable {
 	};
 
 	private void carousel() {
+		if (autoFlippingThread.isAlive()) {
+			return;
+		}
 		autoFlipping = false;
 		if (!autoFlipping && mSize > 1) {
 			autoFlipping = true;
@@ -664,39 +667,46 @@ public class FlipperViewGroup extends ViewGroup implements Runnable {
 			mVelocityTracker = null;
 		}
 	}
-	
-	public void setFlipperView(List<HomePageBanners> banners) {
+
+	/** add flipper child */
+	public <T extends BaseObject> void setFlipperView(List<T> banners) {
 		mSize = banners.size();
 		isLayout = false;
 		for (int i = 0; i < banners.size(); ++i) {
 			final ImageView child = new ImageView(getContext());
 			child.setScaleType(ImageView.ScaleType.FIT_XY);
 			addView(child, i);
-			ImageLoaderHelper.getInstance().loadImage(banners.get(i).getBannerURL(), child, new ImageLoadingListener() {
-				@Override
-				public void onLoadingStarted(String imageUri, View view) {
-
-				}
-
-				@Override
-				public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
-
-				}
-
-				@Override
-				public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
-					if (loadedImage != null) {
-						child.setImageBitmap(loadedImage);
-					}
-				}
-
-				@Override
-				public void onLoadingCancelled(String imageUri, View view) {
-
-				}
-			});
+			T t = banners.get(i);
+			loadBanners(t, child);
 		}
 		handler.sendEmptyMessage(1);
+	}
+
+	/** base url download bitmap **/
+	private void loadBanners(BaseObject banner, final ImageView child) {
+		ImageLoaderHelper.getInstance().loadImage(banner.getBannerURL(), child, new ImageLoadingListener() {
+			@Override
+			public void onLoadingStarted(String imageUri, View view) {
+
+			}
+
+			@Override
+			public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
+
+			}
+
+			@Override
+			public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
+				if (loadedImage != null) {
+					child.setImageBitmap(loadedImage);
+				}
+			}
+
+			@Override
+			public void onLoadingCancelled(String imageUri, View view) {
+
+			}
+		});
 	}
 
 	private void isAllowOnInterceptTouchEvent(boolean isAllow) {

@@ -2,8 +2,8 @@ package com.yinuo.ui.component.widget.view;
 
 import android.content.Context;
 import android.content.res.Resources;
-import android.graphics.Color;
 import android.util.AttributeSet;
+import android.util.TypedValue;
 import android.widget.TextView;
 
 import com.yinuo.R;
@@ -70,7 +70,7 @@ public class HomePageTagTextView extends TextView {
     public void setText(String text, TagBackGroundType type) {
         super.setText(text);
         setBackground(type);
-        setTextSize(mTextSize);
+        setTextSize(TypedValue.COMPLEX_UNIT_PX, mTextSize);
         setPadding(mPadding, 0, mPadding, 0);
     }
 }

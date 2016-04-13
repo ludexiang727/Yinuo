@@ -1,13 +1,9 @@
 package com.yinuo.ui.component.widget.view;
 
 import android.content.Context;
-import android.support.v4.app.ActivityOptionsCompat;
-import android.support.v4.view.ViewPager;
 import android.util.AttributeSet;
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.ListView;
@@ -16,10 +12,9 @@ import com.yinuo.R;
 import com.yinuo.adapter.HomePageListViewAdapter;
 import com.yinuo.listener.IDynamicLoadListener;
 import com.yinuo.listener.ITransationSceneListener;
-import com.yinuo.mode.HomePageBanners;
+import com.yinuo.mode.HomePageBannersMode;
 import com.yinuo.mode.HomePageDataMode;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -91,7 +86,7 @@ public class HomePageListView extends ListView implements AdapterView.OnItemClic
 
     }
 
-    public void setBanners(List<HomePageBanners> banners) {
+    public void setBanners(List<HomePageBannersMode> banners) {
         mFlipperViewGroup.setFlipperView(banners);
     }
 

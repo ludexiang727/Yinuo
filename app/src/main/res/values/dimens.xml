@@ -25,8 +25,12 @@
     <dimen name="home_page_card_detail_title_size">20sp</dimen>
     <dimen name="home_page_card_detail_tag_radius">2dp</dimen>
     <dimen name="home_page_card_detail_tag_line">1px</dimen>
-    <dimen name="home_page_card_detail_tag_size">5sp</dimen>
+    <dimen name="home_page_card_detail_tag_size">10sp</dimen>
     <dimen name="home_page_card_detail_tag_padding">5dp</dimen>
     <dimen name="home_page_card_detail_attention_size">10sp</dimen>
+    <dimen name="home_page_detail_viewpage_height">220dp</dimen>
+    <dimen name="home_page_detail_share_margin">10dp</dimen>
+    <dimen name="home_page_detail_progress_margin">6dp</dimen>
+    <dimen name="home_page_detail_progress_bg_radius">2dp</dimen>
     <!-- home page end -->
 </resources>

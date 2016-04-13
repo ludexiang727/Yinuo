@@ -1,6 +1,6 @@
 package com.yinuo.net.response;
 
-import com.yinuo.mode.HomePageBanners;
+import com.yinuo.mode.HomePageBannersMode;
 import com.yinuo.mode.HomePageDataMode;
 import com.yinuo.net.base.NetBaseObject;
 import com.yinuo.net.utils.NetConstant;
@@ -20,12 +20,12 @@ import java.util.List;
 public class NetHomePageObj extends NetBaseObject {
     private List<HomePageDataMode> mModeLists;
     private int mDataCount;
-    private List<HomePageBanners> mHomePageBanners;
+    private List<HomePageBannersMode> mHomePageBanners;
 
     @Override
     protected void parse(JSONObject obj) {
         mModeLists = new ArrayList<HomePageDataMode>();
-        mHomePageBanners = new ArrayList<HomePageBanners>();
+        mHomePageBanners = new ArrayList<HomePageBannersMode>();
         mDataCount = NetParseUtils.getInt(NetConstant.NET_JSON_FIELD_DATA_COUNT, obj);
         JSONArray banners = NetParseUtils.getArray(NetConstant.NET_JSON_FIELD_PAGE_BANNERS, obj);
         parseBannersArray(banners);
@@ -41,7 +41,7 @@ public class NetHomePageObj extends NetBaseObject {
         return mModeLists;
     }
 
-    public List<HomePageBanners> getHomePageBanners() {
+    public List<HomePageBannersMode> getHomePageBanners() {
         return mHomePageBanners;
     }
 
@@ -80,7 +80,7 @@ public class NetHomePageObj extends NetBaseObject {
         if (array != null) {
             int len = array.length();
             for (int i = 0; i < len; ++i) {
-                HomePageBanners banners = new HomePageBanners();
+                HomePageBannersMode banners = new HomePageBannersMode();
                 try {
                     JSONObject obj = array.getJSONObject(i);
                     String url = NetParseUtils.getString(NetConstant.NET_JSON_HOME_BANNER_IMG_URL, obj);

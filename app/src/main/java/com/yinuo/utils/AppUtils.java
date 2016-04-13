@@ -3,6 +3,7 @@ package com.yinuo.utils;
 import android.content.Context;
 import android.os.Environment;
 import android.util.DisplayMetrics;
+import android.view.View;
 import android.view.WindowManager;
 
 import java.io.File;
@@ -32,5 +33,11 @@ public class AppUtils {
         }
 
         return banners.split(split);
+    }
+
+    public static int[] viewOnLocation(View view) {
+        int[] location = new int[2];
+        view.getLocationInWindow(location);
+        return location;
     }
 }

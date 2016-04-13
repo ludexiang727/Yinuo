@@ -3,6 +3,19 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <color name="window_page_color">#fafafa</color>
+    <color name="loading_background">#affafafa</color>
 
+    <color name="refresh_color_progress1">#CC3F51B5</color>
+    <color name="refresh_color_progress2">#FF4081</color>
+    <color name="refresh_color_progress3">#CC303F9F</color>
+    <color name="refresh_color_progress4">#FE40B2</color>
     <color name="home_page_card_tag_none_bg">#A0000000</color>
+    <color name="home_page_detail_download_layout">#A0FFFFFF</color>
+    <color name="round_corner_progress_bar_background_default">#3F51B5</color>
+    <color name="round_corner_progress_bar_progress_default">#7f7f7f</color>
+    <color name="round_corner_progress_bar_secondary_progress_default">@android:color/transparent</color>
+    <color name="custom_progress_blue_progress">#FF4081</color>
+    <color name="custom_progress_background">#FF3C3A3B</color>
+
 </resources>

@@ -1,0 +1,87 @@
+{
+  "errno":0,
+  "errmsg":"",
+  "home_page_data_count":40,
+  "home_page_banners":[
+        {            
+		    "banners_image_url":"http://cdn.duitang.com/uploads/blog/201308/18/20130818150526_Ru2Bk.thumb.600_0.png",
+			"banners_redirect_url":"http://www.baidu.com"
+		},
+		{    "banners_image_url":"http://img1.touxiang.cn/uploads/20120902/02-055331_356.jpg",
+		     "banners_redirect_url":"http://www.sina.com"
+		},
+		{    "banners_image_url":"http://www.qqbody.com/uploads/allimg/201302/20-143539_945.jpg",
+		     "banners_redirect_url":"http://www.tencent.com"
+		},
+		{    "banners_image_url": "http://www.bkill.com/u/info_img/2012-09/02/2012083116140516694.jpg",
+		     "banners_redirect_url":"http://www.163.com"
+		}
+  ],
+  "home_page_lists":[
+      {
+	    "card_img":"http://img1.touxiang.cn/uploads/20120902/02-055331_356.jpg",
+		"card_title":"title1",
+		"card_summary":"summary summarysummarysummary summary summary summary summary summary summary summary summary summary summary summary abbcls",
+        "card_attention":1200,
+		"card_collection":0,
+		"card_tags":"游戏"
+      },
+      {
+	    "card_img":"http://www.qqw21.com/article/UploadPic/2012-8/20128923812441.jpg",
+		"card_title":"title2",
+		"card_summary":"summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary ",
+        "card_attention":1200,
+		"card_collection":0,
+		"card_tags":""
+      },
+      {
+	    "card_img":"http://www.qqbody.com/uploads/allimg/201302/20-143539_945.jpg",
+		"card_title":"title3",
+		"card_summary":"summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary ",
+        "card_attention":1200,
+		"card_collection":0,
+		"card_tags":""
+      },
+      {
+	    "card_img":"http://www.meilinvsheng.com/upload_files/article/135/1_20130521210555_iexeg.jpg",
+		"card_title":"title4",
+		"card_summary":"summary abslcdsls yellow red summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary ",
+        "card_attention":1200,
+		"card_collection":0,
+		"card_tags":""
+      },
+      {
+	    "card_img":"http://www.qqbody.com/uploads/allimg/201302/20-143539_945.jpg",
+		"card_title":"title5",
+		"card_summary":"alsl summary summary summary summary summary summary facebooksummary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary ",
+        "card_attention":1200,
+		"card_collection":0,
+		"card_tags":""
+      },
+      {
+	    "card_img":"http://www.qqgqtx.com/uploads/allimg/130326/1-1303261A329-51.jpg",
+		"card_title":"title6",
+		"card_summary":"summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary ",
+        "card_attention":1200,
+		"card_collection":0,
+		"card_tags":""
+      },
+      {
+	    "card_img":"http://www.qqgqtx.com/uploads/allimg/130326/1-1303261A329-51.jpg",
+		"card_title":"title7",
+		"card_summary":"abcdefghizkelalsjdlad lsdll lsljlj summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary ",
+        "card_attention":1200,
+		"card_collection":0,
+		"card_tags":""
+      },
+      {
+	    "card_img":"http://www.qqgqtx.com/uploads/allimg/130326/1-1303261A329-51.jpg",
+		"card_title":"title8",
+		"card_summary":"summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary sdsdf sdfsdfsummary summary summary summary summary ",
+        "card_attention":1200,
+		"card_collection":0,
+		"card_tags":""
+      }
+      
+    ]
+}

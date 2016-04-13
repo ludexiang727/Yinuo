@@ -1,19 +1,12 @@
 package com.yinuo.mode;
 
+import com.yinuo.base.BaseObject;
+
 /**
  * Created by ludexiang on 2016/4/11.
  */
-public class HomePageBanners {
-    private String mBannerURL;
+public class HomePageBannersMode extends BaseObject {
     private String mRedirectURL;
-
-    public String getBannerURL() {
-        return mBannerURL;
-    }
-
-    public void setBannerURL(String bannerURL) {
-        this.mBannerURL = bannerURL;
-    }
 
     public String getRedirectURL() {
         return mRedirectURL;
