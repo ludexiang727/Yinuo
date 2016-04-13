@@ -65,6 +65,12 @@
                     android:text=""/>
             </android.support.v4.widget.NestedScrollView>
         </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/home_page_details_options_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="168dp"/>
+
     </android.support.design.widget.CoordinatorLayout>
 
     <RelativeLayout

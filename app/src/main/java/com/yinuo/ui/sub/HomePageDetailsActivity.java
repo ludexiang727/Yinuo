@@ -1,15 +1,19 @@
 package com.yinuo.ui.sub;
 
+import android.graphics.RectF;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
 import android.view.View;
+import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.Window;
 import android.widget.Button;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.yinuo.R;
@@ -22,6 +26,7 @@ import com.yinuo.ui.component.widget.view.FlipperViewGroup;
 import com.yinuo.ui.component.widget.view.FloatingOptionView;
 import com.yinuo.ui.component.widget.view.IconRoundCornerProgressBar;
 import com.yinuo.utils.AppUtils;
+import com.yinuo.utils.ResUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -39,6 +44,9 @@ public class HomePageDetailsActivity extends BaseActivity implements View.OnClic
     private IconRoundCornerProgressBar mProgressBar;
     private Button mDownload;
     private TextView mDownloadPercent;
+    private RelativeLayout mOptionsParent;
+    private int mFabMargin;
+    private int mScreenWidth;
 
     private Handler mHandler = new Handler() {
         @Override
@@ -61,8 +69,10 @@ public class HomePageDetailsActivity extends BaseActivity implements View.OnClic
     @Override
     protected void onCreate(Bundle savedInstanceState) {
 //        getWindow().requestFeature(Window.FEATURE_ACTIVITY_TRANSITIONS);
-        super.onCreate(savedInstanceState);
+        mScreenWidth = AppUtils.obtainScreenWidthAndHeight(this)[0];
+        mFabMargin = ResUtils.getInt(this, R.dimen.fab_margin);
 
+        super.onCreate(savedInstanceState);
     }
 
     @Override
@@ -70,10 +80,12 @@ public class HomePageDetailsActivity extends BaseActivity implements View.OnClic
         mFloatActionButton = (FloatingActionButton) view.findViewById(R.id.home_page_detail_floating_action_button);
         mDetailsFlipperViewGroup = (FlipperViewGroup) view.findViewById(R.id.home_page_detail_flipper_viewgroup);
         mProgressBar = (IconRoundCornerProgressBar) view.findViewById(R.id.home_page_detail_progress);
+        mOptionsParent = (RelativeLayout) view.findViewById(R.id.home_page_details_options_parent);
         mDownload = (Button) view.findViewById(R.id.home_page_detail_download);
         mDownloadPercent = (TextView) view.findViewById(R.id.home_page_detail_percent);
         mDownload.setOnClickListener(this);
         mFloatActionButton.setOnClickListener(this);
+        AppUtils.viewOnLocation(mFloatActionButton);
     }
 
     @Override
@@ -92,11 +104,50 @@ public class HomePageDetailsActivity extends BaseActivity implements View.OnClic
                 break;
             }
             case R.id.home_page_detail_floating_action_button: {
-                FloatingOptionView optionView = new FloatingOptionView(this);
-                optionView.setFloatActionLocation(AppUtils.viewOnLocation(mFloatActionButton));
+                int[] location = AppUtils.viewOnLocation(mFloatActionButton);
+                int floatWidth = mScreenWidth - location[0] - mFabMargin;
+                int left = mScreenWidth - mFabMargin - floatWidth * 2;
+                int top = location[1] - floatWidth;
+
+                CoordinatorLayout.LayoutParams params = (CoordinatorLayout.LayoutParams) mOptionsParent.getLayoutParams();
+                params.leftMargin = left;
+                params.topMargin = top - mFabMargin - 11;
+                params.width = /*mScreenWidth - left*/ ViewGroup.LayoutParams.MATCH_PARENT;
+                mOptionsParent.setLayoutParams(params);
+
+                // two child join  invest
+                addOptionChild(location, floatWidth, params);
                 break;
             }
         }
+    }
+
+    private void addOptionChild(int[] location, int floatWidth, CoordinatorLayout.LayoutParams params) {
+        if (mOptionsParent != null && mOptionsParent.getChildCount() > 0) {
+            mOptionsParent.removeAllViews();
+        }
+
+        RelativeLayout.LayoutParams optionParams = new RelativeLayout.LayoutParams(ViewGroup.LayoutParams.MATCH_PARENT, ViewGroup.LayoutParams.MATCH_PARENT);
+        RectF inner = new RectF(110 + mFabMargin / 2, 110 + mFabMargin / 2, 353 - mFabMargin / 2, 352 - mFabMargin / 2);
+        RectF outer = new RectF(15, 15, 452 - 15, mOptionsParent.getMeasuredHeight() - 15);
+        // child one
+        FloatingOptionView optionJoin = new FloatingOptionView(this);
+        optionJoin.setInner(inner);
+        optionJoin.setOuter(outer);
+        optionJoin.setText(ResUtils.getString(this, R.string.home_page_detail_join));
+        optionJoin.setLayoutParams(optionParams);
+        optionJoin.setOptionDirection(FloatingOptionView.OptionDirection.LEFT);
+//        optionJoin.setFloatActionLocation(location, floatWidth, mFabMargin);
+        // child two
+        FloatingOptionView optionInvest = new FloatingOptionView(this);
+        optionInvest.setInner(inner);
+        optionInvest.setOuter(outer);
+        optionInvest.setText(ResUtils.getString(this, R.string.home_page_detail_invest));
+        optionInvest.setLayoutParams(optionParams);
+        optionInvest.setOptionDirection(FloatingOptionView.OptionDirection.BOTTOM);
+
+        mOptionsParent.addView(optionJoin);
+        mOptionsParent.addView(optionInvest);
     }
 
     /// test
