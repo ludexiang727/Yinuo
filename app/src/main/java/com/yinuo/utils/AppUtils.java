@@ -35,9 +35,16 @@ public class AppUtils {
         return banners.split(split);
     }
 
-    public static int[] viewOnLocation(View view) {
+    /** include status bar */
+    public static int[] viewOnLocationInWindow(View view) {
         int[] location = new int[2];
         view.getLocationInWindow(location);
+        return location;
+    }
+
+    public static int[] viewOnLocationOnScreen(View view) {
+        int[] location = new int[2];
+        view.getLocationOnScreen(location);
         return location;
     }
 }

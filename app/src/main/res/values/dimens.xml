@@ -34,5 +34,8 @@
     <dimen name="home_page_detail_progress_bg_radius">2dp</dimen>
     <dimen name="home_page_detail_floating_option_margin_right">20dp</dimen>
     <dimen name="home_page_detail_floating_option_margin_top">20dp</dimen>
+    <dimen name="home_page_detail_floating_top">27dp</dimen>
+    <dimen name="home_page_detail_outer_rect_margin">40dp</dimen>
+    <dimen name="home_page_detail_options_size">14sp</dimen>
     <!-- home page end -->
 </resources>

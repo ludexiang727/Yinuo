@@ -5,12 +5,15 @@ import android.graphics.Canvas;
 import android.graphics.Color;
 import android.graphics.Paint;
 import android.graphics.Path;
+import android.graphics.PathMeasure;
 import android.graphics.RectF;
 import android.util.AttributeSet;
 import android.util.Log;
 import android.widget.TextView;
 
+import com.yinuo.R;
 import com.yinuo.utils.AppUtils;
+import com.yinuo.utils.ResUtils;
 
 
 /**
@@ -22,13 +25,20 @@ public class FloatingOptionView extends TextView {
     private OptionDirection mDircetion = OptionDirection.LEFT;
     private int[] mLocation;
     private RectF mInner;
+    private RectF mMiddleRectF;
     private RectF mOuter;
     private float mInnerRadius;
     private float mOuterRadius;
     private float mCenterX;
     private float mCenterY;
     private int mScreenWidth;
+    private PathMeasure mPathMeasure;
+    private float[] mPointCoor = new float[2];
+    private Paint mStrokePaint = new Paint();
+    private Paint mInnerPaint = new Paint();
+    private Paint mOuterPaint = new Paint();
 
+    private String mDrawText;
 
     public FloatingOptionView(Context context) {
         this(context, null);
@@ -41,22 +51,40 @@ public class FloatingOptionView extends TextView {
     public FloatingOptionView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         mScreenWidth = AppUtils.obtainScreenWidthAndHeight(getContext())[0];
+        mPathMeasure = new PathMeasure();
+
+        mStrokePaint.setAntiAlias(true);
+        mInnerPaint.setAntiAlias(true);
+        mOuterPaint.setAntiAlias(true);
+
+        mStrokePaint.setColor(Color.parseColor("#ff4081"));
+        mStrokePaint.setStrokeWidth(1);
+        mStrokePaint.setStyle(Paint.Style.STROKE);
+
+        mInnerPaint.setStyle(Paint.Style.STROKE);
+        mInnerPaint.setColor(Color.parseColor("#ccffffff"));
+        mInnerPaint.setStrokeWidth(1.5f);
+
+        mOuterPaint.setStyle(Paint.Style.FILL);
+        mOuterPaint.setColor(Color.parseColor("#ccffffff"));
+        mOuterPaint.setStrokeWidth(1.5f);
+    }
+
+    public void setCenter(float centerX, float centerY) {
+        mCenterX = centerX;
+        mCenterY = centerY;
     }
 
     public void setOptionDirection(OptionDirection direction) {
         mDircetion = direction;
     }
 
-    public void setFloatActionLocation(int[] location, int floatWidth, int margin) {
-        mLocation = location;
-        mCenterX = location[0] + floatWidth / 2;
-        mCenterY = location[1] + floatWidth / 2;
-        mInnerRadius = mScreenWidth - mCenterX + margin;
-    }
-
     public void setInner(RectF inner) {
         mInner = new RectF(inner);
-        postInvalidate();
+    }
+
+    public void setMiddleRectF(RectF middle) {
+        mMiddleRectF = middle;
     }
 
     public void setOuter(RectF outer) {
@@ -64,47 +92,77 @@ public class FloatingOptionView extends TextView {
         postInvalidate();
     }
 
+    public void setDrawText(String text) {
+        mDrawText = text;
+    }
+
     @Override
     protected void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
 
-        Paint paint = new Paint();
-        paint.setAntiAlias(true);
-        paint.setColor(Color.RED);
-        paint.setStyle(Paint.Style.STROKE);
-        paint.setStrokeWidth(5);
-
         Path path = new Path();
-        Log.e("ldx", "draw .... " + mInner.left + " top " + mInner.top + " right " + mInner.right + " bottom " + mInner.bottom + " inner radius " + mInnerRadius);
-        Log.e("ldx", "mCenterX .... " + mCenterX + " mCenterY " + mCenterY);
+        Paint pathPaint = new Paint();
+        pathPaint.setAntiAlias(true);
+        pathPaint.setStyle(Paint.Style.FILL);
+        pathPaint.setColor(Color.parseColor("#ccff4081"));
+        pathPaint.setTextSize(ResUtils.getInt(getContext(), R.dimen.home_page_detail_options_size));
+        if (mOuter != null && !mOuter.isEmpty()) {
+            canvas.clipRect(mOuter);
+        }
+        /**
+         * oval 设置位置
+         * startAngle 起始度数
+         * sweepAngle 画多少度的弧
+         * useCenter 是否与中心点连线 false 不连
+         * paint 画笔
+         *canvas.drawArc(RectF oval, float startAngle, float sweepAngle, boolean useCenter, Paint paint)
+         */
         if (mDircetion == OptionDirection.LEFT) {
             // left
-//            canvas.drawArc(mInner, -150f, -60f, false, paint);
-//            canvas.drawArc(mOuter, -150f, -60f, false, paint);
-            path.addArc(mInner, -150f, -60f);
-            path.addArc(mOuter, -150f, -60f);
-
+            drawArc(canvas, 150f, 60f, mInner, mInnerPaint, false);
+            drawArc(canvas, 150f, 60f, mOuter, mOuterPaint, true);
+            drawArc(canvas, 150f, 60f, mInner, mStrokePaint, false);
+            drawArc(canvas, 150f, 60f, mOuter, mStrokePaint, true);
+            path.addArc(mMiddleRectF, 150f, 60f);
+            drawText(canvas, mDrawText, path, pathPaint);
+            Paint p = new Paint(Paint.ANTI_ALIAS_FLAG);
+            p.setColor(Color.BLACK);
+            p.setStyle(Paint.Style.FILL);
+            p.setStrokeWidth(5f);
+            canvas.drawPoint(mCenterX, mCenterY, p);
         } else if (mDircetion == OptionDirection.RIGHT) {
             // right
-            canvas.drawArc(mInner, -30f, 60f, false, paint);
-            canvas.drawArc(mOuter, -30f, 60f, false, paint);
+            drawArc(canvas, 330f, 60f, mInner, mInnerPaint, false);
+            drawArc(canvas, 330f, 60f, mOuter, mOuterPaint, true);
+            drawArc(canvas, 330f, 60f, mInner, mStrokePaint, false);
+            drawArc(canvas, 330f, 60f, mOuter, mStrokePaint, true);
         } else if (mDircetion == OptionDirection.BOTTOM) {
             // bottom
-//            canvas.drawArc(mInner, 120f, -60f, false, paint);
-//            canvas.drawArc(mOuter, 118f, -62f, false, paint);
-
-            path.addArc(mInner, 120f, -60f);
-            path.addArc(mOuter, 118f, -62f);
+            drawArc(canvas, 60f, 60f, mInner, mInnerPaint, false);
+            drawArc(canvas, 60f, 60f, mOuter, mOuterPaint, true);
+            drawArc(canvas, 60f, 60f, mInner, mStrokePaint, false);
+            drawArc(canvas, 60f, 60f, mOuter, mStrokePaint, true);
+            path.addArc(mMiddleRectF, 60f, 60f);
+            drawText(canvas, mDrawText, path, pathPaint);
         } else if (mDircetion == OptionDirection.TOP) {
-            canvas.drawArc(mInner, -120f, 60f, false, paint);
-            canvas.drawArc(mOuter, -120f, 60f, false, paint);
+            drawArc(canvas, 240f, 60f, mInner, mInnerPaint, false);
+            drawArc(canvas, 240f, 60f, mOuter, mOuterPaint, true);
+            drawArc(canvas, 240f, 60f, mInner, mStrokePaint, false);
+            drawArc(canvas, 240f, 60f, mOuter, mStrokePaint, true);
         }
-        canvas.drawPath(path, paint);
-//        canvas.drawRect(mInner, paint);
-//        canvas.drawPoint(mCenterX, mCenterY, paint);
     }
 
-    public void drawText() {
+    private void drawArc(Canvas canvas, float startAngle, float sweepAngle, RectF rectF, Paint paint, boolean useCenter) {
+        canvas.drawArc(rectF, startAngle, sweepAngle, useCenter, paint);
+    }
 
+    private void drawLine(Path path) {
+        mPathMeasure.setPath(path, true);
+        float distance = mPathMeasure.getLength();
+        mPathMeasure.getPosTan(distance, mPointCoor, null);
+    }
+
+    public void drawText(Canvas canvas, String text, Path path, Paint paint) {
+        canvas.drawTextOnPath(text, path, 40, 20, paint);
     }
 }
