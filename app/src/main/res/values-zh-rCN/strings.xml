@@ -9,5 +9,6 @@
     <string name="home_page_card_details_attention">%1$s关注</string>
     <string name="home_page_detail_download">下载看看</string>
     <string name="home_page_detail_join">入伙</string>
-    <string name="home_page_detail_invest">投资</string>
+    <string name="home_page_detail_invest"> 投资 </string>
+    <string name="home_page_detail_connect_us">联系我们</string>
 </resources>

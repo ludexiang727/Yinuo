@@ -1,5 +1,7 @@
 package com.yinuo.ui.sub;
 
+import android.animation.Animator;
+import android.graphics.Color;
 import android.graphics.Rect;
 import android.graphics.RectF;
 import android.os.Bundle;
@@ -11,17 +13,24 @@ import android.support.v4.view.ViewPager;
 import android.text.TextUtils;
 import android.util.Log;
 import android.util.TypedValue;
+import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.ViewTreeObserver;
 import android.view.Window;
 import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
+import android.view.animation.OvershootInterpolator;
 import android.view.animation.RotateAnimation;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
+import com.nineoldandroids.animation.AnimatorListenerAdapter;
+import com.nineoldandroids.animation.AnimatorSet;
+import com.nineoldandroids.animation.ObjectAnimator;
+import com.nineoldandroids.animation.ValueAnimator;
 import com.nineoldandroids.view.ViewHelper;
 import com.yinuo.R;
 import com.yinuo.base.BaseActivity;
@@ -41,7 +50,7 @@ import java.util.List;
 /**
  * Created by Administrator on 2016/4/9.
  */
-public class HomePageDetailsActivity extends BaseActivity implements View.OnClickListener {
+public class HomePageDetailsActivity extends BaseActivity implements View.OnClickListener, FloatingOptionView.IClickListener {
 
     private final int UPDATE_UI = 0x000;
     private FlipperViewGroup mDetailsFlipperViewGroup;
@@ -122,12 +131,11 @@ public class HomePageDetailsActivity extends BaseActivity implements View.OnClic
                 float centerY = location[1] + 20;
                 if (mOptionsParent != null && mOptionsParent.getVisibility() == View.GONE) {
                     mOptionsParent.setVisibility(View.VISIBLE);
-                    mFloatActionButton.setAlpha(0.2f);
                     // two child join  invest
                     addOptionChild(location, floatWidth);
                     optionsShow(centerX, centerY);
                 } else {
-                    mOptionsParent.setVisibility(View.GONE);
+                    optionsHide();
                 }
                 break;
             }
@@ -154,26 +162,51 @@ public class HomePageDetailsActivity extends BaseActivity implements View.OnClic
         RectF inner = new RectF(left, top, right, bottom);
         RectF outer = new RectF(outerLeft, outerTop, outerRight, outerBottom);
         RectF middle = new RectF(outerLeft + (left - outerLeft) / 2, outerTop + (top - outerTop) / 2, outerRight + (right - outerRight) / 2, outerBottom + (bottom - outerBottom) / 2);
-        // child one
+
+        // child one join us
         FloatingOptionView optionJoin = new FloatingOptionView(this);
+        RectF topRect = new RectF(left, outerTop, right, top + mFabMargin);
+        optionJoin.setTopOuter(topRect);
         optionJoin.setDrawText(ResUtils.getString(this, R.string.home_page_detail_join));
         optionJoin.setInner(inner);
         optionJoin.setOuter(outer);
         optionJoin.setMiddleRectF(middle);
         optionJoin.setLayoutParams(optionParams);
-        optionJoin.setOptionDirection(FloatingOptionView.OptionDirection.LEFT);
-        optionJoin.setCenter(centerX, centerY);
-        // child two
+        optionJoin.setOptionDirection(FloatingOptionView.OptionDirection.TOP);
+        optionJoin.setCenter(centerX, centerY, floatWidth, mFabMargin);
+
+        // child two invest
         FloatingOptionView optionInvest = new FloatingOptionView(this);
+        RectF leftRect = new RectF(outerLeft, top, left + mFabMargin, bottom);
+        optionInvest.setLeftOuter(leftRect);
         optionInvest.setDrawText(ResUtils.getString(this, R.string.home_page_detail_invest));
         optionInvest.setInner(inner);
         optionInvest.setOuter(outer);
         optionInvest.setMiddleRectF(middle);
         optionInvest.setLayoutParams(optionParams);
-        optionInvest.setOptionDirection(FloatingOptionView.OptionDirection.BOTTOM);
+        optionInvest.setOptionDirection(FloatingOptionView.OptionDirection.LEFT);
+        optionInvest.setCenter(centerX, centerY, floatWidth, mFabMargin);
+
+        // child three connect us
+        FloatingOptionView optionConnectUs = new FloatingOptionView(this);
+        RectF bottomRect = new RectF(left, bottom - mFabMargin, right, outerBottom);
+        optionConnectUs.setBottomOuter(bottomRect);
+        optionConnectUs.setDrawText(ResUtils.getString(this, R.string.home_page_detail_connect_us));
+        optionConnectUs.setInner(inner);
+        optionConnectUs.setOuter(outer);
+        optionConnectUs.setMiddleRectF(middle);
+        optionConnectUs.setLayoutParams(optionParams);
+        optionConnectUs.setOptionDirection(FloatingOptionView.OptionDirection.BOTTOM);
+        optionConnectUs.setCenter(centerX, centerY, floatWidth, mFabMargin);
+
+        optionJoin.setIClickListener(this);
+        optionInvest.setIClickListener(this);
+        optionConnectUs.setIClickListener(this);
+
 
         mOptionsParent.addView(optionJoin);
         mOptionsParent.addView(optionInvest);
+        mOptionsParent.addView(optionConnectUs);
     }
 
     /// down load test
@@ -227,18 +260,98 @@ public class HomePageDetailsActivity extends BaseActivity implements View.OnClic
     }
 
     private void optionsShow(float centerX, float centerY) {
-        FloatingOptionView join =  (FloatingOptionView) mOptionsParent.getChildAt(0);
-        FloatingOptionView invest =  (FloatingOptionView) mOptionsParent.getChildAt(1);
-        Log.e("ldx", "centerx " + centerX + "  " + centerY);
-        RotateAnimation rotate = new RotateAnimation(0f, 360f, RotateAnimation.RELATIVE_TO_SELF, centerX * 1f / mScreenWidth, RotateAnimation.RELATIVE_TO_SELF, centerY * 1f / mScreenHeight + .01f);
-        rotate.setDuration(2500);
-        invest.setAnimation(rotate);
-        rotate.setRepeatCount(Animation.INFINITE);
-        rotate.setInterpolator(new LinearInterpolator());
-        rotate.start();
+//        float pivotX = centerX * 1f / mScreenWidth;
+//        float pivotY = centerY * 1f / mScreenHeight + .01f;
+        for (int i = 0; i < mOptionsParent.getChildCount(); ++i) {
+            FloatingOptionView optionView = (FloatingOptionView) mOptionsParent.getChildAt(i);
+            ViewHelper.setPivotX(optionView, centerX);
+            ViewHelper.setPivotY(optionView, centerY);
+            ViewHelper.setRotation(optionView, i * 90f);
+            ObjectAnimator rotate = ObjectAnimator.ofFloat(optionView, "rotation", i * 90f, 0f);
+            rotate.setDuration(i * 200);
+            rotate.setInterpolator(new LinearInterpolator());
+            rotate.start();
+        }
+
+
     }
 
     private void optionsHide() {
+        for (int i = mOptionsParent.getChildCount() - 1; i >= 0; --i) {
+            FloatingOptionView invest =  (FloatingOptionView) mOptionsParent.getChildAt(i);
+            ObjectAnimator rotate = ObjectAnimator.ofFloat(invest, "rotation", 0f, i * 90f);
+            rotate.setDuration(i * 200);
+            rotate.setInterpolator(new LinearInterpolator());
+            rotate.start();
+            if (i == mOptionsParent.getChildCount() - 1) {
+                rotate.addListener(new AnimatorListenerAdapter() {
+                    @Override
+                    public void onAnimationEnd(com.nineoldandroids.animation.Animator animation) {
+                        super.onAnimationEnd(animation);
+                        mOptionsParent.setVisibility(View.GONE);
+                    }
+                });
+            }
+        }
+    }
 
+    @Override
+    public void onClickDown(FloatingOptionView.OptionDirection direction) {
+        int downColor = Color.parseColor("#20FF4081");
+        int txtColor = Color.parseColor("#FFFFFF");
+        switch (direction) {
+            case LEFT: {
+                FloatingOptionView leftView = (FloatingOptionView) mOptionsParent.getChildAt(1);
+                leftView.setPaintColor(downColor, txtColor);
+                leftView.postInvalidate();
+                break;
+            }
+            case TOP: {
+                FloatingOptionView leftView = (FloatingOptionView) mOptionsParent.getChildAt(0);
+                leftView.setPaintColor(downColor, txtColor);
+                leftView.postInvalidate();
+                break;
+            }
+            case BOTTOM: {
+                FloatingOptionView leftView = (FloatingOptionView) mOptionsParent.getChildAt(2);
+                leftView.setPaintColor(downColor, txtColor);
+                leftView.postInvalidate();
+                break;
+            }
+        }
+    }
+
+    @Override
+    public void onClickUp(FloatingOptionView.OptionDirection direction) {
+        int upColor = Color.parseColor("#CCFFFFFF");
+        int txtColor = Color.parseColor("#CCFF4081");
+        switch (direction) {
+            case LEFT: {
+                FloatingOptionView leftView = (FloatingOptionView) mOptionsParent.getChildAt(1);
+                leftView.setPaintColor(upColor, txtColor);
+                leftView.postInvalidate();
+                Toast.makeText(this, "invest us", Toast.LENGTH_LONG).show();
+                break;
+            }
+            case TOP: {
+                FloatingOptionView topView = (FloatingOptionView) mOptionsParent.getChildAt(0);
+                topView.setPaintColor(upColor, txtColor);
+                topView.postInvalidate();
+                Toast.makeText(this, "join us", Toast.LENGTH_LONG).show();
+                break;
+            }
+            case BOTTOM: {
+                FloatingOptionView bottomView = (FloatingOptionView) mOptionsParent.getChildAt(2);
+                bottomView.setPaintColor(upColor, txtColor);
+                bottomView.postInvalidate();
+                Toast.makeText(this, "connect us", Toast.LENGTH_LONG).show();
+                break;
+            }
+        }
+    }
+
+    @Override
+    public void closeOptions() {
+        optionsHide();
     }
 }
