@@ -60,7 +60,7 @@ public class HomePageFragment extends BaseFragment implements SwipeRefreshLayout
         mLoading.loading();
 
         mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.home_page_swipe_refresh_layout);
-        mSwipeRefreshLayout.setColorSchemeResources(R.color.refresh_color_progress1, R.color.refresh_color_progress2, R.color.refresh_color_progress3, R.color.refresh_color_progress4);
+        mSwipeRefreshLayout.setColorSchemeResources(R.color.refresh_color_progress1, R.color.refresh_color_progress2);
         mSwipeRefreshLayout.setOnRefreshListener(this);
         mListView = (HomePageListView) view.findViewById(android.R.id.list);
         mListView.setCardLists(mCardLists);
