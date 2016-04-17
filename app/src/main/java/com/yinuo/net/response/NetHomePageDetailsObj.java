@@ -25,7 +25,7 @@ public class NetHomePageDetailsObj extends NetBaseObject {
         String[] imgArray = AppUtils.split(images, ",");
         for (String img : imgArray) {
             HomeItemDetailBannerMode mode = new HomeItemDetailBannerMode();
-            mode.setBannerURL(img);
+            mode.setBannerOrImgURL(img);
             mAppDetailsImgs.add(mode);
         }
     }

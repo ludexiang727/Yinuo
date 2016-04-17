@@ -3,8 +3,6 @@ package com.yinuo.ui.page;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.annotation.Nullable;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -115,7 +113,9 @@ public class DiscoverPageFragment extends BaseFragment implements IOnItemClickLi
 
     @Override
     public void onItemClick(BaseObject baseObject, int position) {
-
+        if (baseObject instanceof DiscoveryRecycleModel) {
+            DiscoveryRecycleModel discoveryModel = (DiscoveryRecycleModel) baseObject;
+        }
     }
 
 }

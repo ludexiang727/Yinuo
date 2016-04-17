@@ -85,7 +85,7 @@ public class NetHomePageObj extends NetBaseObject {
                     JSONObject obj = array.getJSONObject(i);
                     String url = NetParseUtils.getString(NetConstant.NET_JSON_HOME_BANNER_IMG_URL, obj);
                     String redirect = NetParseUtils.getString(NetConstant.NET_JSON_HOME_BANNER_REDIRECT_URL, obj);
-                    banners.setBannerURL(url);
+                    banners.setBannerOrImgURL(url);
                     banners.setRedirectURL(redirect);
                     mHomePageBanners.add(banners);
                 } catch (JSONException e) {

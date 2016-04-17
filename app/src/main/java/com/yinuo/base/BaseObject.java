@@ -4,22 +4,34 @@ package com.yinuo.base;
  * Created by ludexiang on 2016/4/7.
  */
 public class BaseObject {
-    protected String mBannerURL;
-    protected int mRank;
+    /** appId -- app 对应的ID */
+    protected int mAppId;
+    /** banner url - each page banner url or image view url */
+    protected String mBannerOrImgURL;
+    /** app rank -- app 排行 */
+    protected int mAppRank;
 
-    public String getBannerURL() {
-        return mBannerURL;
+    public int getAppId() {
+        return mAppId;
     }
 
-    public void setBannerURL(String bannerURL) {
-        this.mBannerURL = bannerURL;
+    public void setmAppId(int appId) {
+        this.mAppId = appId;
     }
 
-    public void setRank(int rank) {
-        mRank = rank;
+    public String getBannerOrImgURL() {
+        return mBannerOrImgURL;
     }
 
-    public int getRank() {
-        return mRank;
+    public void setBannerOrImgURL(String bannerURL) {
+        this.mBannerOrImgURL = bannerURL;
+    }
+
+    public void setAppRank(int rank) {
+        mAppRank = rank;
+    }
+
+    public int getAppRank() {
+        return mAppRank;
     }
 }

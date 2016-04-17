@@ -6,6 +6,7 @@ import com.yinuo.base.BaseObject;
  * Created by gus on 16/4/16.
  */
 public class DiscoveryRecycleModel extends BaseObject {
+    /** title -- 标题 */
     private String mTitle;
     /** produce such as game app etc -- 属性 例如 游戏 应用等等 */
     private String mProperty;

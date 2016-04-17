@@ -3,7 +3,6 @@ package com.yinuo.adapter;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.support.v7.widget.RecyclerView;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -16,8 +15,6 @@ import com.yinuo.R;
 import com.yinuo.listener.IOnItemClickListener;
 import com.yinuo.mode.DiscoveryRecycleModel;
 import com.yinuo.utils.ImageLoaderHelper;
-
-import org.w3c.dom.Text;
 
 import java.util.List;
 
@@ -53,7 +50,7 @@ public class DiscoverRecyclerViewAdapter <T extends DiscoveryRecycleModel>
         DiscoveryRecycleModel model = mListHolder.get(position);
         holder.titleView.setText(model.getTitle());
         holder.propertyView.setText(model.getProperty());
-        ImageLoaderHelper.getInstance().loadImage(model.getBannerURL(), holder.imageView, new ImageLoadingListener() {
+        ImageLoaderHelper.getInstance().loadImage(model.getBannerOrImgURL(), holder.imageView, new ImageLoadingListener() {
             @Override
             public void onLoadingStarted(String imageUri, View view) {
 

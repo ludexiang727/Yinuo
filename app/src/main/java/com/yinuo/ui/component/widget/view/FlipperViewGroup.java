@@ -19,7 +19,6 @@ import android.widget.Scroller;
 import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 import com.yinuo.base.BaseObject;
-import com.yinuo.mode.HomePageBannersMode;
 import com.yinuo.utils.ImageLoaderHelper;
 
 public class FlipperViewGroup extends ViewGroup implements Runnable {
@@ -684,7 +683,7 @@ public class FlipperViewGroup extends ViewGroup implements Runnable {
 
 	/** base url download bitmap **/
 	private void loadBanners(BaseObject banner, final ImageView child) {
-		ImageLoaderHelper.getInstance().loadImage(banner.getBannerURL(), child, new ImageLoadingListener() {
+		ImageLoaderHelper.getInstance().loadImage(banner.getBannerOrImgURL(), child, new ImageLoadingListener() {
 			@Override
 			public void onLoadingStarted(String imageUri, View view) {
 

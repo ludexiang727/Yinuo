@@ -66,8 +66,8 @@ public class NetDiscoveryPageObj extends NetBaseObject {
                 model.setTitle(title);
                 model.setAttention(attention);
                 model.setProperty(property);
-                model.setRank(rank);
-                model.setBannerURL(imgUrl);
+                model.setAppRank(rank);
+                model.setBannerOrImgURL(imgUrl);
                 model.setSummary(summary);
 
                 mDiscoveryRecycleData.add(model);
