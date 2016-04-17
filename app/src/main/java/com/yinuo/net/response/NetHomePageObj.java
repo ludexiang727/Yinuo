@@ -26,10 +26,10 @@ public class NetHomePageObj extends NetBaseObject {
     protected void parse(JSONObject obj) {
         mModeLists = new ArrayList<HomePageDataMode>();
         mHomePageBanners = new ArrayList<HomePageBannersMode>();
-        mDataCount = NetParseUtils.getInt(NetConstant.NET_JSON_FIELD_DATA_COUNT, obj);
-        JSONArray banners = NetParseUtils.getArray(NetConstant.NET_JSON_FIELD_PAGE_BANNERS, obj);
+        mDataCount = NetParseUtils.getInt(NetConstant.NET_JSON_HOME_FIELD_DATA_COUNT, obj);
+        JSONArray banners = NetParseUtils.getArray(NetConstant.NET_JSON_HOME_FIELD_PAGE_BANNERS, obj);
         parseBannersArray(banners);
-        JSONArray array = NetParseUtils.getArray(NetConstant.NET_JSON_FIELD_PAGE_LISTS, obj);
+        JSONArray array = NetParseUtils.getArray(NetConstant.NET_JSON_HOME_FIELD_PAGE_LISTS, obj);
         parseCardArray(array);
     }
 

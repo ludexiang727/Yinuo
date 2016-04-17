@@ -16,15 +16,19 @@ import com.yinuo.ui.component.widget.Loading;
  * Created by ludexiang on 2016/4/5.
  */
 public abstract class BaseFragment extends Fragment implements IRequestListener<NetBaseObject>, IDynamicLoadListener, ITransationSceneListener {
+    protected Loading mLoading;
 
     public abstract int pageLayoutId();
 
     public abstract void initialize(View view);
 
+    public abstract void loadData();
+
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(pageLayoutId(), null);
         initialize(view);
+        loadData();
         return view;
     }
 

@@ -1,7 +1,6 @@
 package com.yinuo.ui.page;
 
 import android.content.Intent;
-import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -20,11 +19,10 @@ import com.yinuo.net.request.NetRequest;
 import com.yinuo.net.response.NetHomePageObj;
 import com.yinuo.ui.component.widget.view.HomePageListView;
 import com.yinuo.ui.component.widget.Loading;
-import com.yinuo.ui.sub.HomePageDetailsActivity;
+import com.yinuo.ui.sub.APPDetailsActivity;
 
 import java.util.ArrayList;
 import java.util.List;
-import java.util.concurrent.RunnableFuture;
 
 /**
  * Created by ludexiang on 2016/4/5.
@@ -39,7 +37,6 @@ public class HomePageFragment extends BaseFragment implements SwipeRefreshLayout
     private List<HomePageDataMode> mCardLists = new ArrayList<HomePageDataMode>();
     private List<HomePageBannersMode> mBanners = new ArrayList<HomePageBannersMode>();
     private UIHandler mHandler = new UIHandler();
-    private Loading mLoading;
 
     @Override
     public int pageLayoutId() {
@@ -49,7 +46,6 @@ public class HomePageFragment extends BaseFragment implements SwipeRefreshLayout
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = super.onCreateView(inflater, container, savedInstanceState);
-        loadData();
         return view;
     }
 
@@ -67,7 +63,8 @@ public class HomePageFragment extends BaseFragment implements SwipeRefreshLayout
         mListView.setListener(this, this);
     }
 
-    private void loadData() {
+    @Override
+    public void loadData() {
         NetRequest.getInstance().requestHomePageData(mPageIndex, PAGE_COUNT, this);
     }
 
@@ -140,7 +137,7 @@ public class HomePageFragment extends BaseFragment implements SwipeRefreshLayout
     @Override
     public void onTransation(int position) {
         mListView.getPageAdapter().getItem(position - 1);
-        Intent details = new Intent(getActivity(), HomePageDetailsActivity.class);
+        Intent details = new Intent(getActivity(), APPDetailsActivity.class);
         getActivity().startActivity(details);
     }
 }

@@ -5,6 +5,7 @@ package com.yinuo.base;
  */
 public class BaseObject {
     protected String mBannerURL;
+    protected int mRank;
 
     public String getBannerURL() {
         return mBannerURL;
@@ -12,5 +13,13 @@ public class BaseObject {
 
     public void setBannerURL(String bannerURL) {
         this.mBannerURL = bannerURL;
+    }
+
+    public void setRank(int rank) {
+        mRank = rank;
+    }
+
+    public int getRank() {
+        return mRank;
     }
 }

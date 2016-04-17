@@ -39,4 +39,11 @@ public class NetParseUtils {
         }
         return null;
     }
+
+    public static JSONObject getObject(String key, JSONObject obj) {
+        if (obj.has(key)) {
+            return obj.optJSONObject(key);
+        }
+        return null;
+    }
 }

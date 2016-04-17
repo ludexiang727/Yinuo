@@ -39,4 +39,14 @@
     <dimen name="home_page_detail_options_size">14sp</dimen>
     <dimen name="home_page_detail_options_txt_long">11sp</dimen>
     <!-- home page end -->
+
+    <!-- discovery page begin -->
+    <dimen name="discovery_page_property_margin">5dp</dimen>
+    <dimen name="discoverY_page_margin">5dp</dimen>
+    <dimen name="discovery_page_title_size">14sp</dimen>
+    <dimen name="discovery_page_summary_size">10sp</dimen>
+    <dimen name="discovery_page_info_margin">6dp</dimen>
+    <dimen name="discovery_page_img_height">175dp</dimen>
+    <dimen name="discovery_page_nav_margin">10dp</dimen>
+    <!-- discovery page end-->
 </resources>

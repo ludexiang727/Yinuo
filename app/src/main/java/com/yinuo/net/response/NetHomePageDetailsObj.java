@@ -21,7 +21,7 @@ public class NetHomePageDetailsObj extends NetBaseObject {
     @Override
     protected void parse(JSONObject obj) {
         mAppDetailsImgs = new ArrayList<HomeItemDetailBannerMode>();
-        String images = NetParseUtils.getString(NetConstant.NET_JSON_HOME_DETAILS_IMGS, obj);
+        String images = NetParseUtils.getString(NetConstant.NET_JSON_APP_DETAILS_IMGS, obj);
         String[] imgArray = AppUtils.split(images, ",");
         for (String img : imgArray) {
             HomeItemDetailBannerMode mode = new HomeItemDetailBannerMode();

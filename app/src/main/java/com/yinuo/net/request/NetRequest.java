@@ -3,6 +3,7 @@ package com.yinuo.net.request;
 import com.squareup.okhttp.FormEncodingBuilder;
 import com.yinuo.net.IRequestListener;
 import com.yinuo.net.base.NetBaseObject;
+import com.yinuo.net.response.NetDiscoveryPageObj;
 import com.yinuo.net.response.NetHomePageDetailsObj;
 import com.yinuo.net.response.NetHomePageObj;
 import com.yinuo.net.response.NetLoginObj;
@@ -68,5 +69,12 @@ public class NetRequest <T extends NetBaseObject> {
         FormEncodingBuilder build = build();
         build.add(NetConstant.NET_REQUEST_HOMEPAGE_DETAILS_APPID, String.valueOf(appId));
         OkHttpRequest.getInstance().httpPostRequest(NetConstant.REQUEST_URL_HOME_PAGE_DETAILS, build.build(), listener, new NetHomePageDetailsObj());
+    }
+
+    /** discovery page data - 发现页面 数据请求 **/
+    public void requestDiscoveryPageData(int propertyId, IRequestListener<T> listener) {
+        FormEncodingBuilder build = build();
+        build.add(NetConstant.NET_REQUEST_DISCOVERYPAGE_PARAM_PROPERTYID, String.valueOf(propertyId));
+        OkHttpRequest.getInstance().httpPostRequest(NetConstant.REQUEST_URL_DISCOVERY_PAGE, build.build(), listener, new NetDiscoveryPageObj());
     }
 }

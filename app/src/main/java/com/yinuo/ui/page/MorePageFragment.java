@@ -19,4 +19,9 @@ public class MorePageFragment extends BaseFragment {
     public void initialize(View view) {
 
     }
+
+    @Override
+    public void loadData() {
+
+    }
 }

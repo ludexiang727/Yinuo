@@ -1,36 +1,21 @@
 package com.yinuo.ui.sub;
 
-import android.animation.Animator;
 import android.graphics.Color;
-import android.graphics.Rect;
 import android.graphics.RectF;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.design.widget.CoordinatorLayout;
 import android.support.design.widget.FloatingActionButton;
-import android.support.v4.view.ViewPager;
-import android.text.TextUtils;
-import android.util.Log;
-import android.util.TypedValue;
-import android.view.MotionEvent;
 import android.view.View;
 import android.view.ViewGroup;
-import android.view.ViewTreeObserver;
-import android.view.Window;
-import android.view.animation.Animation;
 import android.view.animation.LinearInterpolator;
-import android.view.animation.OvershootInterpolator;
-import android.view.animation.RotateAnimation;
 import android.widget.Button;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
 import com.nineoldandroids.animation.AnimatorListenerAdapter;
-import com.nineoldandroids.animation.AnimatorSet;
 import com.nineoldandroids.animation.ObjectAnimator;
-import com.nineoldandroids.animation.ValueAnimator;
 import com.nineoldandroids.view.ViewHelper;
 import com.yinuo.R;
 import com.yinuo.base.BaseActivity;
@@ -50,11 +35,11 @@ import java.util.List;
 /**
  * Created by Administrator on 2016/4/9.
  */
-public class HomePageDetailsActivity extends BaseActivity implements View.OnClickListener, FloatingOptionView.IClickListener {
+public class APPDetailsActivity extends BaseActivity implements View.OnClickListener, FloatingOptionView.IClickListener {
 
+    private int mAppID;
     private final int UPDATE_UI = 0x000;
     private FlipperViewGroup mDetailsFlipperViewGroup;
-    private int mAppID;
     private List<HomeItemDetailBannerMode> mItemBanners = new ArrayList<HomeItemDetailBannerMode>();
     private FloatingActionButton mFloatActionButton;
     private IconRoundCornerProgressBar mProgressBar;

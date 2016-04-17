@@ -10,6 +10,7 @@ public class NetConstant {
     public static final String REQUEST_URL_SIGN_UP = "PSignUp";
     public static final String REQUEST_URL_HOME_PAGE = "pGetHomePage";
     public static final String REQUEST_URL_HOME_PAGE_DETAILS = "pGetHomeDetails";
+    public static final String REQUEST_URL_DISCOVERY_PAGE = "pGetDiscoveryPage";
     /***************** request interface end *********************/
 
     /*************  json parse begin field -- 接口response json field **********************/
@@ -26,17 +27,21 @@ public class NetConstant {
     public static final String NET_REQUEST_REGISTER_PARAM_CODE = "register_code";
     /** sign in / out end */
 
+    /** app details page begin **/
+    public static final String NET_JSON_APP_DETAILS_IMGS = "app_details_imgs";
+    /** app details page end*/
+
     /**home page data begin */
     public static final String NET_REQUEST_HOMEPAGE_PARAM_INDEX = "home_page_index";
     public static final String NET_REQUEST_HOMEPAGE_PARAM_COUNT = "home_page_count";
     public static final String NET_REQUEST_HOMEPAGE_DETAILS_APPID = "home_page_details_appid";
 
     // json
-    public static final String NET_JSON_FIELD_DATA_COUNT = "home_page_data_count";
-    public static final String NET_JSON_FIELD_PAGE_BANNERS = "home_page_banners";
+    public static final String NET_JSON_HOME_FIELD_DATA_COUNT = "home_page_data_count";
+    public static final String NET_JSON_HOME_FIELD_PAGE_BANNERS = "home_page_banners";
     public static final String NET_JSON_HOME_BANNER_IMG_URL = "banners_image_url";
     public static final String NET_JSON_HOME_BANNER_REDIRECT_URL = "banners_redirect_url";
-    public static final String NET_JSON_FIELD_PAGE_LISTS = "home_page_lists";
+    public static final String NET_JSON_HOME_FIELD_PAGE_LISTS = "home_page_lists";
     public static final String NET_JSON_HOME_CARD_IMG = "card_img";
     public static final String NET_JSON_HOME_CARD_TITLE = "card_title";
     public static final String NET_JSON_HOME_CARD_SUMMARY = "card_summary";
@@ -45,10 +50,21 @@ public class NetConstant {
     public static final String NET_JSON_HOME_CARD_TAGS = "card_tags";
     /**home page data end*/
 
-    /** home page details json begin */
-    public static final String NET_JSON_HOME_DETAILS_IMGS = "home_details_imgs";
-    /** home page details json end*/
+    /** discovery page data begin **/
+    public static final String NET_REQUEST_DISCOVERYPAGE_PARAM_PROPERTYID = "discovery_page_properyid";
 
+    // json
+    public static final String NET_JSON_DISCOVER_FIELD_NAVIGATION = "discovery_navigation";
+    public static final String NET_JSON_DISCOVER_NAVIGATION_DEFAULT = "discovery_nav_default";
+    public static final String NET_JSON_DISCOVER_NAVIGATION_SCROLL_BAR = "discovery_nav_scroll_bar";
+    public static final String NET_JSON_DISCOVER_FIELD_RECYCLE_LISTS = "discovery_lists";
+    public static final String NET_JSON_DISCOVER_LISTS_TITLE = "discovery_recycle_title";
+    public static final String NET_JSON_DISCOVER_LISTS_IMG = "discovery_recycle_img_url";
+    public static final String NET_JSON_DISCOVER_LISTS_RANK = "discovery_recycle_rank";
+    public static final String NET_JSON_DISCOVER_LISTS_PROPERY = "discovery_recycle_property";
+    public static final String NET_JSON_DISCOVER_LISTS_SUMMARY = "discovery_recycle_summary";
+    public static final String NET_JSON_DISCOVER_LISTS_ATTENTION = "discovery_recycle_attention";
+    /** discovery page data end */
 
     /******************  json parse end field **********************/
 }
