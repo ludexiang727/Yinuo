@@ -1,65 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout
+<android.support.v7.widget.CardView
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:layout_margin="@dimen/discoverY_page_margin">
-
-    <ImageView
-        android:id="@+id/discover_holder_img"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/discovery_page_img_height"
-        android:layout_alignParentTop="true"
-        android:scaleType="fitXY"
-        android:src="@mipmap/ic_launcher"
-        android:contentDescription="@null"/>
-
-    <TextView
-        android:id="@+id/discover_holder_property"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_alignParentTop="true"
-        android:text="游戏"
-        android:layout_margin="@dimen/discovery_page_property_margin"
-        android:layout_alignRight="@id/discover_holder_img"/>
+    android:clickable="true"
+    app:cardUseCompatPadding="true">
 
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/discover_holder_img"
-        android:layout_margin="@dimen/discovery_page_info_margin">
-        <RelativeLayout
-            android:id="@+id/discover_holder_title_parent"
+        android:layout_margin="@dimen/discoverY_page_margin">
+
+        <ImageView
+            android:id="@+id/discover_holder_img"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content">
+            android:layout_height="@dimen/discovery_page_img_height"
+            android:layout_alignParentTop="true"
+            android:scaleType="centerCrop"
+            android:src="@mipmap/ic_launcher"
+            android:contentDescription="@null"/>
+
+        <TextView
+            android:id="@+id/discover_holder_property"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:textSize="@dimen/discovery_page_property_size"
+            android:textColor="#ccff4081"
+            android:layout_margin="@dimen/discovery_page_property_margin"
+            android:layout_alignRight="@id/discover_holder_img"
+            android:paddingLeft="3dp"
+            android:paddingRight="3dp"
+            android:background="@drawable/discovery_recycler_property_bg"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/discover_holder_img"
+            android:layout_margin="@dimen/discovery_page_info_margin">
+            <RelativeLayout
+                android:id="@+id/discover_holder_title_parent"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <TextView
+                    android:id="@+id/discover_holder_title"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/discovery_page_title_size"
+                    android:text="Plus"
+                    android:layout_alignParentLeft="true"/>
+
+                <TextView
+                    android:id="@+id/discover_holder_attention"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_toRightOf="@id/discover_holder_title"
+                    android:layout_centerVertical="true"
+                    android:layout_alignParentRight="true"/>
+            </RelativeLayout>
+
 
             <TextView
-                android:id="@+id/discover_holder_title"
-                android:layout_width="wrap_content"
+                android:id="@+id/discover_holder_summary"
+                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:textSize="@dimen/discovery_page_title_size"
-                android:text="Plus"
-                android:layout_alignParentLeft="true"/>
-
-            <TextView
-                android:id="@+id/discover_holder_attention"
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_toRightOf="@id/discover_holder_title"
-                android:layout_centerVertical="true"
-                android:layout_alignParentRight="true"/>
+                android:layout_below="@id/discover_holder_title_parent"
+                android:ellipsize="end"
+                android:textSize="@dimen/discovery_page_summary_size"
+                android:maxLines="4"/>
         </RelativeLayout>
 
 
-        <TextView
-            android:id="@+id/discover_holder_summary"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:layout_below="@id/discover_holder_title_parent"
-            android:ellipsize="end"
-            android:textSize="@dimen/discovery_page_summary_size"
-            android:maxLines="4"/>
     </RelativeLayout>
-
-
-</RelativeLayout>
+</android.support.v7.widget.CardView>

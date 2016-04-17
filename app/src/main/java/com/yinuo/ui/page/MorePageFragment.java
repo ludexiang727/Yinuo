@@ -24,4 +24,9 @@ public class MorePageFragment extends BaseFragment {
     public void loadData() {
 
     }
+
+    @Override
+    public void onRefresh() {
+
+    }
 }

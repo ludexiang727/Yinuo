@@ -3,6 +3,7 @@ package com.yinuo.adapter;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.support.v7.widget.RecyclerView;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -12,6 +13,7 @@ import android.widget.TextView;
 import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 import com.yinuo.R;
+import com.yinuo.listener.IOnItemClickListener;
 import com.yinuo.mode.DiscoveryRecycleModel;
 import com.yinuo.utils.ImageLoaderHelper;
 
@@ -22,10 +24,12 @@ import java.util.List;
 /**
  * Created by gus on 16/4/16.
  */
-public class DiscoverRecyclerViewAdapter <T extends DiscoveryRecycleModel> extends RecyclerView.Adapter<DiscoverRecyclerViewAdapter.Holder> {
+public class DiscoverRecyclerViewAdapter <T extends DiscoveryRecycleModel>
+                        extends RecyclerView.Adapter<DiscoverRecyclerViewAdapter.Holder> {
     public Context mContext;
     private LayoutInflater mInflater;
     private List<T> mListHolder;
+    private IOnItemClickListener iClickListener;
 
     public DiscoverRecyclerViewAdapter(Context context) {
         mContext = context;
@@ -38,7 +42,9 @@ public class DiscoverRecyclerViewAdapter <T extends DiscoveryRecycleModel> exten
 
     @Override
     public Holder onCreateViewHolder(ViewGroup parent, int viewType) {
-        Holder holder = new Holder(mInflater.inflate(R.layout.discover_page_recycler_sub_layout, null));
+        View view = mInflater.inflate(R.layout.discover_page_recycler_sub_layout, null);
+        Holder holder = new Holder(view);
+        view.setOnClickListener(holder);
         return holder;
     }
 
@@ -78,7 +84,7 @@ public class DiscoverRecyclerViewAdapter <T extends DiscoveryRecycleModel> exten
         return mListHolder != null ? mListHolder.size() : 0;
     }
 
-    public class Holder extends RecyclerView.ViewHolder {
+    public class Holder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private ImageView imageView;
         private TextView propertyView;
         private TextView titleView;
@@ -91,6 +97,16 @@ public class DiscoverRecyclerViewAdapter <T extends DiscoveryRecycleModel> exten
             titleView = (TextView) view.findViewById(R.id.discover_holder_title);
             summaryView = (TextView) view.findViewById(R.id.discover_holder_summary);
         }
+
+        @Override
+        public void onClick(View view) {
+            if (iClickListener != null && mListHolder != null && mListHolder.size() > 0) {
+                iClickListener.onItemClick(mListHolder.get(getLayoutPosition()), getLayoutPosition());
+            }
+        }
     }
 
+    public void setIOnClickListener(IOnItemClickListener listener) {
+        iClickListener = listener;
+    }
 }

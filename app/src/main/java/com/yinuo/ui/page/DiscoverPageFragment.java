@@ -12,6 +12,8 @@ import android.widget.LinearLayout;
 
 import com.yinuo.R;
 import com.yinuo.base.BaseFragment;
+import com.yinuo.base.BaseObject;
+import com.yinuo.listener.IOnItemClickListener;
 import com.yinuo.mode.DiscoveryRecycleModel;
 import com.yinuo.net.base.NetBaseObject;
 import com.yinuo.net.request.NetRequest;
@@ -27,7 +29,7 @@ import java.util.List;
 /**
  * Created by ludexiang on 2016/4/5.
  */
-public class DiscoverPageFragment extends BaseFragment {
+public class DiscoverPageFragment extends BaseFragment implements IOnItemClickListener {
     private int mPropertyId;
 
     private DiscoverRecyclerView mRecycleView;
@@ -54,6 +56,7 @@ public class DiscoverPageFragment extends BaseFragment {
         mRecycleView = (DiscoverRecyclerView) view.findViewById(R.id.discover_recycle_view);
         mNavScrollViewParent = (LinearLayout) view.findViewById(R.id.discover_navigation_parent_layout);
         mRecycleView.setRecycleDatas(mRecycleLists);
+        mRecycleView.getRecyclerAdapter().setIOnClickListener(this);
     }
 
     @Override
@@ -90,6 +93,7 @@ public class DiscoverPageFragment extends BaseFragment {
             mLoading.dismiss();
             switch (msg.what) {
                 case NOTIFY_SUCCESS: {
+                    mSwipeRefreshLayout.setRefreshing(false);
                     if (mNavScrollViews != null) {
                         for (int i = 0; i < mNavScrollViews.length; ++i) {
                             DiscoverNavView navView = new DiscoverNavView(DiscoverPageFragment.this.getContext());
@@ -103,4 +107,15 @@ public class DiscoverPageFragment extends BaseFragment {
             }
         }
     }
+
+    @Override
+    public void onRefresh() {
+        loadData();
+    }
+
+    @Override
+    public void onItemClick(BaseObject baseObject, int position) {
+
+    }
+
 }

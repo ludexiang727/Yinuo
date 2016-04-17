@@ -2,10 +2,14 @@ package com.yinuo.base;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
+import android.widget.RelativeLayout;
 
+import com.yinuo.R;
 import com.yinuo.listener.IDynamicLoadListener;
 import com.yinuo.listener.ITransationSceneListener;
 import com.yinuo.net.IRequestListener;
@@ -15,7 +19,11 @@ import com.yinuo.ui.component.widget.Loading;
 /**
  * Created by ludexiang on 2016/4/5.
  */
-public abstract class BaseFragment extends Fragment implements IRequestListener<NetBaseObject>, IDynamicLoadListener, ITransationSceneListener {
+public abstract class BaseFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener, IRequestListener<NetBaseObject>
+        , IDynamicLoadListener, ITransationSceneListener {
+
+    protected SwipeRefreshLayout mSwipeRefreshLayout;
+    protected RelativeLayout mContentParent;
     protected Loading mLoading;
 
     public abstract int pageLayoutId();
@@ -26,9 +34,17 @@ public abstract class BaseFragment extends Fragment implements IRequestListener<
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        View view = inflater.inflate(pageLayoutId(), null);
-        initialize(view);
+        View view = inflater.inflate(R.layout.base_fragment_layout, null);
+        mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.base_fragment_swipe_refresh);
+        mContentParent = (RelativeLayout) view.findViewById(R.id.base_fragment_parent_content);
+
+        mSwipeRefreshLayout.setColorSchemeResources(R.color.refresh_color_progress1, R.color.refresh_color_progress2);
+        mSwipeRefreshLayout.setOnRefreshListener(this);
+
+        View content = inflater.inflate(pageLayoutId(), mContentParent, true);
+        initialize(content);
         loadData();
+
         return view;
     }
 

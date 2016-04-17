@@ -4,7 +4,7 @@
     "discovery_navigation":
         {
             "discovery_nav_default":0,
-            "discovery_nav_scroll_bar":"全部,助手,游戏,摄影,智能出行,医疗,社交,家政,美食,家居,新闻,搞笑,视频,音乐,生活,理财,其他"
+            "discovery_nav_scroll_bar":"全部,助手,游戏,摄影,智能出行,医疗,社交,家政,美食,教育,新闻,搞笑,视频,音乐,生活,理财,其他"
         },
     "discovery_lists":[
         {

@@ -38,4 +38,8 @@ public class DiscoverRecyclerView extends RecyclerView {
 
         setAdapter(mAdapter);
     }
+
+    public DiscoverRecyclerViewAdapter getRecyclerAdapter() {
+        return mAdapter;
+    }
 }

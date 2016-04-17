@@ -27,9 +27,8 @@ import java.util.List;
 /**
  * Created by ludexiang on 2016/4/5.
  */
-public class HomePageFragment extends BaseFragment implements SwipeRefreshLayout.OnRefreshListener {
+public class HomePageFragment extends BaseFragment {
 
-    private SwipeRefreshLayout mSwipeRefreshLayout;
     private HomePageListView mListView;
     private int mPageIndex = 1;
     private static final int PAGE_COUNT = 10;
@@ -53,18 +52,16 @@ public class HomePageFragment extends BaseFragment implements SwipeRefreshLayout
     public void initialize(View view) {
         Log.e("ldx", "initialize .........");
         mLoading = (Loading) view.findViewById(R.id.home_page_loading);
-        mLoading.loading();
 
-        mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.home_page_swipe_refresh_layout);
-        mSwipeRefreshLayout.setColorSchemeResources(R.color.refresh_color_progress1, R.color.refresh_color_progress2);
-        mSwipeRefreshLayout.setOnRefreshListener(this);
         mListView = (HomePageListView) view.findViewById(android.R.id.list);
         mListView.setCardLists(mCardLists);
         mListView.setListener(this, this);
+
     }
 
     @Override
     public void loadData() {
+        mLoading.loading();
         NetRequest.getInstance().requestHomePageData(mPageIndex, PAGE_COUNT, this);
     }
 

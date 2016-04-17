@@ -24,4 +24,9 @@ public class NearbyPageFragment extends BaseFragment {
     public void loadData() {
 
     }
+
+    @Override
+    public void onRefresh() {
+
+    }
 }

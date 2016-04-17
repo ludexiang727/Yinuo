@@ -97,41 +97,43 @@ public class HomePageListViewAdapter <T extends HomePageDataMode> extends BaseAd
     }
 
     private void bindView(final ViewHolder holder, int position) {
-        HomePageDataMode bind = mBindData.get(position);
-        ImageLoaderHelper.getInstance().loadImage(bind.getImgURL(), new ImageLoadingListener() {
-            @Override
-            public void onLoadingStarted(String imageUri, View view) {
+        if (mBindData != null && position < mBindData.size()) {
+            HomePageDataMode bind = mBindData.get(position);
+            ImageLoaderHelper.getInstance().loadImage(bind.getImgURL(), new ImageLoadingListener() {
+                @Override
+                public void onLoadingStarted(String imageUri, View view) {
 
-            }
-
-            @Override
-            public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
-
-            }
-
-            @Override
-            public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
-                if (loadedImage != null) {
-                    holder.cardImg.setImageBitmap(loadedImage);
                 }
-            }
 
-            @Override
-            public void onLoadingCancelled(String imageUri, View view) {
+                @Override
+                public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
 
+                }
+
+                @Override
+                public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
+                    if (loadedImage != null) {
+                        holder.cardImg.setImageBitmap(loadedImage);
+                    }
+                }
+
+                @Override
+                public void onLoadingCancelled(String imageUri, View view) {
+
+                }
+            });
+            holder.cardTitle.setText(bind.getTitle());
+            holder.cardAttention.setText(String.format(ResUtils.getString(mContext, R.string.home_page_card_details_attention), bind.getAttention()));
+            holder.cardSummary.setText(bind.getSummary());
+            holder.cardCollection.setImageResource(bind.getCollectioned() == 1 ? 0 : 0);
+            holder.cardCollection.setOnClickListener(holder);
+            List<String> tags = bind.getTags();
+            holder.cardTagsLayout.removeAllViews();
+            for (String tag : tags) {
+                HomePageTagTextView homePageTag = new HomePageTagTextView(mContext);
+                homePageTag.setText(tag, HomePageTagTextView.TagBackGroundType.BLUE);
+                holder.cardTagsLayout.addView(homePageTag);
             }
-        });
-        holder.cardTitle.setText(bind.getTitle());
-        holder.cardAttention.setText(String.format(ResUtils.getString(mContext, R.string.home_page_card_details_attention), bind.getAttention()));
-        holder.cardSummary.setText(bind.getSummary());
-        holder.cardCollection.setImageResource(bind.getCollectioned() == 1 ? 0 : 0);
-        holder.cardCollection.setOnClickListener(holder);
-        List<String> tags = bind.getTags();
-        holder.cardTagsLayout.removeAllViews();
-        for (String tag : tags) {
-            HomePageTagTextView homePageTag = new HomePageTagTextView(mContext);
-            homePageTag.setText(tag, HomePageTagTextView.TagBackGroundType.BLUE);
-            holder.cardTagsLayout.addView(homePageTag);
         }
     }
 }

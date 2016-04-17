@@ -18,4 +18,8 @@
     <color name="custom_progress_blue_progress">#FF4081</color>
     <color name="custom_progress_background">#FF3C3A3B</color>
 
+    <!-- discovery page begin -->
+    <color name="discovery_page_property_bg">#CCFFFFFF</color>
+    <!-- discovery page end-->
+
 </resources>
