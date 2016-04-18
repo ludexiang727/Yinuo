@@ -1,6 +1,6 @@
 package com.yinuo.net.response;
 
-import com.yinuo.mode.HomeItemDetailBannerMode;
+import com.yinuo.mode.HomeItemDetailBannerModel;
 import com.yinuo.net.base.NetBaseObject;
 import com.yinuo.net.utils.NetConstant;
 import com.yinuo.net.utils.NetParseUtils;
@@ -16,21 +16,21 @@ import java.util.List;
  */
 public class NetHomePageDetailsObj extends NetBaseObject {
 
-    private List<HomeItemDetailBannerMode> mAppDetailsImgs;
+    private List<HomeItemDetailBannerModel> mAppDetailsImgs;
 
     @Override
     protected void parse(JSONObject obj) {
-        mAppDetailsImgs = new ArrayList<HomeItemDetailBannerMode>();
+        mAppDetailsImgs = new ArrayList<HomeItemDetailBannerModel>();
         String images = NetParseUtils.getString(NetConstant.NET_JSON_APP_DETAILS_IMGS, obj);
         String[] imgArray = AppUtils.split(images, ",");
         for (String img : imgArray) {
-            HomeItemDetailBannerMode mode = new HomeItemDetailBannerMode();
+            HomeItemDetailBannerModel mode = new HomeItemDetailBannerModel();
             mode.setBannerOrImgURL(img);
             mAppDetailsImgs.add(mode);
         }
     }
 
-    public List<HomeItemDetailBannerMode> getDetailsImgs() {
+    public List<HomeItemDetailBannerModel> getDetailsImgs() {
         return mAppDetailsImgs;
     }
 }

@@ -1,5 +1,6 @@
 package com.yinuo.ui.page;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -11,7 +12,6 @@ import android.widget.LinearLayout;
 import com.yinuo.R;
 import com.yinuo.base.BaseFragment;
 import com.yinuo.base.BaseObject;
-import com.yinuo.listener.IOnItemClickListener;
 import com.yinuo.mode.DiscoveryRecycleModel;
 import com.yinuo.net.base.NetBaseObject;
 import com.yinuo.net.request.NetRequest;
@@ -19,7 +19,7 @@ import com.yinuo.net.response.NetDiscoveryPageObj;
 import com.yinuo.ui.component.widget.Loading;
 import com.yinuo.ui.component.widget.view.DiscoverNavView;
 import com.yinuo.ui.component.widget.view.DiscoverRecyclerView;
-import com.yinuo.utils.ResUtils;
+import com.yinuo.ui.sub.APPDetailsActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -27,7 +27,7 @@ import java.util.List;
 /**
  * Created by ludexiang on 2016/4/5.
  */
-public class DiscoverPageFragment extends BaseFragment implements IOnItemClickListener {
+public class DiscoverPageFragment extends BaseFragment {
     private int mPropertyId;
 
     private DiscoverRecyclerView mRecycleView;
@@ -52,9 +52,10 @@ public class DiscoverPageFragment extends BaseFragment implements IOnItemClickLi
     public void initialize(View view) {
         mLoading = (Loading) view.findViewById(R.id.discover_page_loading);
         mRecycleView = (DiscoverRecyclerView) view.findViewById(R.id.discover_recycle_view);
+        mRecycleView.setSwipeRefreshLayout(mSwipeRefreshLayout);
         mNavScrollViewParent = (LinearLayout) view.findViewById(R.id.discover_navigation_parent_layout);
-        mRecycleView.setRecycleDatas(mRecycleLists);
-        mRecycleView.getRecyclerAdapter().setIOnClickListener(this);
+        mRecycleView.bindRecycleView(mRecycleLists);
+        mRecycleView.getRecyclerAdapter().setOnItemClickListener(this);
     }
 
     @Override
@@ -115,6 +116,8 @@ public class DiscoverPageFragment extends BaseFragment implements IOnItemClickLi
     public void onItemClick(BaseObject baseObject, int position) {
         if (baseObject instanceof DiscoveryRecycleModel) {
             DiscoveryRecycleModel discoveryModel = (DiscoveryRecycleModel) baseObject;
+            Intent details = new Intent(getActivity(), APPDetailsActivity.class);
+            getActivity().startActivity(details);
         }
     }
 

@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.support.v4.widget.SwipeRefreshLayout;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -12,12 +11,13 @@ import android.view.ViewGroup;
 
 import com.yinuo.R;
 import com.yinuo.base.BaseFragment;
-import com.yinuo.mode.HomePageBannersMode;
-import com.yinuo.mode.HomePageDataMode;
+import com.yinuo.base.BaseObject;
+import com.yinuo.mode.HomePageBannersModel;
+import com.yinuo.mode.HomePageDataModel;
 import com.yinuo.net.base.NetBaseObject;
 import com.yinuo.net.request.NetRequest;
 import com.yinuo.net.response.NetHomePageObj;
-import com.yinuo.ui.component.widget.view.HomePageListView;
+import com.yinuo.ui.component.widget.view.HomePageRecyclerView;
 import com.yinuo.ui.component.widget.Loading;
 import com.yinuo.ui.sub.APPDetailsActivity;
 
@@ -29,12 +29,12 @@ import java.util.List;
  */
 public class HomePageFragment extends BaseFragment {
 
-    private HomePageListView mListView;
+    private HomePageRecyclerView mListView;
     private int mPageIndex = 1;
     private static final int PAGE_COUNT = 10;
     private int mDataCount;
-    private List<HomePageDataMode> mCardLists = new ArrayList<HomePageDataMode>();
-    private List<HomePageBannersMode> mBanners = new ArrayList<HomePageBannersMode>();
+    private List<HomePageDataModel> mCardLists = new ArrayList<HomePageDataModel>();
+    private List<HomePageBannersModel> mBanners = new ArrayList<HomePageBannersModel>();
     private UIHandler mHandler = new UIHandler();
 
     @Override
@@ -52,11 +52,11 @@ public class HomePageFragment extends BaseFragment {
     public void initialize(View view) {
         Log.e("ldx", "initialize .........");
         mLoading = (Loading) view.findViewById(R.id.home_page_loading);
-
-        mListView = (HomePageListView) view.findViewById(android.R.id.list);
+        mListView = (HomePageRecyclerView) view.findViewById(android.R.id.list);
+        mListView.setSwipeRefreshLayout(mSwipeRefreshLayout);
         mListView.setCardLists(mCardLists);
         mListView.setListener(this, this);
-
+        mListView.getRecyclerAdapter().setOnItemClickListener(this);
     }
 
     @Override
@@ -76,7 +76,7 @@ public class HomePageFragment extends BaseFragment {
         if (object instanceof NetHomePageObj) {
             NetHomePageObj obj = (NetHomePageObj) object;
             mDataCount = obj.getDataTotalCount();
-            List<HomePageDataMode> cards = obj.getModeLists();
+            List<HomePageDataModel> cards = obj.getModeLists();
             if (mCardLists != null && mCardLists.size() > 0 && mPageIndex == 1) {
                 mCardLists.clear();
                 mHandler.sendEmptyMessage(UIHandler.NOTIFY_REFRESH_FINISHED);
@@ -130,11 +130,16 @@ public class HomePageFragment extends BaseFragment {
         Log.e("ldx", "onLoadMore...........");
     }
 
-    /** list view item onclick */
+
     @Override
-    public void onTransation(int position) {
-        mListView.getPageAdapter().getItem(position - 1);
-        Intent details = new Intent(getActivity(), APPDetailsActivity.class);
-        getActivity().startActivity(details);
+    public void onItemClick(BaseObject baseObject, int position) {
+        if (baseObject instanceof HomePageDataModel) {
+            HomePageDataModel mode = (HomePageDataModel) baseObject;
+            Intent details = new Intent(getActivity(), APPDetailsActivity.class);
+            getActivity().startActivity(details);
+        } else if (baseObject instanceof HomePageBannersModel) {
+            HomePageBannersModel mode = (HomePageBannersModel) baseObject;
+        }
     }
+
 }

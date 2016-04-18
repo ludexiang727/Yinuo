@@ -11,6 +11,7 @@ import android.widget.RelativeLayout;
 
 import com.yinuo.R;
 import com.yinuo.listener.IDynamicLoadListener;
+import com.yinuo.listener.IOnItemClickListener;
 import com.yinuo.listener.ITransationSceneListener;
 import com.yinuo.net.IRequestListener;
 import com.yinuo.net.base.NetBaseObject;
@@ -20,7 +21,7 @@ import com.yinuo.ui.component.widget.Loading;
  * Created by ludexiang on 2016/4/5.
  */
 public abstract class BaseFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener, IRequestListener<NetBaseObject>
-        , IDynamicLoadListener, ITransationSceneListener {
+        , IDynamicLoadListener, ITransationSceneListener, IOnItemClickListener {
 
     protected SwipeRefreshLayout mSwipeRefreshLayout;
     protected RelativeLayout mContentParent;
@@ -63,6 +64,11 @@ public abstract class BaseFragment extends Fragment implements SwipeRefreshLayou
 
     @Override
     public void onLoadMore() {
+
+    }
+
+    @Override
+    public void onItemClick(BaseObject baseObject, int position) {
 
     }
 

@@ -75,7 +75,7 @@ public class BaseParentActivity extends AppCompatActivity
 
     private void initTabLayout() {
         String[] tab = mResources.getStringArray(R.array.main_view_pager_tab);
-        mTabLayout.setTabMode(TabLayout.MODE_FIXED);
+        mTabLayout.setTabMode(TabLayout.MODE_SCROLLABLE);
         for (int i = 0; i < tab.length; ++i) {
             mTabTitle.add(tab[i]);
             mTabLayout.addTab(mTabLayout.newTab().setText(tab[i]));

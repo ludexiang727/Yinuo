@@ -1,8 +1,6 @@
 package com.yinuo.adapter;
 
 import android.content.Context;
-import android.graphics.Bitmap;
-import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,12 +8,9 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
-import com.nostra13.universalimageloader.core.assist.FailReason;
-import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 import com.yinuo.R;
-import com.yinuo.mode.HomePageDataMode;
+import com.yinuo.mode.HomePageDataModel;
 import com.yinuo.ui.component.widget.view.HomePageTagTextView;
-import com.yinuo.utils.ImageLoaderHelper;
 import com.yinuo.utils.ResUtils;
 
 import java.util.List;
@@ -25,13 +20,14 @@ import java.util.List;
  *
  * extends NetBaseObject so far support getItemType 1 after getItemType is 2 or more
  */
-public class HomePageRecyclerViewAdapter<T extends HomePageDataMode> extends RecyclerView.Adapter<HomePageRecyclerViewAdapter.HomeViewHolder> {
+public class HomePageRecyclerViewAdapter<T extends HomePageDataModel> extends BaseRecyclerAdapter {
 
     private Context mContext;
     private LayoutInflater mInflater;
     private List<T> mBindData = null;
 
     public HomePageRecyclerViewAdapter(Context context) {
+        super();
         mContext = context;
 
         mInflater = LayoutInflater.from(mContext);
@@ -44,7 +40,7 @@ public class HomePageRecyclerViewAdapter<T extends HomePageDataMode> extends Rec
     }
 
     @Override
-    public void onBindViewHolder(HomePageRecyclerViewAdapter.HomeViewHolder holder, int position) {
+    public void onBindViewHolder(RecyclerViewHolder holder, int position) {
         bindView(holder, position);
     }
 
@@ -57,10 +53,32 @@ public class HomePageRecyclerViewAdapter<T extends HomePageDataMode> extends Rec
     public HomeViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
         View view = mInflater.inflate(R.layout.home_page_listview_sub_layout, null);
         HomeViewHolder holder = new HomeViewHolder(view);
+        view.setOnClickListener(holder);
         return holder;
     }
 
-    public final class HomeViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
+    @Override
+    public <E extends RecyclerViewHolder> void bindView(E parentHolder, int position) {
+        final HomeViewHolder holder = (HomeViewHolder) parentHolder;
+        if (mBindData != null && position < mBindData.size()) {
+            HomePageDataModel bind = mBindData.get(position);
+            loadImage(bind.getImgURL(), holder.cardImg);
+            holder.cardTitle.setText(bind.getTitle());
+            holder.cardAttention.setText(String.format(ResUtils.getString(mContext, R.string.home_page_card_details_attention), bind.getAttention()));
+            holder.cardSummary.setText(bind.getSummary());
+            holder.cardCollection.setImageResource(bind.getCollectioned() == 1 ? 0 : 0);
+            holder.cardCollection.setOnClickListener(holder);
+            List<String> tags = bind.getTags();
+            holder.cardTagsLayout.removeAllViews();
+            for (String tag : tags) {
+                HomePageTagTextView homePageTag = new HomePageTagTextView(mContext);
+                homePageTag.setText(tag, HomePageTagTextView.TagBackGroundType.BLUE);
+                holder.cardTagsLayout.addView(homePageTag);
+            }
+        }
+    }
+
+    private final class HomeViewHolder extends RecyclerViewHolder implements View.OnClickListener {
         private ImageView cardImg;
         private ImageView cardCollection;
         private TextView cardAttention;
@@ -81,47 +99,8 @@ public class HomePageRecyclerViewAdapter<T extends HomePageDataMode> extends Rec
 
         @Override
         public void onClick(View v) {
-
-        }
-    }
-
-    private void bindView(final HomeViewHolder holder, int position) {
-        if (mBindData != null && position < mBindData.size()) {
-            HomePageDataMode bind = mBindData.get(position);
-            ImageLoaderHelper.getInstance().loadImage(bind.getImgURL(), new ImageLoadingListener() {
-                @Override
-                public void onLoadingStarted(String imageUri, View view) {
-
-                }
-
-                @Override
-                public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
-
-                }
-
-                @Override
-                public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
-                    if (loadedImage != null) {
-                        holder.cardImg.setImageBitmap(loadedImage);
-                    }
-                }
-
-                @Override
-                public void onLoadingCancelled(String imageUri, View view) {
-
-                }
-            });
-            holder.cardTitle.setText(bind.getTitle());
-            holder.cardAttention.setText(String.format(ResUtils.getString(mContext, R.string.home_page_card_details_attention), bind.getAttention()));
-            holder.cardSummary.setText(bind.getSummary());
-            holder.cardCollection.setImageResource(bind.getCollectioned() == 1 ? 0 : 0);
-            holder.cardCollection.setOnClickListener(holder);
-            List<String> tags = bind.getTags();
-            holder.cardTagsLayout.removeAllViews();
-            for (String tag : tags) {
-                HomePageTagTextView homePageTag = new HomePageTagTextView(mContext);
-                homePageTag.setText(tag, HomePageTagTextView.TagBackGroundType.BLUE);
-                holder.cardTagsLayout.addView(homePageTag);
+            if (iClickListener != null && mBindData != null && getLayoutPosition() < mBindData.size()) {
+                iClickListener.onItemClick(mBindData.get(getLayoutPosition()), getLayoutPosition());
             }
         }
     }

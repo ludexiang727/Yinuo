@@ -1,7 +1,7 @@
 package com.yinuo.net.response;
 
-import com.yinuo.mode.HomePageBannersMode;
-import com.yinuo.mode.HomePageDataMode;
+import com.yinuo.mode.HomePageBannersModel;
+import com.yinuo.mode.HomePageDataModel;
 import com.yinuo.net.base.NetBaseObject;
 import com.yinuo.net.utils.NetConstant;
 import com.yinuo.net.utils.NetParseUtils;
@@ -18,14 +18,14 @@ import java.util.List;
  * Created by ludexiang on 2016/4/8.
  */
 public class NetHomePageObj extends NetBaseObject {
-    private List<HomePageDataMode> mModeLists;
+    private List<HomePageDataModel> mModeLists;
     private int mDataCount;
-    private List<HomePageBannersMode> mHomePageBanners;
+    private List<HomePageBannersModel> mHomePageBanners;
 
     @Override
     protected void parse(JSONObject obj) {
-        mModeLists = new ArrayList<HomePageDataMode>();
-        mHomePageBanners = new ArrayList<HomePageBannersMode>();
+        mModeLists = new ArrayList<HomePageDataModel>();
+        mHomePageBanners = new ArrayList<HomePageBannersModel>();
         mDataCount = NetParseUtils.getInt(NetConstant.NET_JSON_HOME_FIELD_DATA_COUNT, obj);
         JSONArray banners = NetParseUtils.getArray(NetConstant.NET_JSON_HOME_FIELD_PAGE_BANNERS, obj);
         parseBannersArray(banners);
@@ -37,11 +37,11 @@ public class NetHomePageObj extends NetBaseObject {
         return mDataCount;
     }
 
-    public List<HomePageDataMode> getModeLists() {
+    public List<HomePageDataModel> getModeLists() {
         return mModeLists;
     }
 
-    public List<HomePageBannersMode> getHomePageBanners() {
+    public List<HomePageBannersModel> getHomePageBanners() {
         return mHomePageBanners;
     }
 
@@ -49,7 +49,7 @@ public class NetHomePageObj extends NetBaseObject {
         if (array != null) {
             int len = array.length();
             for (int i = 0; i < len; ++i) {
-                HomePageDataMode mode = new HomePageDataMode();
+                HomePageDataModel mode = new HomePageDataModel();
                 try {
                     JSONObject innerObj = array.getJSONObject(i);
                     String img = NetParseUtils.getString(NetConstant.NET_JSON_HOME_CARD_IMG, innerObj);
@@ -80,7 +80,7 @@ public class NetHomePageObj extends NetBaseObject {
         if (array != null) {
             int len = array.length();
             for (int i = 0; i < len; ++i) {
-                HomePageBannersMode banners = new HomePageBannersMode();
+                HomePageBannersModel banners = new HomePageBannersModel();
                 try {
                     JSONObject obj = array.getJSONObject(i);
                     String url = NetParseUtils.getString(NetConstant.NET_JSON_HOME_BANNER_IMG_URL, obj);

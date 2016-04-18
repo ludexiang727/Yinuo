@@ -19,7 +19,7 @@ import com.nineoldandroids.animation.ObjectAnimator;
 import com.nineoldandroids.view.ViewHelper;
 import com.yinuo.R;
 import com.yinuo.base.BaseActivity;
-import com.yinuo.mode.HomeItemDetailBannerMode;
+import com.yinuo.mode.HomeItemDetailBannerModel;
 import com.yinuo.net.base.NetBaseObject;
 import com.yinuo.net.request.NetRequest;
 import com.yinuo.net.response.NetHomePageDetailsObj;
@@ -40,7 +40,7 @@ public class APPDetailsActivity extends BaseActivity implements View.OnClickList
     private int mAppID;
     private final int UPDATE_UI = 0x000;
     private FlipperViewGroup mDetailsFlipperViewGroup;
-    private List<HomeItemDetailBannerMode> mItemBanners = new ArrayList<HomeItemDetailBannerMode>();
+    private List<HomeItemDetailBannerModel> mItemBanners = new ArrayList<HomeItemDetailBannerModel>();
     private FloatingActionButton mFloatActionButton;
     private IconRoundCornerProgressBar mProgressBar;
     private Button mDownload;
@@ -231,7 +231,7 @@ public class APPDetailsActivity extends BaseActivity implements View.OnClickList
         super.onSuccess(object);
         if (object instanceof NetHomePageDetailsObj) {
             NetHomePageDetailsObj detailsObj = (NetHomePageDetailsObj) object;
-            List<HomeItemDetailBannerMode> images = detailsObj.getDetailsImgs();
+            List<HomeItemDetailBannerModel> images = detailsObj.getDetailsImgs();
             if (images != null && !images.isEmpty()){
                 mItemBanners.addAll(images);
             }

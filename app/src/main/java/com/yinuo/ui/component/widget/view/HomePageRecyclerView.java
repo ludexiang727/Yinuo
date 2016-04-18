@@ -10,8 +10,8 @@ import com.yinuo.R;
 import com.yinuo.adapter.HomePageRecyclerViewAdapter;
 import com.yinuo.listener.IDynamicLoadListener;
 import com.yinuo.listener.ITransationSceneListener;
-import com.yinuo.mode.HomePageBannersMode;
-import com.yinuo.mode.HomePageDataMode;
+import com.yinuo.mode.HomePageBannersModel;
+import com.yinuo.mode.HomePageDataModel;
 import com.yinuo.ui.component.widget.baseview.BaseRecyclerView;
 
 import java.util.List;
@@ -22,7 +22,7 @@ import java.util.List;
 public class HomePageRecyclerView extends BaseRecyclerView {
     private HomePageRecyclerViewAdapter mPageAdapter;
     private Context mContext;
-    private List<HomePageDataMode> mCardLists = null;
+    private List<HomePageDataModel> mCardLists = null;
     private FlipperViewGroup mFlipperViewGroup;
     private IDynamicLoadListener mDynamicLoadListener;
     private ITransationSceneListener mSceneListener;
@@ -49,7 +49,7 @@ public class HomePageRecyclerView extends BaseRecyclerView {
         setLayoutManager(new LinearLayoutManager(mContext));
     }
 
-    public void setCardLists(List<HomePageDataMode> cards) {
+    public void setCardLists(List<HomePageDataModel> cards) {
         if (cards != null) {
             mCardLists = cards;
         }
@@ -75,7 +75,13 @@ public class HomePageRecyclerView extends BaseRecyclerView {
 //        }
 //    }
 
-    public void setBanners(List<HomePageBannersMode> banners) {
+    public void setBanners(List<HomePageBannersModel> banners) {
         mFlipperViewGroup.setFlipperView(banners);
     }
+
+    @Override
+    public HomePageRecyclerViewAdapter getRecyclerAdapter() {
+        return mPageAdapter;
+    }
+
 }
