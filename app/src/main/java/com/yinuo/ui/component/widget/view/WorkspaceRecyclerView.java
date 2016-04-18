@@ -1,6 +1,7 @@
 package com.yinuo.ui.component.widget.view;
 
 import android.content.Context;
+import android.util.AttributeSet;
 
 import com.yinuo.adapter.WorkspaceRecyclerViewAdapter;
 import com.yinuo.adapter.base.BaseRecyclerAdapter;
@@ -13,11 +14,20 @@ public class WorkspaceRecyclerView extends BaseRecyclerView {
     private WorkspaceRecyclerViewAdapter mAdapter;
 
     public WorkspaceRecyclerView(Context context) {
-        super(context);
+        this(context, null);
+    }
+
+    public WorkspaceRecyclerView(Context context, AttributeSet attrs) {
+        this(context, attrs, 0);
+    }
+
+    public WorkspaceRecyclerView(Context context, AttributeSet attrs, int defStyle) {
+        super(context, attrs, defStyle);
+        mAdapter = new WorkspaceRecyclerViewAdapter();
     }
 
     @Override
-    protected <T extends BaseRecyclerAdapter> T getRecyclerAdapter() {
-        return null;
+    public WorkspaceRecyclerViewAdapter getRecyclerAdapter() {
+        return mAdapter;
     }
 }

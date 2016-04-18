@@ -3,4 +3,13 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <com.yinuo.ui.component.widget.view.PartnerRecyclerView
+        android:id="@+id/partner_page_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <com.yinuo.ui.component.widget.Loading
+        android:id="@+id/partner_page_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
 </merge>

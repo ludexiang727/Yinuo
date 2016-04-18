@@ -57,7 +57,7 @@ public class NetDiscoveryPageObj extends NetBaseObject {
                 JSONObject obj = array.getJSONObject(i);
                 String title = NetParseUtils.getString(NetConstant.NET_JSON_DISCOVER_LISTS_TITLE, obj);
                 int rank = NetParseUtils.getInt(NetConstant.NET_JSON_DISCOVER_LISTS_RANK, obj);
-                String property = NetParseUtils.getString(NetConstant.NET_JSON_DISCOVER_LISTS_PROPERY, obj);
+                String property = NetParseUtils.getString(NetConstant.NET_JSON_DISCOVER_LISTS_PROPERTY, obj);
                 int attention = NetParseUtils.getInt(NetConstant.NET_JSON_DISCOVER_LISTS_ATTENTION, obj);
                 String imgUrl = NetParseUtils.getString(NetConstant.NET_JSON_DISCOVER_LISTS_IMG, obj);
                 String summary = NetParseUtils.getString(NetConstant.NET_JSON_DISCOVER_LISTS_SUMMARY, obj);

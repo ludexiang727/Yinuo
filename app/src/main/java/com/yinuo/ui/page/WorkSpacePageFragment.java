@@ -6,6 +6,7 @@ import android.widget.TextView;
 import com.yinuo.R;
 import com.yinuo.base.BaseFragment;
 import com.yinuo.ui.component.widget.Loading;
+import com.yinuo.ui.component.widget.view.WorkspaceRecyclerView;
 
 /**
  * Created by ludexiang on 2016/4/18.
@@ -15,6 +16,7 @@ public class WorkSpacePageFragment extends BaseFragment implements View.OnClickL
     private TextView mWorkSpaceShop;
     private TextView mWorkSpaceArea;
     private TextView mWorkSpaceMore;
+    private WorkspaceRecyclerView mWorkspaceRecycleView;
 
     @Override
     public int pageLayoutId() {
@@ -27,10 +29,13 @@ public class WorkSpacePageFragment extends BaseFragment implements View.OnClickL
         mWorkSpaceShop = (TextView) view.findViewById(R.id.workspace_page_shop);
         mWorkSpaceArea = (TextView) view.findViewById(R.id.workspace_page_area);
         mWorkSpaceMore = (TextView) view.findViewById(R.id.workspace_page_more);
+        mWorkspaceRecycleView = (WorkspaceRecyclerView) view.findViewById(R.id.workspace_page_recycle_view);
 
         mWorkSpaceShop.setOnClickListener(this);
         mWorkSpaceArea.setOnClickListener(this);
         mWorkSpaceMore.setOnClickListener(this);
+        mWorkspaceRecycleView.setSwipeRefreshLayout(mSwipeRefreshLayout);
+
     }
 
     @Override

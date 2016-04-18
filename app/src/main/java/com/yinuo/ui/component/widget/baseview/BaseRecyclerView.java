@@ -12,7 +12,7 @@ import com.yinuo.adapter.base.BaseRecyclerAdapter;
  */
 public abstract class BaseRecyclerView extends RecyclerView {
     protected SwipeRefreshLayout mSwipeRefreshLayout;
-    protected abstract  <T extends BaseRecyclerAdapter> T getRecyclerAdapter();
+    public abstract <T extends BaseRecyclerAdapter> T getRecyclerAdapter();
 
     public BaseRecyclerView(Context context) {
         this(context, null);

@@ -11,6 +11,7 @@ public class NetConstant {
     public static final String REQUEST_URL_HOME_PAGE = "pGetHomePage";
     public static final String REQUEST_URL_HOME_PAGE_DETAILS = "pGetHomeDetails";
     public static final String REQUEST_URL_DISCOVERY_PAGE = "pGetDiscoveryPage";
+    public static final String REQUEST_URL_PARTNER_PAGE = "pGetPartnerPage";
     /***************** request interface end *********************/
 
     /*************  json parse begin field -- 接口response json field **********************/
@@ -61,10 +62,26 @@ public class NetConstant {
     public static final String NET_JSON_DISCOVER_LISTS_TITLE = "discovery_recycle_title";
     public static final String NET_JSON_DISCOVER_LISTS_IMG = "discovery_recycle_img_url";
     public static final String NET_JSON_DISCOVER_LISTS_RANK = "discovery_recycle_rank";
-    public static final String NET_JSON_DISCOVER_LISTS_PROPERY = "discovery_recycle_property";
+    public static final String NET_JSON_DISCOVER_LISTS_PROPERTY = "discovery_recycle_property";
     public static final String NET_JSON_DISCOVER_LISTS_SUMMARY = "discovery_recycle_summary";
     public static final String NET_JSON_DISCOVER_LISTS_ATTENTION = "discovery_recycle_attention";
     /** discovery page data end */
+
+    /** partner page data begin */
+    public static final String NET_REQUEST_PARTNER_PARAM_INDEX = "partner_page_index";
+    public static final String NET_REQUEST_PARTNER_PARAM_COUNT = "partner_page_count";
+    public static final String NET_REQUEST_PARTNER_PARAM_LIMIT = "partner_page_limit";
+    public static final String NET_REQUEST_PARTNER_PARAM_CONDITION = "partner_page_condition";
+
+    // json
+    public static final String NET_JSON_PARTNER_FIELD_LISTS_COUNT = "partner_count";
+    public static final String NET_JSON_PARTNER_FIELD_LISTS = "partner_lists";
+    public static final String NET_JSON_PARTNER_LISTS_ID = "partner_id";
+    public static final String NET_JSON_PARTNER_LISTS_NAME = "partner_name";
+    public static final String NET_JSON_PARTNER_LISTS_TEL = "partner_tel";
+    public static final String NET_JSON_PARTNER_LISTS_GENDER = "partner_gender";
+    public static final String NET_JSON_PARTNER_LISTS_IMG = "partner_img";
+    /** partner page data end*/
 
     /******************  json parse end field **********************/
 }

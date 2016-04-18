@@ -7,6 +7,7 @@ import com.yinuo.net.response.NetDiscoveryPageObj;
 import com.yinuo.net.response.NetHomePageDetailsObj;
 import com.yinuo.net.response.NetHomePageObj;
 import com.yinuo.net.response.NetLoginObj;
+import com.yinuo.net.response.NetPartnerPageObj;
 import com.yinuo.net.response.NetRegisterObj;
 import com.yinuo.net.utils.NetConstant;
 
@@ -76,5 +77,18 @@ public class NetRequest <T extends NetBaseObject> {
         FormEncodingBuilder build = build();
         build.add(NetConstant.NET_REQUEST_DISCOVERYPAGE_PARAM_PROPERTYID, String.valueOf(propertyId));
         OkHttpRequest.getInstance().httpPostRequest(NetConstant.REQUEST_URL_DISCOVERY_PAGE, build.build(), listener, new NetDiscoveryPageObj());
+    }
+
+    /** partner page data - 合伙人页面 数据请求
+     *  limit -- just female or male
+     *  condition -- invest or skill 0 -- skill 1 -- invest partner
+     * **/
+    public void requestPartnerPageData(int pageIndex, int pageCount, int limit, int condition, IRequestListener<T> listener) {
+        FormEncodingBuilder build = build();
+        build.add(NetConstant.NET_REQUEST_PARTNER_PARAM_INDEX, String.valueOf(pageIndex));
+        build.add(NetConstant.NET_REQUEST_PARTNER_PARAM_COUNT, String.valueOf(pageCount));
+        build.add(NetConstant.NET_REQUEST_PARTNER_PARAM_LIMIT, String.valueOf(limit));
+        build.add(NetConstant.NET_REQUEST_PARTNER_PARAM_CONDITION, String.valueOf(condition));
+        OkHttpRequest.getInstance().httpPostRequest(NetConstant.REQUEST_URL_PARTNER_PAGE, build.build(), listener, new NetPartnerPageObj());
     }
 }
