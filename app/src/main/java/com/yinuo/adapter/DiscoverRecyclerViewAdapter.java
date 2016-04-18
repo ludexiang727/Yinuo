@@ -8,6 +8,8 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.yinuo.R;
+import com.yinuo.adapter.base.BaseRecyclerAdapter;
+import com.yinuo.adapter.base.RecyclerViewHolder;
 import com.yinuo.mode.DiscoveryRecycleModel;
 
 import java.util.List;

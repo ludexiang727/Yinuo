@@ -4,7 +4,7 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 
 import com.yinuo.base.BaseParentActivity;
-import com.yinuo.ui.page.BossPageFragment;
+import com.yinuo.ui.page.BossOnlinePageFragment;
 import com.yinuo.ui.page.DiscoverPageFragment;
 import com.yinuo.ui.page.HomePageFragment;
 import com.yinuo.ui.page.InvestPageFragment;
@@ -39,7 +39,7 @@ public class MainActivity extends BaseParentActivity {
         /** workspace page - 工作间*/
         WorkSpacePageFragment workSpacePageFragment = new WorkSpacePageFragment();
         /** boss online page */
-        BossPageFragment bossPage = new BossPageFragment();
+        BossOnlinePageFragment bossPage = new BossOnlinePageFragment();
         /** find staff page -- 贤能引进 */
         StaffPageFragment staffPage = new StaffPageFragment();
         /** near by page */

@@ -3,4 +3,59 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <LinearLayout
+        android:id="@+id/workspace_page_condition_parent"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/workspace_page_condition_height"
+        android:layout_alignParentTop="true"
+        android:orientation="horizontal">
+
+        <TextView
+            android:id="@+id/workspace_page_shop"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:clickable="true"/>
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="@color/workspace_page_condition_separator"/>
+
+        <TextView
+            android:id="@+id/workspace_page_area"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:clickable="true"/>
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="match_parent"
+            android:background="@color/workspace_page_condition_separator"/>
+
+        <TextView
+            android:id="@+id/workspace_page_more"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:clickable="true"/>
+    </LinearLayout>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@id/workspace_page_condition_parent">
+        <com.yinuo.ui.component.widget.view.WorkspaceRecyclerView
+            android:id="@+id/workspace_page_recycle_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <com.yinuo.ui.component.widget.Loading
+            android:id="@+id/workspace_page_loading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </RelativeLayout>
+
+
 </merge>

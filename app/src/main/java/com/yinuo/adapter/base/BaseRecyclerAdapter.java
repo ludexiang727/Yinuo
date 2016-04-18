@@ -1,4 +1,4 @@
-package com.yinuo.adapter;
+package com.yinuo.adapter.base;
 
 import android.graphics.Bitmap;
 import android.support.v7.widget.RecyclerView;

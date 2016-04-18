@@ -9,6 +9,8 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.yinuo.R;
+import com.yinuo.adapter.base.BaseRecyclerAdapter;
+import com.yinuo.adapter.base.RecyclerViewHolder;
 import com.yinuo.mode.HomePageDataModel;
 import com.yinuo.ui.component.widget.view.HomePageTagTextView;
 import com.yinuo.utils.ResUtils;

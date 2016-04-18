@@ -51,4 +51,8 @@
     <dimen name="discovery_page_property_size">8sp</dimen>
     <dimen name="discovery_page_recycler_property_corners">1dp</dimen>
     <!-- discovery page end-->
+
+    <!-- workspace page begin -->
+    <dimen name="workspace_page_condition_height">70dp</dimen>
+    <!-- workspace page end-->
 </resources>
