@@ -2,12 +2,14 @@
     <string-array name="main_view_pager_tab">
         <item>One</item><!--首&#160;&#160;页-->
         <item>Two</item><!--发&#160;&#160;现-->
-        <item>Three</item><!--工作间-->
+        <item>Three</item><!--合伙人-->
         <item>Four</item><!--找投资-->
-        <item>Five</item><!--伯&#160;&#160;乐-->
-        <item>Six</item><!--千里马-->
-        <item>Seven</item><!--附&#160;&#160;近-->
-        <item>Eight</item><!--更&#160;&#160;多-->
+        <item>Five</item><!--小额贷款-->
+        <item>Six</item><!--工作间-->
+        <item>Seven</item><!--伯&#160;&#160;乐 boss 在线-->
+        <item>Eight</item><!--千里马 招人-->
+        <item>Nine</item><!--附&#160;&#160;近-->
+        <item>Ten</item><!--更&#160;&#160;多-->
     </string-array>
 
     <string name="home_page_card_details_attention">%1$s关注</string>

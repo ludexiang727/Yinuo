@@ -11,7 +11,7 @@ import com.yinuo.base.BaseFragment;
 public class InvestPageFragment extends BaseFragment {
     @Override
     public int pageLayoutId() {
-        return R.layout.fragment_nearby_page_layout;
+        return R.layout.fragment_invest_page_layout;
     }
 
     @Override

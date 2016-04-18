@@ -12,7 +12,7 @@ import com.yinuo.base.BaseFragment;
 public class BossPageFragment extends BaseFragment {
     @Override
     public int pageLayoutId() {
-        return R.layout.fragment_more_page_layout;
+        return R.layout.fragment_bohler_page_layout;
     }
 
     @Override

@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -68,6 +69,7 @@ public class DiscoverPageFragment extends BaseFragment {
     public void onSuccess(NetBaseObject object) {
         super.onSuccess(object);
         if (object instanceof NetDiscoveryPageObj) {
+        Log.e("ldx", "request success.....");
             NetDiscoveryPageObj discovery = (NetDiscoveryPageObj) object;
             List<DiscoveryRecycleModel> models = discovery.getDiscoveryLists();
             if (models != null) {

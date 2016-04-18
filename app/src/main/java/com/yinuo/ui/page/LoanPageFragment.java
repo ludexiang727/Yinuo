@@ -8,11 +8,11 @@ import com.yinuo.base.BaseFragment;
 /**
  * Created by ludexiang on 2016/4/18.
  */
-public class StaffPageFragment extends BaseFragment {
+public class LoanPageFragment extends BaseFragment {
 
     @Override
     public int pageLayoutId() {
-        return R.layout.fragment_staff_page_layout;
+        return R.layout.fragment_loan_page_layout;
     }
 
     @Override

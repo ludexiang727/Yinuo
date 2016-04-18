@@ -8,8 +8,10 @@ import com.yinuo.ui.page.BossPageFragment;
 import com.yinuo.ui.page.DiscoverPageFragment;
 import com.yinuo.ui.page.HomePageFragment;
 import com.yinuo.ui.page.InvestPageFragment;
+import com.yinuo.ui.page.LoanPageFragment;
 import com.yinuo.ui.page.MorePageFragment;
 import com.yinuo.ui.page.NearbyPageFragment;
+import com.yinuo.ui.page.PartnerPageFragment;
 import com.yinuo.ui.page.StaffPageFragment;
 import com.yinuo.ui.page.WorkSpacePageFragment;
 
@@ -24,20 +26,34 @@ public class MainActivity extends BaseParentActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
+        /** home page */
         HomePageFragment homePage = new HomePageFragment();
+        /** discovery page -- 发现 */
         DiscoverPageFragment discoverPage = new DiscoverPageFragment();
-        WorkSpacePageFragment workSpacePageFragment = new WorkSpacePageFragment();
+        /** partner page -- 合伙人 */
+        PartnerPageFragment partnerPage = new PartnerPageFragment();
+        /** find invest page -- 找融资 */
         InvestPageFragment investPageFragment = new InvestPageFragment();
+        /** small loan page -- 小额贷款*/
+        LoanPageFragment loanPage = new LoanPageFragment();
+        /** workspace page - 工作间*/
+        WorkSpacePageFragment workSpacePageFragment = new WorkSpacePageFragment();
+        /** boss online page */
         BossPageFragment bossPage = new BossPageFragment();
+        /** find staff page -- 贤能引进 */
         StaffPageFragment staffPage = new StaffPageFragment();
+        /** near by page */
         NearbyPageFragment nearbyPage = new NearbyPageFragment();
+        /** more page */
         MorePageFragment morePage = new MorePageFragment();
 
 
         mPages.add(homePage);
         mPages.add(discoverPage);
-        mPages.add(workSpacePageFragment);
+        mPages.add(partnerPage);
         mPages.add(investPageFragment);
+        mPages.add(loanPage);
+        mPages.add(workSpacePageFragment);
         mPages.add(bossPage);
         mPages.add(staffPage);
         mPages.add(nearbyPage);

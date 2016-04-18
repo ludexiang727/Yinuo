@@ -12,7 +12,7 @@ public class WorkSpacePageFragment extends BaseFragment {
 
     @Override
     public int pageLayoutId() {
-        return R.layout.fragment_nearby_page_layout;
+        return R.layout.fragment_workspace_page_layout;
     }
 
     @Override
