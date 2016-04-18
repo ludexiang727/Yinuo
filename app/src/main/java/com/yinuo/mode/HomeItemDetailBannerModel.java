@@ -5,5 +5,5 @@ import com.yinuo.base.BaseObject;
 /**
  * Created by ludexiang on 2016/4/12.
  */
-public class HomeItemDetailBannerMode extends BaseObject {
+public class HomeItemDetailBannerModel extends BaseObject {
 }

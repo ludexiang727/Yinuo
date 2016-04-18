@@ -2,10 +2,10 @@ package com.yinuo.adapter;
 
 import android.content.Context;
 import android.graphics.Bitmap;
+import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.BaseAdapter;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -18,7 +18,6 @@ import com.yinuo.ui.component.widget.view.HomePageTagTextView;
 import com.yinuo.utils.ImageLoaderHelper;
 import com.yinuo.utils.ResUtils;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**
@@ -26,13 +25,13 @@ import java.util.List;
  *
  * extends NetBaseObject so far support getItemType 1 after getItemType is 2 or more
  */
-public class HomePageListViewAdapter <T extends HomePageDataMode> extends BaseAdapter {
+public class HomePageRecyclerViewAdapter<T extends HomePageDataMode> extends RecyclerView.Adapter<HomePageRecyclerViewAdapter.HomeViewHolder> {
 
     private Context mContext;
     private LayoutInflater mInflater;
     private List<T> mBindData = null;
 
-    public HomePageListViewAdapter (Context context) {
+    public HomePageRecyclerViewAdapter(Context context) {
         mContext = context;
 
         mInflater = LayoutInflater.from(mContext);
@@ -45,44 +44,23 @@ public class HomePageListViewAdapter <T extends HomePageDataMode> extends BaseAd
     }
 
     @Override
-    public int getCount() {
+    public void onBindViewHolder(HomePageRecyclerViewAdapter.HomeViewHolder holder, int position) {
+        bindView(holder, position);
+    }
+
+    @Override
+    public int getItemCount() {
         return mBindData != null ? mBindData.size() : 0;
     }
 
     @Override
-    public Object getItem(int position) {
-        return mBindData != null && mBindData.size() > 0 ? mBindData.get(position) : null;
+    public HomeViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        View view = mInflater.inflate(R.layout.home_page_listview_sub_layout, null);
+        HomeViewHolder holder = new HomeViewHolder(view);
+        return holder;
     }
 
-    @Override
-    public long getItemId(int position) {
-        return position;
-    }
-
-    @Override
-    public View getView(int position, View convertView, ViewGroup parent) {
-        ViewHolder holder;
-        if (convertView == null) {
-            holder = new ViewHolder();
-            convertView = mInflater.inflate(R.layout.home_page_listview_sub_layout, parent, false);
-
-            holder.cardImg = (ImageView) convertView.findViewById(R.id.home_page_card_img);
-            holder.cardCollection = (ImageView) convertView.findViewById(R.id.home_page_card_detail_option_collection);
-            holder.cardAttention = (TextView) convertView.findViewById(R.id.home_page_card_detail_option_attention);
-            holder.cardTitle = (TextView) convertView.findViewById(R.id.home_page_card_detail_title);
-            holder.cardTagsLayout = (LinearLayout) convertView.findViewById(R.id.home_page_card_detail_tags_layout);
-            holder.cardSummary = (TextView) convertView.findViewById(R.id.home_page_card_detail_summary);
-
-            convertView.setTag(holder);
-        } else {
-            holder = (ViewHolder) convertView.getTag();
-        }
-
-        bindView(holder, position);
-        return convertView;
-    }
-
-    private final class ViewHolder implements View.OnClickListener {
+    public final class HomeViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
         private ImageView cardImg;
         private ImageView cardCollection;
         private TextView cardAttention;
@@ -90,13 +68,24 @@ public class HomePageListViewAdapter <T extends HomePageDataMode> extends BaseAd
         private LinearLayout cardTagsLayout;
         private TextView cardSummary;
 
+        public HomeViewHolder(View view) {
+            super(view);
+
+            cardImg = (ImageView) view.findViewById(R.id.home_page_card_img);
+            cardCollection = (ImageView) view.findViewById(R.id.home_page_card_detail_option_collection);
+            cardAttention = (TextView) view.findViewById(R.id.home_page_card_detail_option_attention);
+            cardTitle = (TextView) view.findViewById(R.id.home_page_card_detail_title);
+            cardTagsLayout = (LinearLayout) view.findViewById(R.id.home_page_card_detail_tags_layout);
+            cardSummary = (TextView) view.findViewById(R.id.home_page_card_detail_summary);
+        }
+
         @Override
         public void onClick(View v) {
 
         }
     }
 
-    private void bindView(final ViewHolder holder, int position) {
+    private void bindView(final HomeViewHolder holder, int position) {
         if (mBindData != null && position < mBindData.size()) {
             HomePageDataMode bind = mBindData.get(position);
             ImageLoaderHelper.getInstance().loadImage(bind.getImgURL(), new ImageLoadingListener() {

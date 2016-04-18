@@ -1,51 +1,52 @@
 package com.yinuo.ui.component.widget.view;
 
 import android.content.Context;
+import android.support.v4.widget.SwipeRefreshLayout;
+import android.support.v7.widget.LinearLayoutManager;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.View;
-import android.widget.AbsListView;
-import android.widget.AdapterView;
-import android.widget.ListView;
 
 import com.yinuo.R;
-import com.yinuo.adapter.HomePageListViewAdapter;
+import com.yinuo.adapter.HomePageRecyclerViewAdapter;
 import com.yinuo.listener.IDynamicLoadListener;
 import com.yinuo.listener.ITransationSceneListener;
 import com.yinuo.mode.HomePageBannersMode;
 import com.yinuo.mode.HomePageDataMode;
+import com.yinuo.ui.component.widget.baseview.BaseRecyclerView;
 
 import java.util.List;
 
 /**
  * Created by ludexiang on 2016/4/5.
  */
-public class HomePageListView extends ListView implements AdapterView.OnItemClickListener, AbsListView.OnScrollListener {
-    private HomePageListViewAdapter mPageAdapter;
+public class HomePageRecyclerView extends BaseRecyclerView {
+    private HomePageRecyclerViewAdapter mPageAdapter;
     private Context mContext;
     private List<HomePageDataMode> mCardLists = null;
     private FlipperViewGroup mFlipperViewGroup;
     private IDynamicLoadListener mDynamicLoadListener;
     private ITransationSceneListener mSceneListener;
+    private SwipeRefreshLayout mSwipeRefreshLayout;
 
-    public HomePageListView(Context context) {
+    public HomePageRecyclerView(Context context) {
         this(context, null);
     }
 
-    public HomePageListView(Context context, AttributeSet attrs) {
+    public HomePageRecyclerView(Context context, AttributeSet attrs) {
         this(context, attrs, 0);
     }
 
-    public HomePageListView(Context context, AttributeSet attrs, int defStyleAttr) {
+    public HomePageRecyclerView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
 
         mContext = context;
-        mPageAdapter = new HomePageListViewAdapter(mContext);
+        mPageAdapter = new HomePageRecyclerViewAdapter(mContext);
         View headerView = View.inflate(mContext, R.layout.home_page_listview_headerview_layout, null);
         mFlipperViewGroup = (FlipperViewGroup) headerView.findViewById(R.id.home_page_listview_viewgroup);
-        addHeaderView(headerView);
-        setOnItemClickListener(this);
-        setOnScrollListener(this);
+//        addHeaderView(headerView);
+//        setOnItemClickListener(this);
+//        setOnScrollListener(this);
+        setLayoutManager(new LinearLayoutManager(mContext));
     }
 
     public void setCardLists(List<HomePageDataMode> cards) {
@@ -57,7 +58,7 @@ public class HomePageListView extends ListView implements AdapterView.OnItemClic
         setAdapter(mPageAdapter);
     }
 
-    public HomePageListViewAdapter getPageAdapter() {
+    public HomePageRecyclerViewAdapter getPageAdapter() {
         return mPageAdapter;
     }
 
@@ -66,29 +67,15 @@ public class HomePageListView extends ListView implements AdapterView.OnItemClic
         mSceneListener = sceneListener;
     }
 
-    @Override
-    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-        Log.e("ldx", "position ..........." + position);
-        if (mSceneListener != null) {
-            mSceneListener.onTransation(position);
-        }
-    }
-
-    @Override
-    public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
-        if (firstVisibleItem != 0 && firstVisibleItem + visibleItemCount == totalItemCount && mDynamicLoadListener != null) {
-            mDynamicLoadListener.onLoadMore();
-        }
-    }
-
-    @Override
-    public void onScrollStateChanged(AbsListView view, int scrollState) {
-
-    }
+//    @Override
+//    public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+//        Log.e("ldx", "position ..........." + position);
+//        if (mSceneListener != null) {
+//            mSceneListener.onTransation(position);
+//        }
+//    }
 
     public void setBanners(List<HomePageBannersMode> banners) {
         mFlipperViewGroup.setFlipperView(banners);
     }
-
-
 }
