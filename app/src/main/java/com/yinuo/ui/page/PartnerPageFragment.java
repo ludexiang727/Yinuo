@@ -1,6 +1,5 @@
 package com.yinuo.ui.page;
 
-import android.graphics.Color;
 import android.os.Handler;
 import android.os.Message;
 import android.view.View;

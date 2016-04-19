@@ -6,6 +6,7 @@ import com.yinuo.net.base.NetBaseObject;
 import com.yinuo.net.response.NetDiscoveryPageObj;
 import com.yinuo.net.response.NetHomePageDetailsObj;
 import com.yinuo.net.response.NetHomePageObj;
+import com.yinuo.net.response.NetLoanPageObj;
 import com.yinuo.net.response.NetLoginObj;
 import com.yinuo.net.response.NetPartnerPageObj;
 import com.yinuo.net.response.NetRegisterObj;
@@ -90,5 +91,13 @@ public class NetRequest <T extends NetBaseObject> {
         build.add(NetConstant.NET_REQUEST_PARTNER_PARAM_LIMIT, String.valueOf(limit));
         build.add(NetConstant.NET_REQUEST_PARTNER_PARAM_CONDITION, String.valueOf(condition));
         OkHttpRequest.getInstance().httpPostRequest(NetConstant.REQUEST_URL_PARTNER_PAGE, build.build(), listener, new NetPartnerPageObj());
+    }
+
+    /** loan page data -- 小额贷款页面 */
+    public void requestLoanPageData(int optionId, int optionLocation, IRequestListener<T> listener) {
+        FormEncodingBuilder build = build();
+        build.add(NetConstant.NET_REQUEST_LOAN_PARAM_OPTION_ID, String.valueOf(optionId));
+        build.add(NetConstant.NET_REQUEST_LOAN_PARAM_OPTION_LOCATION, String.valueOf(optionLocation));
+        OkHttpRequest.getInstance().httpPostRequest(NetConstant.REQUEST_URL_LOAN_PAGE, build.build(), listener, new NetLoanPageObj());
     }
 }

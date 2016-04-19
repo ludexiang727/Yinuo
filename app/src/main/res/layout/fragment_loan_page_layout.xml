@@ -3,4 +3,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <android.support.v4.widget.NestedScrollView
+        android:id="@+id/loan_page_scroll_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.yinuo.ui.component.widget.view.LoanGridView
+            android:id="@+id/loan_page_grid_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:numColumns="3"
+            android:stretchMode="columnWidth"/>
+
+    </android.support.v4.widget.NestedScrollView>
+
+    <com.yinuo.ui.component.widget.Loading
+        android:id="@+id/loan_page_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
 </merge>

@@ -12,6 +12,7 @@ public class NetConstant {
     public static final String REQUEST_URL_HOME_PAGE_DETAILS = "pGetHomeDetails";
     public static final String REQUEST_URL_DISCOVERY_PAGE = "pGetDiscoveryPage";
     public static final String REQUEST_URL_PARTNER_PAGE = "pGetPartnerPage";
+    public static final String REQUEST_URL_LOAN_PAGE = "pGetLoanPage";
     /***************** request interface end *********************/
 
     /*************  json parse begin field -- 接口response json field **********************/
@@ -82,6 +83,19 @@ public class NetConstant {
     public static final String NET_JSON_PARTNER_LISTS_GENDER = "partner_gender";
     public static final String NET_JSON_PARTNER_LISTS_IMG = "partner_img";
     /** partner page data end*/
+
+    /** loan page data begin */
+    public static final String NET_REQUEST_LOAN_PARAM_OPTION_ID = "loan_option_id";
+    public static final String NET_REQUEST_LOAN_PARAM_OPTION_LOCATION = "loan_option_location";
+
+    // json
+    public static final String NET_JSON_LOAN_FIELD_OPTIONS_LISTS = "loan_options_list";
+    public static final String NET_JSON_LOAN_OPTOINS_ID = "loan_option_id";
+    public static final String NET_JSON_LOAN_OPTOINS_IMG = "loan_option_img";
+    public static final String NET_JSON_LOAN_OPTOINS_TXT = "loan_option_txt";
+    public static final String NET_JSON_LOAN_OPTOINS_HOT = "loan_option_hot";
+    public static final String NET_JSON_LOAN_OPTOINS_LOCATION = "loan_option_location";
+    /** loan page data end */
 
     /******************  json parse end field **********************/
 }
