@@ -29,25 +29,27 @@ public class NetPartnerPageObj extends NetBaseObject {
     }
 
     private void parseArray(JSONArray array) {
-        int length = array.length();
-        for (int i = 0; i < length; ++i) {
-            try {
-                JSONObject obj = array.getJSONObject(i);
-                int id = NetParseUtils.getInt(NetConstant.NET_JSON_PARTNER_LISTS_ID, obj);
-                String name = NetParseUtils.getString(NetConstant.NET_JSON_PARTNER_LISTS_NAME, obj);
-                String tel = NetParseUtils.getString(NetConstant.NET_JSON_PARTNER_LISTS_TEL, obj);
-                String imgurl = NetParseUtils.getString(NetConstant.NET_JSON_PARTNER_LISTS_IMG, obj);
-                int gender = NetParseUtils.getInt(NetConstant.NET_JSON_PARTNER_LISTS_GENDER, obj);
+        if (array != null) {
+            int length = array.length();
+            for (int i = 0; i < length; ++i) {
+                try {
+                    JSONObject obj = array.getJSONObject(i);
+                    int id = NetParseUtils.getInt(NetConstant.NET_JSON_PARTNER_LISTS_ID, obj);
+                    String name = NetParseUtils.getString(NetConstant.NET_JSON_PARTNER_LISTS_NAME, obj);
+                    String tel = NetParseUtils.getString(NetConstant.NET_JSON_PARTNER_LISTS_TEL, obj);
+                    String imgurl = NetParseUtils.getString(NetConstant.NET_JSON_PARTNER_LISTS_IMG, obj);
+                    int gender = NetParseUtils.getInt(NetConstant.NET_JSON_PARTNER_LISTS_GENDER, obj);
 
-                PartnerRecyclerModel model = new PartnerRecyclerModel();
-                model.setId(id);
-                model.setGender(gender);
-                model.setPartnerName(name);
-                model.setBannerOrImgURL(imgurl);
-                model.setPartnerTel(tel);
-                mModels.add(model);
-            } catch (JSONException e) {
-                e.printStackTrace();
+                    PartnerRecyclerModel model = new PartnerRecyclerModel();
+                    model.setId(id);
+                    model.setGender(gender);
+                    model.setPartnerName(name);
+                    model.setBannerOrImgURL(imgurl);
+                    model.setPartnerTel(tel);
+                    mModels.add(model);
+                } catch (JSONException e) {
+                    e.printStackTrace();
+                }
             }
         }
     }

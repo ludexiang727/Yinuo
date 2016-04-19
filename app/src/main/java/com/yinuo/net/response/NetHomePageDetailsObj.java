@@ -5,6 +5,7 @@ import com.yinuo.net.base.NetBaseObject;
 import com.yinuo.net.utils.NetConstant;
 import com.yinuo.net.utils.NetParseUtils;
 import com.yinuo.utils.AppUtils;
+import com.yinuo.utils.StringUtils;
 
 import org.json.JSONObject;
 
@@ -22,7 +23,7 @@ public class NetHomePageDetailsObj extends NetBaseObject {
     protected void parse(JSONObject obj) {
         mAppDetailsImgs = new ArrayList<HomeItemDetailBannerModel>();
         String images = NetParseUtils.getString(NetConstant.NET_JSON_APP_DETAILS_IMGS, obj);
-        String[] imgArray = AppUtils.split(images, ",");
+        String[] imgArray = StringUtils.split(images, ",");
         for (String img : imgArray) {
             HomeItemDetailBannerModel mode = new HomeItemDetailBannerModel();
             mode.setBannerOrImgURL(img);

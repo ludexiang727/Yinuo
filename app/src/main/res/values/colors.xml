@@ -22,8 +22,16 @@
     <color name="discovery_page_property_bg">#CCFFFFFF</color>
     <!-- discovery page end-->
 
+    <!-- partner page begin -->
+    <color name="partner_page_condition_bg">#EFFFFFFF</color>
+    <color name="partner_info_parent_bg">#CCFFFFFF</color>
+    <color name="partner_page_condition_separator">#CCEBEBEB</color>
+    <color name="partner_page_condition_select_color">#FF4081</color>
+    <color name="partner_page_condition_normal_color">#CC909090</color>
+    <!-- partner page end-->
 
     <!-- workspace page begin -->
     <color name="workspace_page_condition_separator">#CCEBEBEB</color>
+
     <!-- workspace page end-->
 </resources>

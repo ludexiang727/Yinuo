@@ -31,8 +31,7 @@ public class PartnerRecyclerView <E extends PartnerRecyclerModel> extends BaseRe
         super(context, attrs, defStyle);
 
         mAdapter = new PartnerRecyclerViewAdapter(context);
-
-        setLayoutManager(new GridLayoutManager(context, 2));
+        setLayoutManager(new GridLayoutManager(context, 3));
     }
 
     public void bindDatas(List<E> datas) {

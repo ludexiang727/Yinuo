@@ -8,7 +8,7 @@ import android.widget.ImageView;
 import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 import com.yinuo.listener.IOnItemClickListener;
-import com.yinuo.utils.ImageLoaderHelper;
+import com.yinuo.helper.ImageLoaderHelper;
 
 /**
  * Created by ludexiang on 2016/4/18.

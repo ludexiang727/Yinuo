@@ -1,15 +1,69 @@
 <merge
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.yinuo.ui.component.widget.view.PartnerRecyclerView
-        android:id="@+id/partner_page_recycler_view"
+    <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="match_parent">
 
-    <com.yinuo.ui.component.widget.Loading
-        android:id="@+id/partner_page_loading"
+        <com.yinuo.ui.component.widget.view.PartnerRecyclerView
+            android:id="@+id/partner_page_recycler_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+        <com.yinuo.ui.component.widget.Loading
+            android:id="@+id/partner_page_loading"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+    </RelativeLayout>
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <LinearLayout
+            android:id="@+id/partner_page_condition_layout"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/partner_page_condition_height"
+            android:orientation="horizontal"
+            android:background="@color/partner_page_condition_bg"
+            android:layout_alignParentTop="true">
+
+            <com.yinuo.ui.component.widget.view.PartnerConditionView
+                android:id="@+id/partner_page_condition_skill"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/partner_page_condition_skill"
+                android:clickable="true"
+                android:gravity="center"
+                app:selected="true"
+                app:selected_color="@color/partner_page_condition_select_color"/>
+
+            <View
+                android:layout_width="1px"
+                android:layout_height="match_parent"
+                android:background="@color/partner_page_condition_separator"/>
+
+            <com.yinuo.ui.component.widget.view.PartnerConditionView
+                android:id="@+id/partner_page_condition_invest"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="@string/partner_page_condition_invest"
+                android:clickable="true"
+                android:gravity="center"
+                app:selected="false"
+                app:selected_color="@color/partner_page_condition_normal_color"/>
+        </LinearLayout>
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/partner_page_condition_separator"/>
+    </LinearLayout>
+
 </merge>

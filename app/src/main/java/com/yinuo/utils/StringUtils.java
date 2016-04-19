@@ -12,4 +12,12 @@ public class StringUtils {
         }
         return false;
     }
+
+    public static String[] split(String banners, String split) {
+        if (StringUtils.isEmpty(banners)) {
+            return new String[0];
+        }
+
+        return banners.split(split);
+    }
 }

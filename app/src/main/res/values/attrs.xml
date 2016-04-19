@@ -34,4 +34,8 @@
             <enum name="bottom" value="3"/>
         </attr>
     </declare-styleable>
+    <declare-styleable name="PartnerCondition">
+        <attr name="selected" format="boolean"/>
+        <attr name="selected_color" format="color"/>
+    </declare-styleable>
 </resources>

@@ -27,14 +27,6 @@ public class AppUtils {
         return screen;
     }
 
-    public static String[] split(String banners, String split) {
-        if (StringUtils.isEmpty(banners)) {
-            return new String[0];
-        }
-
-        return banners.split(split);
-    }
-
     /** include status bar */
     public static int[] viewOnLocationInWindow(View view) {
         int[] location = new int[2];
@@ -46,5 +38,12 @@ public class AppUtils {
         int[] location = new int[2];
         view.getLocationOnScreen(location);
         return location;
+    }
+
+    public static float obtainDensity(Context context) {
+        DisplayMetrics metrics = new DisplayMetrics();
+        WindowManager wm = (WindowManager) context.getSystemService(Context.WINDOW_SERVICE);
+        wm.getDefaultDisplay().getMetrics(metrics);
+        return metrics.density;
     }
 }

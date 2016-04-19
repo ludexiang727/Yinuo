@@ -41,6 +41,7 @@
     <!-- home page end -->
 
     <!-- discovery page begin -->
+    <dimen name="discover_navigation_parent_height">40dp</dimen>
     <dimen name="discovery_page_property_margin">5dp</dimen>
     <dimen name="discoverY_page_margin">5dp</dimen>
     <dimen name="discovery_page_title_size">14sp</dimen>
@@ -52,8 +53,14 @@
     <dimen name="discovery_page_recycler_property_corners">1dp</dimen>
     <!-- discovery page end-->
 
+    <!-- partner page begin -->
+    <dimen name="partner_page_condition_height">40dp</dimen>
+    <dimen name="partner_page_img_wh">180dp</dimen>
+    <dimen name="partner_page_info_height">45dp</dimen>
+    <dimen name="partner_page_info_margin">2dp</dimen>
+    <!-- partner page end-->
+
     <!-- workspace page begin -->
     <dimen name="workspace_page_condition_height">70dp</dimen>
-    <dimen name="partner_page_img_wh">180dp</dimen>
     <!-- workspace page end-->
 </resources>

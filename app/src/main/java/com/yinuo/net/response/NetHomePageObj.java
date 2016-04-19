@@ -6,6 +6,7 @@ import com.yinuo.net.base.NetBaseObject;
 import com.yinuo.net.utils.NetConstant;
 import com.yinuo.net.utils.NetParseUtils;
 import com.yinuo.utils.AppUtils;
+import com.yinuo.utils.StringUtils;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -64,7 +65,7 @@ public class NetHomePageObj extends NetBaseObject {
                     mode.setSummary(summary);
                     mode.setTitle(title);
                     List<String> cardTags = new ArrayList<String>();
-                    for(String tag : AppUtils.split(tags, ",")) {
+                    for(String tag : StringUtils.split(tags, ",")) {
                         cardTags.add(tag);
                     }
                     mode.setTags(cardTags);

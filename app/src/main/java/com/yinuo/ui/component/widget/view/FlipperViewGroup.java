@@ -19,7 +19,7 @@ import android.widget.Scroller;
 import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 import com.yinuo.base.BaseObject;
-import com.yinuo.utils.ImageLoaderHelper;
+import com.yinuo.helper.ImageLoaderHelper;
 
 public class FlipperViewGroup extends ViewGroup implements Runnable {
 	/** viewgroup measure width & height */

@@ -5,6 +5,7 @@ import com.yinuo.net.base.NetBaseObject;
 import com.yinuo.net.utils.NetConstant;
 import com.yinuo.net.utils.NetParseUtils;
 import com.yinuo.utils.AppUtils;
+import com.yinuo.utils.StringUtils;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -28,7 +29,7 @@ public class NetDiscoveryPageObj extends NetBaseObject {
         if (navObj != null) {
             mDiscoveryNavDefault = NetParseUtils.getInt(NetConstant.NET_JSON_DISCOVER_NAVIGATION_DEFAULT, navObj);
             String scroll = NetParseUtils.getString(NetConstant.NET_JSON_DISCOVER_NAVIGATION_SCROLL_BAR, navObj);
-            mDiscoveryNavigation = AppUtils.split(scroll, ",");
+            mDiscoveryNavigation = StringUtils.split(scroll, ",");
         }
         JSONArray array = NetParseUtils.getArray(NetConstant.NET_JSON_DISCOVER_FIELD_RECYCLE_LISTS, obj);
         parseArray(array);
