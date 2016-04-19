@@ -1,5 +1,6 @@
 <merge
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -13,7 +14,9 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:numColumns="3"
-            android:stretchMode="columnWidth"/>
+            android:stretchMode="columnWidth"
+            app:separator_width="1px"
+            app:separator_color="@color/loan_page_separator_color"/>
 
     </android.support.v4.widget.NestedScrollView>
 

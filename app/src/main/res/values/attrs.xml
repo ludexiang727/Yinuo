@@ -34,8 +34,14 @@
             <enum name="bottom" value="3"/>
         </attr>
     </declare-styleable>
+
     <declare-styleable name="PartnerCondition">
         <attr name="selected" format="boolean"/>
         <attr name="selected_color" format="color"/>
+    </declare-styleable>
+
+    <declare-styleable name="LoanGridView">
+        <attr name="separator_width" format="dimension"/>
+        <attr name="separator_color" format="color"/>
     </declare-styleable>
 </resources>

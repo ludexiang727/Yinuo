@@ -30,7 +30,6 @@ public abstract class SuperAdapter <T extends SuperViewHolder> extends BaseAdapt
 
     @Override
     public View getView(int position, View convertView, ViewGroup parent) {
-        Log.e("ldx", "fuck ...positoin " + position);
         SuperViewHolder holder;
         if (convertView == null) {
             holder = getViewHolder();

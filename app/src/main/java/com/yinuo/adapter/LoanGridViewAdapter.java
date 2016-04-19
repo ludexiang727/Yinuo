@@ -35,7 +35,6 @@ public class LoanGridViewAdapter extends SuperAdapter {
 
     @Override
     public int getCount() {
-        Log.e("ldx", "getCount ... " + mItems.size());
         return null == mItems ? 0 : mItems.size();
     }
 

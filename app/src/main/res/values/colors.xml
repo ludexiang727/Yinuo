@@ -30,6 +30,10 @@
     <color name="partner_page_condition_normal_color">#CC909090</color>
     <!-- partner page end-->
 
+    <!-- loan page begin -->
+    <color name="loan_page_separator_color">#999999</color>
+    <!-- loan page end -->
+
     <!-- workspace page begin -->
     <color name="workspace_page_condition_separator">#CCEBEBEB</color>
 

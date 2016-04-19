@@ -60,6 +60,10 @@
     <dimen name="partner_page_info_margin">2dp</dimen>
     <!-- partner page end-->
 
+    <!-- loan page begin -->
+    <dimen name="loan_item_view_height">120dp</dimen>
+    <!-- loan page end-->
+
     <!-- workspace page begin -->
     <dimen name="workspace_page_condition_height">70dp</dimen>
     <!-- workspace page end-->
