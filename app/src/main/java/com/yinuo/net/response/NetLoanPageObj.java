@@ -32,11 +32,11 @@ public class NetLoanPageObj extends NetBaseObject {
             for (int i = 0; i < length; ++i) {
                 try {
                     JSONObject obj = array.getJSONObject(i);
-                    int itemId = NetParseUtils.getInt(NetConstant.NET_JSON_LOAN_OPTOINS_ID, obj);
-                    String itemImg = NetParseUtils.getString(NetConstant.NET_JSON_LOAN_OPTOINS_IMG, obj);
-                    String itemTxt = NetParseUtils.getString(NetConstant.NET_JSON_LOAN_OPTOINS_TXT, obj);
-                    String itemHot = NetParseUtils.getString(NetConstant.NET_JSON_LOAN_OPTOINS_HOT, obj);
-                    String itemLocation = NetParseUtils.getString(NetConstant.NET_JSON_LOAN_OPTOINS_LOCATION, obj);
+                    int itemId = NetParseUtils.getInt(NetConstant.NET_JSON_LOAN_OPTIONS_ID, obj);
+                    String itemImg = NetParseUtils.getString(NetConstant.NET_JSON_LOAN_OPTIONS_IMG, obj);
+                    String itemTxt = NetParseUtils.getString(NetConstant.NET_JSON_LOAN_OPTIONS_TXT, obj);
+                    String itemHot = NetParseUtils.getString(NetConstant.NET_JSON_LOAN_OPTIONS_HOT, obj);
+                    String itemLocation = NetParseUtils.getString(NetConstant.NET_JSON_LOAN_OPTIONS_LOCATION, obj);
 
                     LoanGridViewModel model = new LoanGridViewModel();
                     model.setItemId(itemId);

@@ -37,6 +37,7 @@ public class LoanPageFragment extends BaseFragment {
         mLoading = (Loading) view.findViewById(R.id.loan_page_loading);
         mGridView = (LoanGridView) view.findViewById(R.id.loan_page_grid_view);
         mGridView.setOptions(mLoanOptions);
+        mSwipeRefreshLayout.setEnabled(false);
     }
 
     @Override

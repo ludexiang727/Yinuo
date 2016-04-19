@@ -4,16 +4,23 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <LinearLayout
+        android:id="@+id/loan_page_primary_tools_layout"
+        android:layout_width="match_parent"
+        android:layout_height="130dp"
+        android:orientation="horizontal"/>
+
     <android.support.v4.widget.NestedScrollView
         android:id="@+id/loan_page_scroll_view"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_below="@id/loan_page_primary_tools_layout">
 
         <com.yinuo.ui.component.widget.view.LoanGridView
             android:id="@+id/loan_page_grid_view"
             android:layout_width="match_parent"
             android:layout_height="match_parent"
-            android:numColumns="3"
+            android:numColumns="4"
             android:stretchMode="columnWidth"
             app:separator_width="1px"
             app:separator_color="@color/loan_page_separator_color"/>

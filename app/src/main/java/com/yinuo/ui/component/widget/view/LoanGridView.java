@@ -5,6 +5,7 @@ import android.content.res.TypedArray;
 import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
+import android.view.View;
 import android.widget.GridView;
 
 import com.yinuo.R;
@@ -67,5 +68,25 @@ public class LoanGridView extends GridView {
     @Override
     protected void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
+        View childView = getChildAt(0);
+        int column = getWidth() / childView.getWidth();
+        int childCount = getChildCount();
+        for (int i = 0; i < childCount; i++) {
+            View cellView = getChildAt(i);
+            if ((i + 1) % column == 0) {
+                canvas.drawLine(cellView.getLeft(), cellView.getBottom(), cellView.getRight(), cellView.getBottom(), mPaint);
+            } else if ((i + 1) > (childCount - (childCount % column))) {
+                canvas.drawLine(cellView.getRight(), cellView.getTop(), cellView.getRight(), cellView.getBottom(), mPaint);
+            } else {
+                canvas.drawLine(cellView.getRight(), cellView.getTop(), cellView.getRight(), cellView.getBottom(), mPaint);
+                canvas.drawLine(cellView.getLeft(), cellView.getBottom(), cellView.getRight(), cellView.getBottom(), mPaint);
+            }
+        }
+        if (childCount % column != 0) {
+            for (int j = 0; j < (column - childCount % column); j++) {
+                View lastView = getChildAt(childCount - 1);
+                canvas.drawLine(lastView.getRight() + lastView.getWidth() * j, lastView.getTop(), lastView.getRight() + lastView.getWidth() * j, lastView.getBottom(), mPaint);
+            }
+        }
     }
 }

@@ -90,11 +90,11 @@ public class NetConstant {
 
     // json
     public static final String NET_JSON_LOAN_FIELD_OPTIONS_LISTS = "loan_options_list";
-    public static final String NET_JSON_LOAN_OPTOINS_ID = "loan_option_id";
-    public static final String NET_JSON_LOAN_OPTOINS_IMG = "loan_option_img";
-    public static final String NET_JSON_LOAN_OPTOINS_TXT = "loan_option_txt";
-    public static final String NET_JSON_LOAN_OPTOINS_HOT = "loan_option_hot";
-    public static final String NET_JSON_LOAN_OPTOINS_LOCATION = "loan_option_location";
+    public static final String NET_JSON_LOAN_OPTIONS_ID = "loan_option_id";
+    public static final String NET_JSON_LOAN_OPTIONS_IMG = "loan_option_img";
+    public static final String NET_JSON_LOAN_OPTIONS_TXT = "loan_option_txt";
+    public static final String NET_JSON_LOAN_OPTIONS_HOT = "loan_option_hot";
+    public static final String NET_JSON_LOAN_OPTIONS_LOCATION = "loan_option_location";
     /** loan page data end */
 
     /******************  json parse end field **********************/

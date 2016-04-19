@@ -61,7 +61,7 @@
     <!-- partner page end-->
 
     <!-- loan page begin -->
-    <dimen name="loan_item_view_height">120dp</dimen>
+    <dimen name="loan_item_view_height">135dp</dimen>
     <!-- loan page end-->
 
     <!-- workspace page begin -->
