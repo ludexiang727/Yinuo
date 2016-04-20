@@ -22,7 +22,6 @@ import java.util.List;
 public class HomePageRecyclerView extends BaseRecyclerView {
     private HomePageRecyclerViewAdapter mPageAdapter;
     private Context mContext;
-    private List<HomePageDataModel> mCardLists = null;
     private FlipperViewGroup mFlipperViewGroup;
     private IDynamicLoadListener mDynamicLoadListener;
     private ITransationSceneListener mSceneListener;
@@ -50,11 +49,7 @@ public class HomePageRecyclerView extends BaseRecyclerView {
     }
 
     public void setCardLists(List<HomePageDataModel> cards) {
-        if (cards != null) {
-            mCardLists = cards;
-        }
-
-        mPageAdapter.setCards(mCardLists);
+        mPageAdapter.setCards(cards);
         setAdapter(mPageAdapter);
     }
 

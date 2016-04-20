@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.yinuo.R;
 import com.yinuo.adapter.base.SuperAdapter;
 import com.yinuo.adapter.base.SuperViewHolder;
+import com.yinuo.listener.IOnItemClickListener;
 import com.yinuo.mode.LoanGridViewModel;
 
 import java.util.List;
@@ -76,9 +77,27 @@ public class LoanGridViewAdapter extends SuperAdapter {
         }
     }
 
+    @Override
+    public void setItemClickListener(IOnItemClickListener listener) {
+        itemClickListener = listener;
+    }
+
     private class ViewHolder extends SuperViewHolder {
         private ImageView itemImg;
         private TextView itemInfo;
         private ImageView itemHot;
+        private int position;
+
+        @Override
+        protected void setPosition(int position) {
+            this.position = position;
+        }
+
+        @Override
+        public void onClick(View v) {
+            if (itemClickListener != null && position < mItems.size()) {
+                itemClickListener.onItemClick(mItems.get(position), position);
+            }
+        }
     }
 }

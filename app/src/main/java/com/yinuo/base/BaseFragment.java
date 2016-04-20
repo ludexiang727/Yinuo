@@ -72,6 +72,11 @@ public abstract class BaseFragment extends Fragment implements SwipeRefreshLayou
 
     }
 
+    @Override
+    public void onRefresh() {
+
+    }
+
     /** Activity scene anim -- Activity 转场动画*/
     @Override
     public void onTransation(int position) {

@@ -25,6 +25,35 @@
 
         <activity android:name=".ui.sub.APPDetailsActivity"
             android:screenOrientation="portrait"/>
+
+        <activity android:name=".ui.sub.LoanApplyActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.sub.LoanBalanceActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.sub.LoanCalculatorActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.sub.LoanCardTicketActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.sub.LoanCCRepayActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.sub.LoanCreditCardActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.sub.LoanCreditReportActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.sub.LoanExtremityActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.sub.LoanProgressActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.sub.LoanRateQueryActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.sub.LoanRecepitActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.sub.LoanRepaymentActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.sub.LoanStrategyActivity"
+            android:screenOrientation="portrait"/>
+        <activity android:name=".ui.sub.LoanTransAccActivity"
+            android:screenOrientation="portrait"/>
     </application>
 
 </manifest>

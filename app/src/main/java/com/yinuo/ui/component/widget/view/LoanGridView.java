@@ -6,10 +6,12 @@ import android.graphics.Canvas;
 import android.graphics.Paint;
 import android.util.AttributeSet;
 import android.view.View;
+import android.widget.AdapterView;
 import android.widget.GridView;
 
 import com.yinuo.R;
 import com.yinuo.adapter.LoanGridViewAdapter;
+import com.yinuo.listener.IOnItemClickListener;
 import com.yinuo.mode.LoanGridViewModel;
 
 import java.util.List;
@@ -17,7 +19,7 @@ import java.util.List;
 /**
  * Created by ludexiang on 2016/4/19.
  */
-public class LoanGridView extends GridView {
+public class LoanGridView extends GridView implements AdapterView.OnItemLongClickListener {
 
     private LoanGridViewAdapter mAdapter;
     private Paint mPaint;
@@ -50,8 +52,9 @@ public class LoanGridView extends GridView {
         mPaint.setStrokeWidth(mPaintWidth);
     }
 
-    public void setOptions(List<LoanGridViewModel> modelList) {
+    public void setOptions(List<LoanGridViewModel> modelList, IOnItemClickListener listener) {
         mAdapter.setItems(modelList);
+        mAdapter.setItemClickListener(listener);
         setAdapter(mAdapter);
     }
 
@@ -69,24 +72,31 @@ public class LoanGridView extends GridView {
     protected void dispatchDraw(Canvas canvas) {
         super.dispatchDraw(canvas);
         View childView = getChildAt(0);
-        int column = getWidth() / childView.getWidth();
-        int childCount = getChildCount();
-        for (int i = 0; i < childCount; i++) {
-            View cellView = getChildAt(i);
-            if ((i + 1) % column == 0) {
-                canvas.drawLine(cellView.getLeft(), cellView.getBottom(), cellView.getRight(), cellView.getBottom(), mPaint);
-            } else if ((i + 1) > (childCount - (childCount % column))) {
-                canvas.drawLine(cellView.getRight(), cellView.getTop(), cellView.getRight(), cellView.getBottom(), mPaint);
-            } else {
-                canvas.drawLine(cellView.getRight(), cellView.getTop(), cellView.getRight(), cellView.getBottom(), mPaint);
-                canvas.drawLine(cellView.getLeft(), cellView.getBottom(), cellView.getRight(), cellView.getBottom(), mPaint);
+        if (childView != null) {
+            int column = getWidth() / childView.getWidth();
+            int childCount = getChildCount();
+            for (int i = 0; i < childCount; i++) {
+                View cellView = getChildAt(i);
+                if ((i + 1) % column == 0) {
+                    canvas.drawLine(cellView.getLeft(), cellView.getBottom(), cellView.getRight(), cellView.getBottom(), mPaint);
+                } else if ((i + 1) > (childCount - (childCount % column))) {
+                    canvas.drawLine(cellView.getRight(), cellView.getTop(), cellView.getRight(), cellView.getBottom(), mPaint);
+                } else {
+                    canvas.drawLine(cellView.getRight(), cellView.getTop(), cellView.getRight(), cellView.getBottom(), mPaint);
+                    canvas.drawLine(cellView.getLeft(), cellView.getBottom(), cellView.getRight(), cellView.getBottom(), mPaint);
+                }
+            }
+            if (childCount % column != 0) {
+                for (int j = 0; j < (column - childCount % column); j++) {
+                    View lastView = getChildAt(childCount - 1);
+                    canvas.drawLine(lastView.getRight() + lastView.getWidth() * j, lastView.getTop(), lastView.getRight() + lastView.getWidth() * j, lastView.getBottom(), mPaint);
+                }
             }
         }
-        if (childCount % column != 0) {
-            for (int j = 0; j < (column - childCount % column); j++) {
-                View lastView = getChildAt(childCount - 1);
-                canvas.drawLine(lastView.getRight() + lastView.getWidth() * j, lastView.getTop(), lastView.getRight() + lastView.getWidth() * j, lastView.getBottom(), mPaint);
-            }
-        }
+    }
+
+    @Override
+    public boolean onItemLongClick(AdapterView<?> parent, View view, int position, long id) {
+        return false;
     }
 }

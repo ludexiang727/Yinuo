@@ -62,6 +62,7 @@
 
     <!-- loan page begin -->
     <dimen name="loan_item_view_height">135dp</dimen>
+    <dimen name="loan_page_primary_tools_height">130dp</dimen>
     <!-- loan page end-->
 
     <!-- workspace page begin -->

@@ -7,29 +7,104 @@
     <LinearLayout
         android:id="@+id/loan_page_primary_tools_layout"
         android:layout_width="match_parent"
-        android:layout_height="130dp"
-        android:orientation="horizontal"/>
+        android:layout_height="@dimen/loan_page_primary_tools_height"
+        android:orientation="horizontal">
+
+        <LinearLayout
+            android:id="@+id/loan_page_scan_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:gravity="center"
+            android:layout_gravity="center">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_launcher"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="@string/loan_page_primary_scan"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/loan_page_redbag_parent"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:clickable="true"
+            android:gravity="center"
+            android:layout_gravity="center">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_launcher"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="@string/loan_page_primary_red_bag"/>
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/loan_page_vip_layout"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:orientation="vertical"
+            android:clickable="true"
+            android:gravity="center"
+            android:layout_gravity="center">
+            <ImageView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:src="@mipmap/ic_launcher"/>
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:text="@string/loan_page_primary_vip"/>
+        </LinearLayout>
+    </LinearLayout>
+
+    <View
+        android:id="@+id/loan_page_view_line"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@id/loan_page_primary_tools_layout"
+        android:background="@color/loan_page_separator_color"/>
 
     <android.support.v4.widget.NestedScrollView
         android:id="@+id/loan_page_scroll_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:layout_below="@id/loan_page_primary_tools_layout">
-
-        <com.yinuo.ui.component.widget.view.LoanGridView
-            android:id="@+id/loan_page_grid_view"
+        android:layout_below="@id/loan_page_view_line">
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:numColumns="4"
-            android:stretchMode="columnWidth"
-            app:separator_width="1px"
-            app:separator_color="@color/loan_page_separator_color"/>
+            android:layout_height="match_parent">
+            <com.yinuo.ui.component.widget.view.LoanGridView
+                android:id="@+id/loan_page_grid_view"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:numColumns="4"
+                android:stretchMode="columnWidth"
+                android:cacheColorHint="@android:color/transparent"
+                android:listSelector="@drawable/loan_page_gridview_selector"
+                app:separator_width="1px"
+                app:separator_color="@color/loan_page_separator_color"/>
 
+            <com.yinuo.ui.component.widget.Loading
+                android:id="@+id/loan_page_loading"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"/>
+        </RelativeLayout>
     </android.support.v4.widget.NestedScrollView>
-
-    <com.yinuo.ui.component.widget.Loading
-        android:id="@+id/loan_page_loading"
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"/>
 
 </merge>

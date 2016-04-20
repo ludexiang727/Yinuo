@@ -7,6 +7,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
 
+import com.yinuo.listener.IOnItemClickListener;
 import com.yinuo.mode.LoanGridViewModel;
 
 import java.util.List;
@@ -15,12 +16,13 @@ import java.util.List;
  * Created by ludexiang on 2016/4/19.
  */
 public abstract class SuperAdapter <T extends SuperViewHolder> extends BaseAdapter {
-
+    protected IOnItemClickListener itemClickListener;
     protected abstract void bindView(SuperViewHolder superHolder, LoanGridViewModel model);
     protected abstract T getViewHolder();
     protected abstract View getView();
     protected abstract void initHolder(SuperViewHolder holder, View view);
     protected abstract List<LoanGridViewModel> getList();
+    public abstract void setItemClickListener(IOnItemClickListener listener);
 
     protected LayoutInflater mInflater;
 
@@ -40,6 +42,9 @@ public abstract class SuperAdapter <T extends SuperViewHolder> extends BaseAdapt
         } else {
             holder = (SuperViewHolder) convertView.getTag();
         }
+        holder.setPosition(position);
+        convertView.setOnClickListener(holder);
+
         bindView(holder, getList().get(position));
         return convertView;
     }

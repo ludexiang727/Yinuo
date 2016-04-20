@@ -50,7 +50,6 @@ public class HomePageFragment extends BaseFragment {
 
     @Override
     public void initialize(View view) {
-        Log.e("ldx", "initialize .........");
         mLoading = (Loading) view.findViewById(R.id.home_page_loading);
         mListView = (HomePageRecyclerView) view.findViewById(android.R.id.list);
         mListView.setSwipeRefreshLayout(mSwipeRefreshLayout);

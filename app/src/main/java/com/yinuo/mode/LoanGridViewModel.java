@@ -1,9 +1,11 @@
 package com.yinuo.mode;
 
+import com.yinuo.base.BaseObject;
+
 /**
  * Created by ludexiang on 2016/4/19.
  */
-public class LoanGridViewModel {
+public class LoanGridViewModel extends BaseObject {
     private int mItemId;
     private String mItemImgUrl;
     private String mItemOption;
@@ -48,5 +50,16 @@ public class LoanGridViewModel {
 
     public void setItemLocation(String itemLocation) {
         this.mItemLocation = itemLocation;
+    }
+
+    @Override
+    public String toString() {
+        return "LoanGridViewModel{" +
+                "mItemHot='" + mItemHot + '\'' +
+                ", mItemId=" + mItemId +
+                ", mItemImgUrl='" + mItemImgUrl + '\'' +
+                ", mItemOption='" + mItemOption + '\'' +
+                ", mItemLocation='" + mItemLocation + '\'' +
+                '}';
     }
 }

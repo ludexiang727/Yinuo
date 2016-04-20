@@ -17,7 +17,6 @@ import java.util.List;
 public class PartnerRecyclerView <E extends PartnerRecyclerModel> extends BaseRecyclerView {
 
     private PartnerRecyclerViewAdapter mAdapter;
-    private List<E> mBindModels = new ArrayList<E>();
 
     public PartnerRecyclerView(Context context) {
         this(context, null);
@@ -35,10 +34,7 @@ public class PartnerRecyclerView <E extends PartnerRecyclerModel> extends BaseRe
     }
 
     public void bindDatas(List<E> datas) {
-        if (datas != null) {
-            mBindModels.addAll(datas);
-        }
-        mAdapter.loadData(mBindModels);
+        mAdapter.loadData(datas);
         setAdapter(mAdapter);
     }
 

@@ -61,7 +61,7 @@
         {
             "loan_option_id":118,
             "loan_option_img":"",
-            "loan_option_txt":"红包卡券",
+            "loan_option_txt":"卡券",
             "loan_option_hot":"",
             "loan_option_location":8
         },

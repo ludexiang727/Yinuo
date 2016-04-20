@@ -20,4 +20,10 @@
 
     <string name="partner_page_condition_skill">技术</string>
     <string name="partner_page_condition_invest">投资</string>
+
+    <!-- loan page begin -->
+    <string name="loan_page_primary_scan">扫一扫</string>
+    <string name="loan_page_primary_red_bag">红包</string>
+    <string name="loan_page_primary_vip">VIP专享</string>
+    <!-- loan page end-->
 </resources>

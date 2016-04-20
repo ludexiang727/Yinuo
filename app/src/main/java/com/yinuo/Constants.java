@@ -22,8 +22,8 @@ public class Constants {
     public static final int LOAN_PAGE_TRANSFER_ACCOUNTS = 116;
     /**balance rise for loan -- 余额升息 */
     public static final int LOAN_PAGE_BALANCE = 117;
-    /**red bag for loan -- 红包卡券 */
-    public static final int LOAN_PAGE_RED_BAG = 118;
+    /**red bag for loan -- 卡券 */
+    public static final int LOAN_PAGE_CARD_TICKET = 118;
     /**credit report for loan -- 信用报告 */
     public static final int LOAN_PAGE_CREDIT_REPORT = 119;
     /**calculator for loan -- 计算器 */

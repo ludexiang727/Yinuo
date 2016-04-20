@@ -31,7 +31,7 @@
     <!-- partner page end-->
 
     <!-- loan page begin -->
-    <color name="loan_page_separator_color">#999999</color>
+    <color name="loan_page_separator_color">#ebebeb</color>
     <!-- loan page end -->
 
     <!-- workspace page begin -->

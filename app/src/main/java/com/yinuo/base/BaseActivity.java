@@ -4,9 +4,11 @@ import android.app.Activity;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewStub;
 import android.widget.FrameLayout;
+import android.widget.RelativeLayout;
 
 import com.yinuo.R;
 import com.yinuo.net.IRequestListener;
@@ -20,7 +22,7 @@ public abstract class BaseActivity extends Activity implements IRequestListener 
     private int mLayoutId;
     private Loading mLoading;
     private ViewStub mViewStub;
-    private FrameLayout mContentParent;
+    private RelativeLayout mContentParent;
     private UIHandler mHandler = new UIHandler();
 
     protected abstract int getContentLayout();
@@ -56,9 +58,8 @@ public abstract class BaseActivity extends Activity implements IRequestListener 
         setContentView(R.layout.app_base_activity_layout);
         mLoading = (Loading) findViewById(R.id.app_activity_loading);
         mViewStub = (ViewStub) findViewById(R.id.app_activity_viewstub);
-        mContentParent = (FrameLayout) findViewById(R.id.app_activity_content_parent);
-        View view = View.inflate(this, mLayoutId, null);
-        mContentParent.addView(view, 0);
+        mContentParent = (RelativeLayout) findViewById(R.id.app_activity_content_parent);
+        View view = LayoutInflater.from(this).inflate(mLayoutId, mContentParent, true);
         loadData();
         loadView(view);
         mLoading.loading();
