@@ -6,6 +6,9 @@ import android.support.v7.widget.RecyclerView;
 import android.util.AttributeSet;
 
 import com.yinuo.adapter.base.BaseRecyclerAdapter;
+import com.yinuo.base.BaseObject;
+
+import java.util.List;
 
 /**
  * Created by ludexiang on 2016/4/18.
@@ -13,6 +16,7 @@ import com.yinuo.adapter.base.BaseRecyclerAdapter;
 public abstract class BaseRecyclerView extends RecyclerView {
     protected SwipeRefreshLayout mSwipeRefreshLayout;
     public abstract <T extends BaseRecyclerAdapter> T getRecyclerAdapter();
+    public abstract <T extends BaseObject> void bindRecycleView(List<T> lists);
 
     public BaseRecyclerView(Context context) {
         this(context, null);

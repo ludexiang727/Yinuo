@@ -10,6 +10,7 @@ import com.yinuo.net.response.NetLoanPageObj;
 import com.yinuo.net.response.NetLoginObj;
 import com.yinuo.net.response.NetPartnerPageObj;
 import com.yinuo.net.response.NetRegisterObj;
+import com.yinuo.net.response.NetWorkspacePageObj;
 import com.yinuo.net.utils.NetConstant;
 
 /**
@@ -99,5 +100,13 @@ public class NetRequest <T extends NetBaseObject> {
         build.add(NetConstant.NET_REQUEST_LOAN_PARAM_OPTION_ID, String.valueOf(optionId));
         build.add(NetConstant.NET_REQUEST_LOAN_PARAM_OPTION_LOCATION, String.valueOf(optionLocation));
         OkHttpRequest.getInstance().httpPostRequest(NetConstant.REQUEST_URL_LOAN_PAGE, build.build(), listener, new NetLoanPageObj());
+    }
+
+    /** workspace page data -- 工作间页面 */
+    public void requestWorkspacePageData(int pageIndex, int pageCount, IRequestListener<T> listener) {
+        FormEncodingBuilder build = build();
+        build.add(NetConstant.NET_REQUEST_WORKSPACE_PARAM_INDEX, String.valueOf(pageIndex));
+        build.add(NetConstant.NET_REQUEST_WORKSPACE_PARAM_COUNT, String.valueOf(pageCount));
+        OkHttpRequest.getInstance().httpPostRequest(NetConstant.REQUEST_URL_WORKSPACE_PAGE, build.build(), listener, new NetWorkspacePageObj());
     }
 }

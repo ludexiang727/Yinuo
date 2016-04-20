@@ -66,6 +66,7 @@
     <!-- loan page end-->
 
     <!-- workspace page begin -->
+    <dimen name="workspace_page_options_height">100dp</dimen>
     <dimen name="workspace_page_condition_height">70dp</dimen>
     <!-- workspace page end-->
 </resources>

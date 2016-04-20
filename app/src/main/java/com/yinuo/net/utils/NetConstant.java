@@ -13,6 +13,7 @@ public class NetConstant {
     public static final String REQUEST_URL_DISCOVERY_PAGE = "pGetDiscoveryPage";
     public static final String REQUEST_URL_PARTNER_PAGE = "pGetPartnerPage";
     public static final String REQUEST_URL_LOAN_PAGE = "pGetLoanPage";
+    public static final String REQUEST_URL_WORKSPACE_PAGE = "pGetWorkspacePage";
     /***************** request interface end *********************/
 
     /*************  json parse begin field -- 接口response json field **********************/
@@ -97,5 +98,23 @@ public class NetConstant {
     public static final String NET_JSON_LOAN_OPTIONS_LOCATION = "loan_option_location";
     /** loan page data end */
 
+    /** workspace page data begin */
+    public static final String NET_REQUEST_WORKSPACE_PARAM_INDEX = "workspace_page_index";
+    public static final String NET_REQUEST_WORKSPACE_PARAM_COUNT = "workspace_page_count";
+
+    // json
+    public static final String NET_JSON_WORKSPACE_FIELD_OPTIONS_LISTS = "workspace_option_lists";
+    public static final String NET_JSON_WORKSPACE_OPTIONS_IMG = "workspace_option_img";
+    public static final String NET_JSON_WORKSPACE_OPTIONS_TXT = "workspace_option_txt";
+    public static final String NET_JSON_WORKSPACE_OPTIONS_ID = "workspace_option_id";
+    public static final String NET_JSON_WORKSPACE_FIELD_LIST_LISTS = "workspace_page_lists";
+    public static final String NET_JSON_WORKSPACE_LIST_ID = "workspace_list_id";
+    public static final String NET_JSON_WORKSPACE_LIST_IMG = "workspace_list_img";
+    public static final String NET_JSON_WORKSPACE_LIST_TITLE = "workspace_list_title";
+    public static final String NET_JSON_WORKSPACE_LIST_TAGS = "workspace_list_tags";
+    public static final String NET_JSON_WORKSPACE_LIST_LOCATION = "workspace_list_location";
+    public static final String NET_JSON_WORKSPACE_LIST_EXTRA = "workspace_list_extra";
+    public static final String NET_JSON_WORKSPACE_LIST_PRICE = "workspace_list_price";
+    /** workspace page data end*/
     /******************  json parse end field **********************/
 }

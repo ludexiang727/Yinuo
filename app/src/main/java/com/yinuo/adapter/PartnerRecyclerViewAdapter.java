@@ -12,6 +12,7 @@ import android.widget.TextView;
 import com.yinuo.R;
 import com.yinuo.adapter.base.BaseRecyclerAdapter;
 import com.yinuo.adapter.base.RecyclerViewHolder;
+import com.yinuo.base.BaseObject;
 import com.yinuo.mode.PartnerRecyclerModel;
 import com.yinuo.utils.ResUtils;
 
@@ -20,7 +21,7 @@ import java.util.List;
 /**
  * Created by Administrator on 2016/4/18.
  */
-public class PartnerRecyclerViewAdapter <T extends PartnerRecyclerModel> extends BaseRecyclerAdapter {
+public class PartnerRecyclerViewAdapter <T extends BaseObject> extends BaseRecyclerAdapter {
 
     private Context mContext;
     private LayoutInflater mInflater;
@@ -64,9 +65,11 @@ public class PartnerRecyclerViewAdapter <T extends PartnerRecyclerModel> extends
             params.topMargin = 0;
         }
         holder.mView.setLayoutParams(params);
-        PartnerRecyclerModel model = mModels.get(position);
-        loadImage(model.getBannerOrImgURL(), holder.imgView);
-        holder.name.setText(model.getPartnerName());
+        if (position < mModels.size() && mModels.get(position) instanceof PartnerRecyclerModel) {
+            PartnerRecyclerModel model = (PartnerRecyclerModel) mModels.get(position);
+            loadImage(model.getBannerOrImgURL(), holder.imgView);
+            holder.name.setText(model.getPartnerName());
+        }
     }
 
     private final class PartnerViewHolder extends RecyclerViewHolder {

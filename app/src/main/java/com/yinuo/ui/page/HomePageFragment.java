@@ -53,7 +53,7 @@ public class HomePageFragment extends BaseFragment {
         mLoading = (Loading) view.findViewById(R.id.home_page_loading);
         mListView = (HomePageRecyclerView) view.findViewById(android.R.id.list);
         mListView.setSwipeRefreshLayout(mSwipeRefreshLayout);
-        mListView.setCardLists(mCardLists);
+        mListView.bindRecycleView(mCardLists);
         mListView.setListener(this, this);
         mListView.getRecyclerAdapter().setOnItemClickListener(this);
     }

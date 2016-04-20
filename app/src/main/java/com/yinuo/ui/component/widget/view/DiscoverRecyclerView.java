@@ -8,6 +8,7 @@ import android.util.AttributeSet;
 import android.util.Log;
 
 import com.yinuo.adapter.DiscoverRecyclerViewAdapter;
+import com.yinuo.base.BaseObject;
 import com.yinuo.mode.DiscoveryRecycleModel;
 import com.yinuo.ui.component.widget.baseview.BaseRecyclerView;
 
@@ -36,8 +37,9 @@ public class DiscoverRecyclerView extends BaseRecyclerView {
         setLayoutManager(new StaggeredGridLayoutManager(2, VERTICAL));
     }
 
-    public <T extends DiscoveryRecycleModel> void bindRecycleView(List<T> models) {
-        mAdapter.loadData(models);
+    @Override
+    public <T extends BaseObject> void bindRecycleView(List<T> lists) {
+        mAdapter.loadData(lists);
 
         setAdapter(mAdapter);
     }

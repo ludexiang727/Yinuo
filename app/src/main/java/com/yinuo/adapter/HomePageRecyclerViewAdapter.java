@@ -11,6 +11,7 @@ import android.widget.TextView;
 import com.yinuo.R;
 import com.yinuo.adapter.base.BaseRecyclerAdapter;
 import com.yinuo.adapter.base.RecyclerViewHolder;
+import com.yinuo.base.BaseObject;
 import com.yinuo.mode.HomePageDataModel;
 import com.yinuo.ui.component.widget.view.HomePageTagTextView;
 import com.yinuo.utils.ResUtils;
@@ -22,7 +23,7 @@ import java.util.List;
  *
  * extends NetBaseObject so far support getItemType 1 after getItemType is 2 or more
  */
-public class HomePageRecyclerViewAdapter<T extends HomePageDataModel> extends BaseRecyclerAdapter {
+public class HomePageRecyclerViewAdapter<T extends BaseObject> extends BaseRecyclerAdapter {
 
     private Context mContext;
     private LayoutInflater mInflater;
@@ -62,8 +63,8 @@ public class HomePageRecyclerViewAdapter<T extends HomePageDataModel> extends Ba
     @Override
     public <E extends RecyclerViewHolder> void bindView(E parentHolder, int position) {
         final HomeViewHolder holder = (HomeViewHolder) parentHolder;
-        if (mBindData != null && position < mBindData.size()) {
-            HomePageDataModel bind = mBindData.get(position);
+        if (mBindData != null && position < mBindData.size() && mBindData.get(position) instanceof HomePageDataModel) {
+            HomePageDataModel bind = (HomePageDataModel) mBindData.get(position);
             loadImage(bind.getImgURL(), holder.cardImg);
             holder.cardTitle.setText(bind.getTitle());
             holder.cardAttention.setText(String.format(ResUtils.getString(mContext, R.string.home_page_card_details_attention), bind.getAttention()));

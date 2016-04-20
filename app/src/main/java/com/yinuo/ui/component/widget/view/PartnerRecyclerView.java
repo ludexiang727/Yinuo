@@ -5,6 +5,7 @@ import android.support.v7.widget.GridLayoutManager;
 import android.util.AttributeSet;
 
 import com.yinuo.adapter.PartnerRecyclerViewAdapter;
+import com.yinuo.base.BaseObject;
 import com.yinuo.mode.PartnerRecyclerModel;
 import com.yinuo.ui.component.widget.baseview.BaseRecyclerView;
 
@@ -14,7 +15,7 @@ import java.util.List;
 /**
  * Created by Administrator on 2016/4/18.
  */
-public class PartnerRecyclerView <E extends PartnerRecyclerModel> extends BaseRecyclerView {
+public class PartnerRecyclerView extends BaseRecyclerView {
 
     private PartnerRecyclerViewAdapter mAdapter;
 
@@ -33,8 +34,9 @@ public class PartnerRecyclerView <E extends PartnerRecyclerModel> extends BaseRe
         setLayoutManager(new GridLayoutManager(context, 3));
     }
 
-    public void bindDatas(List<E> datas) {
-        mAdapter.loadData(datas);
+    @Override
+    public <T extends BaseObject> void bindRecycleView(List<T> lists) {
+        mAdapter.loadData(lists);
         setAdapter(mAdapter);
     }
 

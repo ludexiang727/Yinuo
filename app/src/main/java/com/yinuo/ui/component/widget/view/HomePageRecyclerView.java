@@ -8,6 +8,7 @@ import android.view.View;
 
 import com.yinuo.R;
 import com.yinuo.adapter.HomePageRecyclerViewAdapter;
+import com.yinuo.base.BaseObject;
 import com.yinuo.listener.IDynamicLoadListener;
 import com.yinuo.listener.ITransationSceneListener;
 import com.yinuo.mode.HomePageBannersModel;
@@ -48,8 +49,9 @@ public class HomePageRecyclerView extends BaseRecyclerView {
         setLayoutManager(new LinearLayoutManager(mContext));
     }
 
-    public void setCardLists(List<HomePageDataModel> cards) {
-        mPageAdapter.setCards(cards);
+    @Override
+    public <T extends BaseObject> void bindRecycleView(List<T> lists) {
+        mPageAdapter.setCards(lists);
         setAdapter(mPageAdapter);
     }
 

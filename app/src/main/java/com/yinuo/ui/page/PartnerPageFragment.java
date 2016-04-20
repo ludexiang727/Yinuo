@@ -45,7 +45,7 @@ public class PartnerPageFragment extends BaseFragment implements PartnerConditio
         mPartnerRecyclerView = (PartnerRecyclerView) view.findViewById(R.id.partner_page_recycler_view);
         mPartnerRecyclerView.setSwipeRefreshLayout(mSwipeRefreshLayout);
 
-        mPartnerRecyclerView.bindDatas(mModels);
+        mPartnerRecyclerView.bindRecycleView(mModels);
         mSkill.setPosition(0);
         mInvest.setPosition(1);
 

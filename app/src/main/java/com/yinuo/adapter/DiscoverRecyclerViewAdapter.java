@@ -10,6 +10,7 @@ import android.widget.TextView;
 import com.yinuo.R;
 import com.yinuo.adapter.base.BaseRecyclerAdapter;
 import com.yinuo.adapter.base.RecyclerViewHolder;
+import com.yinuo.base.BaseObject;
 import com.yinuo.mode.DiscoveryRecycleModel;
 
 import java.util.List;
@@ -17,7 +18,7 @@ import java.util.List;
 /**
  * Created by gus on 16/4/16.
  */
-public class DiscoverRecyclerViewAdapter <T extends DiscoveryRecycleModel> extends BaseRecyclerAdapter {
+public class DiscoverRecyclerViewAdapter <T extends BaseObject> extends BaseRecyclerAdapter {
     public Context mContext;
     private LayoutInflater mInflater;
     private List<T> mListHolder;
@@ -74,10 +75,12 @@ public class DiscoverRecyclerViewAdapter <T extends DiscoveryRecycleModel> exten
     @Override
     protected <E extends RecyclerViewHolder> void bindView(E viewHolder, int position) {
         final DiscoverViewHolder holder = (DiscoverViewHolder) viewHolder;
-        DiscoveryRecycleModel model = mListHolder.get(position);
-        holder.titleView.setText(model.getTitle());
-        holder.propertyView.setText(model.getProperty());
-        loadImage(model.getBannerOrImgURL(), holder.imageView);
-        holder.summaryView.setText(model.getSummary());
+        if (position < mListHolder.size() && mListHolder.get(position) instanceof DiscoveryRecycleModel) {
+            DiscoveryRecycleModel model = (DiscoveryRecycleModel) mListHolder.get(position);
+            holder.titleView.setText(model.getTitle());
+            holder.propertyView.setText(model.getProperty());
+            loadImage(model.getBannerOrImgURL(), holder.imageView);
+            holder.summaryView.setText(model.getSummary());
+        }
     }
 }
