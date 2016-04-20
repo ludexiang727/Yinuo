@@ -3,6 +3,7 @@ package com.yinuo.ui.component.widget.view;
 import android.content.Context;
 import android.util.AttributeSet;
 import android.util.TypedValue;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.yinuo.R;
@@ -31,6 +32,10 @@ public class WorkspaceTagsView extends TextView {
         setPadding(mPadding, mPadding, mPadding, mPadding);
 
         setTextSize(TypedValue.COMPLEX_UNIT_PX, ResUtils.getInt(context, R.dimen.workspace_page_tag_size));
+        setTextColor(ResUtils.getColor(context, R.color.workspace_holder_tags_color));
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        params.rightMargin = mPadding;
+        setLayoutParams(params);
     }
 
 }

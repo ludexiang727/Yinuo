@@ -5,6 +5,7 @@
     <color name="colorAccent">#FF4081</color>
     <color name="window_page_color">#fafafa</color>
     <color name="loading_background">#affafafa</color>
+    <color name="recycle_view_divider">#EBEBEB</color>
 
     <color name="refresh_color_progress1">#CC3F51B5</color>
     <color name="refresh_color_progress2">#FF4081</color>
@@ -38,5 +39,10 @@
     <color name="workspace_page_separator">#CCEBEBEB</color>
     <color name="workspace_page_option_parent_bg">#EFFFFFFF</color>
     <color name="workspace_page_tag_shape_bg">#3F51B5</color>
+    <color name="workspace_holder_title_color">#CC000000</color>
+    <color name="workspace_holder_price_color">#CAFF4081</color>
+    <color name="workspace_holder_location_color">#CC999999</color>
+    <color name="workspace_holder_tags_color">#AC3F51B5</color>
+    <color name="workspace_holder_yinuo_color">#CCFFFFFF</color>
     <!-- workspace page end-->
 </resources>

@@ -29,7 +29,7 @@ public class WorkspaceRecyclerView extends BaseRecyclerView {
     public WorkspaceRecyclerView(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         mAdapter = new WorkspaceRecyclerViewAdapter(context);
-
+        addItemDecoration(new RecyclerSpaceDecoration(context, RecyclerSpaceDecoration.VERTICAL_LIST));
         setLayoutManager(new LinearLayoutManager(context, VERTICAL, false));
     }
 

@@ -33,7 +33,7 @@ public class DiscoverRecyclerView extends BaseRecyclerView {
 
         mAdapter = new DiscoverRecyclerViewAdapter(context);
 
-        addItemDecoration(new RecyclerSpaceDecoration());
+//        addItemDecoration(new RecyclerSpaceDecoration());
         setLayoutManager(new StaggeredGridLayoutManager(2, VERTICAL));
     }
 

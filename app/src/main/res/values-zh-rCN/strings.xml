@@ -26,4 +26,8 @@
     <string name="loan_page_primary_red_bag">红包</string>
     <string name="loan_page_primary_vip">VIP专享</string>
     <!-- loan page end-->
+
+    <!-- workspace page begin -->
+    <string name="workspace_holder_yinuo">一诺科技</string>
+    <!-- workspace page end-->
 </resources>

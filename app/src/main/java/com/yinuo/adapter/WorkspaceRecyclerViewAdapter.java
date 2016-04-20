@@ -59,7 +59,7 @@ public class WorkspaceRecyclerViewAdapter <T extends BaseObject> extends BaseRec
         WorkspaceViewHolder holder = (WorkspaceViewHolder) viewHolder;
         RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
         if (position == 0) {
-            int topMargin = ResUtils.getInt(mContext, R.dimen.workspace_page_options_height);
+            int topMargin = ResUtils.getInt(mContext, R.dimen.workspace_holder_first_margin_top);
             params.topMargin = topMargin;
         } else {
             params.topMargin = 0;
