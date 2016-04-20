@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.yinuo.R;
@@ -13,6 +14,8 @@ import com.yinuo.adapter.base.BaseRecyclerAdapter;
 import com.yinuo.adapter.base.RecyclerViewHolder;
 import com.yinuo.base.BaseObject;
 import com.yinuo.mode.WorkspacePageModel;
+import com.yinuo.ui.component.widget.view.WorkspaceTagsView;
+import com.yinuo.utils.ResUtils;
 
 import java.util.List;
 
@@ -21,11 +24,13 @@ import java.util.List;
  */
 public class WorkspaceRecyclerViewAdapter <T extends BaseObject> extends BaseRecyclerAdapter {
 
+    private Context mContext;
     private List<T> mModels;
     private LayoutInflater mInflater;
 
     public WorkspaceRecyclerViewAdapter(Context context) {
         mInflater = LayoutInflater.from(context);
+        mContext = context;
     }
 
     public void loadData(List<T> lists) {
@@ -50,26 +55,56 @@ public class WorkspaceRecyclerViewAdapter <T extends BaseObject> extends BaseRec
     }
 
     @Override
-    protected <E extends RecyclerViewHolder> void bindView(E holder, int position) {
+    protected <E extends RecyclerViewHolder> void bindView(E viewHolder, int position) {
+        WorkspaceViewHolder holder = (WorkspaceViewHolder) viewHolder;
+        RelativeLayout.LayoutParams params = new RelativeLayout.LayoutParams(RelativeLayout.LayoutParams.MATCH_PARENT, RelativeLayout.LayoutParams.WRAP_CONTENT);
+        if (position == 0) {
+            int topMargin = ResUtils.getInt(mContext, R.dimen.workspace_page_options_height);
+            params.topMargin = topMargin;
+        } else {
+            params.topMargin = 0;
+        }
+        holder.mView.setLayoutParams(params);
+        if (position < mModels.size() && mModels.get(position) instanceof WorkspacePageModel) {
+            WorkspacePageModel model = (WorkspacePageModel) mModels.get(position);
+            loadImage(model.getWorkspaceImg(), holder.workspaceImg);
+            holder.workspaceTitle.setText(model.getWorkspaceTitle());
+            holder.workspaceRent.setText(model.getWorkspacePrice());
+            holder.workspaceLocation.setText(model.getWorkspaceLocation());
+            for (String tag : model.getWorkspaceTags()) {
+                WorkspaceTagsView tagView = new WorkspaceTagsView(mContext);
+                tagView.setText(tag);
+                holder.workspaceTags.addView(tagView);
+            }
 
+            for (String extra : model.getWorkspaceExtra()) {
+                WorkspaceTagsView extraView = new WorkspaceTagsView(mContext);
+                extraView.setText(extra);
+                holder.workspaceExtras.addView(extraView);
+            }
+        }
     }
 
     private final class WorkspaceViewHolder extends RecyclerViewHolder {
         private ImageView workspaceImg;
         private TextView workspaceTitle;
         private TextView workspaceLocation;
-        private LinearLayout workspaceTags;
         private TextView workspaceRent;
+        private LinearLayout workspaceTags;
         private LinearLayout workspaceExtras;
+        private View mView;
 
         public WorkspaceViewHolder(View view) {
             super(view);
-            workspaceImg = (ImageView) view.findViewById(R.id.workspace_holder_img);
-            workspaceTitle = (TextView) view.findViewById(R.id.workspace_holder_title);
-            workspaceRent = (TextView) view.findViewById(R.id.workspace_holder_price);
-            workspaceLocation = (TextView) view.findViewById(R.id.workspace_holder_location);
-            workspaceTags = (LinearLayout) view.findViewById(R.id.workspace_holder_tags_parent);
-            workspaceExtras = (LinearLayout) view.findViewById(R.id.workspace_holder_extras_parent);
+
+            mView = view;
+
+            workspaceImg = (ImageView) mView.findViewById(R.id.workspace_holder_img);
+            workspaceTitle = (TextView) mView.findViewById(R.id.workspace_holder_title);
+            workspaceRent = (TextView) mView.findViewById(R.id.workspace_holder_price);
+            workspaceLocation = (TextView) mView.findViewById(R.id.workspace_holder_location);
+            workspaceTags = (LinearLayout) mView.findViewById(R.id.workspace_holder_tags_parent);
+            workspaceExtras = (LinearLayout) mView.findViewById(R.id.workspace_holder_extras_parent);
         }
     }
 }

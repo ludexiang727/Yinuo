@@ -68,5 +68,11 @@
     <!-- workspace page begin -->
     <dimen name="workspace_page_options_height">100dp</dimen>
     <dimen name="workspace_page_condition_height">70dp</dimen>
+    <dimen name="workspace_holder_img_width">130dp</dimen>
+    <dimen name="workspace_holder_img_height">100dp</dimen>
+    <dimen name="workspace_page_tag_radius">2dp</dimen>
+    <dimen name="workspace_page_tag_line">1px</dimen>
+    <dimen name="workspace_page_tag_padding">2dp</dimen>
+    <dimen name="workspace_page_tag_size">10sp</dimen>
     <!-- workspace page end-->
 </resources>

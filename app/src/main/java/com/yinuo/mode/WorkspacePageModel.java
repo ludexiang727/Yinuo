@@ -9,16 +9,16 @@ public class WorkspacePageModel extends BaseObject {
     private int mWorkspaceId;
     private String mWorkspaceImg;
     private String mWorkspaceTitle;
-    private String mWorkspaceTags;
+    private String[] mWorkspaceTags;
     private String mWorkspaceLocation;
-    private String mWorkspaceExtra;
+    private String[] mWorkspaceExtra;
     private String mWorkspacePrice;
 
-    public String getWorkspaceExtra() {
+    public String[] getWorkspaceExtra() {
         return mWorkspaceExtra;
     }
 
-    public void setWorkspaceExtra(String workspaceExtra) {
+    public void setWorkspaceExtra(String[] workspaceExtra) {
         this.mWorkspaceExtra = workspaceExtra;
     }
 
@@ -54,11 +54,11 @@ public class WorkspacePageModel extends BaseObject {
         this.mWorkspacePrice = workspacePrice;
     }
 
-    public String getWorkspaceTags() {
+    public String[] getWorkspaceTags() {
         return mWorkspaceTags;
     }
 
-    public void setWorkspaceTags(String workspaceTags) {
+    public void setWorkspaceTags(String[] workspaceTags) {
         this.mWorkspaceTags = workspaceTags;
     }
 

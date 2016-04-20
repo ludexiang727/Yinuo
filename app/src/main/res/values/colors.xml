@@ -37,5 +37,6 @@
     <!-- workspace page begin -->
     <color name="workspace_page_separator">#CCEBEBEB</color>
     <color name="workspace_page_option_parent_bg">#EFFFFFFF</color>
+    <color name="workspace_page_tag_shape_bg">#3F51B5</color>
     <!-- workspace page end-->
 </resources>

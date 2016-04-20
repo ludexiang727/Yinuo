@@ -3,18 +3,6 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <LinearLayout
-        android:id="@+id/workspace_page_option_parent"
-        android:layout_width="match_parent"
-        android:layout_height="@dimen/workspace_page_options_height"
-        android:orientation="horizontal"
-        android:background="@color/workspace_page_option_parent_bg"/>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:background="@color/workspace_page_separator"
-        android:layout_below="@id/workspace_page_option_parent"/>
     <!--<LinearLayout
         android:id="@+id/workspace_page_condition_parent"
         android:layout_width="match_parent"
@@ -69,5 +57,18 @@
             android:layout_height="match_parent"/>
     </RelativeLayout>
 
+    <LinearLayout
+        android:id="@+id/workspace_page_option_parent"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/workspace_page_options_height"
+        android:orientation="horizontal"
+        android:layout_alignParentTop="true"
+        android:background="@color/workspace_page_option_parent_bg"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/workspace_page_separator"
+        android:layout_below="@id/workspace_page_option_parent"/>
 
 </merge>

@@ -5,6 +5,7 @@ import com.yinuo.mode.WorkspacePageModel;
 import com.yinuo.net.base.NetBaseObject;
 import com.yinuo.net.utils.NetConstant;
 import com.yinuo.net.utils.NetParseUtils;
+import com.yinuo.utils.StringUtils;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -62,10 +63,13 @@ public class NetWorkspacePageObj extends NetBaseObject {
                     int id = NetParseUtils.getInt(NetConstant.NET_JSON_WORKSPACE_LIST_ID, obj);
                     String img = NetParseUtils.getString(NetConstant.NET_JSON_WORKSPACE_LIST_IMG, obj);
                     String title = NetParseUtils.getString(NetConstant.NET_JSON_WORKSPACE_LIST_TITLE, obj);
-                    String tags = NetParseUtils.getString(NetConstant.NET_JSON_WORKSPACE_LIST_TAGS, obj);
+                    String tag = NetParseUtils.getString(NetConstant.NET_JSON_WORKSPACE_LIST_TAGS, obj);
                     String location = NetParseUtils.getString(NetConstant.NET_JSON_WORKSPACE_LIST_LOCATION, obj);
                     String extra = NetParseUtils.getString(NetConstant.NET_JSON_WORKSPACE_LIST_EXTRA, obj);
                     String price = NetParseUtils.getString(NetConstant.NET_JSON_WORKSPACE_LIST_PRICE, obj);
+
+                    String[] tags = StringUtils.split(tag, ",");
+                    String[] extras = StringUtils.split(extra, ",");
 
                     WorkspacePageModel model = new WorkspacePageModel();
                     model.setWorkspaceId(id);
@@ -73,7 +77,7 @@ public class NetWorkspacePageObj extends NetBaseObject {
                     model.setWorkspaceTitle(title);
                     model.setWorkspaceTags(tags);
                     model.setWorkspaceLocation(location);
-                    model.setWorkspaceExtra(extra);
+                    model.setWorkspaceExtra(extras);
                     model.setWorkspacePrice(price);
                     mModels.add(model);
                 } catch (JSONException e) {
