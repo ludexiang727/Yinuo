@@ -7,10 +7,15 @@ import android.view.View;
 import com.yinuo.R;
 import com.yinuo.base.BaseFragment;
 import com.yinuo.base.BaseObject;
+import com.yinuo.mode.BossOnlineDataModel;
 import com.yinuo.net.base.NetBaseObject;
 import com.yinuo.net.request.NetRequest;
+import com.yinuo.net.response.NetBossOnlinePageObj;
 import com.yinuo.ui.component.widget.Loading;
 import com.yinuo.ui.component.widget.view.BossOnlineRecyclerView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by ludexiang on 2016/4/18.
@@ -22,6 +27,7 @@ public class BossOnlinePageFragment extends BaseFragment {
     private final int PAGE_COUNT = 10;
     private BossOnlineRecyclerView mRecyclerView;
     private UIHandler mHandler = new UIHandler();
+    private List<BossOnlineDataModel> mModels = new ArrayList<BossOnlineDataModel>();
 
     @Override
     public int pageLayoutId() {
@@ -32,6 +38,7 @@ public class BossOnlinePageFragment extends BaseFragment {
     public void initialize(View view) {
         mLoading = (Loading) view.findViewById(R.id.boss_online_page_loading);
         mRecyclerView = (BossOnlineRecyclerView) view.findViewById(R.id.boss_online_page_recycler_view);
+        mRecyclerView.bindRecycleView(mModels);
     }
 
     @Override
@@ -53,6 +60,13 @@ public class BossOnlinePageFragment extends BaseFragment {
     @Override
     public void onSuccess(NetBaseObject object) {
         super.onSuccess(object);
+        if (object instanceof NetBossOnlinePageObj) {
+            NetBossOnlinePageObj boss = (NetBossOnlinePageObj) object;
+            Message msg = mHandler.obtainMessage();
+            msg.what = mHandler.NOTIFY_SUCCESS;
+            msg.obj = boss;
+            msg.sendToTarget();
+        }
     }
 
     @Override
