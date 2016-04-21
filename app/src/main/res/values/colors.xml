@@ -45,4 +45,11 @@
     <color name="workspace_holder_tags_color">#AC3F51B5</color>
     <color name="workspace_holder_yinuo_color">#CCFFFFFF</color>
     <!-- workspace page end-->
+
+    <!-- boss online page begin -->
+    <color name="boss_online_name_validate_color">#CCFF4081</color>
+    <color name="boss_online_name_normal_color">#A0000000</color>
+    <color name="boss_online_company_name_color">#FFB3B3B3</color>
+    <color name="boss_online_holder_separator">#CCEBEBEB</color>
+    <!-- boss online page end-->
 </resources>

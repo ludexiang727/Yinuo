@@ -1,0 +1,4 @@
+<selector xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:state_pressed="true" android:drawable="@drawable/boss_online_work_item_selector_select"/>
+    <item android:drawable="@drawable/boss_online_work_item_selector_normal"/>
+</selector>

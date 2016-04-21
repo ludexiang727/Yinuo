@@ -85,4 +85,17 @@
     <dimen name="workspace_holder_yinuo_margin">13dp</dimen>
     <dimen name="workspace_holder_yinuo_size">11sp</dimen>
     <!-- workspace page end-->
+
+    <!-- boss online page begin -->
+    <dimen name="boss_online_boss_name_size">14sp</dimen>
+    <dimen name="boss_online_boss_info_margin_left">6dp</dimen>
+    <dimen name="boss_online_boss_duty_margin_left">3dp</dimen>
+    <dimen name="boss_online_boss_duty_size">10sp</dimen>
+    <dimen name="boss_online_more_margin">6dp</dimen>
+    <dimen name="boss_online_company_name_size">12dp</dimen>
+    <dimen name="boss_online_item_parent_margin_lr">10dp</dimen>
+    <dimen name="boss_online_item_parent_margin_tb">6dp</dimen>
+    <dimen name="boss_online_work_property_wh">30dp</dimen>
+    <dimen name="boss_online_item_workers_margin_left">10dp</dimen>
+    <!-- boss online page end-->
 </resources>

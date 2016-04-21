@@ -38,6 +38,8 @@ public class BossOnlinePageFragment extends BaseFragment {
     public void initialize(View view) {
         mLoading = (Loading) view.findViewById(R.id.boss_online_page_loading);
         mRecyclerView = (BossOnlineRecyclerView) view.findViewById(R.id.boss_online_page_recycler_view);
+
+        mRecyclerView.setSwipeRefreshLayout(mSwipeRefreshLayout);
         mRecyclerView.bindRecycleView(mModels);
     }
 
@@ -88,6 +90,14 @@ public class BossOnlinePageFragment extends BaseFragment {
             mLoading.dismiss();
             switch (msg.what) {
                 case NOTIFY_SUCCESS: {
+                    NetBossOnlinePageObj obj = (NetBossOnlinePageObj) msg.obj;
+                    if (obj != null) {
+                        List<BossOnlineDataModel> models = obj.getModels();
+                        if (models != null) {
+                            mModels.addAll(models);
+                            mRecyclerView.getRecyclerAdapter().notifyDataSetChanged();
+                        }
+                    }
                     break;
                 }
             }

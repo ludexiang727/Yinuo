@@ -7,4 +7,7 @@
     <item name="ic_menu_send" type="drawable">@android:drawable/ic_menu_send</item>
 
     <drawable name="transparent">#00000000</drawable>
+
+    <drawable name="boss_online_work_item_selector_select">#A0E3E3E3</drawable>
+    <drawable name="boss_online_work_item_selector_normal">#FFFFFFFF</drawable>
 </resources>

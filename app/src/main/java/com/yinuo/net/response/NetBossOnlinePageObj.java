@@ -58,6 +58,8 @@ public class NetBossOnlinePageObj extends NetBaseObject {
                     if (works != null) {
                         model.setWorkLists(works);
                     }
+                    model.setWorkTotal(workTotal);
+                    mModels.add(model);
                 } catch (JSONException e) {
                     e.printStackTrace();
                 }
@@ -74,7 +76,7 @@ public class NetBossOnlinePageObj extends NetBaseObject {
                     JSONObject obj = array.getJSONObject(i);
                     int workId = NetParseUtils.getInt(NetConstant.NET_JSON_BOSS_ONLINE_WORK_ID, obj);
                     String workDuty = NetParseUtils.getString(NetConstant.NET_JSON_BOSS_ONLINE_WORK_DUTY, obj);
-                    int workers = NetParseUtils.getInt(NetConstant.NET_JSON_BOSS_ONLINE_WORK_DUTY, obj);
+                    int workers = NetParseUtils.getInt(NetConstant.NET_JSON_BOSS_ONLINE_WORKS_NUMBER, obj);
                     String workPublishTime = NetParseUtils.getString(NetConstant.NET_JSON_BOSS_ONLINE_WORK_TIME, obj);
                     String workSalary = NetParseUtils.getString(NetConstant.NET_JSON_BOSS_ONLINE_WORK_SALARY, obj);
                     int workProperty = NetParseUtils.getInt(NetConstant.NET_JSON_BOSS_ONLINE_WORK_PROPERTY, obj);

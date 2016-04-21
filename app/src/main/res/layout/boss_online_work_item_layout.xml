@@ -1,12 +1,17 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:clickable="true"
+    android:background="@drawable/boss_online_work_item_selector"
+    android:paddingTop="@dimen/boss_online_item_parent_margin_tb"
+    android:paddingLeft="@dimen/boss_online_item_parent_margin_lr"
+    android:paddingRight="@dimen/boss_online_item_parent_margin_lr">
 
     <ImageView
         android:id="@+id/boss_online_work_property"
-        android:layout_width="30dp"
-        android:layout_height="30dp"
+        android:layout_width="@dimen/boss_online_work_property_wh"
+        android:layout_height="@dimen/boss_online_work_property_wh"
         android:contentDescription="@null"/>
 
     <TextView
@@ -19,6 +24,7 @@
         android:id="@+id/boss_online_workers"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/boss_online_item_workers_margin_left"
         android:layout_toRightOf="@id/boss_online_work_duty"/>
 
     <TextView
@@ -33,4 +39,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_below="@id/boss_online_work_duty"/>
+
+    <View
+        android:id="@+id/boss_online_item_view_line"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_below="@id/boss_online_work_salary"
+        android:layout_marginTop="@dimen/boss_online_item_parent_margin_tb"
+        android:background="@color/boss_online_holder_separator"/>
 </RelativeLayout>

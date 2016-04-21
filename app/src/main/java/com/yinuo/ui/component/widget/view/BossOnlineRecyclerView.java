@@ -30,6 +30,7 @@ public class BossOnlineRecyclerView extends BaseRecyclerView {
 
         mAdapter = new BossOnlineRecyclerViewAdapter(context);
         setLayoutManager(new LinearLayoutManager(context));
+        addItemDecoration(new RecyclerSpaceDecoration(context, RecyclerSpaceDecoration.VERTICAL_LIST));
     }
 
     @Override
