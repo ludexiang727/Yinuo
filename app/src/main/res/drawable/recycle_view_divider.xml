@@ -1,11 +1,10 @@
 <shape
     xmlns:android="http://schemas.android.com/apk/res/android"
-    android:shape="line"
-    android:dither="true"
-    android:useLevel="false">
+    android:shape="line">
 
-    <stroke android:dashWidth="2dp"
+    <stroke android:dashWidth="1dp"
         android:dashGap="2dp"
-        android:color="@color/recycle_view_divider"/>
+        android:width="2dp"/>
 
+    <size android:height="1dp"/>
 </shape>

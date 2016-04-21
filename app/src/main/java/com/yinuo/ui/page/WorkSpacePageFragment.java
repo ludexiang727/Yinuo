@@ -139,12 +139,16 @@ public class WorkSpacePageFragment extends BaseFragment implements View.OnClickL
             switch (msg.what) {
                 case NOTIFY_SUCCESS: {
                     NetWorkspacePageObj obj = (NetWorkspacePageObj) msg.obj;
-                    mOptions.addAll(obj.getOptions());
-                    postOptions();
-                    List<WorkspacePageModel> models = obj.getModels();
-                    if (models != null) {
-                        mLists.addAll(models);
-                        mWorkspaceRecycleView.getRecyclerAdapter().notifyDataSetChanged();
+                    if (obj != null) {
+                        if (mOptions != null && mOptions.size() == 0 && obj.getOptions() != null) {
+                            mOptions.addAll(obj.getOptions());
+                            postOptions();
+                        }
+                        List<WorkspacePageModel> models = obj.getModels();
+                        if (models != null) {
+                            mLists.addAll(models);
+                            mWorkspaceRecycleView.getRecyclerAdapter().notifyDataSetChanged();
+                        }
                     }
                     break;
                 }

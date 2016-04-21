@@ -44,6 +44,11 @@ public abstract class BaseRecyclerView extends RecyclerView {
         });
     }
 
+    @Override
+    public boolean canScrollVertically(int direction) {
+        return super.canScrollVertically(direction);
+    }
+
     public void setSwipeRefreshLayout(SwipeRefreshLayout layout) {
         mSwipeRefreshLayout = layout;
     }

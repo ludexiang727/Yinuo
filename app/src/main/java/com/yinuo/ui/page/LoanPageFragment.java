@@ -31,14 +31,17 @@ import com.yinuo.ui.sub.LoanRecepitActivity;
 import com.yinuo.ui.sub.LoanRepaymentActivity;
 import com.yinuo.ui.sub.LoanStrategyActivity;
 import com.yinuo.ui.sub.LoanTransAccActivity;
+import com.yinuo.ui.sub.LoanVipUniqueActivity;
 
 import java.util.ArrayList;
 import java.util.List;
 
+//import io.card.payment.CardIOActivity;
+
 /**
  * Created by ludexiang on 2016/4/18.
  */
-public class LoanPageFragment extends BaseFragment implements IOnItemClickListener {
+public class LoanPageFragment extends BaseFragment implements IOnItemClickListener, View.OnClickListener {
     private LinearLayout mScanParent;
     private LinearLayout mRedbagParent;
     private LinearLayout mVipParent;
@@ -63,6 +66,10 @@ public class LoanPageFragment extends BaseFragment implements IOnItemClickListen
         mGridView = (LoanGridView) view.findViewById(R.id.loan_page_grid_view);
         mGridView.setOptions(mLoanOptions, this);
         mSwipeRefreshLayout.setEnabled(false);
+
+        mScanParent.setOnClickListener(this);
+        mRedbagParent.setOnClickListener(this);
+        mVipParent.setOnClickListener(this);
     }
 
     @Override
@@ -103,6 +110,40 @@ public class LoanPageFragment extends BaseFragment implements IOnItemClickListen
                     }
                     break;
                 }
+            }
+        }
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.loan_page_scan_layout: {
+//                Intent scanIntent = new Intent(getContext(), CardIOActivity.class);
+//
+//                // customize these values to suit your needs.
+//                scanIntent.putExtra(CardIOActivity.EXTRA_REQUIRE_EXPIRY, true); // default: false
+//                scanIntent.putExtra(CardIOActivity.EXTRA_REQUIRE_CVV, false); // default: false
+//                scanIntent.putExtra(CardIOActivity.EXTRA_REQUIRE_POSTAL_CODE, false); // default: false
+//
+//                // hides the manual entry button
+//                // if set, developers should provide their own manual entry mechanism in the app
+//                scanIntent.putExtra(CardIOActivity.EXTRA_SUPPRESS_MANUAL_ENTRY, false); // default: false
+//
+//                // matches the theme of your application
+//                scanIntent.putExtra(CardIOActivity.EXTRA_KEEP_APPLICATION_THEME, false); // default: false
+//
+//                // MY_SCAN_REQUEST_CODE is arbitrary and is only used within this activity.
+////                startActivityForResult(scanIntent, MY_SCAN_REQUEST_CODE);
+//                startActivity(scanIntent);
+                break;
+            }
+            case R.id.loan_page_redbag_parent: {
+                break;
+            }
+            case R.id.loan_page_vip_layout: {
+                Intent intent = new Intent(getContext(), LoanVipUniqueActivity.class);
+                startActivity(intent);
+                break;
             }
         }
     }

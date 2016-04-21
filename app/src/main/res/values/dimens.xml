@@ -82,7 +82,7 @@
     <dimen name="workspace_holder_price_margin">2dp</dimen>
     <dimen name="workspace_holder_location_size">12sp</dimen>
     <dimen name="workspace_page_holder_price_margin_right">6dp</dimen>
-    <dimen name="workspace_holder_yinuo_margin">30dp</dimen>
-    <dimen name="workspace_holder_yinuo_size">10sp</dimen>
+    <dimen name="workspace_holder_yinuo_margin">13dp</dimen>
+    <dimen name="workspace_holder_yinuo_size">11sp</dimen>
     <!-- workspace page end-->
 </resources>

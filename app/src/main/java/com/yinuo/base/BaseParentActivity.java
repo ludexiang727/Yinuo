@@ -1,6 +1,7 @@
 package com.yinuo.base;
 
 import android.content.res.Resources;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.NavigationView;
@@ -19,6 +20,7 @@ import android.view.View;
 
 import com.yinuo.R;
 import com.yinuo.adapter.MainViewPagerAdapter;
+import com.yinuo.utils.SystemBarTintManager;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -43,6 +45,11 @@ public class BaseParentActivity extends AppCompatActivity
         super.onCreate(savedInstanceState);
         setContentView(R.layout.app_main_layout);
 
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
+            SystemBarTintManager tintManager = new SystemBarTintManager(this);
+            tintManager.setStatusBarTintEnabled(true);
+            tintManager.setStatusBarTintResource(R.color.colorPrimary);
+        }
         mResources = getResources();
         initialize();
         initViewPager();

@@ -3,6 +3,7 @@ package com.yinuo.ui.component.widget.view;
 import android.content.Context;
 import android.support.v7.widget.LinearLayoutManager;
 import android.util.AttributeSet;
+import android.view.View;
 
 import com.yinuo.adapter.WorkspaceRecyclerViewAdapter;
 import com.yinuo.adapter.base.BaseRecyclerAdapter;
@@ -31,6 +32,7 @@ public class WorkspaceRecyclerView extends BaseRecyclerView {
         mAdapter = new WorkspaceRecyclerViewAdapter(context);
         addItemDecoration(new RecyclerSpaceDecoration(context, RecyclerSpaceDecoration.VERTICAL_LIST));
         setLayoutManager(new LinearLayoutManager(context, VERTICAL, false));
+        setLayerType(View.LAYER_TYPE_SOFTWARE, null);
     }
 
     @Override
