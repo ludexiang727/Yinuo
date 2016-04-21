@@ -1,0 +1,67 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <ImageView
+                android:id="@+id/boss_online_holder_boss_img"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content" />
+
+            <TextView
+                android:id="@+id/boss_online_holder_boss_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="张小燕"
+                android:layout_toRightOf="@id/boss_online_holder_boss_img"/>
+
+            <TextView
+                android:id="@+id/boss_online_holder_boss_duty"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="CEO"
+                android:layout_toRightOf="@id/boss_online_holder_boss_name"/>
+
+            <TextView
+                android:id="@+id/boss_online_holder_company_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="龙华"
+                android:layout_toRightOf="@id/boss_online_holder_boss_img"
+                android:layout_below="@id/boss_online_holder_boss_name"/>
+        </RelativeLayout>
+
+        <LinearLayout
+            android:id="@+id/boss_online_holder_works_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+            <TextView
+                android:id="@+id/boss_online_holder_works_number"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="共3条"
+                android:layout_alignParentLeft="true"/>
+
+            <TextView
+                android:id="@+id/boss_online_holder_works_more"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="更多"
+                android:layout_alignParentRight="true"/>
+        </RelativeLayout>
+    </LinearLayout>
+</RelativeLayout>

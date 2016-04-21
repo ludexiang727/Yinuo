@@ -14,6 +14,7 @@ public class NetConstant {
     public static final String REQUEST_URL_PARTNER_PAGE = "pGetPartnerPage";
     public static final String REQUEST_URL_LOAN_PAGE = "pGetLoanPage";
     public static final String REQUEST_URL_WORKSPACE_PAGE = "pGetWorkspacePage";
+    public static final String REQUEST_URL_BOSS_ONLINE_PAGE = "pGetBossOnlinePage";
     /***************** request interface end *********************/
 
     /*************  json parse begin field -- 接口response json field **********************/
@@ -116,5 +117,38 @@ public class NetConstant {
     public static final String NET_JSON_WORKSPACE_LIST_EXTRA = "workspace_list_extra";
     public static final String NET_JSON_WORKSPACE_LIST_PRICE = "workspace_list_price";
     /** workspace page data end*/
+
+    /** boss online page data begin */
+    public static final String NET_REQUEST_BOSS_ONLINE_PARAM_INDEX = "boss_online_page_index";
+    public static final String NET_REQUEST_BOSS_ONLINE_PARAM_COUNT = "boss_online_page_count";
+
+    // json
+    public static final String NET_JSON_BOSS_ONLINE_FIELD_WORK_LISTS = "boss_online_work_lists";
+
+    public static final String NET_JSON_BOSS_ONLINE_BOSS_INFO = "boss_online_boss_info";
+    public static final String NET_JSON_BOSS_ONLINE_BOSS_ID = "boss_online_boss_id";
+    public static final String NET_JSON_BOSS_ONLINE_BOSS_IMG = "boss_online_boss_img";
+    public static final String NET_JSON_BOSS_ONLINE_BOSS_TEL = "boss_online_boss_tel";
+    public static final String NET_JSON_BOSS_ONLINE_BOSS_VALIDATE = "boss_online_boss_validate";
+    public static final String NET_JSON_BOSS_ONLINE_BOSS_NAME = "boss_online_boss_name";
+    public static final String NET_JSON_BOSS_ONLINE_BOSS_DUTY = "boss_online_boss_duty";
+    public static final String NET_JSON_BOSS_ONLINE_COMPANY_NAME= "boss_online_company_name";
+    public static final String NET_JSON_BOSS_ONLINE_COMPANY_LOCATION = "boss_online_company_location";
+    // 大于3条 有更多
+    public static final String NET_JSON_BOSS_ONLINE_WORKS_TOTAL = "boss_online_works_total";
+
+    public static final String NET_JSON_BOSS_ONLINE_WORK_WORKS = "boss_online_works";
+    public static final String NET_JSON_BOSS_ONLINE_WORK_ID = "boss_online_work_id";
+    // work duty -- 招聘职位
+    public static final String NET_JSON_BOSS_ONLINE_WORK_DUTY = "boss_online_work_duty";
+    // work duty -- 招聘人数
+    public static final String NET_JSON_BOSS_ONLINE_WORKS_NUMBER = "boss_online_work_numbers";
+    // publish time -- 发布时间
+    public static final String NET_JSON_BOSS_ONLINE_WORK_TIME = "boss_online_publish_time";
+    // work salary -- 薪资
+    public static final String NET_JSON_BOSS_ONLINE_WORK_SALARY = "boss_online_work_salary";
+    // work property -- 工作属性 - 兼、全职
+    public static final String NET_JSON_BOSS_ONLINE_WORK_PROPERTY = "boss_online_work_property";
+    /** boss online page data end*/
     /******************  json parse end field **********************/
 }

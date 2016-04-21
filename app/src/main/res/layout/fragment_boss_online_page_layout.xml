@@ -1,0 +1,17 @@
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.yinuo.ui.component.widget.view.BossOnlineRecyclerView
+        android:id="@+id/boss_online_page_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+
+    <com.yinuo.ui.component.widget.Loading
+        android:id="@+id/boss_online_page_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:visibility="gone"/>
+</merge>

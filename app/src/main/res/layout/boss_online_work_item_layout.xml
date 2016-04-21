@@ -1,0 +1,36 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/boss_online_work_property"
+        android:layout_width="30dp"
+        android:layout_height="30dp"
+        android:contentDescription="@null"/>
+
+    <TextView
+        android:id="@+id/boss_online_work_duty"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/boss_online_work_property"/>
+
+    <TextView
+        android:id="@+id/boss_online_workers"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_toRightOf="@id/boss_online_work_duty"/>
+
+    <TextView
+        android:id="@+id/boss_online_work_publish_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_alignParentRight="true"/>
+
+    <TextView
+        android:id="@+id/boss_online_work_salary"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/boss_online_work_duty"/>
+</RelativeLayout>

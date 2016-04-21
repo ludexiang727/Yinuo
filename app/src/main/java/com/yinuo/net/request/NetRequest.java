@@ -3,6 +3,7 @@ package com.yinuo.net.request;
 import com.squareup.okhttp.FormEncodingBuilder;
 import com.yinuo.net.IRequestListener;
 import com.yinuo.net.base.NetBaseObject;
+import com.yinuo.net.response.NetBossOnlinePageObj;
 import com.yinuo.net.response.NetDiscoveryPageObj;
 import com.yinuo.net.response.NetHomePageDetailsObj;
 import com.yinuo.net.response.NetHomePageObj;
@@ -108,5 +109,13 @@ public class NetRequest <T extends NetBaseObject> {
         build.add(NetConstant.NET_REQUEST_WORKSPACE_PARAM_INDEX, String.valueOf(pageIndex));
         build.add(NetConstant.NET_REQUEST_WORKSPACE_PARAM_COUNT, String.valueOf(pageCount));
         OkHttpRequest.getInstance().httpPostRequest(NetConstant.REQUEST_URL_WORKSPACE_PAGE, build.build(), listener, new NetWorkspacePageObj());
+    }
+
+    /** boss online page data -- 伯乐在线 页面 */
+    public void requestBossOnlinePageData(int pageIndex, int pageCount, IRequestListener<T> listener) {
+        FormEncodingBuilder build = build();
+        build.add(NetConstant.NET_REQUEST_BOSS_ONLINE_PARAM_INDEX, String.valueOf(pageIndex));
+        build.add(NetConstant.NET_REQUEST_BOSS_ONLINE_PARAM_COUNT, String.valueOf(pageCount));
+        OkHttpRequest.getInstance().httpPostRequest(NetConstant.REQUEST_URL_BOSS_ONLINE_PAGE, build.build(), listener, new NetBossOnlinePageObj());
     }
 }

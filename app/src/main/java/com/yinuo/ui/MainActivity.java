@@ -10,9 +10,7 @@ import com.yinuo.ui.page.HomePageFragment;
 import com.yinuo.ui.page.InvestPageFragment;
 import com.yinuo.ui.page.LoanPageFragment;
 import com.yinuo.ui.page.MorePageFragment;
-import com.yinuo.ui.page.NearbyPageFragment;
 import com.yinuo.ui.page.PartnerPageFragment;
-import com.yinuo.ui.page.StaffPageFragment;
 import com.yinuo.ui.page.WorkSpacePageFragment;
 
 import java.util.ArrayList;
@@ -40,10 +38,6 @@ public class MainActivity extends BaseParentActivity {
         WorkSpacePageFragment workSpacePageFragment = new WorkSpacePageFragment();
         /** boss online page */
         BossOnlinePageFragment bossPage = new BossOnlinePageFragment();
-        /** find staff page -- 贤能引进 */
-        StaffPageFragment staffPage = new StaffPageFragment();
-        /** near by page */
-        NearbyPageFragment nearbyPage = new NearbyPageFragment();
         /** more page */
         MorePageFragment morePage = new MorePageFragment();
 
@@ -55,8 +49,6 @@ public class MainActivity extends BaseParentActivity {
         mPages.add(loanPage);
         mPages.add(workSpacePageFragment);
         mPages.add(bossPage);
-        mPages.add(staffPage);
-        mPages.add(nearbyPage);
         mPages.add(morePage);
 
         mPagerAdapter.setFragments(mPages, mTabTitle);
