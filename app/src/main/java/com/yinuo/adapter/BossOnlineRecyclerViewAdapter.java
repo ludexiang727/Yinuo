@@ -16,6 +16,7 @@ import com.yinuo.base.BaseObject;
 import com.yinuo.mode.BossOnlineDataModel;
 import com.yinuo.mode.BossOnlineWorkModel;
 import com.yinuo.utils.ResUtils;
+import com.yinuo.utils.StringUtils;
 
 import java.util.List;
 
@@ -55,6 +56,7 @@ public class BossOnlineRecyclerViewAdapter<T extends BaseObject> extends BaseRec
 
     private final class BossOnlineViewHolder extends RecyclerViewHolder {
         private ImageView imageView;
+        private TextView about;
         private TextView bosName;
         private TextView bosDuty;
         private TextView workCount;
@@ -70,6 +72,7 @@ public class BossOnlineRecyclerViewAdapter<T extends BaseObject> extends BaseRec
             mView = view;
 
             imageView = (ImageView) view.findViewById(R.id.boss_online_holder_boss_img);
+            about = (TextView) view.findViewById(R.id.boss_online_holder_about);
             bosName = (TextView) view.findViewById(R.id.boss_online_holder_boss_name);
             bosDuty = (TextView) view.findViewById(R.id.boss_online_holder_boss_duty);
             workCount = (TextView) view.findViewById(R.id.boss_online_holder_works_number);
@@ -91,7 +94,7 @@ public class BossOnlineRecyclerViewAdapter<T extends BaseObject> extends BaseRec
             holder.bosName.setTextColor(1 == model.getBossValidate() ? validate : normal);
             holder.bosName.setText(model.getBossName());
             holder.bosDuty.setText(model.getBossDuty());
-            holder.workCount.setText("共 " + model.getWorkTotal() + "条");
+            holder.workCount.setText(String.format(ResUtils.getString(mContext, R.string.boss_online_work_total), model.getWorkTotal()));
             holder.companyName.setText(model.getCompanyName());
             if (model.getWorkTotal() > 3) {
                 holder.mWorksMore.setVisibility(View.VISIBLE);
@@ -102,14 +105,11 @@ public class BossOnlineRecyclerViewAdapter<T extends BaseObject> extends BaseRec
             if (holder.mWorksLayout.getChildCount() > 0) {
                 holder.mWorksLayout.removeAllViews();
             }
-            int marginLR = ResUtils.getInt(mContext, R.dimen.boss_online_item_parent_margin_lr);
-            int marginTB = ResUtils.getInt(mContext, R.dimen.boss_online_item_parent_margin_tb);
-            LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.MATCH_PARENT, LinearLayout.LayoutParams.WRAP_CONTENT);
-//            params.setMargins(marginLR, marginTB, marginLR, 0);
             for (int i = 0; i < works.size(); ++i) {
                 BossOnlineWorkModel work = works.get(i);
                 View view = LayoutInflater.from(mContext).inflate(R.layout.boss_online_work_item_layout, null);
-                work.getWorkProperty(); // 是否是兼职
+
+                TextView property = (TextView) view.findViewById(R.id.boss_online_work_property);
                 TextView duty = (TextView) view.findViewById(R.id.boss_online_work_duty);
                 TextView num = (TextView) view.findViewById(R.id.boss_online_workers);
                 TextView time = (TextView) view.findViewById(R.id.boss_online_work_publish_time);
@@ -118,11 +118,21 @@ public class BossOnlineRecyclerViewAdapter<T extends BaseObject> extends BaseRec
                 if (i == works.size() - 1) {
                     line.setVisibility(View.INVISIBLE);
                 }
+
+                if (work.getWorkProperty() == 1) {
+                    // 是否是兼职
+                    property.setBackgroundResource(R.drawable.boss_online_item_work_property_full_time);
+                    property.setText(ResUtils.getString(mContext, R.string.boss_online_work_full_time));
+                } else {
+                    property.setBackgroundResource(R.drawable.boss_online_item_work_property_part_time);
+                    property.setText(ResUtils.getString(mContext, R.string.boss_online_work_part_time));
+                }
+
                 duty.setText(work.getWorkDuty());
-                num.setText("招 " + work.getWorkers() + " 人"); // TODO mark workers red
-                time.setText(work.getWorkPublishTime());
+                num.setText(StringUtils.richString(String.format(ResUtils.getString(mContext, R.string.boss_online_employ_workers), work.getWorkers())));
+                time.setText(StringUtils.formatTime(work.getWorkPublishTime(), "MM.dd/yy"));
                 salary.setText(work.getWorkSalary());
-                holder.mWorksLayout.addView(view, i, params);
+                holder.mWorksLayout.addView(view, i);
             }
         }
     }

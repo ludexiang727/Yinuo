@@ -134,6 +134,7 @@ public class NetConstant {
     public static final String NET_JSON_BOSS_ONLINE_BOSS_DUTY = "boss_online_boss_duty";
     public static final String NET_JSON_BOSS_ONLINE_COMPANY_NAME= "boss_online_company_name";
     public static final String NET_JSON_BOSS_ONLINE_COMPANY_LOCATION = "boss_online_company_location";
+    public static final String NET_JSON_BOSS_ONLINE_COMPANY_ABOUT = "boss_online_company_about";
     // 大于3条 有更多
     public static final String NET_JSON_BOSS_ONLINE_WORKS_TOTAL = "boss_online_works_total";
 

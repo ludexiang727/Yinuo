@@ -77,7 +77,9 @@ public class WorkSpacePageFragment extends BaseFragment implements View.OnClickL
 
     @Override
     public void onRefresh() {
-
+        mPageIndex = 1;
+        isRefreshing = true;
+        loadData();
     }
 
     @Override
@@ -143,6 +145,10 @@ public class WorkSpacePageFragment extends BaseFragment implements View.OnClickL
                         if (mOptions != null && mOptions.size() == 0 && obj.getOptions() != null) {
                             mOptions.addAll(obj.getOptions());
                             postOptions();
+                        }
+                        mSwipeRefreshLayout.setRefreshing(false);
+                        if (isRefreshing && mPageIndex == 1) {
+                            mLists.clear();
                         }
                         List<WorkspacePageModel> models = obj.getModels();
                         if (models != null) {

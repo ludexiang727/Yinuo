@@ -18,6 +18,7 @@ public class BossOnlineDataModel extends BaseObject {
     private String mBossDuty;
     private String mCompanyName;
     private String mCompanyLocation;
+    private String mCompanyAbout;
     private int mWorkTotal;
 
     public String getBossDuty() {
@@ -100,5 +101,13 @@ public class BossOnlineDataModel extends BaseObject {
 
     public void setWorkTotal(int workTotal) {
         this.mWorkTotal = workTotal;
+    }
+
+    public String getCompanyAbout() {
+        return mCompanyAbout;
+    }
+
+    public void setCompanyAbout(String companyAbout) {
+        this.mCompanyAbout = companyAbout;
     }
 }

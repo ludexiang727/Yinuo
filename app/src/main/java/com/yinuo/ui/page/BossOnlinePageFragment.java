@@ -51,7 +51,8 @@ public class BossOnlinePageFragment extends BaseFragment {
 
     @Override
     public void onRefresh() {
-
+        mPageIndex = 1;
+        loadData();
     }
 
     @Override
@@ -90,9 +91,13 @@ public class BossOnlinePageFragment extends BaseFragment {
             mLoading.dismiss();
             switch (msg.what) {
                 case NOTIFY_SUCCESS: {
+                    mSwipeRefreshLayout.setRefreshing(false);
                     NetBossOnlinePageObj obj = (NetBossOnlinePageObj) msg.obj;
                     if (obj != null) {
                         List<BossOnlineDataModel> models = obj.getModels();
+                        if (mPageIndex == 1) {
+                            mModels.clear();
+                        }
                         if (models != null) {
                             mModels.addAll(models);
                             mRecyclerView.getRecyclerAdapter().notifyDataSetChanged();

@@ -51,5 +51,7 @@
     <color name="boss_online_name_normal_color">#A0000000</color>
     <color name="boss_online_company_name_color">#FFB3B3B3</color>
     <color name="boss_online_holder_separator">#CCEBEBEB</color>
+    <color name="boss_online_work_item_part_time">#CCE0F345</color>
+    <color name="boss_online_work_item_full_time">#CCFF4081</color>
     <!-- boss online page end-->
 </resources>

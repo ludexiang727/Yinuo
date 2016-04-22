@@ -26,6 +26,7 @@ public abstract class BaseFragment extends Fragment implements SwipeRefreshLayou
     protected SwipeRefreshLayout mSwipeRefreshLayout;
     protected RelativeLayout mContentParent;
     protected Loading mLoading;
+    protected boolean isRefreshing;
 
     public abstract int pageLayoutId();
 

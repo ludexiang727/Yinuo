@@ -8,16 +8,21 @@
     android:paddingLeft="@dimen/boss_online_item_parent_margin_lr"
     android:paddingRight="@dimen/boss_online_item_parent_margin_lr">
 
-    <ImageView
+    <TextView
         android:id="@+id/boss_online_work_property"
         android:layout_width="@dimen/boss_online_work_property_wh"
         android:layout_height="@dimen/boss_online_work_property_wh"
-        android:contentDescription="@null"/>
+        android:textColor="@android:color/white"
+        android:gravity="center"
+        android:layout_marginTop="@dimen/boss_online_work_item_property_margin_top"
+        android:textSize="@dimen/boss_online_work_item_property_size"
+        android:layout_alignParentLeft="true"/>
 
     <TextView
         android:id="@+id/boss_online_work_duty"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/boss_online_item_workers_margin_left"
         android:layout_toRightOf="@id/boss_online_work_property"/>
 
     <TextView

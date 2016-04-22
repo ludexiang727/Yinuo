@@ -1,0 +1,6 @@
+<shape
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <corners android:radius="@dimen/boss_online_work_item_property_radius"/>
+    <solid android:color="@color/boss_online_work_item_full_time"/>
+</shape>

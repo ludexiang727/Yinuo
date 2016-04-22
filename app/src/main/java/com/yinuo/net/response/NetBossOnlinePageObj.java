@@ -42,6 +42,7 @@ public class NetBossOnlinePageObj extends NetBaseObject {
                     String bossDuty = NetParseUtils.getString(NetConstant.NET_JSON_BOSS_ONLINE_BOSS_DUTY, bossObj);
                     String companyName = NetParseUtils.getString(NetConstant.NET_JSON_BOSS_ONLINE_COMPANY_NAME, bossObj);
                     String companyLocation = NetParseUtils.getString(NetConstant.NET_JSON_BOSS_ONLINE_COMPANY_LOCATION, bossObj);
+                    String companyAbout = NetParseUtils.getString(NetConstant.NET_JSON_BOSS_ONLINE_COMPANY_ABOUT, bossObj);
                     int workTotal = NetParseUtils.getInt(NetConstant.NET_JSON_BOSS_ONLINE_WORKS_TOTAL, bossObj);
 
                     JSONArray innerArray = NetParseUtils.getArray(NetConstant.NET_JSON_BOSS_ONLINE_WORK_WORKS, obj);
@@ -54,6 +55,7 @@ public class NetBossOnlinePageObj extends NetBaseObject {
                     model.setBossDuty(bossDuty);
                     model.setCompanyName(companyName);
                     model.setCompanyLocation(companyLocation);
+                    model.setCompanyAbout(companyAbout);
                     List<BossOnlineWorkModel> works = parseInnerArray(innerArray);
                     if (works != null) {
                         model.setWorkLists(works);
