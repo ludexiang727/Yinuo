@@ -31,7 +31,7 @@ public class MainActivity extends BaseParentActivity {
         /** partner page -- 合伙人 */
         PartnerPageFragment partnerPage = new PartnerPageFragment();
         /** find invest page -- 找融资 */
-        InvestPageFragment investPageFragment = new InvestPageFragment();
+//        InvestPageFragment investPageFragment = new InvestPageFragment();
         /** small loan page -- 小额贷款*/
         LoanPageFragment loanPage = new LoanPageFragment();
         /** workspace page - 工作间*/
@@ -45,7 +45,7 @@ public class MainActivity extends BaseParentActivity {
         mPages.add(homePage);
         mPages.add(discoverPage);
         mPages.add(partnerPage);
-        mPages.add(investPageFragment);
+//        mPages.add(investPageFragment);
         mPages.add(loanPage);
         mPages.add(workSpacePageFragment);
         mPages.add(bossPage);

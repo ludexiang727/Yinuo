@@ -4,20 +4,25 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <RelativeLayout
+    <com.yinuo.ui.component.widget.view.PartnerViewPager
+        android:id="@+id/partner_view_pager"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"/>
 
-        <com.yinuo.ui.component.widget.view.PartnerRecyclerView
-            android:id="@+id/partner_page_recycler_view"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+    <!--<RelativeLayout-->
+        <!--android:layout_width="match_parent"-->
+        <!--android:layout_height="match_parent">-->
 
-        <com.yinuo.ui.component.widget.Loading
-            android:id="@+id/partner_page_loading"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
-    </RelativeLayout>
+        <!--<com.yinuo.ui.component.widget.view.PartnerRecyclerView-->
+            <!--android:id="@+id/partner_page_recycler_view"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="match_parent"/>-->
+
+    <com.yinuo.ui.component.widget.Loading
+        android:id="@+id/partner_page_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"/>
+    <!--</RelativeLayout>-->
 
     <LinearLayout
         android:layout_width="match_parent"

@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -12,6 +13,7 @@ import com.yinuo.adapter.base.BaseRecyclerAdapter;
 import com.yinuo.adapter.base.RecyclerViewHolder;
 import com.yinuo.base.BaseObject;
 import com.yinuo.mode.InvestPageDataModel;
+import com.yinuo.utils.ResUtils;
 
 import java.util.List;
 
@@ -22,9 +24,11 @@ import java.util.List;
 public class InvestRecyclerViewAdapter<T extends BaseObject> extends BaseRecyclerAdapter {
     private LayoutInflater mInflater;
     private List<T> mLists;
+    private Context mContext;
 
     public InvestRecyclerViewAdapter(Context context) {
         mInflater = LayoutInflater.from(context);
+        mContext = context;
     }
 
     public void loadData(List<T> lists) {
@@ -54,6 +58,14 @@ public class InvestRecyclerViewAdapter<T extends BaseObject> extends BaseRecycle
         InvestViewHolder holder = (InvestViewHolder) viewHolder;
         if (position < mLists.size() && mLists.get(position) instanceof InvestPageDataModel) {
             InvestPageDataModel model = (InvestPageDataModel) mLists.get(position);
+            FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.WRAP_CONTENT);
+            if (position == 0) {
+                int top = ResUtils.getInt(mContext, R.dimen.partner_page_condition_height);
+                params.topMargin = top;
+            } else {
+                params.topMargin = 0;
+            }
+            holder.mView.setLayoutParams(params);
             loadImage(model.getInvestImg(), holder.imgView);
             holder.name.setText(model.getInvestName());
             holder.duty.setText(model.getInvestDuty());
