@@ -43,14 +43,11 @@ public class RecyclerSpaceDecoration extends RecyclerView.ItemDecoration {
 
     @Override
     public void onDraw(Canvas c, RecyclerView parent) {
-        Log.v("ldx","recyclerview - itemdecoration onDraw()");
-
         if (mOrientation == VERTICAL_LIST) {
             drawVertical(c, parent);
         } else {
             drawHorizontal(c, parent);
         }
-
     }
 
     public void drawVertical(Canvas c, RecyclerView parent) {

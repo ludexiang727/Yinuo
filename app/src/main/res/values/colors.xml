@@ -31,6 +31,10 @@
     <color name="partner_page_condition_normal_color">#CC909090</color>
     <!-- partner page end-->
 
+    <!-- invest page begin -->
+    <color name="invest_view_holder_separator">#CCEBEBEB</color>
+    <!-- invest page end -->
+
     <!-- loan page begin -->
     <color name="loan_page_separator_color">#ebebeb</color>
     <!-- loan page end -->

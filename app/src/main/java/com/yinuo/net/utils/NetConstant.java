@@ -12,6 +12,7 @@ public class NetConstant {
     public static final String REQUEST_URL_HOME_PAGE_DETAILS = "pGetHomeDetails";
     public static final String REQUEST_URL_DISCOVERY_PAGE = "pGetDiscoveryPage";
     public static final String REQUEST_URL_PARTNER_PAGE = "pGetPartnerPage";
+    public static final String REQUEST_URL_INVEST_PAGE = "pGetInvestPage";
     public static final String REQUEST_URL_LOAN_PAGE = "pGetLoanPage";
     public static final String REQUEST_URL_WORKSPACE_PAGE = "pGetWorkspacePage";
     public static final String REQUEST_URL_BOSS_ONLINE_PAGE = "pGetBossOnlinePage";
@@ -85,6 +86,28 @@ public class NetConstant {
     public static final String NET_JSON_PARTNER_LISTS_GENDER = "partner_gender";
     public static final String NET_JSON_PARTNER_LISTS_IMG = "partner_img";
     /** partner page data end*/
+
+    /** invest page data being */
+    public static final String NET_REQUEST_INVEST_PARAM_INDEX = "invest_page_index";
+    public static final String NET_REQUEST_INVEST_PARAM_COUNT = "invest_page_count";
+
+    // json
+    public static final String NET_JSON_INVEST_FIELD_LISTS_COUNT = "invest_count";
+    public static final String NET_JSON_INVEST_FIELD_LISTS = "invest_lists";
+    public static final String NET_JSON_INVEST_LISTS_ID = "invest_list_id";
+    public static final String NET_JSON_INVEST_LISTS_NAME = "invest_list_name";
+    public static final String NET_JSON_INVEST_LISTS_CARD = "invest_list_card";
+    public static final String NET_JSON_INVEST_LISTS_GENDER = "invest_list_gender";
+    public static final String NET_JSON_INVEST_LISTS_VALIDATE = "invest_list_validate";
+    public static final String NET_JSON_INVEST_LISTS_IMG = "invest_list_img";
+    public static final String NET_JSON_INVEST_LISTS_DUTY = "invest_list_duty";
+    // may be empty
+    public static final String NET_JSON_INVEST_LISTS_COMPANY = "invest_list_company";
+    public static final String NET_JSON_INVEST_LISTS_NOTICE = "invest_list_notice";
+    public static final String NET_JSON_INVEST_LISTS_PROVINCE = "invest_list_province";
+    public static final String NET_JSON_INVEST_LISTS_CITY = "invest_list_city";
+
+    /** invest page data end*/
 
     /** loan page data begin */
     public static final String NET_REQUEST_LOAN_PARAM_OPTION_ID = "loan_option_id";

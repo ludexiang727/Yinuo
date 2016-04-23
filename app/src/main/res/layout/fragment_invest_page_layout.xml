@@ -3,4 +3,16 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
+    <com.yinuo.ui.component.widget.view.InvestRecyclerView
+        android:id="@+id/invest_page_recycler_view"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_margin="@dimen/invest_page_recycler_view_margin"/>
+
+    <com.yinuo.ui.component.widget.Loading
+        android:id="@+id/invest_page_loading"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:visibility="gone"/>
+
 </merge>

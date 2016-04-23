@@ -60,6 +60,21 @@
     <dimen name="partner_page_info_margin">2dp</dimen>
     <!-- partner page end-->
 
+    <!-- invest page begin -->
+    <dimen name="invest_page_recycler_view_margin">5dp</dimen>
+    <dimen name="invest_view_holder_img_wh">65dp</dimen>
+    <dimen name="invest_view_holder_agree_size">6sp</dimen>
+    <dimen name="invest_view_holder_notice_margin">8dp</dimen>
+    <dimen name="invest_view_holder_options_margin">6dp</dimen>
+    <dimen name="invest_view_holder_img_margin">6dp</dimen>
+    <dimen name="invest_view_holder_validate_size">5sp</dimen>
+    <dimen name="invest_view_invest_info_margin">6dp</dimen>
+    <dimen name="invest_view_holder_name_size">12sp</dimen>
+    <dimen name="invest_view_holder_duty_size">10sp</dimen>
+    <dimen name="invest_view_holder_duty_margin_left">3dp</dimen>
+    <dimen name="invest_view_holder_notice_size">11sp</dimen>
+    <!-- invest page end -->
+
     <!-- loan page begin -->
     <dimen name="loan_item_view_height">135dp</dimen>
     <dimen name="loan_page_primary_tools_height">130dp</dimen>

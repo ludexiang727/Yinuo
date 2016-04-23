@@ -19,6 +19,14 @@
     <string name="partner_page_condition_skill">技术</string>
     <string name="partner_page_condition_invest">投资</string>
 
+    <!-- invest page begin -->
+    <string name="invest_view_holder_chat">微聊</string>
+    <string name="invest_view_holder_business_card">互换名片</string>
+    <string name="invest_view_holder_adverse_agree">(需对方同意)</string>
+    <string name="invest_view_holder_project">投递项目</string>
+    <string name="invest_view_holder_is_validate">是否认证可图片</string>
+    <!-- invest page end -->
+
     <!-- loan page begin -->
     <string name="loan_page_primary_scan">扫一扫</string>
     <string name="loan_page_primary_red_bag">红包</string>

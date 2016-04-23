@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.v7.widget.CardView
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    app:cardUseCompatPadding="true">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:id="@+id/invest_view_holder_img"
+            android:layout_width="@dimen/invest_view_holder_img_wh"
+            android:layout_height="@dimen/invest_view_holder_img_wh"
+            android:layout_margin="@dimen/invest_view_holder_img_margin"
+            android:scaleType="centerCrop"
+            android:contentDescription="@null"
+            android:layout_alignParentLeft="true"/>
+
+        <!-- validate or invalidate -->
+        <TextView
+            android:id="@+id/invest_view_holder_validate"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/invest_view_holder_validate_size"
+            android:layout_alignBottom="@id/invest_view_holder_img"
+            android:layout_alignLeft="@id/invest_view_holder_img"
+            android:textColor="@android:color/white"
+            android:text="@string/invest_view_holder_is_validate"/>
+
+        <TextView
+            android:id="@+id/invest_view_holder_chat"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/invest_view_holder_chat"
+            android:layout_margin="@dimen/invest_view_holder_options_margin"
+            android:layout_alignParentRight="true"/>
+
+        <RelativeLayout
+            android:id="@+id/invest_view_holder_info_layout_parent"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_toLeftOf="@id/invest_view_holder_chat"
+            android:layout_toRightOf="@id/invest_view_holder_img"
+            android:layout_alignTop="@id/invest_view_holder_img"
+            android:layout_marginLeft="@dimen/invest_view_invest_info_margin"
+            android:layout_marginRight="@dimen/invest_view_invest_info_margin">
+
+            <LinearLayout
+                android:id="@+id/invest_view_holder_info_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <TextView
+                    android:id="@+id/invest_view_holder_name"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/invest_view_holder_name_size"/>
+
+                <TextView
+                    android:id="@+id/invest_view_holder_duty"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginLeft="@dimen/invest_view_holder_duty_margin_left"
+                    android:textSize="@dimen/invest_view_holder_duty_size"/>
+            </LinearLayout>
+
+            <LinearLayout
+                android:id="@+id/invest_view_holder_area_layout"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_below="@id/invest_view_holder_info_layout">
+                <TextView
+                    android:id="@+id/invest_view_holder_province"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+
+                <TextView
+                    android:id="@+id/invest_view_holder_city"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content" />
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/invest_view_holder_company"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@id/invest_view_holder_area_layout"/>
+
+
+        </RelativeLayout>
+
+        <View
+            android:id="@+id/invest_view_holder_line1"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/invest_view_holder_separator"
+            android:layout_below="@id/invest_view_holder_img"/>
+
+        <TextView
+            android:id="@+id/invest_view_holder_notice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/invest_view_holder_notice_size"
+            android:layout_margin="@dimen/invest_view_holder_notice_margin"
+            android:layout_below="@id/invest_view_holder_line1"/>
+
+        <View
+            android:id="@+id/invest_view_holder_line2"
+            android:layout_width="match_parent"
+            android:layout_height="1px"
+            android:background="@color/invest_view_holder_separator"
+            android:layout_below="@id/invest_view_holder_notice"/>
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/invest_view_holder_line2"
+            android:layout_alignParentRight="true"
+            android:gravity="right|center_vertical"
+            android:orientation="horizontal">
+
+            <LinearLayout
+                android:id="@+id/invest_view_holder_card_parent"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:layout_margin="@dimen/invest_view_holder_options_margin">
+                <TextView
+                    android:id="@+id/invest_view_holder_exchange_bus_card"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/invest_view_holder_business_card"/>
+
+                <TextView
+                    android:id="@+id/invest_view_holder_agree"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:textSize="@dimen/invest_view_holder_agree_size"
+                    android:text="@string/invest_view_holder_adverse_agree"/>
+            </LinearLayout>
+
+            <TextView
+                android:id="@+id/invest_view_holder_project"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="@string/invest_view_holder_project"
+                android:layout_margin="@dimen/invest_view_holder_options_margin"
+                android:layout_toRightOf="@id/invest_view_holder_card_parent"/>
+        </RelativeLayout>
+    </RelativeLayout>
+
+
+
+</android.support.v7.widget.CardView>
