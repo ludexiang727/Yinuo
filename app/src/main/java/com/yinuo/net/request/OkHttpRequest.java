@@ -1,5 +1,7 @@
 package com.yinuo.net.request;
 
+import android.util.Log;
+
 import com.squareup.okhttp.Call;
 import com.squareup.okhttp.Callback;
 import com.squareup.okhttp.OkHttpClient;
@@ -75,6 +77,7 @@ public class OkHttpRequest <T extends NetBaseObject> implements Callback {
 
     @Override
     public void onFailure(Request request, IOException e) {
+        Log.e("ldx", "onFailure ....... reuquest >>> " + request + " " + e.getMessage());
     }
 
     @Override
