@@ -30,7 +30,7 @@ public class NetHelper {
         }
     }
 
-    public static boolean isNetworkConnected() {
+    public boolean isNetworkConnected() {
         if (sContext != null) {
             ConnectivityManager mConnectivityManager = (ConnectivityManager) sContext.getSystemService(Context.CONNECTIVITY_SERVICE);
             NetworkInfo mNetworkInfo = mConnectivityManager.getActiveNetworkInfo();
@@ -41,7 +41,7 @@ public class NetHelper {
         return false;
     }
 
-    public static boolean isWifiConnected() {
+    public boolean isWifiConnected() {
         if (sContext != null) {
             ConnectivityManager mConnectivityManager = (ConnectivityManager) sContext.getSystemService(Context.CONNECTIVITY_SERVICE);
             NetworkInfo mWiFiNetworkInfo = mConnectivityManager
@@ -53,7 +53,7 @@ public class NetHelper {
         return false;
     }
 
-    public static boolean isMobileConnected() {
+    public boolean isMobileConnected() {
         if (sContext != null) {
             ConnectivityManager mConnectivityManager = (ConnectivityManager) sContext.getSystemService(Context.CONNECTIVITY_SERVICE);
             NetworkInfo mMobileNetworkInfo = mConnectivityManager
@@ -65,7 +65,7 @@ public class NetHelper {
         return false;
     }
 
-    public static int getConnectedType() {
+    public int getConnectedType() {
         if (sContext != null) {
             ConnectivityManager mConnectivityManager = (ConnectivityManager) sContext.getSystemService(Context.CONNECTIVITY_SERVICE);
             NetworkInfo mNetworkInfo = mConnectivityManager.getActiveNetworkInfo();

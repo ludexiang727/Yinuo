@@ -22,7 +22,6 @@ public class NetRequest <T extends NetBaseObject> {
     private static NetRequest mInstance;
 
     private NetRequest() {
-
     }
 
     public static NetRequest getInstance() {
@@ -49,7 +48,8 @@ public class NetRequest <T extends NetBaseObject> {
         FormEncodingBuilder build = build();
         build.add(NetConstant.NET_REQUEST_LOGIN_PARAM_USERNAME, userName);
         build.add(NetConstant.NET_REQUEST_LOGIN_PARAM_PASSWORD, password);
-        OkHttpRequest.getInstance().httpPostRequest(NetConstant.REQUEST_URL_SIGN_IN, build.build(), listener, new NetLoginObj());
+        int requestCode = OkHttpRequest.getInstance().httpPostRequest(NetConstant.REQUEST_URL_SIGN_IN,
+                build.build(), listener, new NetLoginObj());
     }
 
     /** sign up -- 注册 **/
@@ -58,7 +58,8 @@ public class NetRequest <T extends NetBaseObject> {
         build.add(NetConstant.NET_REQUEST_REGISTER_PARAM_USERNAME, userName);
         build.add(NetConstant.NET_REQUEST_REGISTER_PARAM_PASSWORD, password);
         build.add(NetConstant.NET_REQUEST_REGISTER_PARAM_CODE, code);
-        OkHttpRequest.getInstance().httpPostRequest(NetConstant.REQUEST_URL_SIGN_UP, build.build(), listener, new NetRegisterObj());
+        int requestCode = OkHttpRequest.getInstance().httpPostRequest(NetConstant.REQUEST_URL_SIGN_UP,
+                build.build(), listener, new NetRegisterObj());
     }
 
     /** home page data -- 首页数据 分页 及 加载更多*/
@@ -66,21 +67,24 @@ public class NetRequest <T extends NetBaseObject> {
         FormEncodingBuilder build = build();
         build.add(NetConstant.NET_REQUEST_HOMEPAGE_PARAM_INDEX, String.valueOf(pageIndex));
         build.add(NetConstant.NET_REQUEST_HOMEPAGE_PARAM_COUNT, String.valueOf(pageCount));
-        OkHttpRequest.getInstance().httpPostRequest(NetConstant.REQUEST_URL_HOME_PAGE, build.build(), listener, new NetHomePageObj());
+        int requestCode = OkHttpRequest.getInstance().httpPostRequest(NetConstant.REQUEST_URL_HOME_PAGE,
+                build.build(), listener, new NetHomePageObj());
     }
 
     /** home page data -- app 数据详情页 */
     public void requestAppDetails(int appId, IRequestListener<T> listener) {
         FormEncodingBuilder build = build();
         build.add(NetConstant.NET_REQUEST_HOMEPAGE_DETAILS_APPID, String.valueOf(appId));
-        OkHttpRequest.getInstance().httpPostRequest(NetConstant.REQUEST_URL_HOME_PAGE_DETAILS, build.build(), listener, new NetHomePageDetailsObj());
+        int requestCode = OkHttpRequest.getInstance().httpPostRequest(NetConstant.REQUEST_URL_HOME_PAGE_DETAILS,
+                build.build(), listener, new NetHomePageDetailsObj());
     }
 
     /** discovery page data - 发现页面 数据请求 **/
     public void requestDiscoveryPageData(int propertyId, IRequestListener<T> listener) {
         FormEncodingBuilder build = build();
         build.add(NetConstant.NET_REQUEST_DISCOVERYPAGE_PARAM_PROPERTYID, String.valueOf(propertyId));
-        OkHttpRequest.getInstance().httpPostRequest(NetConstant.REQUEST_URL_DISCOVERY_PAGE, build.build(), listener, new NetDiscoveryPageObj());
+        int requestCode = OkHttpRequest.getInstance().httpPostRequest(NetConstant.REQUEST_URL_DISCOVERY_PAGE,
+                build.build(), listener, new NetDiscoveryPageObj());
     }
 
     /** partner page data - 合伙人页面 数据请求
@@ -93,7 +97,8 @@ public class NetRequest <T extends NetBaseObject> {
         build.add(NetConstant.NET_REQUEST_PARTNER_PARAM_COUNT, String.valueOf(pageCount));
         build.add(NetConstant.NET_REQUEST_PARTNER_PARAM_LIMIT, String.valueOf(limit));
         build.add(NetConstant.NET_REQUEST_PARTNER_PARAM_CONDITION, String.valueOf(condition));
-        OkHttpRequest.getInstance().httpPostRequest(NetConstant.REQUEST_URL_PARTNER_PAGE, build.build(), listener, new NetPartnerPageObj());
+        int requestCode = OkHttpRequest.getInstance().httpPostRequest(NetConstant.REQUEST_URL_PARTNER_PAGE,
+                build.build(), listener, new NetPartnerPageObj());
     }
 
     /** invest page data - 找投资页面 数据请求*/
@@ -101,7 +106,8 @@ public class NetRequest <T extends NetBaseObject> {
         FormEncodingBuilder build = build();
         build.add(NetConstant.NET_REQUEST_INVEST_PARAM_INDEX, String.valueOf(pageIndex));
         build.add(NetConstant.NET_REQUEST_INVEST_PARAM_COUNT, String.valueOf(pageCount));
-        OkHttpRequest.getInstance().httpPostRequest(NetConstant.REQUEST_URL_INVEST_PAGE, build.build(), listener, new NetInvestPageObj());
+        int requestCode = OkHttpRequest.getInstance().httpPostRequest(NetConstant.REQUEST_URL_INVEST_PAGE,
+                build.build(), listener, new NetInvestPageObj());
     }
 
     /** loan page data -- 小额贷款页面 */
@@ -109,7 +115,8 @@ public class NetRequest <T extends NetBaseObject> {
         FormEncodingBuilder build = build();
         build.add(NetConstant.NET_REQUEST_LOAN_PARAM_OPTION_ID, String.valueOf(optionId));
         build.add(NetConstant.NET_REQUEST_LOAN_PARAM_OPTION_LOCATION, String.valueOf(optionLocation));
-        OkHttpRequest.getInstance().httpPostRequest(NetConstant.REQUEST_URL_LOAN_PAGE, build.build(), listener, new NetLoanPageObj());
+        int requestCode = OkHttpRequest.getInstance().httpPostRequest(NetConstant.REQUEST_URL_LOAN_PAGE,
+                build.build(), listener, new NetLoanPageObj());
     }
 
     /** workspace page data -- 工作间页面 */
@@ -117,7 +124,8 @@ public class NetRequest <T extends NetBaseObject> {
         FormEncodingBuilder build = build();
         build.add(NetConstant.NET_REQUEST_WORKSPACE_PARAM_INDEX, String.valueOf(pageIndex));
         build.add(NetConstant.NET_REQUEST_WORKSPACE_PARAM_COUNT, String.valueOf(pageCount));
-        OkHttpRequest.getInstance().httpPostRequest(NetConstant.REQUEST_URL_WORKSPACE_PAGE, build.build(), listener, new NetWorkspacePageObj());
+        int requestCode = OkHttpRequest.getInstance().httpPostRequest(NetConstant.REQUEST_URL_WORKSPACE_PAGE,
+                build.build(), listener, new NetWorkspacePageObj());
     }
 
     /** boss online page data -- 伯乐在线 页面 */
@@ -125,6 +133,11 @@ public class NetRequest <T extends NetBaseObject> {
         FormEncodingBuilder build = build();
         build.add(NetConstant.NET_REQUEST_BOSS_ONLINE_PARAM_INDEX, String.valueOf(pageIndex));
         build.add(NetConstant.NET_REQUEST_BOSS_ONLINE_PARAM_COUNT, String.valueOf(pageCount));
-        OkHttpRequest.getInstance().httpPostRequest(NetConstant.REQUEST_URL_BOSS_ONLINE_PAGE, build.build(), listener, new NetBossOnlinePageObj());
+        int requestCode = OkHttpRequest.getInstance().httpPostRequest(NetConstant.REQUEST_URL_BOSS_ONLINE_PAGE,
+                build.build(), listener, new NetBossOnlinePageObj());
+    }
+
+    public void cancelRequest(int key) {
+        OkHttpRequest.getInstance().cancelRequest(key);
     }
 }

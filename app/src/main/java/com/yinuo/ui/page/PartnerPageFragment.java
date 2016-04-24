@@ -27,6 +27,7 @@ import java.util.List;
 
 /**
  * Created by ludexiang on 2016/4/18.
+ * 此页面包含 技术入伙（有想法但没有钱的人但是有技术） 和 其他 （有钱但是没有想法的人）
  */
 public class PartnerPageFragment extends BaseFragment implements PartnerConditionView.IConditionListener, ViewPager.OnPageChangeListener {
     private int mPageIndex = 1;
@@ -57,6 +58,7 @@ public class PartnerPageFragment extends BaseFragment implements PartnerConditio
         mLoading = (Loading) view.findViewById(R.id.partner_page_loading);
         mViewPager = (PartnerViewPager) view.findViewById(R.id.partner_view_pager);
 
+        mSwipeRefreshLayout.setEnabled(false);
 
         mPartnerRecyclerView = new PartnerRecyclerView(getContext());
         mInvestRecyclerView = new InvestRecyclerView(getContext());

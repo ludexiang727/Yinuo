@@ -36,5 +36,7 @@ public class BaseApplication extends Application {
         sInstance = this;
     }
 
-
+    public Context getContext() {
+        return mContext;
+    }
 }
