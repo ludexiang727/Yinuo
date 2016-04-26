@@ -2,7 +2,10 @@ package com.yinuo.ui;
 
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
+import android.support.v4.app.FragmentManager;
+import android.support.v4.app.FragmentTransaction;
 
+import com.yinuo.base.BaseFragment;
 import com.yinuo.base.BaseParentActivity;
 import com.yinuo.ui.page.BossOnlinePageFragment;
 import com.yinuo.ui.page.DiscoverPageFragment;
@@ -19,6 +22,9 @@ import java.util.List;
 public class MainActivity extends BaseParentActivity {
 
     private List<Fragment> mPages = new ArrayList<Fragment>();
+    private FragmentManager mFragmentMgr;
+    private FragmentTransaction mFragmentTransaction;
+    private BaseFragment mCurrentFragment;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,7 +47,6 @@ public class MainActivity extends BaseParentActivity {
         /** more page */
         MorePageFragment morePage = new MorePageFragment();
 
-
         mPages.add(homePage);
         mPages.add(discoverPage);
         mPages.add(partnerPage);
@@ -56,6 +61,30 @@ public class MainActivity extends BaseParentActivity {
         mTabLayout.setupWithViewPager(mViewPager);
         mTabLayout.setTabsFromPagerAdapter(mPagerAdapter);
         mViewPager.setCurrentItem(0, true);
+
+        mFragmentMgr = getSupportFragmentManager();
+        mFragmentTransaction = mFragmentMgr.beginTransaction();
+        mFragmentTransaction.show(homePage).hide(discoverPage)
+                .hide(partnerPage).hide(investPageFragment)
+                .hide(loanPage).hide(workSpacePageFragment)
+                .hide(bossPage).hide(morePage).commitAllowingStateLoss();
+
+        mCurrentFragment = homePage;
     }
 
+    public BaseFragment getCurrentFragment() {
+        return mCurrentFragment;
+    }
+
+    public void switchFragment(BaseFragment from, BaseFragment to) {
+        if (mCurrentFragment != to) {
+            mCurrentFragment = to;
+            mFragmentTransaction.setCustomAnimations(android.R.anim.fade_in, android.R.anim.slide_out_right);
+            if (!to.isAdded()) {
+                mFragmentTransaction.hide(from).add(to, "").commitAllowingStateLoss();
+            } else {
+                mFragmentTransaction.hide(from).show(to).commitAllowingStateLoss();
+            }
+        }
+    }
 }
