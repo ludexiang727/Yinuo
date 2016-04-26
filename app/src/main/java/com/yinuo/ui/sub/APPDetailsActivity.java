@@ -99,8 +99,6 @@ public class APPDetailsActivity extends BaseActivity implements View.OnClickList
         NetRequest.getInstance().requestAppDetails(mAppID, this);
     }
 
-
-
     @Override
     public void onClick(View v) {
         switch (v.getId()) {

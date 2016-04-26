@@ -64,10 +64,10 @@ public class MainActivity extends BaseParentActivity {
 
         mFragmentMgr = getSupportFragmentManager();
         mFragmentTransaction = mFragmentMgr.beginTransaction();
-        mFragmentTransaction.show(homePage).hide(discoverPage)
-                .hide(partnerPage).hide(investPageFragment)
-                .hide(loanPage).hide(workSpacePageFragment)
-                .hide(bossPage).hide(morePage).commitAllowingStateLoss();
+//        mFragmentTransaction.show(homePage).hide(discoverPage)
+//                .hide(partnerPage).hide(investPageFragment)
+//                .hide(loanPage).hide(workSpacePageFragment)
+//                .hide(bossPage).hide(morePage).commitAllowingStateLoss();
 
         mCurrentFragment = homePage;
     }

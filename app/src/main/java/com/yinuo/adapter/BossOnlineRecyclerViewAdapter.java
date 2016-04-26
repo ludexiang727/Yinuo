@@ -1,12 +1,14 @@
 package com.yinuo.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.yinuo.R;
@@ -15,6 +17,7 @@ import com.yinuo.adapter.base.RecyclerViewHolder;
 import com.yinuo.base.BaseObject;
 import com.yinuo.mode.BossOnlineDataModel;
 import com.yinuo.mode.BossOnlineWorkModel;
+import com.yinuo.ui.sub.BossOnlineAboutActivity;
 import com.yinuo.utils.ResUtils;
 import com.yinuo.utils.StringUtils;
 
@@ -54,7 +57,7 @@ public class BossOnlineRecyclerViewAdapter<T extends BaseObject> extends BaseRec
         return viewHolder;
     }
 
-    private final class BossOnlineViewHolder extends RecyclerViewHolder {
+    private final class BossOnlineViewHolder extends RecyclerViewHolder implements View.OnClickListener {
         private ImageView imageView;
         private TextView about;
         private TextView bosName;
@@ -81,6 +84,27 @@ public class BossOnlineRecyclerViewAdapter<T extends BaseObject> extends BaseRec
             mWorksLayout = (LinearLayout) view.findViewById(R.id.boss_online_holder_works_layout);
             mWorksMore = (TextView) view.findViewById(R.id.boss_online_holder_works_more);
         }
+
+        @Override
+        public void onClick(View v) {
+            switch (v.getId()) {
+                case R.id.boss_online_work_item_parent: {
+                    int[] location = (int[]) v.getTag();
+                    int position = location[0];
+                    int childAt = location[1];
+
+                    break;
+                }
+                case R.id.boss_online_holder_about: {
+                    int position = (int) v.getTag();
+                    BossOnlineDataModel model = (BossOnlineDataModel) mListHolder.get(position);
+                    Intent intent = new Intent(mContext, BossOnlineAboutActivity.class);
+                    mContext.startActivity(intent);
+                    break;
+                }
+            }
+
+        }
     }
 
     @Override
@@ -96,6 +120,8 @@ public class BossOnlineRecyclerViewAdapter<T extends BaseObject> extends BaseRec
             holder.bosDuty.setText(model.getBossDuty());
             holder.workCount.setText(String.format(ResUtils.getString(mContext, R.string.boss_online_work_total), model.getWorkTotal()));
             holder.companyName.setText(model.getCompanyName());
+            holder.about.setTag(position);
+            holder.about.setOnClickListener(holder);
             if (model.getWorkTotal() > 3) {
                 holder.mWorksMore.setVisibility(View.VISIBLE);
             } else {
@@ -108,7 +134,7 @@ public class BossOnlineRecyclerViewAdapter<T extends BaseObject> extends BaseRec
             for (int i = 0; i < works.size(); ++i) {
                 BossOnlineWorkModel work = works.get(i);
                 View view = LayoutInflater.from(mContext).inflate(R.layout.boss_online_work_item_layout, null);
-
+                RelativeLayout parent = (RelativeLayout) view.findViewById(R.id.boss_online_work_item_parent);
                 TextView property = (TextView) view.findViewById(R.id.boss_online_work_property);
                 TextView duty = (TextView) view.findViewById(R.id.boss_online_work_duty);
                 TextView num = (TextView) view.findViewById(R.id.boss_online_workers);
@@ -133,6 +159,11 @@ public class BossOnlineRecyclerViewAdapter<T extends BaseObject> extends BaseRec
                 time.setText(StringUtils.formatTime(work.getWorkPublishTime(), "MM.dd/yy"));
                 salary.setText(work.getWorkSalary());
                 holder.mWorksLayout.addView(view, i);
+                int[] location = new int[2];
+                location[0] = position;
+                location[1] = i;
+                parent.setTag(location);
+                parent.setOnClickListener(holder);
             }
         }
     }

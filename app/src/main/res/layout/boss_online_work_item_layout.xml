@@ -1,5 +1,6 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/boss_online_work_item_parent"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
     android:clickable="true"

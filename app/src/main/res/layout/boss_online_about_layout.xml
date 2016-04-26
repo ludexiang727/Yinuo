@@ -1,0 +1,60 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/boss_online_about_company_adr_parent"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:id="@+id/boss_online_about_location_parent"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_marginRight="10dp"
+            android:layout_alignParentRight="true">
+
+            <ImageView
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@mipmap/ic_launcher"
+                android:layout_gravity="center_horizontal"
+                android:contentDescription="@null"/>
+            <TextView
+                android:id="@+id/boss_online_about_location"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center_horizontal"
+                android:text="4.5km"/>
+        </LinearLayout>
+
+        <View
+            android:id="@+id/boss_online_about_line"
+            android:layout_width="1px"
+            android:layout_height="50dp"
+            android:background="#ebebeb"
+            android:layout_marginRight="10dp"
+            android:layout_marginLeft="10dp"
+            android:layout_toLeftOf="@id/boss_online_about_location_parent"/>
+
+        <TextView
+            android:id="@+id/boss_online_about_company_detail_address"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="10dp"
+            android:layout_marginRight="10dp"
+            android:text="东三环北路2号三元东桥南郊京信大厦一层"
+            android:layout_toLeftOf="@id/boss_online_about_line"/>
+    </RelativeLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_below="@id/boss_online_about_company_adr_parent">
+
+    </LinearLayout>
+
+</RelativeLayout>

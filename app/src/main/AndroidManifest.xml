@@ -67,6 +67,11 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".ui.sub.LoanTransAccActivity"
             android:screenOrientation="portrait"/>
+
+        <!-- boss online page begin -->
+        <activity android:name=".ui.sub.BossOnlineAboutActivity"
+            android:screenOrientation="portrait"/>
+        <!-- boss online page end -->
     </application>
 
 </manifest>
