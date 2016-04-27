@@ -99,6 +99,7 @@ public class BossOnlineRecyclerViewAdapter<T extends BaseObject> extends BaseRec
                     int position = (int) v.getTag();
                     BossOnlineDataModel model = (BossOnlineDataModel) mListHolder.get(position);
                     Intent intent = new Intent(mContext, BossOnlineAboutActivity.class);
+                    intent.putExtra(BossOnlineAboutActivity.COMPANY_ID, model.getCompanyId());
                     mContext.startActivity(intent);
                     break;
                 }

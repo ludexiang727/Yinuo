@@ -16,6 +16,7 @@ public class NetConstant {
     public static final String REQUEST_URL_LOAN_PAGE = "pGetLoanPage";
     public static final String REQUEST_URL_WORKSPACE_PAGE = "pGetWorkspacePage";
     public static final String REQUEST_URL_BOSS_ONLINE_PAGE = "pGetBossOnlinePage";
+    public static final String REQUEST_URL_BOSS_ONLINE_ABOUT_PAGE = "pGetBossOnlineAboutPage";
     /***************** request interface end *********************/
 
     /*************  json parse begin field -- 接口response json field **********************/
@@ -155,6 +156,7 @@ public class NetConstant {
     public static final String NET_JSON_BOSS_ONLINE_BOSS_VALIDATE = "boss_online_boss_validate";
     public static final String NET_JSON_BOSS_ONLINE_BOSS_NAME = "boss_online_boss_name";
     public static final String NET_JSON_BOSS_ONLINE_BOSS_DUTY = "boss_online_boss_duty";
+    public static final String NET_JSON_BOSS_ONLINE_COMPANY_ID = "boss_online_company_id";
     public static final String NET_JSON_BOSS_ONLINE_COMPANY_NAME= "boss_online_company_name";
     public static final String NET_JSON_BOSS_ONLINE_COMPANY_LOCATION = "boss_online_company_location";
     public static final String NET_JSON_BOSS_ONLINE_COMPANY_ABOUT = "boss_online_company_about";
@@ -174,5 +176,12 @@ public class NetConstant {
     // work property -- 工作属性 - 兼、全职
     public static final String NET_JSON_BOSS_ONLINE_WORK_PROPERTY = "boss_online_work_property";
     /** boss online page data end*/
+
+    /** boss online about page data begin */
+    // param
+    public static final String NET_REQUEST_BOSS_ONLINE_ABOUT_PARAM_COMPANY_ID = "boss_online_about_company_id";
+
+    // json
+    /** boss online about page data end */
     /******************  json parse end field **********************/
 }

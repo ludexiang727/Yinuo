@@ -58,4 +58,8 @@
     <color name="boss_online_work_item_part_time">#CCE0F345</color>
     <color name="boss_online_work_item_full_time">#CCFF4081</color>
     <!-- boss online page end-->
+
+    <!-- location map view page begin -->
+    <color name="location_map_view_options_color">#CCFFFFFF</color>
+    <!-- location map view page end-->
 </resources>

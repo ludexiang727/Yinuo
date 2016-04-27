@@ -117,4 +117,10 @@
     <dimen name="boss_online_boss_img_wh">75dp</dimen>
     <dimen name="boss_online_work_item_property_radius">1dp</dimen>
     <!-- boss online page end-->
+    <!-- boss online about location view -->
+    <dimen name="boss_online_about_options_draw_padding">3dp</dimen>
+    <dimen name="boss_online_about_options_margin">10dp</dimen>
+    <dimen name="location_view_radius">2dp</dimen>
+    <dimen name="location_view_navigation_style_margin">10dp</dimen>
+    <!-- boss online about location view end-->
 </resources>

@@ -40,6 +40,7 @@ public class NetBossOnlinePageObj extends NetBaseObject {
                     int bossValidate = NetParseUtils.getInt(NetConstant.NET_JSON_BOSS_ONLINE_BOSS_VALIDATE, bossObj);
                     String bossName = NetParseUtils.getString(NetConstant.NET_JSON_BOSS_ONLINE_BOSS_NAME, bossObj);
                     String bossDuty = NetParseUtils.getString(NetConstant.NET_JSON_BOSS_ONLINE_BOSS_DUTY, bossObj);
+                    int companyId = NetParseUtils.getInt(NetConstant.NET_JSON_BOSS_ONLINE_COMPANY_ID, bossObj);
                     String companyName = NetParseUtils.getString(NetConstant.NET_JSON_BOSS_ONLINE_COMPANY_NAME, bossObj);
                     String companyLocation = NetParseUtils.getString(NetConstant.NET_JSON_BOSS_ONLINE_COMPANY_LOCATION, bossObj);
                     String companyAbout = NetParseUtils.getString(NetConstant.NET_JSON_BOSS_ONLINE_COMPANY_ABOUT, bossObj);
@@ -53,6 +54,7 @@ public class NetBossOnlinePageObj extends NetBaseObject {
                     model.setBossValidate(bossValidate);
                     model.setBossName(bossName);
                     model.setBossDuty(bossDuty);
+                    model.setCompanyId(companyId);
                     model.setCompanyName(companyName);
                     model.setCompanyLocation(companyLocation);
                     model.setCompanyAbout(companyAbout);

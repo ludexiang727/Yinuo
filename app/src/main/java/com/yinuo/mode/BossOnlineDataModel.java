@@ -16,6 +16,7 @@ public class BossOnlineDataModel extends BaseObject {
     private int mBossValidate;
     private String mBossName;
     private String mBossDuty;
+    private int mCompanyId;
     private String mCompanyName;
     private String mCompanyLocation;
     private String mCompanyAbout;
@@ -75,6 +76,14 @@ public class BossOnlineDataModel extends BaseObject {
 
     public void setCompanyLocation(String companyLocation) {
         this.mCompanyLocation = companyLocation;
+    }
+
+    public int getCompanyId() {
+        return mCompanyId;
+    }
+
+    public void setCompanyId(int companyId) {
+        this.mCompanyId = companyId;
     }
 
     public String getCompanyName() {
