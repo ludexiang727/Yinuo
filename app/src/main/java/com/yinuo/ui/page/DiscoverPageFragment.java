@@ -83,16 +83,12 @@ public class DiscoverPageFragment extends BaseFragment {
     public void onSuccess(NetBaseObject object) {
         super.onSuccess(object);
         if (object instanceof NetDiscoveryPageObj) {
-        Log.e("ldx", "request success.....");
             mHasLoadedOnce = true;
             NetDiscoveryPageObj discovery = (NetDiscoveryPageObj) object;
-            List<DiscoveryRecycleModel> models = discovery.getDiscoveryLists();
-            if (models != null) {
-                mRecycleLists.addAll(models);
-            }
-            mNavDefaultChoose = discovery.getDiscoveryNavDefault();
-            mNavScrollViews = discovery.getDiscoveryNavScrollView();
-            mHandler.sendEmptyMessage(mHandler.NOTIFY_SUCCESS);
+            Message msg = mHandler.obtainMessage();
+            msg.what = mHandler.NOTIFY_SUCCESS;
+            msg.obj = discovery;
+            msg.sendToTarget();
         }
     }
 
@@ -110,12 +106,25 @@ public class DiscoverPageFragment extends BaseFragment {
             switch (msg.what) {
                 case NOTIFY_SUCCESS: {
                     mSwipeRefreshLayout.setRefreshing(false);
+                    NetDiscoveryPageObj discovery = (NetDiscoveryPageObj) msg.obj;
+                    mNavDefaultChoose = discovery.getDiscoveryNavDefault();
+                    mNavScrollViews = discovery.getDiscoveryNavScrollView();
                     if (mNavScrollViews != null) {
+                        if (mNavScrollViewParent.getChildCount() > 0) {
+                            mNavScrollViewParent.removeAllViews();
+                        }
                         for (int i = 0; i < mNavScrollViews.length; ++i) {
                             DiscoverNavView navView = new DiscoverNavView(DiscoverPageFragment.this.getContext());
                             navView.setNavText(mNavScrollViews[i], i == mNavDefaultChoose);
                             mNavScrollViewParent.addView(navView, i);
                         }
+                    }
+                    List<DiscoveryRecycleModel> models = discovery.getDiscoveryLists();
+                    if (mPageIndex == 1) {
+                        mRecycleLists.clear();
+                    }
+                    if (models != null) {
+                        mRecycleLists.addAll(models);
                     }
                     mRecycleView.getAdapter().notifyDataSetChanged();
                     break;

@@ -25,10 +25,15 @@ public class InvestRecyclerViewAdapter<T extends BaseObject> extends BaseRecycle
     private LayoutInflater mInflater;
     private List<T> mLists;
     private Context mContext;
+    private boolean isAddTopMargin;
 
     public InvestRecyclerViewAdapter(Context context) {
         mInflater = LayoutInflater.from(context);
         mContext = context;
+    }
+
+    public void setAddTopMargin(boolean addTopMargin) {
+        isAddTopMargin = addTopMargin;
     }
 
     public void loadData(List<T> lists) {
@@ -59,7 +64,7 @@ public class InvestRecyclerViewAdapter<T extends BaseObject> extends BaseRecycle
         if (position < mLists.size() && mLists.get(position) instanceof InvestPageDataModel) {
             InvestPageDataModel model = (InvestPageDataModel) mLists.get(position);
             FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.WRAP_CONTENT);
-            if (position == 0) {
+            if (position == 0 && isAddTopMargin) {
                 int top = ResUtils.getInt(mContext, R.dimen.partner_page_condition_height);
                 params.topMargin = top;
             } else {

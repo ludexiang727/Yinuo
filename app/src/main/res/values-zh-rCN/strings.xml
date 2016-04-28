@@ -1,14 +1,25 @@
 <resources>
     <string-array name="main_view_pager_tab">
-        <item>One</item><!--首&#160;&#160;页-->
-        <item>Two</item><!--发&#160;&#160;现-->
-        <item>Three</item><!--合伙人-->
-        <item>Four</item><!--找投资-->
-        <item>Five</item><!--小额贷款-->
-        <item>Six</item><!--工作间-->
-        <item>Seven</item><!--伯&#160;&#160;乐 boss 在线-->
-        <item>Eight</item><!--更&#160;&#160;多-->
+        <item>One</item>
+        <item>Two</item>
+        <item>Three</item>
+        <item>Four</item>
+        <item>Five</item>
+        <item>Six</item>
+        <item>Seven</item>
+        <item>Eight</item>
     </string-array>
+
+    <!--<string-array name="main_view_pager_tab">
+        <item>首&#160;&#160;页</item>
+        <item>发&#160;&#160;现</item>
+        <item>合伙人</item>
+        <item>找投资</item>
+        <item>小额贷款</item>
+        <item>工作间</item>
+        <item>伯乐在线</item>
+        <item>更&#160;&#160;多</item>
+    </string-array>-->
 
     <string name="home_page_card_details_attention">%1$s关注</string>
     <string name="home_page_detail_download">下载看看</string>

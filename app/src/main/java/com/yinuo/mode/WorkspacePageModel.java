@@ -1,5 +1,7 @@
 package com.yinuo.mode;
 
+import android.util.Log;
+
 import com.yinuo.base.BaseObject;
 
 /**
@@ -59,6 +61,7 @@ public class WorkspacePageModel extends BaseObject {
     }
 
     public void setWorkspaceTags(String[] workspaceTags) {
+        Log.e("ldx", "tags " + workspaceTags);
         this.mWorkspaceTags = workspaceTags;
     }
 

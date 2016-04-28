@@ -71,12 +71,18 @@ public class WorkspaceRecyclerViewAdapter <T extends BaseObject> extends BaseRec
             holder.workspaceTitle.setText(model.getWorkspaceTitle());
             holder.workspaceRent.setText(model.getWorkspacePrice());
             holder.workspaceLocation.setText(model.getWorkspaceLocation());
+            if (holder.workspaceTags.getChildCount() > 0) {
+                holder.workspaceTags.removeAllViews();
+            }
             for (String tag : model.getWorkspaceTags()) {
                 WorkspaceTagsView tagView = new WorkspaceTagsView(mContext);
                 tagView.setText(tag);
                 holder.workspaceTags.addView(tagView);
             }
 
+            if (holder.workspaceExtras.getChildCount() > 0) {
+                holder.workspaceExtras.removeAllViews();
+            }
             for (String extra : model.getWorkspaceExtra()) {
                 WorkspaceTagsView extraView = new WorkspaceTagsView(mContext);
                 extraView.setText(extra);

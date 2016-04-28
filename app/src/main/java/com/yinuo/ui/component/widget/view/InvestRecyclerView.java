@@ -39,6 +39,10 @@ public class InvestRecyclerView extends BaseRecyclerView {
         return mAdapter;
     }
 
+    public void isTopAddMargin(boolean add) {
+        mAdapter.setAddTopMargin(add);
+    }
+
     @Override
     public <T extends BaseObject> void bindRecycleView(List<T> lists) {
         mAdapter.loadData(lists);

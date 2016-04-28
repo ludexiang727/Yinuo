@@ -86,6 +86,7 @@ public class PartnerPageFragment extends BaseFragment implements PartnerConditio
         mPartnerRecyclerView.bindRecycleView(mPartnerModels);
 
         mInvestRecyclerView.setSwipeRefreshLayout(mSwipeRefreshLayout);
+        mInvestRecyclerView.isTopAddMargin(true);
         mInvestRecyclerView.bindRecycleView(mInvestModels);
 
         mSkill.setPosition(0);
@@ -125,14 +126,12 @@ public class PartnerPageFragment extends BaseFragment implements PartnerConditio
         if (object instanceof NetPartnerPageObj) {
             mHasLoadedOnce = true;
             NetPartnerPageObj obj = (NetPartnerPageObj) object;
-
             Message msg = mHandler.obtainMessage(mHandler.PARTNER_NOTIFY_SUCCESS);
             msg.obj = obj;
             msg.sendToTarget();
         } else if (object instanceof NetInvestPageObj) {
             mHasLoadedOnce = true;
             NetInvestPageObj obj = (NetInvestPageObj) object;
-
             Message msg = mHandler.obtainMessage();
             msg.what = mHandler.INVEST_NOTIFY_SUCCESS;
             msg.obj = obj;

@@ -56,6 +56,7 @@ public class InvestPageFragment extends BaseFragment {
     public void initialize(View view) {
         mInvestRecyclerView = (InvestRecyclerView) view.findViewById(R.id.invest_page_recycler_view);
         mLoading = (Loading) view.findViewById(R.id.invest_page_loading);
+        mInvestRecyclerView.isTopAddMargin(false);
         mInvestRecyclerView.bindRecycleView(mModels);
         mInvestRecyclerView.setSwipeRefreshLayout(mSwipeRefreshLayout);
     }
@@ -108,6 +109,7 @@ public class InvestPageFragment extends BaseFragment {
                     if (obj != null) {
                         if (mPageIndex == 1) {
                             mCount = obj.getCount();
+                            mModels.clear();
                         }
                         List<InvestPageDataModel> lists = obj.getModels();
                         if (lists != null) {
