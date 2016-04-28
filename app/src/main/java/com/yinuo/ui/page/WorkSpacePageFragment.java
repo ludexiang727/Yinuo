@@ -6,6 +6,7 @@ import android.os.Message;
 import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
@@ -42,10 +43,21 @@ public class WorkSpacePageFragment extends BaseFragment implements View.OnClickL
     private List<WorkspaceOptionModel> mOptions = new ArrayList<WorkspaceOptionModel>();
     private LayoutInflater mInflater;
 
+    public static WorkSpacePageFragment newInstance(int index) {
+        WorkSpacePageFragment fragment = new WorkSpacePageFragment();
+        Bundle bundle = new Bundle();
+        bundle.putInt(FRAGMENT_INDEX, index);
+        fragment.setArguments(bundle);
+        return fragment;
+    }
+
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = super.onCreateView(inflater, container, savedInstanceState);
         mInflater = LayoutInflater.from(getContext());
+        isPrepared = true;
+        loadData();
+        return view;
     }
 
     @Override
@@ -71,6 +83,9 @@ public class WorkSpacePageFragment extends BaseFragment implements View.OnClickL
 
     @Override
     public void loadData() {
+        if (!isPrepared || mHasLoadedOnce) {
+            return;
+        }
         mLoading.loading();
         NetRequest.getInstance().requestWorkspacePageData(mPageIndex, PAGE_COUNT, this);
     }
@@ -78,6 +93,7 @@ public class WorkSpacePageFragment extends BaseFragment implements View.OnClickL
     @Override
     public void onRefresh() {
         mPageIndex = 1;
+        mHasLoadedOnce = false;
         isRefreshing = true;
         loadData();
     }
@@ -111,6 +127,7 @@ public class WorkSpacePageFragment extends BaseFragment implements View.OnClickL
     public void onSuccess(NetBaseObject object) {
         super.onSuccess(object);
         if (object instanceof NetWorkspacePageObj) {
+            mHasLoadedOnce = true;
             NetWorkspacePageObj obj = (NetWorkspacePageObj) object;
             Message msg = mHandler.obtainMessage();
             msg.what = mHandler.NOTIFY_SUCCESS;

@@ -26,26 +26,35 @@ public class MainActivity extends BaseParentActivity {
     private FragmentTransaction mFragmentTransaction;
     private BaseFragment mCurrentFragment;
 
+    private final int HOME_FRAGMENT = 0;
+    private final int DISCOVER_FRAGMENT = 1;
+    private final int PARTNER_FRAGMENT = 2;
+    private final int INVEST_FRAGMENT = 3;
+    private final int LOAN_FRAGMENT = 4;
+    private final int WORKSPACE_FRAGMENT = 5;
+    private final int BOSSONLINE_FRAGMENT = 6;
+    private final int MORE_FRAGMENT = 7;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
         /** home page */
-        HomePageFragment homePage = new HomePageFragment();
+        HomePageFragment homePage = HomePageFragment.newInstance(HOME_FRAGMENT);
         /** discovery page -- 发现 */
-        DiscoverPageFragment discoverPage = new DiscoverPageFragment();
+        DiscoverPageFragment discoverPage = DiscoverPageFragment.newInstance(DISCOVER_FRAGMENT);
         /** partner page -- 合伙人 */
-        PartnerPageFragment partnerPage = new PartnerPageFragment();
+        PartnerPageFragment partnerPage = PartnerPageFragment.newInstance(PARTNER_FRAGMENT);
         /** find invest page -- 找融资 */
-        InvestPageFragment investPageFragment = new InvestPageFragment();
+        InvestPageFragment investPageFragment = InvestPageFragment.newInstance(INVEST_FRAGMENT);
         /** small loan page -- 小额贷款*/
-        LoanPageFragment loanPage = new LoanPageFragment();
+        LoanPageFragment loanPage = LoanPageFragment.newInstance(LOAN_FRAGMENT);
         /** workspace page - 工作间*/
-        WorkSpacePageFragment workSpacePageFragment = new WorkSpacePageFragment();
+        WorkSpacePageFragment workSpacePageFragment = WorkSpacePageFragment.newInstance(WORKSPACE_FRAGMENT);
         /** boss online page */
-        BossOnlinePageFragment bossPage = new BossOnlinePageFragment();
+        BossOnlinePageFragment bossPage = BossOnlinePageFragment.newInstance(BOSSONLINE_FRAGMENT);
         /** more page */
-        MorePageFragment morePage = new MorePageFragment();
+        MorePageFragment morePage = MorePageFragment.newInstance(MORE_FRAGMENT);
 
         mPages.add(homePage);
         mPages.add(discoverPage);
@@ -56,6 +65,7 @@ public class MainActivity extends BaseParentActivity {
         mPages.add(bossPage);
         mPages.add(morePage);
 
+        mViewPager.setOffscreenPageLimit(1);
         mPagerAdapter.setFragments(mPages, mTabTitle);
         mViewPager.setAdapter(mPagerAdapter);
         mTabLayout.setupWithViewPager(mViewPager);

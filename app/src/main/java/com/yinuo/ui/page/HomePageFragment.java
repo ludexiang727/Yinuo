@@ -37,6 +37,14 @@ public class HomePageFragment extends BaseFragment {
     private List<HomePageBannersModel> mBanners = new ArrayList<HomePageBannersModel>();
     private UIHandler mHandler = new UIHandler();
 
+    public static HomePageFragment newInstance(int index) {
+        HomePageFragment fragment = new HomePageFragment();
+        Bundle bundle = new Bundle();
+        bundle.putInt(FRAGMENT_INDEX, index);
+        fragment.setArguments(bundle);
+        return fragment;
+    }
+
     @Override
     public int pageLayoutId() {
         return R.layout.fragment_home_page_layout;
@@ -45,6 +53,8 @@ public class HomePageFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = super.onCreateView(inflater, container, savedInstanceState);
+        isPrepared = true;
+        loadData();
         return view;
     }
 
@@ -60,6 +70,9 @@ public class HomePageFragment extends BaseFragment {
 
     @Override
     public void loadData() {
+        if (!isPrepared || mHasLoadedOnce) {
+            return;
+        }
         mLoading.loading();
         NetRequest.getInstance().requestHomePageData(mPageIndex, PAGE_COUNT, this);
     }
@@ -73,6 +86,7 @@ public class HomePageFragment extends BaseFragment {
     public void onSuccess(NetBaseObject object) {
         super.onSuccess(object);
         if (object instanceof NetHomePageObj) {
+            mHasLoadedOnce = true;
             NetHomePageObj obj = (NetHomePageObj) object;
             mDataCount = obj.getDataTotalCount();
             List<HomePageDataModel> cards = obj.getModeLists();
@@ -120,6 +134,7 @@ public class HomePageFragment extends BaseFragment {
     @Override
     public void onRefresh() {
         Log.e("ldx", "onRefresh...........");
+        mHasLoadedOnce = false;
         mPageIndex = 1;
         loadData();
     }

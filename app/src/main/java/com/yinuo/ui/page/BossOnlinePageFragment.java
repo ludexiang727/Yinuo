@@ -1,8 +1,11 @@
 package com.yinuo.ui.page;
 
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 
 import com.yinuo.R;
 import com.yinuo.base.BaseFragment;
@@ -29,6 +32,22 @@ public class BossOnlinePageFragment extends BaseFragment {
     private UIHandler mHandler = new UIHandler();
     private List<BossOnlineDataModel> mModels = new ArrayList<BossOnlineDataModel>();
 
+    public static BossOnlinePageFragment newInstance(int index) {
+        BossOnlinePageFragment fragment = new BossOnlinePageFragment();
+        Bundle bundle = new Bundle();
+        bundle.putInt(FRAGMENT_INDEX, index);
+        fragment.setArguments(bundle);
+        return fragment;
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = super.onCreateView(inflater, container, savedInstanceState);
+        isPrepared = true;
+        loadData();
+        return view;
+    }
+
     @Override
     public int pageLayoutId() {
         return R.layout.fragment_boss_online_page_layout;
@@ -45,12 +64,16 @@ public class BossOnlinePageFragment extends BaseFragment {
 
     @Override
     public void loadData() {
+        if (!isPrepared || mHasLoadedOnce) {
+            return;
+        }
         mLoading.loading();
         NetRequest.getInstance().requestBossOnlinePageData(mPageIndex, PAGE_COUNT, this);
     }
 
     @Override
     public void onRefresh() {
+        mHasLoadedOnce = false;
         mPageIndex = 1;
         loadData();
     }
@@ -64,6 +87,7 @@ public class BossOnlinePageFragment extends BaseFragment {
     public void onSuccess(NetBaseObject object) {
         super.onSuccess(object);
         if (object instanceof NetBossOnlinePageObj) {
+            mHasLoadedOnce = true;
             NetBossOnlinePageObj boss = (NetBossOnlinePageObj) object;
             Message msg = mHandler.obtainMessage();
             msg.what = mHandler.NOTIFY_SUCCESS;

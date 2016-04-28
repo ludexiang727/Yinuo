@@ -1,9 +1,12 @@
 package com.yinuo.ui.page;
 
 import android.content.Intent;
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.LinearLayout;
 
 import com.yinuo.Constants;
@@ -52,6 +55,22 @@ public class LoanPageFragment extends BaseFragment implements IOnItemClickListen
 
     private UIHandler mHandler = new UIHandler();
 
+    public static LoanPageFragment newInstance(int index) {
+        LoanPageFragment fragment = new LoanPageFragment();
+        Bundle bundle = new Bundle();
+        bundle.putInt(FRAGMENT_INDEX, index);
+        fragment.setArguments(bundle);
+        return fragment;
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = super.onCreateView(inflater, container, savedInstanceState);
+        isPrepared = true;
+        loadData();
+        return view;
+    }
+
     @Override
     public int pageLayoutId() {
         return R.layout.fragment_loan_page_layout;
@@ -74,6 +93,9 @@ public class LoanPageFragment extends BaseFragment implements IOnItemClickListen
 
     @Override
     public void loadData() {
+        if (!isPrepared || mHasLoadedOnce) {
+            return;
+        }
         mLoading.loading();
         NetRequest.getInstance().requestLoanPageData(0, 0, this);
     }
@@ -82,6 +104,7 @@ public class LoanPageFragment extends BaseFragment implements IOnItemClickListen
     public void onSuccess(NetBaseObject object) {
         super.onSuccess(object);
         if (object instanceof NetLoanPageObj) {
+            mHasLoadedOnce = true;
             NetLoanPageObj loanPageObj = (NetLoanPageObj) object;
             Message msg = mHandler.obtainMessage();
             msg.obj = loanPageObj;

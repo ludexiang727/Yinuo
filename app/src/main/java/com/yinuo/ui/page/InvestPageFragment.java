@@ -1,8 +1,11 @@
 package com.yinuo.ui.page;
 
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 
 import com.yinuo.R;
 import com.yinuo.base.BaseFragment;
@@ -28,6 +31,22 @@ public class InvestPageFragment extends BaseFragment {
     private UIHandler mHandler = new UIHandler();
     private List<InvestPageDataModel> mModels = new ArrayList<InvestPageDataModel>();
 
+    public static InvestPageFragment newInstance(int index) {
+        InvestPageFragment fragment = new InvestPageFragment();
+        Bundle bundle = new Bundle();
+        bundle.putInt(FRAGMENT_INDEX, index);
+        fragment.setArguments(bundle);
+        return fragment;
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = super.onCreateView(inflater, container, savedInstanceState);
+        isPrepared = true;
+        loadData();
+        return view;
+    }
+
     @Override
     public int pageLayoutId() {
         return R.layout.fragment_invest_page_layout;
@@ -43,12 +62,16 @@ public class InvestPageFragment extends BaseFragment {
 
     @Override
     public void loadData() {
+        if (!isPrepared || mHasLoadedOnce) {
+            return;
+        }
         mLoading.loading();
         NetRequest.getInstance().requestInvestPageData(mPageIndex, PAGE_COUNT, this);
     }
 
     @Override
     public void onRefresh() {
+        mHasLoadedOnce = false;
         mPageIndex = 1;
         loadData();
     }
@@ -57,6 +80,7 @@ public class InvestPageFragment extends BaseFragment {
     public void onSuccess(NetBaseObject object) {
         super.onSuccess(object);
         if (object instanceof NetInvestPageObj) {
+            mHasLoadedOnce = true;
             NetInvestPageObj obj = (NetInvestPageObj) object;
             Message msg = mHandler.obtainMessage();
             msg.what = mHandler.NOTIFY_SUCCESS;

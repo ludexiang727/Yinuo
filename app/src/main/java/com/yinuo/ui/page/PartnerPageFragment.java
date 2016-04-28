@@ -1,10 +1,13 @@
 package com.yinuo.ui.page;
 
+import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.support.v4.view.ViewPager;
 import android.util.Log;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 
 import com.yinuo.R;
 import com.yinuo.base.BaseFragment;
@@ -46,6 +49,22 @@ public class PartnerPageFragment extends BaseFragment implements PartnerConditio
     private List<PartnerRecyclerModel> mPartnerModels = new ArrayList<PartnerRecyclerModel>();
     private List<InvestPageDataModel> mInvestModels = new ArrayList<InvestPageDataModel>();
 
+    public static PartnerPageFragment newInstance(int index) {
+        PartnerPageFragment fragment = new PartnerPageFragment();
+        Bundle bundle = new Bundle();
+        bundle.putInt(FRAGMENT_INDEX, index);
+        fragment.setArguments(bundle);
+        return fragment;
+    }
+
+    @Override
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
+        View view = super.onCreateView(inflater, container, savedInstanceState);
+        isPrepared = true;
+        loadData();
+        return view;
+    }
+
     @Override
     public int pageLayoutId() {
         return R.layout.fragment_partner_page_layout;
@@ -83,6 +102,9 @@ public class PartnerPageFragment extends BaseFragment implements PartnerConditio
 
     @Override
     public void loadData() {
+        if (!isPrepared || mHasLoadedOnce) {
+            return;
+        }
         mLoading.loading();
         if (mCondition == 0 && mViewPager.getCurrentItem() == 0) {
             NetRequest.getInstance().requestPartnerPageData(mPageIndex, PAGE_COUNT, 0, mCondition, this);
@@ -101,12 +123,14 @@ public class PartnerPageFragment extends BaseFragment implements PartnerConditio
     public void onSuccess(NetBaseObject object) {
         super.onSuccess(object);
         if (object instanceof NetPartnerPageObj) {
+            mHasLoadedOnce = true;
             NetPartnerPageObj obj = (NetPartnerPageObj) object;
 
             Message msg = mHandler.obtainMessage(mHandler.PARTNER_NOTIFY_SUCCESS);
             msg.obj = obj;
             msg.sendToTarget();
         } else if (object instanceof NetInvestPageObj) {
+            mHasLoadedOnce = true;
             NetInvestPageObj obj = (NetInvestPageObj) object;
 
             Message msg = mHandler.obtainMessage();

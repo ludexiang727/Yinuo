@@ -30,13 +30,22 @@ import java.util.List;
  */
 public class DiscoverPageFragment extends BaseFragment {
     private int mPropertyId;
-
+    private int mPageIndex = 1;
+    private final int PAGE_COUNT = 10;
     private DiscoverRecyclerView mRecycleView;
     private LinearLayout mNavScrollViewParent;
     private UIHandler mHandler = new UIHandler();
     private List<DiscoveryRecycleModel> mRecycleLists = new ArrayList<DiscoveryRecycleModel>();
     private String[] mNavScrollViews;
     private int mNavDefaultChoose;
+
+    public static DiscoverPageFragment newInstance(int index) {
+        DiscoverPageFragment fragment = new DiscoverPageFragment();
+        Bundle bundle = new Bundle();
+        bundle.putInt(FRAGMENT_INDEX, index);
+        fragment.setArguments(bundle);
+        return fragment;
+    }
 
     @Override
     public int pageLayoutId() {
@@ -46,6 +55,8 @@ public class DiscoverPageFragment extends BaseFragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = super.onCreateView(inflater, container, savedInstanceState);
+        isPrepared = true;
+        loadData();
         return view;
     }
 
@@ -61,6 +72,9 @@ public class DiscoverPageFragment extends BaseFragment {
 
     @Override
     public void loadData() {
+        if (!isPrepared || mHasLoadedOnce) {
+            return;
+        }
         mLoading.loading();
         NetRequest.getInstance().requestDiscoveryPageData(mPropertyId, this);
     }
@@ -70,6 +84,7 @@ public class DiscoverPageFragment extends BaseFragment {
         super.onSuccess(object);
         if (object instanceof NetDiscoveryPageObj) {
         Log.e("ldx", "request success.....");
+            mHasLoadedOnce = true;
             NetDiscoveryPageObj discovery = (NetDiscoveryPageObj) object;
             List<DiscoveryRecycleModel> models = discovery.getDiscoveryLists();
             if (models != null) {
@@ -111,6 +126,8 @@ public class DiscoverPageFragment extends BaseFragment {
 
     @Override
     public void onRefresh() {
+        mPageIndex = 1;
+        mHasLoadedOnce = false;
         loadData();
     }
 

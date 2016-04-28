@@ -1,13 +1,11 @@
 package com.yinuo.base;
 
-import android.content.res.AssetManager;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.FrameLayout;
 import android.widget.RelativeLayout;
 
 import com.yinuo.R;
@@ -28,12 +26,29 @@ public abstract class BaseFragment extends Fragment implements SwipeRefreshLayou
     protected RelativeLayout mContentParent;
     protected Loading mLoading;
     protected boolean isRefreshing;
+    protected boolean isVisible;
+    /** 标志位，标志已经初始化完成 */
+    protected boolean isPrepared;
+    /** 是否已被加载过一次，第二次就不再去请求数据了 */
+    protected boolean mHasLoadedOnce;
+    protected static final String FRAGMENT_INDEX = "fragment_index";
 
     public abstract int pageLayoutId();
 
     public abstract void initialize(View view);
 
     public abstract void loadData();
+
+    @Override
+    public void setUserVisibleHint(boolean isVisibleToUser) {
+        super.setUserVisibleHint(isVisibleToUser);
+        if (getUserVisibleHint()) {
+            isVisible = true;
+            onVisible();
+        } else {
+            isVisible = false;
+        }
+    }
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -46,8 +61,6 @@ public abstract class BaseFragment extends Fragment implements SwipeRefreshLayou
 
         View content = inflater.inflate(pageLayoutId(), mContentParent, true);
         initialize(content);
-        loadData();
-
         return view;
     }
 
@@ -83,5 +96,9 @@ public abstract class BaseFragment extends Fragment implements SwipeRefreshLayou
     @Override
     public void onTransation(int position) {
 
+    }
+
+    protected void onVisible() {
+        loadData();
     }
 }
