@@ -16,6 +16,7 @@ import com.nineoldandroids.animation.AnimatorListenerAdapter;
 import com.nineoldandroids.animation.AnimatorSet;
 import com.yinuo.R;
 import com.yinuo.base.BaseActivity;
+import com.yinuo.base.BaseFragmentActivity;
 import com.yinuo.helper.UiHelper;
 import com.yinuo.listener.ILocationView;
 import com.yinuo.net.base.NetBaseObject;
@@ -26,7 +27,7 @@ import com.yinuo.utils.AppUtils;
 /**
  * Created by Administrator on 2016/4/26.
  */
-public class BossOnlineAboutActivity extends BaseActivity implements View.OnClickListener, ILocationView {
+public class BossOnlineAboutActivity extends BaseFragmentActivity implements View.OnClickListener, ILocationView {
     public static final String COMPANY_ID = "company_id";
     private Intent mIntent;
     private int mCompanyId;
@@ -58,7 +59,6 @@ public class BossOnlineAboutActivity extends BaseActivity implements View.OnClic
 
     @Override
     public void initView(View view) {
-        Log.e("ldx", "initView ......" + view);
     }
 
     @Override
@@ -69,6 +69,7 @@ public class BossOnlineAboutActivity extends BaseActivity implements View.OnClic
         mLocationParent = (LinearLayout) view.findViewById(R.id.boss_online_about_location_parent);
         mScrollView = (ScrollView) view.findViewById(R.id.boss_online_about_scroll_view);
 
+        mLocationView.setSupportFragmentManager(getSupportFragmentManager());
         mLocationView.setLocationListener(this);
         mLocationParent.setOnClickListener(this);
 

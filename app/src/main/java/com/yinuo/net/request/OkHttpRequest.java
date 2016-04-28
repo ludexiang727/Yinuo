@@ -11,11 +11,21 @@ import com.squareup.okhttp.Request;
 import com.squareup.okhttp.RequestBody;
 import com.squareup.okhttp.Response;
 import com.squareup.okhttp.ResponseBody;
+import com.yinuo.base.BaseActivity;
 import com.yinuo.base.BaseApplication;
 import com.yinuo.net.IRequestListener;
 import com.yinuo.net.base.NetBaseObject;
+import com.yinuo.net.response.NetBossOnlinePageObj;
+import com.yinuo.net.response.NetDiscoveryPageObj;
+import com.yinuo.net.response.NetHomePageDetailsObj;
+import com.yinuo.net.response.NetHomePageObj;
+import com.yinuo.net.response.NetInvestPageObj;
+import com.yinuo.net.response.NetLoanPageObj;
+import com.yinuo.net.response.NetPartnerPageObj;
+import com.yinuo.net.response.NetWorkspacePageObj;
 import com.yinuo.net.utils.NetConstant;
 import com.yinuo.net.utils.NetHelper;
+import com.yinuo.utils.AssetUtils;
 
 import java.io.IOException;
 import java.util.concurrent.TimeUnit;
@@ -92,13 +102,33 @@ public class OkHttpRequest <T extends NetBaseObject> implements Callback {
 
             Log.e("ldx", "onFailure ....... reuquest >>> " + request + " " + e.getMessage());
         }
+
+        Log.e("ldx", "onFailure ....... reuquest >>> " + request + " " + e.getMessage());
     }
 
     @Override
     public void onResponse(Response response) throws IOException {
         if (response.isSuccessful()) {
+            Log.e("ldx", "onResponse ....... reuquest >>> ");
             ResponseBody body = response.body();
-            mObject.parse(body.string());
+//            mObject.parse(body.string());
+            // test begin
+            if (mObject instanceof NetHomePageObj) {
+                mObject.parse(AssetUtils.readFile("homedata.txt"));
+            } else if (mObject instanceof NetDiscoveryPageObj) {
+                mObject.parse(AssetUtils.readFile("discoverydata.txt"));
+            } else if (mObject instanceof NetPartnerPageObj) {
+                mObject.parse(AssetUtils.readFile("partnerdata.txt"));
+            } else if (mObject instanceof NetInvestPageObj) {
+                mObject.parse(AssetUtils.readFile("investdata.txt"));
+            } else if (mObject instanceof NetLoanPageObj) {
+                mObject.parse(AssetUtils.readFile("loanpagedata.txt"));
+            } else if (mObject instanceof NetWorkspacePageObj) {
+                mObject.parse(AssetUtils.readFile("workspacedata.txt"));
+            } else if (mObject instanceof NetBossOnlinePageObj) {
+                mObject.parse(AssetUtils.readFile("bossonline.txt"));
+            }
+            // test end
 
             if (mListener != null) {
                 mListener.onSuccess(mObject);

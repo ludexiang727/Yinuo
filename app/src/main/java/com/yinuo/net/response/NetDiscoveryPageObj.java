@@ -4,7 +4,6 @@ import com.yinuo.mode.DiscoveryRecycleModel;
 import com.yinuo.net.base.NetBaseObject;
 import com.yinuo.net.utils.NetConstant;
 import com.yinuo.net.utils.NetParseUtils;
-import com.yinuo.utils.AppUtils;
 import com.yinuo.utils.StringUtils;
 
 import org.json.JSONArray;

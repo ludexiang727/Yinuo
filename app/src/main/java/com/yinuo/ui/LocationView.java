@@ -2,8 +2,8 @@ package com.yinuo.ui;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.support.v4.app.FragmentManager;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.RelativeLayout;
@@ -45,8 +45,11 @@ public class LocationView extends RelativeLayout {
 
     private void initView() {
         View view = mInflater.inflate(R.layout.app_location_view_layout, this, true);
-        mFragment = new LocationFragment();
         mViewParent = (RelativeLayout) view.findViewById(R.id.app_location_view_parent);
+    }
+
+    public void setSupportFragmentManager(FragmentManager manager) {
+        mFragment = (LocationFragment) manager.findFragmentById(R.id.location_fragment);
     }
 
     public void setLocationListener(ILocationView listener) {
@@ -54,6 +57,7 @@ public class LocationView extends RelativeLayout {
     }
 
     public void showOptions() {
+        mFragment.startLocation();
         if (mOptionId == 0) {
             mViewParent.setVisibility(View.GONE);
         } else {

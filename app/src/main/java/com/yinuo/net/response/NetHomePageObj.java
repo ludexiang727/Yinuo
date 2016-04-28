@@ -5,7 +5,6 @@ import com.yinuo.mode.HomePageDataModel;
 import com.yinuo.net.base.NetBaseObject;
 import com.yinuo.net.utils.NetConstant;
 import com.yinuo.net.utils.NetParseUtils;
-import com.yinuo.utils.AppUtils;
 import com.yinuo.utils.StringUtils;
 
 import org.json.JSONArray;
@@ -47,6 +46,7 @@ public class NetHomePageObj extends NetBaseObject {
     }
 
     private void parseCardArray(JSONArray array) {
+
         if (array != null) {
             int len = array.length();
             for (int i = 0; i < len; ++i) {

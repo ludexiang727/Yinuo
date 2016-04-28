@@ -2,6 +2,8 @@ package com.yinuo.base;
 
 import android.app.Application;
 import android.content.Context;
+import android.content.res.AssetManager;
+import android.util.Log;
 
 import com.baidu.mapapi.SDKInitializer;
 import com.nostra13.universalimageloader.cache.disc.impl.UnlimitedDiskCache;
@@ -15,6 +17,8 @@ import com.nostra13.universalimageloader.utils.StorageUtils;
 import com.yinuo.Constants;
 
 import java.io.File;
+import java.io.IOException;
+import java.io.InputStream;
 
 /**
  * Created by ludexiang on 2016/4/5.

@@ -1,19 +1,16 @@
 package com.yinuo.ui;
 
-import android.app.Fragment;
 import android.content.Context;
 import android.os.Bundle;
+import android.support.v4.app.Fragment;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
-import android.widget.RelativeLayout;
 
-import com.baidu.mapapi.SDKInitializer;
 import com.baidu.mapapi.map.MapView;
 import com.yinuo.R;
-import com.yinuo.base.BaseApplication;
-import com.yinuo.helper.LocationHelper;
+import com.yinuo.helper.MapHelper;
 
 /**
  * Created by ludexiang on 2016/4/27.
@@ -21,9 +18,9 @@ import com.yinuo.helper.LocationHelper;
 public class LocationFragment extends Fragment implements View.OnClickListener {
     private MapView mMapView;
     private Context mContext;
-    private LocationHelper mLocationHelper;
+    private MapHelper mMapHelper;
     private ImageView mNavigationStyle;
-    private LocationHelper.NavigationStyle mStyle = LocationHelper.NavigationStyle.NORMAL;
+    private MapHelper.NavigationStyle mStyle = MapHelper.NavigationStyle.NORMAL;
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -31,10 +28,8 @@ public class LocationFragment extends Fragment implements View.OnClickListener {
         mMapView = (MapView) view.findViewById(R.id.app_location_view_map);
         mNavigationStyle = (ImageView) view.findViewById(R.id.app_location_style);
         mContext = getActivity();
-        mLocationHelper = LocationHelper.getInstance(mContext, mMapView);
-        mLocationHelper.locationEnable(true);
+        mMapHelper = MapHelper.getInstance(mMapView);
         mMapView.showZoomControls(false);
-        mLocationHelper.location();
         mNavigationStyle.setOnClickListener(this);
         return view;
     }
@@ -43,20 +38,25 @@ public class LocationFragment extends Fragment implements View.OnClickListener {
 //
 //    }
 
+    /** start location -- 开始定位 */
+    public void startLocation() {
+        mMapHelper.locationEnable(true);
+        mMapHelper.location();
+    }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.app_location_style: {
-                if (mStyle == LocationHelper.NavigationStyle.NORMAL) {
-                    mStyle = LocationHelper.NavigationStyle.FOLLOWING;
-                    mLocationHelper.setNavigationStyle(LocationHelper.NavigationStyle.FOLLOWING);
-                } else if (mStyle == LocationHelper.NavigationStyle.FOLLOWING) {
-                    mStyle = LocationHelper.NavigationStyle.COMPASS;
-                    mLocationHelper.setNavigationStyle(LocationHelper.NavigationStyle.COMPASS);
-                } else if (mStyle == LocationHelper.NavigationStyle.COMPASS) {
-                    mStyle = LocationHelper.NavigationStyle.NORMAL;
-                    mLocationHelper.setNavigationStyle(LocationHelper.NavigationStyle.NORMAL);
+                if (mStyle == MapHelper.NavigationStyle.NORMAL) {
+                    mStyle = MapHelper.NavigationStyle.FOLLOWING;
+                    mMapHelper.setNavigationStyle(MapHelper.NavigationStyle.FOLLOWING);
+                } else if (mStyle == MapHelper.NavigationStyle.FOLLOWING) {
+                    mStyle = MapHelper.NavigationStyle.COMPASS;
+                    mMapHelper.setNavigationStyle(MapHelper.NavigationStyle.COMPASS);
+                } else if (mStyle == MapHelper.NavigationStyle.COMPASS) {
+                    mStyle = MapHelper.NavigationStyle.NORMAL;
+                    mMapHelper.setNavigationStyle(MapHelper.NavigationStyle.NORMAL);
                 }
                 break;
             }
@@ -78,7 +78,7 @@ public class LocationFragment extends Fragment implements View.OnClickListener {
     @Override
     public void onDestroy() {
         super.onDestroy();
-        mLocationHelper.locationEnable(false);
+        mMapHelper.locationEnable(false);
         mMapView.onDestroy();
         mMapView = null;
     }
