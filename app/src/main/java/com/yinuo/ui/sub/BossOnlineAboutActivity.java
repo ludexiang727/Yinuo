@@ -10,15 +10,17 @@ import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.ScrollView;
+import android.widget.TextView;
 
 import com.nineoldandroids.animation.Animator;
 import com.nineoldandroids.animation.AnimatorListenerAdapter;
 import com.nineoldandroids.animation.AnimatorSet;
 import com.yinuo.R;
-import com.yinuo.base.BaseActivity;
 import com.yinuo.base.BaseFragmentActivity;
+import com.yinuo.helper.MapHelper;
 import com.yinuo.helper.UiHelper;
 import com.yinuo.listener.ILocationView;
+import com.yinuo.mode.AddressModel;
 import com.yinuo.net.base.NetBaseObject;
 import com.yinuo.net.request.NetRequest;
 import com.yinuo.ui.LocationView;
@@ -38,6 +40,16 @@ public class BossOnlineAboutActivity extends BaseFragmentActivity implements Vie
     private LinearLayout mLocationParent;
     private ScrollView mScrollView;
     private int mScreenHeight;
+
+    /** about location */
+    private LinearLayout mAddressParent;
+    private TextView mStartAddress;
+    private TextView mEndAddress;
+    private TextView mDriving;
+    private TextView mBus;
+    private TextView mWalk;
+    private TextView mBike;
+    // end ~ about location
 
     @Override
     protected int getContentLayout() {
@@ -59,6 +71,18 @@ public class BossOnlineAboutActivity extends BaseFragmentActivity implements Vie
 
     @Override
     public void initView(View view) {
+        mAddressParent = (LinearLayout) view.findViewById(R.id.boss_online_addr_parent);
+        mStartAddress = (TextView) view.findViewById(R.id.boss_online_start_addr);
+        mEndAddress = (TextView) view.findViewById(R.id.boss_online_end_addr);
+        mDriving = (TextView) view.findViewById(R.id.boss_online_about_driving);
+        mBus = (TextView) view.findViewById(R.id.boss_online_about_bus);
+        mWalk = (TextView) view.findViewById(R.id.boss_online_about_walking);
+        mBike = (TextView) view.findViewById(R.id.boss_online_about_biking);
+
+        mDriving.setOnClickListener(this);
+        mBike.setOnClickListener(this);
+        mBus.setOnClickListener(this);
+        mWalk.setOnClickListener(this);
     }
 
     @Override
@@ -97,6 +121,54 @@ public class BossOnlineAboutActivity extends BaseFragmentActivity implements Vie
                 showLocationView();
                 break;
             }
+            case R.id.boss_online_about_biking: {
+                AddressModel from = new AddressModel();
+                from.setAddress("滴滴大厦");
+                from.setCity("北京");
+                from.setProvince("北京");
+                AddressModel to = new AddressModel();
+                to.setAddress("东村家园");
+                to.setCity("北京");
+                to.setProvince("北京");
+                mLocationView.addRoute(MapHelper.RouteWay.BIKE, from, to);
+                break;
+            }
+            case R.id.boss_online_about_walking: {
+                AddressModel from = new AddressModel();
+                from.setAddress("滴滴大厦");
+                from.setCity("北京");
+                from.setProvince("北京");
+                AddressModel to = new AddressModel();
+                to.setAddress("东村家园");
+                to.setCity("北京");
+                to.setProvince("北京");
+                mLocationView.addRoute(MapHelper.RouteWay.WALK, from, to);
+                break;
+            }
+            case R.id.boss_online_about_bus: {
+                AddressModel from = new AddressModel();
+                from.setAddress("滴滴大厦");
+                from.setCity("北京");
+                from.setProvince("北京");
+                AddressModel to = new AddressModel();
+                to.setAddress("东村家园");
+                to.setCity("北京");
+                to.setProvince("北京");
+                mLocationView.addRoute(MapHelper.RouteWay.BUS, from, to);
+                break;
+            }
+            case R.id.boss_online_about_driving: {
+                AddressModel from = new AddressModel();
+                from.setAddress("滴滴大厦");
+                from.setCity("北京");
+                from.setProvince("北京");
+                AddressModel to = new AddressModel();
+                to.setAddress("东村家园");
+                to.setCity("北京");
+                to.setProvince("北京");
+                mLocationView.addRoute(MapHelper.RouteWay.DRIVING, from, to);
+                break;
+            }
         }
     }
 
@@ -118,7 +190,7 @@ public class BossOnlineAboutActivity extends BaseFragmentActivity implements Vie
                 super.onAnimationEnd(animation);
                 mLocationView.setVisibility(View.VISIBLE);
                 mLocationView.showOptions();
-                UiHelper.scaleZoomOut(mLocationView, 0.5f, 1f, 200L, true);
+//                UiHelper.scaleZoomOut(mLocationView, 0.5f, 1f, 200L, true);
                 mParent.setVisibility(View.GONE);
             }
         });

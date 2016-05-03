@@ -2,7 +2,8 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:id="@+id/boss_online_location_options"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:clickable="true">
 
     <LinearLayout
         android:id="@+id/boss_online_addr_parent"
@@ -34,4 +35,67 @@
             android:drawableLeft="@drawable/end_address_icon"/>
     </LinearLayout>
 
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_below="@id/boss_online_addr_parent">
+        <TextView
+            android:id="@+id/boss_online_about_driving"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textColor="@color/boss_online_about_traffic_color"
+            android:text="@string/boss_online_about_car"/>
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="@dimen/boss_online_about_options_separator"
+            android:background="#ebebeb"
+            android:layout_gravity="center_vertical"/>
+
+        <TextView
+            android:id="@+id/boss_online_about_bus"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textColor="@color/boss_online_about_traffic_color"
+            android:text="@string/boss_online_about_bus"/>
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="@dimen/boss_online_about_options_separator"
+            android:layout_gravity="center_vertical"
+            android:background="#ebebeb"/>
+
+        <TextView
+            android:id="@+id/boss_online_about_walking"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textColor="@color/boss_online_about_traffic_color"
+            android:text="@string/boss_online_about_walk"/>
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="@dimen/boss_online_about_options_separator"
+            android:layout_gravity="center_vertical"
+            android:background="#ebebeb"/>
+
+        <TextView
+            android:id="@+id/boss_online_about_biking"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:layout_gravity="center"
+            android:textColor="@color/boss_online_about_traffic_color"
+            android:text="@string/boss_online_about_bike"/>
+    </LinearLayout>
 </RelativeLayout>

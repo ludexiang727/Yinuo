@@ -11,6 +11,7 @@ import android.widget.ImageView;
 import com.baidu.mapapi.map.MapView;
 import com.yinuo.R;
 import com.yinuo.helper.MapHelper;
+import com.yinuo.mode.AddressModel;
 
 /**
  * Created by ludexiang on 2016/4/27.
@@ -42,6 +43,14 @@ public class LocationFragment extends Fragment implements View.OnClickListener {
     public void startLocation() {
         mMapHelper.locationEnable(true);
         mMapHelper.location();
+    }
+
+    public void startLocationWithRoute(AddressModel from, AddressModel to) {
+        mMapHelper.startLocationWithRoute(from, to);
+    }
+
+    public void addRoute(MapHelper.RouteWay way, AddressModel from, AddressModel to) {
+        mMapHelper.searchRoute(way, from, to);
     }
 
     @Override

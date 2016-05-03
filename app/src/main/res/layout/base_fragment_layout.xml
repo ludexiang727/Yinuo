@@ -3,7 +3,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <android.support.v4.widget.SwipeRefreshLayout
+    <com.yinuo.ui.component.widget.VerticalSwipeRefreshLayout
         android:id="@+id/base_fragment_swipe_refresh"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
@@ -13,6 +13,6 @@
             android:layout_width="match_parent"
             android:layout_height="match_parent"/>
 
-    </android.support.v4.widget.SwipeRefreshLayout>
+    </com.yinuo.ui.component.widget.VerticalSwipeRefreshLayout>
 
 </FrameLayout>

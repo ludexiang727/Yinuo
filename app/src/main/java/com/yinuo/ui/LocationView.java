@@ -9,7 +9,9 @@ import android.view.View;
 import android.widget.RelativeLayout;
 
 import com.yinuo.R;
+import com.yinuo.helper.MapHelper;
 import com.yinuo.listener.ILocationView;
+import com.yinuo.mode.AddressModel;
 
 /**
  * Created by ludexiang on 2016/4/27.
@@ -73,5 +75,9 @@ public class LocationView extends RelativeLayout {
                 iLocationView.initView(view);
             }
         }
+    }
+
+    public void addRoute(MapHelper.RouteWay way, AddressModel from, AddressModel to) {
+        mFragment.addRoute(way, from, to);
     }
 }

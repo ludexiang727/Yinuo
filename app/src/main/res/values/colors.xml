@@ -61,5 +61,6 @@
 
     <!-- location map view page begin -->
     <color name="location_map_view_options_color">#CCFFFFFF</color>
+    <color name="boss_online_about_traffic_color">#CC999999</color>
     <!-- location map view page end-->
 </resources>

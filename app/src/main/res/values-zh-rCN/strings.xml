@@ -54,5 +54,9 @@
     <string name="boss_online_employ_workers">应聘{%1$s}人</string>
     <string name="boss_online_work_part_time">兼</string>
     <string name="boss_online_work_full_time">全</string>
+    <string name="boss_online_about_car">驾车</string>
+    <string name="boss_online_about_bus">公交</string>
+    <string name="boss_online_about_walk">步行</string>
+    <string name="boss_online_about_bike">骑行</string>
     <!-- boss online page end-->
 </resources>

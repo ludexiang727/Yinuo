@@ -15,6 +15,7 @@ import com.yinuo.listener.ITransationSceneListener;
 import com.yinuo.net.IRequestListener;
 import com.yinuo.net.base.NetBaseObject;
 import com.yinuo.ui.component.widget.Loading;
+import com.yinuo.ui.component.widget.VerticalSwipeRefreshLayout;
 
 /**
  * Created by ludexiang on 2016/4/5.
@@ -22,7 +23,7 @@ import com.yinuo.ui.component.widget.Loading;
 public abstract class BaseFragment extends Fragment implements SwipeRefreshLayout.OnRefreshListener, IRequestListener<NetBaseObject>
         , IDynamicLoadListener, ITransationSceneListener, IOnItemClickListener {
 
-    protected SwipeRefreshLayout mSwipeRefreshLayout;
+    protected VerticalSwipeRefreshLayout mSwipeRefreshLayout;
     protected RelativeLayout mContentParent;
     protected Loading mLoading;
     protected boolean isRefreshing;
@@ -53,7 +54,7 @@ public abstract class BaseFragment extends Fragment implements SwipeRefreshLayou
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.base_fragment_layout, null);
-        mSwipeRefreshLayout = (SwipeRefreshLayout) view.findViewById(R.id.base_fragment_swipe_refresh);
+        mSwipeRefreshLayout = (VerticalSwipeRefreshLayout) view.findViewById(R.id.base_fragment_swipe_refresh);
         mContentParent = (RelativeLayout) view.findViewById(R.id.base_fragment_parent_content);
 
         mSwipeRefreshLayout.setColorSchemeResources(R.color.refresh_color_progress1, R.color.refresh_color_progress2);
