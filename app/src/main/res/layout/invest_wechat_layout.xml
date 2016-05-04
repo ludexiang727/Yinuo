@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:id="@+id/invest_wechat_edit_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true">
+        <TextView
+            android:id="@+id/invest_wechat_send"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/invest_wechat_send"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:clickable="true"
+            android:layout_marginRight="@dimen/invest_wechat_send_margin_right"/>
+
+        <EditText
+            android:id="@+id/invest_wechat_edit"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="@dimen/invest_wechat_edit_margin_left"
+            android:layout_marginRight="@dimen/invest_wechat_edit_margin_right"
+            android:layout_toLeftOf="@id/invest_wechat_send"/>
+    </RelativeLayout>
+
+    <com.yinuo.ui.component.widget.view.InvestWeChatListView
+        android:id="@android:id/list"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:cacheColorHint="@android:color/transparent"
+        android:layout_above="@id/invest_wechat_edit_layout"
+        android:transcriptMode="alwaysScroll"
+        android:divider="@null"/>
+
+</RelativeLayout>

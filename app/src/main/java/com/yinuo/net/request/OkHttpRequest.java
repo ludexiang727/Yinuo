@@ -20,6 +20,7 @@ import com.yinuo.net.response.NetDiscoveryPageObj;
 import com.yinuo.net.response.NetHomePageDetailsObj;
 import com.yinuo.net.response.NetHomePageObj;
 import com.yinuo.net.response.NetInvestPageObj;
+import com.yinuo.net.response.NetInvestWeChatObj;
 import com.yinuo.net.response.NetLoanPageObj;
 import com.yinuo.net.response.NetPartnerPageObj;
 import com.yinuo.net.response.NetWorkspacePageObj;
@@ -127,6 +128,8 @@ public class OkHttpRequest <T extends NetBaseObject> implements Callback {
                 mObject.parse(AssetUtils.readFile("workspacedata.txt"));
             } else if (mObject instanceof NetBossOnlinePageObj) {
                 mObject.parse(AssetUtils.readFile("bossonline.txt"));
+            } else if (mObject instanceof NetInvestWeChatObj) {
+                mObject.parse(AssetUtils.readFile("investwechat.txt"));
             }
             // test end
 

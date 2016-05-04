@@ -1,0 +1,36 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <TextView
+        android:id="@+id/invest_wechat_send_msg_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentTop="true"
+        android:layout_marginBottom="@dimen/invest_wechat_time_margin"
+        android:layout_marginTop="@dimen/invest_wechat_time_margin"
+        android:text="2016-05-04 13:28:15"/>
+
+    <ImageView
+        android:id="@+id/invest_wechat_header"
+        android:layout_width="@dimen/invest_wechat_header_wh"
+        android:layout_height="@dimen/invest_wechat_header_wh"
+        android:layout_alignParentRight="true"
+        android:layout_below="@id/invest_wechat_send_msg_time"
+        android:layout_marginLeft="@dimen/invest_wechat_header_margin"
+        android:layout_marginRight="@dimen/invest_wechat_header_margin"
+        android:scaleType="center"
+        android:contentDescription="@null"/>
+
+    <TextView
+        android:id="@+id/invest_wechat_msg_body"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="right"
+        android:layout_alignTop="@id/invest_wechat_header"
+        android:layout_toLeftOf="@id/invest_wechat_header"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/invest_wechat_header_wh"/>
+</RelativeLayout>

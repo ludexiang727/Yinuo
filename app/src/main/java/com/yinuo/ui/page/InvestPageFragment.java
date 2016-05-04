@@ -1,5 +1,6 @@
 package com.yinuo.ui.page;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -7,14 +8,17 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.yinuo.Constants;
 import com.yinuo.R;
 import com.yinuo.base.BaseFragment;
+import com.yinuo.base.BaseObject;
 import com.yinuo.mode.InvestPageDataModel;
 import com.yinuo.net.base.NetBaseObject;
 import com.yinuo.net.request.NetRequest;
 import com.yinuo.net.response.NetInvestPageObj;
 import com.yinuo.ui.component.widget.Loading;
 import com.yinuo.ui.component.widget.view.InvestRecyclerView;
+import com.yinuo.ui.sub.invest.InvestWeChatActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -59,6 +63,7 @@ public class InvestPageFragment extends BaseFragment {
         mInvestRecyclerView.isTopAddMargin(false);
         mInvestRecyclerView.bindRecycleView(mModels);
         mInvestRecyclerView.setSwipeRefreshLayout(mSwipeRefreshLayout);
+        mInvestRecyclerView.getRecyclerAdapter().setOnItemClickListener(this);
     }
 
     @Override
@@ -93,6 +98,19 @@ public class InvestPageFragment extends BaseFragment {
     @Override
     public void onFail(NetBaseObject object) {
         super.onFail(object);
+    }
+
+    @Override
+    public void onItemClick(View v, BaseObject baseObject, int position) {
+        super.onItemClick(v, baseObject, position);
+        switch (v.getId()) {
+            case R.id.invest_view_holder_chat: {
+                Intent intent = new Intent(getActivity(), InvestWeChatActivity.class);
+                intent.putExtra(Constants.INVEST_WECHAT_BOSS_ID, mModels.get(position).getInvestId());
+                getActivity().startActivity(intent);
+                break;
+            }
+        }
     }
 
     private class UIHandler extends Handler {

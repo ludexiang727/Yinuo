@@ -9,6 +9,7 @@ import android.widget.TextView;
 import com.yinuo.R;
 import com.yinuo.adapter.base.SuperAdapter;
 import com.yinuo.adapter.base.SuperViewHolder;
+import com.yinuo.base.BaseObject;
 import com.yinuo.listener.IOnItemClickListener;
 import com.yinuo.mode.LoanGridViewModel;
 
@@ -55,7 +56,7 @@ public class LoanGridViewAdapter extends SuperAdapter {
     }
 
     @Override
-    public View getView() {
+    public View getView(int position) {
         return mInflater.inflate(R.layout.loan_page_item_view_layout, null);
     }
 
@@ -69,11 +70,15 @@ public class LoanGridViewAdapter extends SuperAdapter {
         }
     }
 
+
     @Override
-    protected void bindView(SuperViewHolder superHolder, LoanGridViewModel model) {
+    protected void bindView(SuperViewHolder superHolder, BaseObject model) {
         if (superHolder instanceof ViewHolder) {
             ViewHolder holder = (ViewHolder) superHolder;
-            holder.itemInfo.setText(model.getItemOption());
+            if (model instanceof LoanGridViewModel) {
+                LoanGridViewModel loan = (LoanGridViewModel) model;
+                holder.itemInfo.setText(loan.getItemOption());
+            }
         }
     }
 
@@ -96,7 +101,7 @@ public class LoanGridViewAdapter extends SuperAdapter {
         @Override
         public void onClick(View v) {
             if (itemClickListener != null && position < mItems.size()) {
-                itemClickListener.onItemClick(mItems.get(position), position);
+                itemClickListener.onItemClick(v, mItems.get(position), position);
             }
         }
     }

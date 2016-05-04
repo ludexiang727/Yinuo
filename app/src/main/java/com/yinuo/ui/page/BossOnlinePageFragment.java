@@ -102,8 +102,8 @@ public class BossOnlinePageFragment extends BaseFragment {
     }
 
     @Override
-    public void onItemClick(BaseObject baseObject, int position) {
-        super.onItemClick(baseObject, position);
+    public void onItemClick(View v, BaseObject baseObject, int position) {
+        super.onItemClick(v, baseObject, position);
     }
 
     private final class UIHandler extends Handler {

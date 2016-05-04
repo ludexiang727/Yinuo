@@ -1,4 +1,4 @@
-package com.yinuo.ui.sub;
+package com.yinuo.ui.sub.loan;
 
 import com.yinuo.base.WebActivity;
 

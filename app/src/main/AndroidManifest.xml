@@ -44,43 +44,47 @@
         <activity android:name=".ui.sub.APPDetailsActivity"
             android:screenOrientation="portrait"/>
 
+        <activity android:name=".ui.sub.invest.InvestWeChatActivity"
+            android:screenOrientation="portrait"
+            android:windowSoftInputMode="adjustResize"/>
+
         <!--<activity android:name="io.card.payment.CardIOActivity" android:configChanges="keyboardHidden|orientation"-->
             <!--android:hardwareAccelerated="true"/>-->
         <!--<activity android:name="io.card.payment.DataEntryActivity" android:screenOrientation="portrait"/>-->
 
-        <activity android:name=".ui.sub.LoanVipUniqueActivity"
+        <activity android:name=".ui.sub.loan.LoanVipUniqueActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".ui.sub.LoanApplyActivity"
+        <activity android:name=".ui.sub.loan.LoanApplyActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".ui.sub.LoanBalanceActivity"
+        <activity android:name=".ui.sub.loan.LoanBalanceActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".ui.sub.LoanCalculatorActivity"
+        <activity android:name=".ui.sub.loan.LoanCalculatorActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".ui.sub.LoanCardTicketActivity"
+        <activity android:name=".ui.sub.loan.LoanCardTicketActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".ui.sub.LoanCCRepayActivity"
+        <activity android:name=".ui.sub.loan.LoanCCRepayActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".ui.sub.LoanCreditCardActivity"
+        <activity android:name=".ui.sub.loan.LoanCreditCardActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".ui.sub.LoanCreditReportActivity"
+        <activity android:name=".ui.sub.loan.LoanCreditReportActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".ui.sub.LoanExtremityActivity"
+        <activity android:name=".ui.sub.loan.LoanExtremityActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".ui.sub.LoanProgressActivity"
+        <activity android:name=".ui.sub.loan.LoanProgressActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".ui.sub.LoanRateQueryActivity"
+        <activity android:name=".ui.sub.loan.LoanRateQueryActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".ui.sub.LoanRecepitActivity"
+        <activity android:name=".ui.sub.loan.LoanRecepitActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".ui.sub.LoanRepaymentActivity"
+        <activity android:name=".ui.sub.loan.LoanRepaymentActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".ui.sub.LoanStrategyActivity"
+        <activity android:name=".ui.sub.loan.LoanStrategyActivity"
             android:screenOrientation="portrait"/>
-        <activity android:name=".ui.sub.LoanTransAccActivity"
+        <activity android:name=".ui.sub.loan.LoanTransAccActivity"
             android:screenOrientation="portrait"/>
 
         <!-- boss online page begin -->
-        <activity android:name=".ui.sub.BossOnlineAboutActivity"
+        <activity android:name=".ui.sub.bossonline.BossOnlineAboutActivity"
             android:screenOrientation="portrait"/>
         <!-- boss online page end -->
 

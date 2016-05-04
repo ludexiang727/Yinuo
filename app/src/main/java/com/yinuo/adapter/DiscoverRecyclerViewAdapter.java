@@ -67,7 +67,7 @@ public class DiscoverRecyclerViewAdapter <T extends BaseObject> extends BaseRecy
         @Override
         public void onClick(View view) {
             if (iClickListener != null && mListHolder != null && mListHolder.size() > 0) {
-                iClickListener.onItemClick(mListHolder.get(getLayoutPosition()), getLayoutPosition());
+                iClickListener.onItemClick(view, mListHolder.get(getLayoutPosition()), getLayoutPosition());
             }
         }
     }

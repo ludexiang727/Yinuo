@@ -1,4 +1,4 @@
-package com.yinuo.ui.sub;
+package com.yinuo.ui.sub.loan;
 
 import android.os.Bundle;
 import android.view.View;
@@ -9,13 +9,13 @@ import com.yinuo.net.base.NetBaseObject;
 
 /**
  * Created by ludexiang on 2016/4/20.
- * transfer accounts for loan -- 转账
+ * extremity loan for loan -- 极速贷款
  */
-public class LoanTransAccActivity extends BaseActivity {
+public class LoanExtremityActivity extends BaseActivity {
 
     @Override
     protected int getContentLayout() {
-        return R.layout.loan_option_transfer_acc_layout;
+        return R.layout.loan_option_extremity_layout;
     }
 
     @Override

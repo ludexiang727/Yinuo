@@ -84,7 +84,7 @@ public abstract class BaseFragment extends Fragment implements SwipeRefreshLayou
     }
 
     @Override
-    public void onItemClick(BaseObject baseObject, int position) {
+    public void onItemClick(View view, BaseObject baseObject, int position) {
 
     }
 

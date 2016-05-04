@@ -20,21 +20,21 @@ import com.yinuo.net.request.NetRequest;
 import com.yinuo.net.response.NetLoanPageObj;
 import com.yinuo.ui.component.widget.Loading;
 import com.yinuo.ui.component.widget.view.LoanGridView;
-import com.yinuo.ui.sub.LoanApplyActivity;
-import com.yinuo.ui.sub.LoanBalanceActivity;
-import com.yinuo.ui.sub.LoanCCRepayActivity;
-import com.yinuo.ui.sub.LoanCalculatorActivity;
-import com.yinuo.ui.sub.LoanCardTicketActivity;
-import com.yinuo.ui.sub.LoanCreditCardActivity;
-import com.yinuo.ui.sub.LoanCreditReportActivity;
-import com.yinuo.ui.sub.LoanExtremityActivity;
-import com.yinuo.ui.sub.LoanProgressActivity;
-import com.yinuo.ui.sub.LoanRateQueryActivity;
-import com.yinuo.ui.sub.LoanRecepitActivity;
-import com.yinuo.ui.sub.LoanRepaymentActivity;
-import com.yinuo.ui.sub.LoanStrategyActivity;
-import com.yinuo.ui.sub.LoanTransAccActivity;
-import com.yinuo.ui.sub.LoanVipUniqueActivity;
+import com.yinuo.ui.sub.loan.LoanApplyActivity;
+import com.yinuo.ui.sub.loan.LoanBalanceActivity;
+import com.yinuo.ui.sub.loan.LoanCCRepayActivity;
+import com.yinuo.ui.sub.loan.LoanCalculatorActivity;
+import com.yinuo.ui.sub.loan.LoanCardTicketActivity;
+import com.yinuo.ui.sub.loan.LoanCreditCardActivity;
+import com.yinuo.ui.sub.loan.LoanCreditReportActivity;
+import com.yinuo.ui.sub.loan.LoanExtremityActivity;
+import com.yinuo.ui.sub.loan.LoanProgressActivity;
+import com.yinuo.ui.sub.loan.LoanRateQueryActivity;
+import com.yinuo.ui.sub.loan.LoanRecepitActivity;
+import com.yinuo.ui.sub.loan.LoanRepaymentActivity;
+import com.yinuo.ui.sub.loan.LoanStrategyActivity;
+import com.yinuo.ui.sub.loan.LoanTransAccActivity;
+import com.yinuo.ui.sub.loan.LoanVipUniqueActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -172,7 +172,7 @@ public class LoanPageFragment extends BaseFragment implements IOnItemClickListen
     }
 
     @Override
-    public void onItemClick(BaseObject baseObject, int position) {
+    public void onItemClick(View v, BaseObject baseObject, int position) {
         if (baseObject instanceof LoanGridViewModel) {
             LoanGridViewModel model = (LoanGridViewModel) baseObject;
             Intent intent = new Intent();

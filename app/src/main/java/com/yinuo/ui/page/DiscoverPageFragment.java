@@ -141,7 +141,7 @@ public class DiscoverPageFragment extends BaseFragment {
     }
 
     @Override
-    public void onItemClick(BaseObject baseObject, int position) {
+    public void onItemClick(View v, BaseObject baseObject, int position) {
         if (baseObject instanceof DiscoveryRecycleModel) {
             DiscoveryRecycleModel discoveryModel = (DiscoveryRecycleModel) baseObject;
             Intent details = new Intent(getActivity(), APPDetailsActivity.class);

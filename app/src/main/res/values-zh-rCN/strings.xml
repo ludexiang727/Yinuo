@@ -36,6 +36,7 @@
     <string name="invest_view_holder_adverse_agree">(需对方同意)</string>
     <string name="invest_view_holder_project">投递项目</string>
     <string name="invest_view_holder_is_validate">是否认证可图片</string>
+    <string name="invest_wechat_send">发送</string>
     <!-- invest page end -->
 
     <!-- loan page begin -->

@@ -1,4 +1,4 @@
-package com.yinuo.ui.sub;
+package com.yinuo.ui.sub.loan;
 
 import android.os.Bundle;
 import android.view.View;
@@ -9,13 +9,13 @@ import com.yinuo.net.base.NetBaseObject;
 
 /**
  * Created by ludexiang on 2016/4/20.
- * credit card repayment for loan -- 信用卡还款
+ * loan progress for loan -- 贷款进度
  */
-public class LoanCCRepayActivity extends BaseActivity {
+public class LoanProgressActivity extends BaseActivity {
 
     @Override
     protected int getContentLayout() {
-        return R.layout.loan_option_ccrepayment_layout;
+        return R.layout.loan_option_progress_layout;
     }
 
     @Override

@@ -13,6 +13,7 @@ public class NetConstant {
     public static final String REQUEST_URL_DISCOVERY_PAGE = "pGetDiscoveryPage";
     public static final String REQUEST_URL_PARTNER_PAGE = "pGetPartnerPage";
     public static final String REQUEST_URL_INVEST_PAGE = "pGetInvestPage";
+    public static final String REQUEST_URL_INVEST_WECHAT = "pwechat";
     public static final String REQUEST_URL_LOAN_PAGE = "pGetLoanPage";
     public static final String REQUEST_URL_WORKSPACE_PAGE = "pGetWorkspacePage";
     public static final String REQUEST_URL_BOSS_ONLINE_PAGE = "pGetBossOnlinePage";
@@ -91,6 +92,8 @@ public class NetConstant {
     /** invest page data being */
     public static final String NET_REQUEST_INVEST_PARAM_INDEX = "invest_page_index";
     public static final String NET_REQUEST_INVEST_PARAM_COUNT = "invest_page_count";
+    public static final String NET_REQUEST_INVEST_WECHAT_TIME = "invest_wechat_time";
+    public static final String NET_REQUEST_INVEST_WECHAT_BOSS_ID = "invest_wechat_boss_id";
 
     // json
     public static final String NET_JSON_INVEST_FIELD_LISTS_COUNT = "invest_count";
@@ -108,6 +111,13 @@ public class NetConstant {
     public static final String NET_JSON_INVEST_LISTS_PROVINCE = "invest_list_province";
     public static final String NET_JSON_INVEST_LISTS_CITY = "invest_list_city";
 
+
+    // wechat
+    public static final String NET_JSON_INVEST_WECHAT_LISTS = "invest_wechat_lists";
+    public static final String NET_JSON_INVEST_WECHAT_TIME = "wechat_time";
+    public static final String NET_JSON_INVEST_WECHAT_HEADER = "wechat_header_url";
+    public static final String NET_JSON_INVEST_WECHAT_MSG_BODY = "wechat_msg_body";
+    public static final String NET_JSON_INVEST_WECHAT_MSG_TYPE = "wechat_msg_type";
     /** invest page data end*/
 
     /** loan page data begin */

@@ -2,7 +2,6 @@ package com.yinuo.adapter;
 
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -17,7 +16,7 @@ import com.yinuo.adapter.base.RecyclerViewHolder;
 import com.yinuo.base.BaseObject;
 import com.yinuo.mode.BossOnlineDataModel;
 import com.yinuo.mode.BossOnlineWorkModel;
-import com.yinuo.ui.sub.BossOnlineAboutActivity;
+import com.yinuo.ui.sub.bossonline.BossOnlineAboutActivity;
 import com.yinuo.utils.ResUtils;
 import com.yinuo.utils.StringUtils;
 

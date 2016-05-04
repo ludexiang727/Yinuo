@@ -1,4 +1,4 @@
-package com.yinuo.ui.sub;
+package com.yinuo.ui.sub.loan;
 
 import android.os.Bundle;
 import android.view.View;
@@ -9,13 +9,13 @@ import com.yinuo.net.base.NetBaseObject;
 
 /**
  * Created by ludexiang on 2016/4/20.
- * apply for loan -- 申请贷款
+ * balance rise for loan -- 余额升息
  */
-public class LoanApplyActivity extends BaseActivity {
+public class LoanBalanceActivity extends BaseActivity {
 
     @Override
     protected int getContentLayout() {
-        return R.layout.loan_option_apply_layout;
+        return R.layout.loan_option_balance_layout;
     }
 
     @Override

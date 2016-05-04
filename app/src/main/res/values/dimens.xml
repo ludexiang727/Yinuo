@@ -73,6 +73,12 @@
     <dimen name="invest_view_holder_duty_size">10sp</dimen>
     <dimen name="invest_view_holder_duty_margin_left">3dp</dimen>
     <dimen name="invest_view_holder_notice_size">11sp</dimen>
+    <dimen name="invest_wechat_time_margin">20dp</dimen>
+    <dimen name="invest_wechat_header_margin">10dp</dimen>
+    <dimen name="invest_wechat_header_wh">60dp</dimen>
+    <dimen name="invest_wechat_send_margin_right">10dp</dimen>
+    <dimen name="invest_wechat_edit_margin_left">10dp</dimen>
+    <dimen name="invest_wechat_edit_margin_right">3dp</dimen>
     <!-- invest page end -->
 
     <!-- loan page begin -->

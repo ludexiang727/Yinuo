@@ -82,9 +82,10 @@ public class InvestRecyclerViewAdapter<T extends BaseObject> extends BaseRecycle
 
     }
 
-    private final class InvestViewHolder extends RecyclerViewHolder {
+    private final class InvestViewHolder extends RecyclerViewHolder implements View.OnClickListener {
         private View mView;
         private ImageView imgView;
+        private TextView weChat;
         private TextView validate;
         private TextView name;
         private TextView duty;
@@ -98,6 +99,7 @@ public class InvestRecyclerViewAdapter<T extends BaseObject> extends BaseRecycle
 
             mView = view;
             imgView = (ImageView) view.findViewById(R.id.invest_view_holder_img);
+            weChat = (TextView) view.findViewById(R.id.invest_view_holder_chat);
             validate = (TextView) view.findViewById(R.id.invest_view_holder_validate);
             name = (TextView) view.findViewById(R.id.invest_view_holder_name);
             duty = (TextView) view.findViewById(R.id.invest_view_holder_duty);
@@ -105,6 +107,15 @@ public class InvestRecyclerViewAdapter<T extends BaseObject> extends BaseRecycle
             city = (TextView) view.findViewById(R.id.invest_view_holder_city);
             company = (TextView) view.findViewById(R.id.invest_view_holder_company);
             notice = (TextView) view.findViewById(R.id.invest_view_holder_notice);
+
+            weChat.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            if (iClickListener != null && getLayoutPosition() < mLists.size()) {
+                iClickListener.onItemClick(v, mLists.get(getLayoutPosition()), getLayoutPosition());
+            }
         }
     }
 }

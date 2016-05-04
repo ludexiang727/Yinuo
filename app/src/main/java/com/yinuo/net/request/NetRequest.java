@@ -9,6 +9,7 @@ import com.yinuo.net.response.NetDiscoveryPageObj;
 import com.yinuo.net.response.NetHomePageDetailsObj;
 import com.yinuo.net.response.NetHomePageObj;
 import com.yinuo.net.response.NetInvestPageObj;
+import com.yinuo.net.response.NetInvestWeChatObj;
 import com.yinuo.net.response.NetLoanPageObj;
 import com.yinuo.net.response.NetLoginObj;
 import com.yinuo.net.response.NetPartnerPageObj;
@@ -115,6 +116,17 @@ public class NetRequest <T extends NetBaseObject> {
         build.add(NetConstant.NET_REQUEST_INVEST_PARAM_COUNT, String.valueOf(pageCount));
         int requestCode = OkHttpRequest.getInstance().httpPostRequest(NetConstant.REQUEST_URL_INVEST_PAGE,
                 build.build(), listener, new NetInvestPageObj());
+        return requestCode;
+    }
+
+    public int requestWeChatData(int pageIndex, int pageCount, int bossId, String time, IRequestListener<T> listener) {
+        FormEncodingBuilder build = build();
+        build.add(NetConstant.NET_REQUEST_INVEST_PARAM_INDEX, String.valueOf(pageIndex));
+        build.add(NetConstant.NET_REQUEST_INVEST_PARAM_COUNT, String.valueOf(pageCount));
+        build.add(NetConstant.NET_REQUEST_INVEST_WECHAT_BOSS_ID, String.valueOf(bossId));
+        build.add(NetConstant.NET_REQUEST_INVEST_WECHAT_TIME, time);
+        int requestCode = OkHttpRequest.getInstance().httpPostRequest(NetConstant.REQUEST_URL_INVEST_WECHAT,
+                build.build(), listener, new NetInvestWeChatObj());
         return requestCode;
     }
 

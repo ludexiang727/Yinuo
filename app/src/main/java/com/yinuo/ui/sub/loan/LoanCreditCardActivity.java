@@ -1,4 +1,4 @@
-package com.yinuo.ui.sub;
+package com.yinuo.ui.sub.loan;
 
 import android.os.Bundle;
 import android.view.View;
@@ -9,13 +9,13 @@ import com.yinuo.net.base.NetBaseObject;
 
 /**
  * Created by ludexiang on 2016/4/20.
- * extremity loan for loan -- 极速贷款
+ * credit for loan -- 信用卡
  */
-public class LoanExtremityActivity extends BaseActivity {
+public class LoanCreditCardActivity extends BaseActivity {
 
     @Override
     protected int getContentLayout() {
-        return R.layout.loan_option_extremity_layout;
+        return R.layout.loan_option_credit_card_layout;
     }
 
     @Override

@@ -1,12 +1,18 @@
 package com.yinuo.adapter.base;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
+import android.widget.ImageView;
 
+import com.nostra13.universalimageloader.core.assist.FailReason;
+import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
+import com.yinuo.base.BaseObject;
+import com.yinuo.helper.ImageLoaderHelper;
 import com.yinuo.listener.IOnItemClickListener;
 import com.yinuo.mode.LoanGridViewModel;
 
@@ -17,11 +23,11 @@ import java.util.List;
  */
 public abstract class SuperAdapter <T extends SuperViewHolder> extends BaseAdapter {
     protected IOnItemClickListener itemClickListener;
-    protected abstract void bindView(SuperViewHolder superHolder, LoanGridViewModel model);
+    protected abstract <E extends BaseObject> void bindView(SuperViewHolder superHolder, E model);
     protected abstract T getViewHolder();
-    protected abstract View getView();
+    protected abstract View getView(int position);
     protected abstract void initHolder(SuperViewHolder holder, View view);
-    protected abstract List<LoanGridViewModel> getList();
+    protected abstract <E extends BaseObject> List<E> getList();
     public abstract void setItemClickListener(IOnItemClickListener listener);
 
     protected LayoutInflater mInflater;
@@ -35,7 +41,7 @@ public abstract class SuperAdapter <T extends SuperViewHolder> extends BaseAdapt
         SuperViewHolder holder;
         if (convertView == null) {
             holder = getViewHolder();
-            convertView = getView();
+            convertView = getView(position);
             initHolder(holder, convertView);
 
             convertView.setTag(holder);
@@ -45,7 +51,41 @@ public abstract class SuperAdapter <T extends SuperViewHolder> extends BaseAdapt
         holder.setPosition(position);
         convertView.setOnClickListener(holder);
 
-        bindView(holder, getList().get(position));
+        if (getList() != null) {
+            bindView(holder, getList().get(position));
+        }
         return convertView;
+    }
+
+    /** child class base work handle bitmap */
+    protected void loadBitmapSuccess(Bitmap bitmap, ImageView imageView) {
+    }
+
+    public void loadImage(String url, final ImageView imageView) {
+        ImageLoaderHelper.getInstance().loadImage(url, new ImageLoadingListener() {
+            @Override
+            public void onLoadingStarted(String imageUri, View view) {
+
+            }
+
+            @Override
+            public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
+
+            }
+
+            @Override
+            public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
+                if (loadedImage != null) {
+                    imageView.setImageBitmap(loadedImage);
+
+                    loadBitmapSuccess(loadedImage, imageView);
+                }
+            }
+
+            @Override
+            public void onLoadingCancelled(String imageUri, View view) {
+
+            }
+        });
     }
 }

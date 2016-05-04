@@ -1,4 +1,4 @@
-package com.yinuo.ui.sub;
+package com.yinuo.ui.sub.bossonline;
 
 import android.content.Intent;
 import android.os.Bundle;

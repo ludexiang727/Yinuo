@@ -103,7 +103,7 @@ public class HomePageRecyclerViewAdapter<T extends BaseObject> extends BaseRecyc
         @Override
         public void onClick(View v) {
             if (iClickListener != null && mBindData != null && getLayoutPosition() < mBindData.size()) {
-                iClickListener.onItemClick(mBindData.get(getLayoutPosition()), getLayoutPosition());
+                iClickListener.onItemClick(v, mBindData.get(getLayoutPosition()), getLayoutPosition());
             }
         }
     }

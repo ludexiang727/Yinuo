@@ -119,8 +119,8 @@ public class WorkSpacePageFragment extends BaseFragment implements View.OnClickL
     }
 
     @Override
-    public void onItemClick(BaseObject baseObject, int position) {
-        super.onItemClick(baseObject, position);
+    public void onItemClick(View view, BaseObject baseObject, int position) {
+        super.onItemClick(view, baseObject, position);
     }
 
     @Override
