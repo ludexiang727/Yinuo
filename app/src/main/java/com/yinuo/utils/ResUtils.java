@@ -17,4 +17,8 @@ public class ResUtils {
     public static int getColor(Context context, int clrId) {
         return context.getResources().getColor(clrId);
     }
+
+    public static int getDimen(Context context, int dimenId) {
+        return context.getResources().getDimensionPixelOffset(dimenId);
+    }
 }

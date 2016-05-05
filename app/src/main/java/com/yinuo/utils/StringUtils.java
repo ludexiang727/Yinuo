@@ -102,9 +102,13 @@ public class StringUtils {
      * currentTime要转换的long类型的时间
      * formatType要转换的string类型的时间格式
      */
-    public static String longToString(long currentTime, String formatType)
-            throws ParseException {
-        Date date = longToDate(currentTime, formatType); // long类型转成Date类型
+    public static String longToString(long currentTime, String formatType) {
+        Date date = null; // long类型转成Date类型
+        try {
+            date = longToDate(currentTime, formatType);
+        } catch (ParseException e) {
+            e.printStackTrace();
+        }
         String strTime = dateToString(date, formatType); // date类型转成String
         return strTime;
     }

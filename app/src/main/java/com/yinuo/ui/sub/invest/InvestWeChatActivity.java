@@ -4,6 +4,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -11,11 +12,14 @@ import android.widget.TextView;
 import com.yinuo.Constants;
 import com.yinuo.R;
 import com.yinuo.base.BaseActivity;
+import com.yinuo.helper.ToastHelper;
 import com.yinuo.mode.InvestWeChatModel;
 import com.yinuo.net.base.NetBaseObject;
 import com.yinuo.net.request.NetRequest;
 import com.yinuo.net.response.NetInvestWeChatObj;
 import com.yinuo.ui.component.widget.view.InvestWeChatListView;
+import com.yinuo.utils.AppUtils;
+import com.yinuo.utils.StringUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -61,7 +65,6 @@ public class InvestWeChatActivity extends BaseActivity implements View.OnClickLi
 
         mListView.setItems(mModels);
         mSend.setOnClickListener(this);
-        mMsgEdit.setOnClickListener(this);
     }
 
     @Override
@@ -78,11 +81,17 @@ public class InvestWeChatActivity extends BaseActivity implements View.OnClickLi
             msg.what = mHandler.NOTIFY_SUCCESS;
             msg.obj = weChat;
             msg.sendToTarget();
+            return;
         }
+
+        Message msg = mHandler.obtainMessage();
+        msg.what = mHandler.NOTIFY_SEND_SUCCESS;
+        msg.sendToTarget();
     }
 
     private final class UIHandler extends Handler {
         private final int NOTIFY_SUCCESS = 0x000;
+        private final int NOTIFY_SEND_SUCCESS = 0x001;
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
@@ -95,6 +104,9 @@ public class InvestWeChatActivity extends BaseActivity implements View.OnClickLi
                     mListView.getInvestAdapter().notifyDataSetChanged();
                     break;
                 }
+                case NOTIFY_SEND_SUCCESS: {
+                    mListView.getInvestAdapter().notifyDataSetChanged();
+                }
             }
         }
     }
@@ -103,12 +115,30 @@ public class InvestWeChatActivity extends BaseActivity implements View.OnClickLi
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.invest_wechat_send: {
-                break;
-            }
-            case R.id.invest_wechat_edit: {
-//                mListView.scrollBottom();
+                sendMsg();
                 break;
             }
         }
+    }
+
+    private void sendMsg() {
+        String msg = mMsgEdit.getText().toString();
+        if (StringUtils.isEmpty(msg)) {
+//            ToastHelper.
+            return;
+        }
+        InvestWeChatModel model = new InvestWeChatModel();
+        model.setMsgTime(StringUtils.longToString(System.currentTimeMillis(), "yyyy-MM-dd HH:mm:ss"));
+        model.setMessage(msg);
+        model.setType(1);
+        model.setHeaderImg("");
+        mModels.add(model);
+        sendMsgToServer(model);
+        mMsgEdit.setText("");
+        mMsgEdit.clearFocus();
+    }
+
+    private void sendMsgToServer(InvestWeChatModel model) {
+        NetRequest.getInstance().requestSendMsgToServer(mBossId, model, this);
     }
 }

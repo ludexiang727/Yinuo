@@ -100,6 +100,8 @@ public class InvestListViewAdapter extends SuperAdapter {
                 holder.msgTime.setText(model.getMsgTime());
                 holder.msgBody.setText(model.getMessage());
                 loadImage(model.getHeaderImg(), holder.headerImg);
+
+                Log.e("ldx", "model ==> " + model);
             }
         }
     }

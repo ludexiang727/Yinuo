@@ -6,6 +6,9 @@
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="fab_margin">16dp</dimen>
+    <dimen name="app_activity_title_height">45dp</dimen>
+    <dimen name="app_title_parent_margin">10dp</dimen>
+    <dimen name="app_title_right_child_margin">5dp</dimen>
 
     <!-- home page begin -->
     <dimen name="home_page_card_view_margin">0dp</dimen>
@@ -76,9 +79,14 @@
     <dimen name="invest_wechat_time_margin">20dp</dimen>
     <dimen name="invest_wechat_header_margin">10dp</dimen>
     <dimen name="invest_wechat_header_wh">60dp</dimen>
+    <dimen name="invest_wechat_send_padding">10dp</dimen>
     <dimen name="invest_wechat_send_margin_right">10dp</dimen>
     <dimen name="invest_wechat_edit_margin_left">10dp</dimen>
     <dimen name="invest_wechat_edit_margin_right">3dp</dimen>
+    <dimen name="invest_wechat_msg_padding">10dp</dimen>
+    <dimen name="invest_wechat_msg_padding_offset">15dp</dimen>
+    <dimen name="invest_wechat_msg_margin">15dp</dimen>
+    <dimen name="invest_wechat_send_radius">4dp</dimen>
     <!-- invest page end -->
 
     <!-- loan page begin -->

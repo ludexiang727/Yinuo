@@ -10,8 +10,7 @@
         android:layout_centerHorizontal="true"
         android:layout_alignParentTop="true"
         android:layout_marginBottom="@dimen/invest_wechat_time_margin"
-        android:layout_marginTop="@dimen/invest_wechat_time_margin"
-        android:text="2016-05-04 13:28:15"/>
+        android:layout_marginTop="@dimen/invest_wechat_time_margin"/>
 
     <ImageView
         android:id="@+id/invest_wechat_header"
@@ -26,11 +25,15 @@
 
     <TextView
         android:id="@+id/invest_wechat_msg_body"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="left"
         android:layout_alignTop="@id/invest_wechat_header"
         android:layout_toRightOf="@id/invest_wechat_header"
+        android:layout_marginTop="@dimen/invest_wechat_msg_margin"
         android:layout_centerVertical="true"
+        android:paddingLeft="@dimen/invest_wechat_msg_padding_offset"
+        android:paddingRight="@dimen/invest_wechat_msg_padding"
+        android:background="@drawable/invest_wechat_its_send"
+        android:textColor="@color/invest_wechat_msg_left_color"
         android:layout_marginRight="@dimen/invest_wechat_header_wh"/>
 </RelativeLayout>

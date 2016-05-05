@@ -2,7 +2,6 @@ package com.yinuo.net.request;
 
 import android.util.Log;
 import android.util.SparseArray;
-import android.util.SparseIntArray;
 
 import com.squareup.okhttp.Call;
 import com.squareup.okhttp.Callback;
@@ -11,13 +10,11 @@ import com.squareup.okhttp.Request;
 import com.squareup.okhttp.RequestBody;
 import com.squareup.okhttp.Response;
 import com.squareup.okhttp.ResponseBody;
-import com.yinuo.base.BaseActivity;
 import com.yinuo.base.BaseApplication;
 import com.yinuo.net.IRequestListener;
 import com.yinuo.net.base.NetBaseObject;
 import com.yinuo.net.response.NetBossOnlinePageObj;
 import com.yinuo.net.response.NetDiscoveryPageObj;
-import com.yinuo.net.response.NetHomePageDetailsObj;
 import com.yinuo.net.response.NetHomePageObj;
 import com.yinuo.net.response.NetInvestPageObj;
 import com.yinuo.net.response.NetInvestWeChatObj;
@@ -130,6 +127,8 @@ public class OkHttpRequest <T extends NetBaseObject> implements Callback {
                 mObject.parse(AssetUtils.readFile("bossonline.txt"));
             } else if (mObject instanceof NetInvestWeChatObj) {
                 mObject.parse(AssetUtils.readFile("investwechat.txt"));
+            } else if (mObject instanceof NetBaseObject) {
+                mObject.parse(AssetUtils.readFile("investwechatsendmsg.txt"));
             }
             // test end
 

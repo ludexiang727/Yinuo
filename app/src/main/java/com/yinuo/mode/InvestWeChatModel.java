@@ -43,4 +43,14 @@ public class InvestWeChatModel extends BaseObject {
     public void setMsgTime(String msgTime) {
         this.mMsgTime = msgTime;
     }
+
+    @Override
+    public String toString() {
+        return "InvestWeChatModel{" +
+                "mHeaderImg='" + mHeaderImg + '\'' +
+                ", mType=" + mType +
+                ", mMessage='" + mMessage + '\'' +
+                ", mMsgTime='" + mMsgTime + '\'' +
+                '}';
+    }
 }

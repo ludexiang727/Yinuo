@@ -33,6 +33,10 @@
 
     <!-- invest page begin -->
     <color name="invest_view_holder_separator">#CCEBEBEB</color>
+    <color name="invest_wechat_msg_left_color">#CCFFFFFF</color>
+    <color name="invest_wechat_msg_right_color">#CC999999</color>
+    <color name="invest_wechat_send_color_normal">#CCEAEAEA</color>
+    <color name="invest_wechat_send_color_pressed">#CCFF4081</color>
     <!-- invest page end -->
 
     <!-- loan page begin -->

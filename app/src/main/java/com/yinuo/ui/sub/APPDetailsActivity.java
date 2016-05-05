@@ -80,6 +80,8 @@ public class APPDetailsActivity extends BaseActivity implements View.OnClickList
         mOuterRectFMargin = ResUtils.getInt(this, R.dimen.home_page_detail_outer_rect_margin);
 
         super.onCreate(savedInstanceState);
+
+        showTitle(false);
     }
 
     @Override

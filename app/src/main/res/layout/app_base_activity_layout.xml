@@ -4,22 +4,60 @@
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
+    <RelativeLayout
+        android:id="@+id/app_activity_title_layout"
+        android:layout_width="match_parent"
+        android:layout_height="@dimen/app_activity_title_height"
+        android:layout_alignParentTop="true"
+        android:background="@color/colorPrimary">
+
+        <ImageView
+            android:id="@+id/app_activity_title_left"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginLeft="@dimen/app_title_parent_margin"
+            android:layout_alignParentLeft="true"/>
+
+        <LinearLayout
+            android:id="@+id/app_activity_title_right"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerVertical="true"
+            android:orientation="horizontal"
+            android:layout_alignParentRight="true"
+            android:layout_marginRight="@dimen/app_title_parent_margin"/>
+
+        <TextView
+            android:id="@+id/app_activity_title_middle"
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:layout_marginLeft="@dimen/app_title_parent_margin"
+            android:layout_marginRight="@dimen/app_title_parent_margin"
+            android:layout_toLeftOf="@id/app_activity_title_right"
+            android:layout_toRightOf="@id/app_activity_title_left"/>
+
+    </RelativeLayout>
 
     <RelativeLayout
         android:id="@+id/app_activity_content_parent"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:fitsSystemWindows="true"
+        android:layout_below="@id/app_activity_title_layout"
         android:visibility="gone"/>
 
     <ViewStub
         android:id="@+id/app_activity_viewstub"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_below="@id/app_activity_title_layout"
         android:visibility="gone"/>
 
     <com.yinuo.ui.component.widget.Loading
         android:id="@+id/app_activity_loading"
+        android:layout_below="@id/app_activity_title_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent"/>
 </RelativeLayout>

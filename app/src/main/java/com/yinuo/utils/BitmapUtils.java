@@ -65,7 +65,7 @@ public class BitmapUtils {
         final Paint paint = new Paint();
         final Rect src = new Rect((int)left, (int)top, (int)right, (int)bottom);
         final Rect dst = new Rect((int)dst_left, (int)dst_top, (int)dst_right, (int)dst_bottom);
-        final RectF rectF = new RectF(dst_left+15, dst_top+15, dst_right-20, dst_bottom-20);
+        final RectF rectF = new RectF(dst_left + 20, dst_top + 20, dst_right - 20, dst_bottom - 20);
 
         paint.setAntiAlias(true);
 

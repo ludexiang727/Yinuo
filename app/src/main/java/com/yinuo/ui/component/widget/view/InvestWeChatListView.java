@@ -38,7 +38,4 @@ public class InvestWeChatListView extends ListView {
         return mAdapter;
     }
 
-    public void scrollBottom() {
-        setSelection(mAdapter.getCount());
-    }
 }

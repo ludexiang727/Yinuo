@@ -1,6 +1,7 @@
 package com.yinuo.net.request;
 
 import com.squareup.okhttp.FormEncodingBuilder;
+import com.yinuo.mode.InvestWeChatModel;
 import com.yinuo.net.IRequestListener;
 import com.yinuo.net.base.NetBaseObject;
 import com.yinuo.net.response.NetBossOnlineAboutPageObj;
@@ -127,6 +128,16 @@ public class NetRequest <T extends NetBaseObject> {
         build.add(NetConstant.NET_REQUEST_INVEST_WECHAT_TIME, time);
         int requestCode = OkHttpRequest.getInstance().httpPostRequest(NetConstant.REQUEST_URL_INVEST_WECHAT,
                 build.build(), listener, new NetInvestWeChatObj());
+        return requestCode;
+    }
+
+    public int requestSendMsgToServer(int bossId, InvestWeChatModel model, IRequestListener<T> listener) {
+        FormEncodingBuilder build = build();
+        build.add(NetConstant.NET_REQUEST_INVEST_WECHAT_BOSS_ID, String.valueOf(bossId));
+        build.add(NetConstant.NET_REQUEST_INVEST_WECHAT_SEND_MSG, model.getMessage());
+        build.add(NetConstant.NET_REQUEST_INVEST_WECHAT_SEND_TIME, model.getMsgTime());
+        int requestCode = OkHttpRequest.getInstance().httpPostRequest(NetConstant.REQUEST_URL_INVEST_WECHAT_SEND,
+                build.build(), listener, new NetBaseObject());
         return requestCode;
     }
 

@@ -683,29 +683,31 @@ public class FlipperViewGroup extends ViewGroup implements Runnable {
 
 	/** base url download bitmap **/
 	private void loadBanners(BaseObject banner, final ImageView child) {
-		ImageLoaderHelper.getInstance().loadImage(banner.getBannerOrImgURL(), child, new ImageLoadingListener() {
-			@Override
-			public void onLoadingStarted(String imageUri, View view) {
+		if (banner != null) {
+			ImageLoaderHelper.getInstance().loadImage(banner.getBannerOrImgURL(), child, new ImageLoadingListener() {
+				@Override
+				public void onLoadingStarted(String imageUri, View view) {
 
-			}
-
-			@Override
-			public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
-
-			}
-
-			@Override
-			public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
-				if (loadedImage != null) {
-					child.setImageBitmap(loadedImage);
 				}
-			}
 
-			@Override
-			public void onLoadingCancelled(String imageUri, View view) {
+				@Override
+				public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
 
-			}
-		});
+				}
+
+				@Override
+				public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
+					if (loadedImage != null) {
+						child.setImageBitmap(loadedImage);
+					}
+				}
+
+				@Override
+				public void onLoadingCancelled(String imageUri, View view) {
+
+				}
+			});
+		}
 	}
 
 	private void isAllowOnInterceptTouchEvent(boolean isAllow) {

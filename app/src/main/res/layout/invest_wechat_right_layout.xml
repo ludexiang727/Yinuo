@@ -26,11 +26,15 @@
 
     <TextView
         android:id="@+id/invest_wechat_msg_body"
-        android:layout_width="match_parent"
+        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="right"
-        android:layout_alignTop="@id/invest_wechat_header"
         android:layout_toLeftOf="@id/invest_wechat_header"
+        android:layout_alignTop="@id/invest_wechat_header"
+        android:layout_marginTop="@dimen/invest_wechat_msg_margin"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="@dimen/invest_wechat_header_wh"/>
+        android:textColor="@color/invest_wechat_msg_right_color"
+        android:paddingLeft="@dimen/invest_wechat_msg_padding"
+        android:paddingRight="@dimen/invest_wechat_msg_padding_offset"
+        android:layout_marginLeft="@dimen/invest_wechat_header_wh"
+        android:background="@drawable/invest_wechat_me_send"/>
 </RelativeLayout>

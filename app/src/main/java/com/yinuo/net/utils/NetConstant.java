@@ -13,7 +13,8 @@ public class NetConstant {
     public static final String REQUEST_URL_DISCOVERY_PAGE = "pGetDiscoveryPage";
     public static final String REQUEST_URL_PARTNER_PAGE = "pGetPartnerPage";
     public static final String REQUEST_URL_INVEST_PAGE = "pGetInvestPage";
-    public static final String REQUEST_URL_INVEST_WECHAT = "pwechat";
+    public static final String REQUEST_URL_INVEST_WECHAT = "pWechat";
+    public static final String REQUEST_URL_INVEST_WECHAT_SEND = "pWechatSendMsg";
     public static final String REQUEST_URL_LOAN_PAGE = "pGetLoanPage";
     public static final String REQUEST_URL_WORKSPACE_PAGE = "pGetWorkspacePage";
     public static final String REQUEST_URL_BOSS_ONLINE_PAGE = "pGetBossOnlinePage";
@@ -94,6 +95,8 @@ public class NetConstant {
     public static final String NET_REQUEST_INVEST_PARAM_COUNT = "invest_page_count";
     public static final String NET_REQUEST_INVEST_WECHAT_TIME = "invest_wechat_time";
     public static final String NET_REQUEST_INVEST_WECHAT_BOSS_ID = "invest_wechat_boss_id";
+    public static final String NET_REQUEST_INVEST_WECHAT_SEND_MSG = "invest_wechat_send_msg";
+    public static final String NET_REQUEST_INVEST_WECHAT_SEND_TIME = "invest_wechat_send_time";
 
     // json
     public static final String NET_JSON_INVEST_FIELD_LISTS_COUNT = "invest_count";
