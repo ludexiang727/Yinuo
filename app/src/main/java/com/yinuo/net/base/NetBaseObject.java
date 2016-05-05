@@ -36,6 +36,13 @@ public class NetBaseObject {
     }
 
     protected void parse(JSONObject obj) {
+    }
 
+    public int getErrorNo() {
+        return mErrNo;
+    }
+
+    public String getErrMsg() {
+        return mErrMsg;
     }
 }

@@ -7,12 +7,20 @@
         android:id="@+id/base_fragment_swipe_refresh"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
-        <RelativeLayout
-            android:id="@+id/base_fragment_parent_content"
+        <FrameLayout
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent">
+            <RelativeLayout
+                android:id="@+id/base_fragment_parent_content"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"/>
 
+            <ViewStub
+                android:id="@+id/base_fragment_view_stub"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout="@layout/app_view_stub_layout"/>
+        </FrameLayout>
     </com.yinuo.ui.component.widget.VerticalSwipeRefreshLayout>
 
 </FrameLayout>

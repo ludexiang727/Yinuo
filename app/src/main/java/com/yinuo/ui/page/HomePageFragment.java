@@ -80,6 +80,7 @@ public class HomePageFragment extends BaseFragment {
     @Override
     public void onFail(NetBaseObject object) {
         super.onFail(object);
+        Log.e("ldx", "file ........................");
     }
 
     @Override

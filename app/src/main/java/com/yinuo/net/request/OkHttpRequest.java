@@ -97,11 +97,14 @@ public class OkHttpRequest <T extends NetBaseObject> implements Callback {
     @Override
     public void onFailure(Request request, IOException e) {
         if (!NetHelper.getInstance(BaseApplication.getInstance().getContext()).isNetworkConnected()) {
-
-            Log.e("ldx", "onFailure ....... reuquest >>> " + request + " " + e.getMessage());
+            mObject.parse(AssetUtils.readFile("networkerror.txt"));
+            Log.d("ldx", "fuck ........mLIsener.." + mListener);
+            if (mListener != null) {
+                Log.i("ldx", "fuck ..........");
+                mListener.onFail(mObject);
+            }
         }
 
-        Log.e("ldx", "onFailure ....... reuquest >>> " + request + " " + e.getMessage());
     }
 
     @Override
