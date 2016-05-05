@@ -83,9 +83,13 @@ public abstract class BaseFragment extends Fragment implements SwipeRefreshLayou
             mLoading.dismiss();
             switch (msg.what) {
                 case NOTIFY_NET_WORK_ERROR: {
-                    mStubView = mViewStub.inflate();
-                    mStubImg = (ImageView) mStubView.findViewById(R.id.base_fragment_view_stub_layout_err_img);
-                    mStubTxt = (TextView) mStubView.findViewById(R.id.base_fragment_view_stub_layout_err_msg);
+                    if (mStubView == null) {
+                        mStubView = mViewStub.inflate();
+                        mStubImg = (ImageView) mStubView.findViewById(R.id.base_fragment_view_stub_layout_err_img);
+                        mStubTxt = (TextView) mStubView.findViewById(R.id.base_fragment_view_stub_layout_err_msg);
+                    } else {
+                        mStubView.setVisibility(View.VISIBLE);
+                    }
                     NetBaseObject obj = (NetBaseObject) msg.obj;
                     mStubTxt.setText(obj.getErrMsg());
                     break;
@@ -96,7 +100,6 @@ public abstract class BaseFragment extends Fragment implements SwipeRefreshLayou
 
     @Override
     public void onFail(NetBaseObject object) {
-        Log.e("ldx", "base fragment ....onfail");
         if (object.getErrorNo() == Constants.NET_WORK_ERROR) {
             Message msg = mHandler.obtainMessage();
             msg.what = mHandler.NOTIFY_NET_WORK_ERROR;
