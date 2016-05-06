@@ -91,6 +91,7 @@ public abstract class BaseFragment extends Fragment implements SwipeRefreshLayou
                         mStubView.setVisibility(View.VISIBLE);
                     }
                     NetBaseObject obj = (NetBaseObject) msg.obj;
+                    mStubImg.setImageResource(R.drawable.net_work_error);
                     mStubTxt.setText(obj.getErrMsg());
                     break;
                 }

@@ -1,4 +1,5 @@
 <resources>
+    <string name="app_name">一诺科技</string>
     <string-array name="main_view_pager_tab">
         <item>One</item>
         <item>Two</item>

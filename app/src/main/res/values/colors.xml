@@ -7,6 +7,8 @@
     <color name="loading_background">#affafafa</color>
     <color name="recycle_view_divider">#EBEBEB</color>
 
+    <color name="splash_app_name_color">#CCC80000</color>
+
     <color name="refresh_color_progress1">#CC3F51B5</color>
     <color name="refresh_color_progress2">#FF4081</color>
     <color name="refresh_color_progress3">#CC303F9F</color>
@@ -35,7 +37,8 @@
     <color name="invest_view_holder_separator">#CCEBEBEB</color>
     <color name="invest_wechat_msg_left_color">#CCFFFFFF</color>
     <color name="invest_wechat_msg_right_color">#CC999999</color>
-    <color name="invest_wechat_send_color_normal">#CCEAEAEA</color>
+    <color name="invest_wechat_send_color_enable">#CCEAEAEA</color>
+    <color name="invest_wechat_send_color_normal">#AAFF4588</color>
     <color name="invest_wechat_send_color_pressed">#CCFF4081</color>
     <!-- invest page end -->
 

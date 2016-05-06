@@ -19,7 +19,11 @@
             android:clickable="true"
             android:textColor="@android:color/white"
             android:background="@drawable/invest_wechat_send_selector"
-            android:padding="@dimen/invest_wechat_send_padding"
+            android:paddingLeft="@dimen/invest_wechat_send_padding_lr"
+            android:paddingTop="@dimen/invest_wechat_send_padding_tb"
+            android:paddingRight="@dimen/invest_wechat_send_padding_lr"
+            android:paddingBottom="@dimen/invest_wechat_send_padding_tb"
+            android:enabled="false"
             android:layout_alignBottom="@+id/invest_wechat_edit"
             android:layout_marginRight="@dimen/invest_wechat_send_margin_right"/>
 

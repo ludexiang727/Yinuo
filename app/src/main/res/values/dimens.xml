@@ -10,6 +10,8 @@
     <dimen name="app_title_parent_margin">10dp</dimen>
     <dimen name="app_title_right_child_margin">5dp</dimen>
     <dimen name="base_view_stub_msg_margin">20dp</dimen>
+    <dimen name="splash_app_name_size">18sp</dimen>
+    <dimen name="app_splash_default_margin_top">150dp</dimen>
 
     <!-- home page begin -->
     <dimen name="home_page_card_view_margin">0dp</dimen>
@@ -79,8 +81,11 @@
     <dimen name="invest_view_holder_notice_size">11sp</dimen>
     <dimen name="invest_wechat_time_margin">20dp</dimen>
     <dimen name="invest_wechat_header_margin">10dp</dimen>
+    <dimen name="invest_wechat_header_margin_left">5dp</dimen>
+    <dimen name="invest_wechat_header_margin_right">5dp</dimen>
     <dimen name="invest_wechat_header_wh">60dp</dimen>
-    <dimen name="invest_wechat_send_padding">10dp</dimen>
+    <dimen name="invest_wechat_send_padding_tb">8dp</dimen>
+    <dimen name="invest_wechat_send_padding_lr">15dp</dimen>
     <dimen name="invest_wechat_send_margin_right">10dp</dimen>
     <dimen name="invest_wechat_edit_margin_left">10dp</dimen>
     <dimen name="invest_wechat_edit_margin_right">3dp</dimen>

@@ -19,7 +19,7 @@
         android:layout_height="@dimen/invest_wechat_header_wh"
         android:layout_alignParentRight="true"
         android:layout_below="@id/invest_wechat_send_msg_time"
-        android:layout_marginLeft="@dimen/invest_wechat_header_margin"
+        android:layout_marginLeft="@dimen/invest_wechat_header_margin_left"
         android:layout_marginRight="@dimen/invest_wechat_header_margin"
         android:scaleType="center"
         android:contentDescription="@null"/>
