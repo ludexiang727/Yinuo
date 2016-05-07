@@ -4,6 +4,7 @@ import com.squareup.okhttp.FormEncodingBuilder;
 import com.yinuo.mode.InvestWeChatModel;
 import com.yinuo.net.IRequestListener;
 import com.yinuo.net.base.NetBaseObject;
+import com.yinuo.net.response.NetAppConfigObj;
 import com.yinuo.net.response.NetBossOnlineAboutPageObj;
 import com.yinuo.net.response.NetBossOnlinePageObj;
 import com.yinuo.net.response.NetDiscoveryPageObj;
@@ -64,6 +65,14 @@ public class NetRequest <T extends NetBaseObject> {
         build.add(NetConstant.NET_REQUEST_REGISTER_PARAM_CODE, code);
         int requestCode = OkHttpRequest.getInstance().httpPostRequest(NetConstant.REQUEST_URL_SIGN_UP,
                 build.build(), listener, new NetRegisterObj());
+        return requestCode;
+    }
+
+    /** app config -- 应用配置 **/
+    public int requestConfig(IRequestListener<T> listener) {
+        FormEncodingBuilder build = build();
+        int requestCode = OkHttpRequest.getInstance().httpPostRequest(NetConstant.REQUEST_URL_APP_CONFIG,
+                build.build(), listener, new NetAppConfigObj());
         return requestCode;
     }
 

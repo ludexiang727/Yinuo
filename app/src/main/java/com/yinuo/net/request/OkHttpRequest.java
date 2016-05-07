@@ -13,6 +13,7 @@ import com.squareup.okhttp.ResponseBody;
 import com.yinuo.base.BaseApplication;
 import com.yinuo.net.IRequestListener;
 import com.yinuo.net.base.NetBaseObject;
+import com.yinuo.net.response.NetAppConfigObj;
 import com.yinuo.net.response.NetBossOnlinePageObj;
 import com.yinuo.net.response.NetDiscoveryPageObj;
 import com.yinuo.net.response.NetHomePageObj;
@@ -130,6 +131,8 @@ public class OkHttpRequest <T extends NetBaseObject> implements Callback {
                 mObject.parse(AssetUtils.readFile("bossonline.txt"));
             } else if (mObject instanceof NetInvestWeChatObj) {
                 mObject.parse(AssetUtils.readFile("investwechat.txt"));
+            } else if (mObject instanceof NetAppConfigObj) {
+                mObject.parse(AssetUtils.readFile("appconfig.txt"));
             } else if (mObject instanceof NetBaseObject) {
                 mObject.parse(AssetUtils.readFile("investwechatsendmsg.txt"));
             }

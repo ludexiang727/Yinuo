@@ -8,6 +8,7 @@
     <color name="recycle_view_divider">#EBEBEB</color>
 
     <color name="splash_app_name_color">#CCC80000</color>
+    <color name="app_splahs_ad_infos_color">#ADFFFFFF</color>
 
     <color name="refresh_color_progress1">#CC3F51B5</color>
     <color name="refresh_color_progress2">#FF4081</color>
@@ -20,6 +21,7 @@
     <color name="round_corner_progress_bar_secondary_progress_default">@android:color/transparent</color>
     <color name="custom_progress_blue_progress">#FF4081</color>
     <color name="custom_progress_background">#FF3C3A3B</color>
+    <color name="app_splash_skip_bg_color">#AAFFFFFF</color>
 
     <!-- discovery page begin -->
     <color name="discovery_page_property_bg">#CCFFFFFF</color>

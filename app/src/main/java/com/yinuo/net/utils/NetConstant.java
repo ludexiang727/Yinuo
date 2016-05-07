@@ -7,7 +7,8 @@ public class NetConstant {
     /***************** request interface begin -- 请求接口名称 *********************/
     public static final String REQUEST_URL = "http://www.baidu.com/";
     public static final String REQUEST_URL_SIGN_IN = "pSignIn";
-    public static final String REQUEST_URL_SIGN_UP = "PSignUp";
+    public static final String REQUEST_URL_SIGN_UP = "pSignUp";
+    public static final String REQUEST_URL_APP_CONFIG = "pGetAppConfig";
     public static final String REQUEST_URL_HOME_PAGE = "pGetHomePage";
     public static final String REQUEST_URL_HOME_PAGE_DETAILS = "pGetHomeDetails";
     public static final String REQUEST_URL_DISCOVERY_PAGE = "pGetDiscoveryPage";
@@ -38,6 +39,11 @@ public class NetConstant {
     /** app details page begin **/
     public static final String NET_JSON_APP_DETAILS_IMGS = "app_details_imgs";
     /** app details page end*/
+
+    /** app config -- app 配置 begin **/
+    // json
+    public static final String NET_JSON_APP_CONFIG_VERSION = "app_config_version";
+    /** app config -- app 配置 end **/
 
     /**home page data begin */
     public static final String NET_REQUEST_HOMEPAGE_PARAM_INDEX = "home_page_index";

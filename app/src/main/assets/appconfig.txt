@@ -1,0 +1,9 @@
+{
+    "errno":0,
+    "errmsg":"",
+    "app_config_version":1,
+    "app_splash_ad":{
+        "splash_ad_img_url":"http://www.7han.com/pic/uploadimg/2016-1/201612519333773839.jpg",
+        "splash_ad_entrance_url":"http://www.baidu.com"
+    }
+}

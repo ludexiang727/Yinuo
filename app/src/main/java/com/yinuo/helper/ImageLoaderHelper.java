@@ -1,6 +1,7 @@
 package com.yinuo.helper;
 
 import android.content.Context;
+import android.graphics.Bitmap;
 import android.widget.ImageView;
 
 import com.nostra13.universalimageloader.cache.disc.impl.UnlimitedDiskCache;
@@ -86,5 +87,9 @@ public class ImageLoaderHelper {
 
     private void loadImage(String uri, DisplayImageOptions options, ImageLoadingListener listener) {
         mImageLoader.loadImage(uri, options, listener);
+    }
+
+    public Bitmap loadBitmap(String uri) {
+        return mImageLoader.loadImageSync(uri);
     }
 }

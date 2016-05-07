@@ -6,6 +6,8 @@ package com.yinuo;
 public class Constants {
     public static final String EXTERNAL_PATH = "image/cache/";
     public static final int NET_WORK_ERROR = 10000;
+    public static final String PREFERENCES = "yinuo_config_prefer";
+    public static final String WEB_MODEL = "web_model";
 
     /**apply for loan -- 申请贷款 */
     public static final int LOAN_PAGE_APPLY = 110;

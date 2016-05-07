@@ -117,4 +117,8 @@ public abstract class BaseActivity extends Activity implements IRequestListener 
             mTitleRight.addView(vs[i], i, params);
         }
     }
+
+    public void dismissLoading() {
+        mLoading.dismiss();
+    }
 }

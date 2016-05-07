@@ -10,8 +10,20 @@
     <dimen name="app_title_parent_margin">10dp</dimen>
     <dimen name="app_title_right_child_margin">5dp</dimen>
     <dimen name="base_view_stub_msg_margin">20dp</dimen>
-    <dimen name="splash_app_name_size">18sp</dimen>
+    <dimen name="splash_app_name_size">16sp</dimen>
+    <dimen name="splash_app_name_margin_top">5dp</dimen>
+    <dimen name="app_splash_default_margin_bottom">45dp</dimen>
     <dimen name="app_splash_default_margin_top">150dp</dimen>
+    <dimen name="app_splash_skip_margin">10dp</dimen>
+    <dimen name="app_splash_ad_img_margin_left">60dp</dimen>
+    <dimen name="app_splash_ad_img_margin_right">20dp</dimen>
+    <dimen name="app_splash_ad_img_margin_top">20dp</dimen>
+    <dimen name="app_splash_ad_img_margin_bottom">10dp</dimen>
+    <dimen name="app_splash_ad_version_padding">15dp</dimen>
+    <dimen name="app_splash_skip_radius">4dp</dimen>
+    <dimen name="app_splash_skip_size">10sp</dimen>
+    <dimen name="app_splash_skip_padding_lr">10dp</dimen>
+    <dimen name="app_splash_skip_padding_tb">5dp</dimen>
 
     <!-- home page begin -->
     <dimen name="home_page_card_view_margin">0dp</dimen>
