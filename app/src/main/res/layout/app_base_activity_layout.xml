@@ -35,6 +35,12 @@
             android:layout_centerInParent="true"
             android:layout_marginLeft="@dimen/app_title_parent_margin"
             android:layout_marginRight="@dimen/app_title_parent_margin"
+            android:textSize="@dimen/app_base_title_size"
+            android:textColor="@android:color/white"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:textStyle="bold"
             android:layout_toLeftOf="@id/app_activity_title_right"
             android:layout_toRightOf="@id/app_activity_title_left"/>
 

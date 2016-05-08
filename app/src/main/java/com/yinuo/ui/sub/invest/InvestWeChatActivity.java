@@ -15,6 +15,7 @@ import com.yinuo.Constants;
 import com.yinuo.R;
 import com.yinuo.base.BaseActivity;
 import com.yinuo.helper.ToastHelper;
+import com.yinuo.mode.InvestPageDataModel;
 import com.yinuo.mode.InvestWeChatModel;
 import com.yinuo.net.base.NetBaseObject;
 import com.yinuo.net.request.NetRequest;
@@ -36,6 +37,7 @@ public class InvestWeChatActivity extends BaseActivity implements View.OnClickLi
     private final int PAGE_COUNT = 10;
     private UIHandler mHandler = new UIHandler();
     private int mBossId;
+    private InvestPageDataModel mModel;
 
     private List<InvestWeChatModel> mModels = new ArrayList<InvestWeChatModel>();
 
@@ -51,8 +53,11 @@ public class InvestWeChatActivity extends BaseActivity implements View.OnClickLi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Intent intent = getIntent();
-        mBossId = intent.getIntExtra(Constants.INVEST_WECHAT_BOSS_ID, -1);
+        mModel = (InvestPageDataModel) intent.getSerializableExtra(Constants.INVEST_WECHAT_BOSS_MODEL);
+        mBossId = mModel.getInvestId();
         super.onCreate(savedInstanceState);
+
+        setMiddleTitle(mModel.getInvestName());
     }
 
     @Override

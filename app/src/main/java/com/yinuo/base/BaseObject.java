@@ -1,9 +1,11 @@
 package com.yinuo.base;
 
+import java.io.Serializable;
+
 /**
  * Created by ludexiang on 2016/4/7.
  */
-public class BaseObject {
+public class BaseObject implements Serializable {
     /** appId -- app 对应的ID */
     protected int mAppId;
     /** banner url - each page banner url or image view url */

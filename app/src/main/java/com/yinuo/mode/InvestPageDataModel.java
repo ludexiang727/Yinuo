@@ -2,10 +2,12 @@ package com.yinuo.mode;
 
 import com.yinuo.base.BaseObject;
 
+import java.io.Serializable;
+
 /**
  * Created by gus on 16/4/23.
  */
-public class InvestPageDataModel extends BaseObject {
+public class InvestPageDataModel extends BaseObject implements Serializable{
     private int mInvestId;
     private String mInvestName;
     private int mInvestGender;

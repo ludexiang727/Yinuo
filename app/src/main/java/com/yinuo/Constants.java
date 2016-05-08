@@ -38,5 +38,5 @@ public class Constants {
     /**rate_search  for loan -- 费率查询 */
     public static final int LOAN_PAGE_RATE_SEARCH = 123;
 
-    public static final String INVEST_WECHAT_BOSS_ID = "invest_wechat_boss_id";
+    public static final String INVEST_WECHAT_BOSS_MODEL = "invest_wechat_boss_MODEL";
 }

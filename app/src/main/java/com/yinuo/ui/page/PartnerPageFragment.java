@@ -94,8 +94,10 @@ public class PartnerPageFragment extends BaseFragment implements PartnerConditio
         mSkill.setConditionListener(this);
         mInvest.setConditionListener(this);
 
-        mRecyclerViews.add(mPartnerRecyclerView);
-        mRecyclerViews.add(mInvestRecyclerView);
+        if (mRecyclerViews.size() == 0) {
+            mRecyclerViews.add(mPartnerRecyclerView);
+            mRecyclerViews.add(mInvestRecyclerView);
+        }
 
         mViewPager.setViews(mRecyclerViews);
         mViewPager.setOnPageChangeListener(this);

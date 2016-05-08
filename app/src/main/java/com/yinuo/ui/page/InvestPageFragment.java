@@ -106,7 +106,7 @@ public class InvestPageFragment extends BaseFragment {
         switch (v.getId()) {
             case R.id.invest_view_holder_chat: {
                 Intent intent = new Intent(getActivity(), InvestWeChatActivity.class);
-                intent.putExtra(Constants.INVEST_WECHAT_BOSS_ID, mModels.get(position).getInvestId());
+                intent.putExtra(Constants.INVEST_WECHAT_BOSS_MODEL, mModels.get(position));
                 getActivity().startActivity(intent);
                 break;
             }

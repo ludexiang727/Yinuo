@@ -76,9 +76,9 @@ public abstract class BaseActivity extends Activity implements IRequestListener 
         mViewStub = (ViewStub) findViewById(R.id.app_activity_viewstub);
         mContentParent = (RelativeLayout) findViewById(R.id.app_activity_content_parent);
         View view = LayoutInflater.from(this).inflate(mLayoutId, mContentParent, true);
+        mLoading.loading();
         loadData();
         loadView(view);
-        mLoading.loading();
     }
 
     @Override
@@ -120,5 +120,6 @@ public abstract class BaseActivity extends Activity implements IRequestListener 
 
     public void dismissLoading() {
         mLoading.dismiss();
+        mContentParent.setVisibility(View.VISIBLE);
     }
 }

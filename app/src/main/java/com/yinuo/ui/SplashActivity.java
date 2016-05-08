@@ -7,14 +7,13 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
-import android.util.Log;
 import android.view.View;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
-import com.nostra13.universalimageloader.core.assist.FailReason;
-import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 import com.yinuo.Constants;
 import com.yinuo.R;
 import com.yinuo.base.WebActivity;
@@ -24,7 +23,6 @@ import com.yinuo.net.utils.NetHelper;
 import com.yinuo.utils.PreferenceUtils;
 import com.yinuo.utils.ResUtils;
 import com.yinuo.utils.StringUtils;
-import com.yinuo.utils.UiThreadHandler;
 
 /**
  * Created by Administrator on 2016/5/5.
@@ -44,6 +42,9 @@ public class SplashActivity extends Activity implements View.OnClickListener {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        requestWindowFeature(Window.FEATURE_NO_TITLE);
+        Window window = getWindow();
+        window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.app_splash_layout);
 
@@ -108,6 +109,8 @@ public class SplashActivity extends Activity implements View.OnClickListener {
                 mAdImg.setImageBitmap(bitmap);
                 hide(mDefaultParent);
                 show(mAdSkip);
+                // default show 10 for handle %1$s
+                mAdSkip.setText(String.format(ResUtils.getString(SplashActivity.this, R.string.app_splash_skip_txt), 10));
                 show(mAdLayoutParent);
             }
         }
@@ -164,6 +167,7 @@ public class SplashActivity extends Activity implements View.OnClickListener {
     private void gotoMain() {
         Intent intent = new Intent(this, MainActivity.class);
         startActivity(intent);
+        finish();
     }
 
     @Override
