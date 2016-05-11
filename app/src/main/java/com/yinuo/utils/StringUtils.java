@@ -4,10 +4,12 @@ import android.graphics.Color;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.ForegroundColorSpan;
+import android.util.Log;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.Calendar;
 import java.util.Date;
 import java.util.List;
 import java.util.regex.Matcher;
@@ -17,6 +19,8 @@ import java.util.regex.Pattern;
  * Created by ludexiang on 2016/4/6.
  */
 public class StringUtils {
+
+    public static final int INVEST_WECHAT_TIME = 5 * 60 * 1000;
 
     public static boolean isEmpty(String content) {
         if (content == null || "".equals(content) || content.length() == 0
@@ -147,15 +151,19 @@ public class StringUtils {
      * formatType时间格式
      * strTime的时间格式和formatType的时间格式必须相同
      */
-    public static long stringToLong(String strTime, String formatType)
-            throws ParseException {
-        Date date = stringToDate(strTime, formatType); // String类型转成date类型
-        if (date == null) {
-            return 0;
-        } else {
-            long currentTime = dateToLong(date); // date类型转成long类型
-            return currentTime;
+    public static long stringToLong(String strTime, String formatType) {
+        try {
+            Date date = stringToDate(strTime, formatType); // String类型转成date类型
+            if (date == null) {
+                return 0;
+            } else {
+                long currentTime = dateToLong(date); // date类型转成long类型
+                return currentTime;
+            }
+        } catch (ParseException e) {
+
         }
+        return 0;
     }
 
     /** date类型转换为long类型
@@ -163,5 +171,56 @@ public class StringUtils {
      */
     public static long dateToLong(Date date) {
         return date.getTime();
+    }
+
+    private static String getWeekData(int index) {
+        Calendar c = Calendar.getInstance();
+        c.add(Calendar.DAY_OF_WEEK, index);
+        int dw = c.get(Calendar.DAY_OF_WEEK);
+        if (dw == 1) {
+            return "星期日";
+        } else if (dw == 2) {
+            return "星期一";
+        } else if (dw == 3) {
+            return "星期二";
+        } else if (dw == 4) {
+            return "星期三";
+        } else if (dw == 5) {
+            return "星期四";
+        } else if (dw == 6) {
+            return "星期五";
+        } else if (dw == 7) {
+            return "星期六";
+        }
+        return "";
+    }
+
+    public static String investWechatTime(long lastShowTime, long currentTime) {
+        Calendar calendar = Calendar.getInstance();
+        int year = calendar.get(Calendar.YEAR);
+        int month = calendar.get(Calendar.MONTH) + 1;
+        int day = calendar.get(Calendar.DAY_OF_MONTH);
+
+        long current = System.currentTimeMillis();
+
+        Date lastShowDate = new Date(lastShowTime);
+        calendar.setTime(lastShowDate);
+        int lastShowYear = calendar.get(Calendar.YEAR);
+        int lastShowMonth = calendar.get(Calendar.MONTH) + 1;
+        int lastShowDay = calendar.get(Calendar.DAY_OF_MONTH);
+
+        if (year == lastShowYear) {
+            if (currentTime - lastShowTime >= INVEST_WECHAT_TIME) {
+                Date date = new Date(currentTime);
+                int dateYear = date.getYear();
+                int dateMonth = date.getMonth();
+                int dateDay = date.getDay();
+            } else {
+                return longToString(lastShowTime, "MM-dd HH:mm");
+            }
+        } else {
+            return longToString(lastShowTime, "yyyy-MM-dd HH:mm");
+        }
+        return "";
     }
 }

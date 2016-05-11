@@ -3,6 +3,7 @@ package com.yinuo.adapter;
 import android.content.Context;
 import android.graphics.Bitmap;
 import android.util.Log;
+import android.util.SparseArray;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -14,6 +15,7 @@ import com.yinuo.base.BaseObject;
 import com.yinuo.listener.IOnItemClickListener;
 import com.yinuo.mode.InvestWeChatModel;
 import com.yinuo.utils.BitmapUtils;
+import com.yinuo.utils.StringUtils;
 
 import java.util.List;
 
@@ -23,12 +25,14 @@ import java.util.List;
 public class InvestListViewAdapter extends SuperAdapter {
 
     private List<InvestWeChatModel> mItems;
+    private SparseArray<String> mShowTimePosition = new SparseArray<String>();
+    private long mLastShowTime;
 
     public InvestListViewAdapter(Context context) {
         super(context);
     }
 
-    public void setItems(List<InvestWeChatModel> models) {
+    public void setList(List<InvestWeChatModel> models) {
         mItems = models;
     }
 
@@ -82,7 +86,7 @@ public class InvestListViewAdapter extends SuperAdapter {
     }
 
     @Override
-    protected void initHolder(SuperViewHolder superHolder, View view) {
+    protected void initHolder(SuperViewHolder superHolder, int position, View view) {
         if (superHolder instanceof ViewHolder) {
             ViewHolder holder = (ViewHolder) superHolder;
             holder.headerImg = (ImageView) view.findViewById(R.id.invest_wechat_header);
@@ -93,11 +97,25 @@ public class InvestListViewAdapter extends SuperAdapter {
 
     @Override
     protected void bindView(SuperViewHolder superHolder, BaseObject base) {
+        String showTime = "";
         if (superHolder instanceof ViewHolder) {
             ViewHolder holder = (ViewHolder) superHolder;
             if (base instanceof InvestWeChatModel) {
                 InvestWeChatModel model = (InvestWeChatModel) base;
-                holder.msgTime.setText(model.getMsgTime());
+                int position = mItems.indexOf(model);
+                if (position == 0) {
+                    mShowTimePosition.put(position, model.getMsgTime());
+                    mLastShowTime = StringUtils.stringToLong(model.getMsgTime(), null);
+                } else {
+                    long time = StringUtils.stringToLong(model.getMsgTime(), null);
+                    showTime = StringUtils.investWechatTime(mLastShowTime, time);
+                }
+                if (!StringUtils.isEmpty(mShowTimePosition.get(position))) {
+                    holder.msgTime.setVisibility(View.VISIBLE);
+                    holder.msgTime.setText(mShowTimePosition.get(position));
+                } else {
+                    holder.msgTime.setVisibility(View.GONE);
+                }
                 holder.msgBody.setText(model.getMessage());
                 loadImage(model.getHeaderImg(), holder.headerImg);
 

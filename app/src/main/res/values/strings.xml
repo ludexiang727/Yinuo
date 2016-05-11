@@ -112,4 +112,12 @@
         Quisque ut dui vitae urna congue scelerisque. Nulla eu commodo felis. Nulla aliquam magna a arcu elementum, vitae tincidunt risus semper.
         Sed consectetur diam vel magna mattis, sed congue nisi fringilla.
         Ut in facilisis elit. Etiam aliquet orci urna. Nam interdum nunc fringilla iaculis cursus.</string>
+
+    <!-- city address begin -->
+    <string-array name="city_choose_page_letter">
+        <item>Loc.</item>
+        <item>Rec.</item>
+        <item>Hot</item>
+        <item>All</item>
+    </string-array>
 </resources>

@@ -23,10 +23,10 @@ import java.util.List;
  */
 public abstract class SuperAdapter <T extends SuperViewHolder> extends BaseAdapter {
     protected IOnItemClickListener itemClickListener;
-    protected abstract <E extends BaseObject> void bindView(SuperViewHolder superHolder, E model);
+    protected abstract <E extends BaseObject> void bindView(SuperViewHolder superHolder, E base);
     protected abstract T getViewHolder();
     protected abstract View getView(int position);
-    protected abstract void initHolder(SuperViewHolder holder, View view);
+    protected abstract void initHolder(SuperViewHolder superHolder, int position, View view);
     protected abstract <E extends BaseObject> List<E> getList();
     public abstract void setItemClickListener(IOnItemClickListener listener);
 
@@ -42,7 +42,7 @@ public abstract class SuperAdapter <T extends SuperViewHolder> extends BaseAdapt
         if (convertView == null) {
             holder = getViewHolder();
             convertView = getView(position);
-            initHolder(holder, convertView);
+            initHolder(holder, position, convertView);
 
             convertView.setTag(holder);
         } else {

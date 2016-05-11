@@ -53,7 +53,7 @@ public class LoanGridView extends GridView implements AdapterView.OnItemLongClic
     }
 
     public void setOptions(List<LoanGridViewModel> modelList, IOnItemClickListener listener) {
-        mAdapter.setItems(modelList);
+        mAdapter.setList(modelList);
         mAdapter.setItemClickListener(listener);
         setAdapter(mAdapter);
     }

@@ -1,5 +1,6 @@
 package com.yinuo.base;
 
+import android.content.Intent;
 import android.content.res.Resources;
 import android.os.Build;
 import android.os.Bundle;
@@ -20,6 +21,7 @@ import android.view.View;
 
 import com.yinuo.R;
 import com.yinuo.adapter.MainViewPagerAdapter;
+import com.yinuo.ui.CityChoosePageActivity;
 import com.yinuo.utils.SystemBarTintManager;
 
 import java.util.ArrayList;
@@ -114,6 +116,8 @@ public class BaseParentActivity extends AppCompatActivity
 
         //noinspection SimplifiableIfStatement
         if (id == R.id.action_settings) {
+            Intent intent = new Intent(this, CityChoosePageActivity.class);
+            startActivity(intent);
             return true;
         }
 

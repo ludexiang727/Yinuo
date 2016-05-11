@@ -12,7 +12,7 @@
         android:contentDescription="@null"
         android:gravity="center"
         android:layout_centerInParent="true"
-        android:background="@anim/loading_anim"/>
+        android:background="@drawable/loading_anim"/>
 
     <TextView
         android:id="@+id/loading_error"

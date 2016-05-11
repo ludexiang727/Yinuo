@@ -62,4 +62,15 @@
     <string name="boss_online_about_walk">步行</string>
     <string name="boss_online_about_bike">骑行</string>
     <!-- boss online page end-->
+
+    <!-- city address begin -->
+    <string-array name="city_choose_page_letter">
+        <item>定位</item>
+        <item>最近</item>
+        <item>热门</item>
+        <item>全部</item>
+    </string-array>
+    <string name="city_choose_page_search_hint">输入城市名或拼音</string>
+    <string name="city_choose_page_no_result">抱歉,暂时没有找到相关城市</string>
+    <!-- city address end -->
 </resources>

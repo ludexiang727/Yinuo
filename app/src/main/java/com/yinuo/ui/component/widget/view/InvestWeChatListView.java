@@ -30,7 +30,7 @@ public class InvestWeChatListView extends ListView {
     }
 
     public void setItems(List<InvestWeChatModel> models) {
-        mAdapter.setItems(models);
+        mAdapter.setList(models);
         setAdapter(mAdapter);
     }
 

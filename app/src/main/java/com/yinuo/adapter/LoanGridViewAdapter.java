@@ -26,7 +26,7 @@ public class LoanGridViewAdapter extends SuperAdapter {
         super(context);
     }
 
-    public void setItems(List<LoanGridViewModel> models) {
+    public void setList(List<LoanGridViewModel> models) {
         mItems = models;
     }
 
@@ -61,7 +61,7 @@ public class LoanGridViewAdapter extends SuperAdapter {
     }
 
     @Override
-    protected void initHolder(SuperViewHolder superHolder, View view) {
+    protected void initHolder(SuperViewHolder superHolder, int position, View view) {
         if (superHolder instanceof ViewHolder) {
             ViewHolder holder = (ViewHolder) superHolder;
             holder.itemImg = (ImageView) view.findViewById(R.id.loan_item_view_img);

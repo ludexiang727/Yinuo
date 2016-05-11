@@ -1,20 +1,31 @@
 package com.yinuo.mode;
 
+import com.yinuo.base.BaseObject;
+
 /**
  * Created by ludexiang on 2016/5/3.
  */
-public class AddressModel {
+public class AddressModel extends BaseObject {
     private double mLat;
     private double mLng;
+    /** province name - 所属省名称 */
     private String mProvince;
-    /** city name */
+    /** city name -- 城市名称 */
     private String mCity;
-    /** province id */
+    /** province id -- 所属省id */
     private int mProId;
-    /** city id */
+    /** city id -- 城市id*/
     private int mCityId;
-
+    /** chinese pinyin - 汉字拼音 */
+    private String mCityPinYin;
+    /** first charmeater - 城市名称首字母 */
+    private String mCityFirstSpell;
+    /** location address - 定位地点 */
     private String mAddress;
+    private String mProMark;
+    private int mProSort;
+    /**1 -- hot city 0 -- normal*/
+    private int mHotCity;
 
     public String getCity() {
         return mCity;
@@ -70,5 +81,45 @@ public class AddressModel {
 
     public void setAddress(String address) {
         this.mAddress = address;
+    }
+
+    public String getCityPinYin() {
+        return mCityPinYin;
+    }
+
+    public void setCityPinYin(String cityPinYin) {
+        this.mCityPinYin = cityPinYin;
+    }
+
+    public String getCityFirstSpell() {
+        return mCityFirstSpell;
+    }
+
+    public void setCityFirstSpell(String cityFirstSpell) {
+        this.mCityFirstSpell = cityFirstSpell;
+    }
+
+    public int getProSort() {
+        return mProSort;
+    }
+
+    public void setProSort(int proSort) {
+        this.mProSort = proSort;
+    }
+
+    public String getProMark() {
+        return mProMark;
+    }
+
+    public void setProMark(String proMark) {
+        this.mProMark = proMark;
+    }
+
+    public int getHotCity() {
+        return mHotCity;
+    }
+
+    public void setHotCity(int hotCity) {
+        this.mHotCity = hotCity;
     }
 }

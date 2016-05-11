@@ -49,4 +49,6 @@ dependencies {
     compile files('libs/baidumapapi_radar_v3_7_3.jar')
     compile files('libs/baidumapapi_search_v3_7_3.jar')
     compile files('libs/baidumapapi_util_v3_7_3.jar')
+    compile files('libs/pinyin4android1.0.jar')
+    compile files('libs/pinyin4j-2.5.0.jar')
 }
