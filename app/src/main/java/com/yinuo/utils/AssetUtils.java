@@ -98,8 +98,8 @@ public class AssetUtils {
                     int isHot = inner.optInt("ishot");
                     model.setHotCity(isHot);
                 }
-                model.setCityPinYin(PingYinUtil.getPingYin(cityName));
-                model.setCityFirstSpell(PingYinUtil.converterToFirstSpell(cityName));
+                model.setCityPinYin(PingYinUtil.getPingYin(model.getCity()));
+                model.setCityFirstSpell(PingYinUtil.converterToFirstSpell(model.getCity()));
                 sHelper.insertValue2CityTable(model);
             }
 

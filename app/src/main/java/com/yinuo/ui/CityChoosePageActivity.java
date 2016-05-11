@@ -68,6 +68,7 @@ public class CityChoosePageActivity extends BaseActivity implements AbsListView.
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        showTitle(false);
     }
 
     @Override
@@ -133,7 +134,7 @@ public class CityChoosePageActivity extends BaseActivity implements AbsListView.
         String province = AssetUtils.readFile("province.txt");
         AssetUtils.parseProvince(this, province);
 
-        String city = AssetUtils.readFile("city_lists");
+        String city = AssetUtils.readFile("city_lists.txt");
         AssetUtils.parseCity(this, city);
     }
 
