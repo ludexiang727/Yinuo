@@ -70,6 +70,11 @@
         <item>热门</item>
         <item>全部</item>
     </string-array>
+    <string name="city_choose_page_current_location">当前定位城市</string>
+    <string name="city_choose_page_locating">正在定位...</string>
+    <string name="city_choose_page_location_fail">未定位到城市，请选择</string>
+    <string name="city_choose_page_recent_access_city">最近访问</string>
+    <string name="city_choose_page_hot_city">热门城市</string>
     <string name="city_choose_page_search_hint">输入城市名或拼音</string>
     <string name="city_choose_page_no_result">抱歉,暂时没有找到相关城市</string>
     <!-- city address end -->

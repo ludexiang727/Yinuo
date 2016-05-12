@@ -76,7 +76,7 @@ public class CityChooseGridViewAdapter extends SuperAdapter {
             CityChooseGridViewHolder holder = (CityChooseGridViewHolder) superHolder;
             if (base instanceof AddressModel) {
                 AddressModel model = (AddressModel) base;
-                holder.city.setText(model.getCity());
+                holder.city.setText(model.getCityName());
             }
         }
     }

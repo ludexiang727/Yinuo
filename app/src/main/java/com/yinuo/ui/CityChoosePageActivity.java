@@ -4,6 +4,7 @@ import android.content.Context;
 import android.graphics.PixelFormat;
 import android.os.Bundle;
 import android.os.Handler;
+import android.os.Message;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.LayoutInflater;
@@ -14,45 +15,44 @@ import android.widget.AbsListView;
 import android.widget.AdapterView;
 import android.widget.BaseAdapter;
 import android.widget.EditText;
-import android.widget.GridView;
 import android.widget.ListView;
-import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import com.yinuo.R;
 import com.yinuo.base.BaseActivity;
+import com.yinuo.helper.DBHelper;
 import com.yinuo.mode.AddressModel;
 import com.yinuo.ui.component.widget.view.CityChoosePageListView;
 import com.yinuo.ui.component.widget.view.LetterListView;
-import com.yinuo.utils.AssetUtils;
 import com.yinuo.utils.PingYinUtil;
+import com.yinuo.utils.StringUtils;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Comparator;
 import java.util.HashMap;
 import java.util.List;
-import java.util.regex.Pattern;
 
 /**
  * Created by ludexiang on 2016/5/10.
  */
-public class CityChoosePageActivity extends BaseActivity implements AbsListView.OnScrollListener {
-//    private BaseAdapter adapter;
+public class CityChoosePageActivity extends BaseActivity implements AbsListView.OnScrollListener, Comparator<AddressModel> {
     private ResultListAdapter resultListAdapter;
     private CityChoosePageListView mCityPageListView;
     private ListView resultList;
     private TextView overlay; // 对话框首字母textview
-    private LetterListView letterListView; // A-Z listview
-    private HashMap<String, Integer> alphaIndexer;// 存放存在的汉语拼音首字母和与之对应的列表位置
-    private String[] sections;// 存放存在的汉语拼音首字母
-    private Handler handler;
+    private LetterListView mLetterListView; // A-Z listview
+    private HashMap<String, Integer> mAlphaIndexMap;// 存放存在的汉语拼音首字母和与之对应的列表位置
+    private String[] mSections;// 存放存在的汉语拼音首字母
     private OverlayThread overlayThread; // 显示首字母对话框
     private EditText mCityEditView;
     private TextView tv_noresult;
 
+    private UIHandler mHandler = new UIHandler();
 
+    private DBHelper mDBHelper;
+    private String[] mAllCityDefault;
     private ArrayList<AddressModel> mAllCityList; // 所有城市列表
-    private ArrayList<AddressModel> mCityLists;// 城市列表
     private ArrayList<AddressModel> mCityHotLists;
     private ArrayList<AddressModel> mCityResultLists;
     private ArrayList<String> mCityHistory;
@@ -73,20 +73,21 @@ public class CityChoosePageActivity extends BaseActivity implements AbsListView.
 
     @Override
     protected void loadView(View view) {
+        mDBHelper = new DBHelper(this);
         mCityPageListView = (CityChoosePageListView) view.findViewById(R.id.city_choose_page_list_view);
-        mAllCityList = new ArrayList<AddressModel>();
-        mCityHotLists = new ArrayList<AddressModel>();
-        mCityResultLists = new ArrayList<AddressModel>();
-        mCityHistory = new ArrayList<String>();
         resultList = (ListView) view.findViewById(R.id.city_choose_search_result_list_view);
         mCityEditView = (EditText) view.findViewById(R.id.city_choose_search);
         tv_noresult = (TextView) view.findViewById(R.id.city_choose_page_search_no_result);
         mCityEditView.addTextChangedListener(new EditWatcher());
-        letterListView = (LetterListView) findViewById(R.id.city_choose_page_letter_view);
-        letterListView
-                .setOnTouchingLetterChangedListener(new LetterListViewListener());
-        alphaIndexer = new HashMap<String, Integer>();
-        handler = new Handler();
+        mLetterListView = (LetterListView) findViewById(R.id.city_choose_page_letter_view);
+        mLetterListView.setOnTouchingLetterChangedListener(new LetterListViewListener());
+
+        mAllCityList = new ArrayList<AddressModel>();
+        mCityHotLists = new ArrayList<AddressModel>();
+        mCityResultLists = new ArrayList<AddressModel>();
+        mCityHistory = new ArrayList<String>();
+        mAlphaIndexMap = new HashMap<String, Integer>();
+
         overlayThread = new OverlayThread();
         isNeedFresh = true;
         mCityPageListView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -104,7 +105,7 @@ public class CityChoosePageActivity extends BaseActivity implements AbsListView.
         });
         locateProcess = 1;
         
-        mCityPageListView.setList(mAllCityList, mCityHotLists);
+        mCityPageListView.setList(mAllCityList);
         
         mCityPageListView.setOnScrollListener(this);
         resultListAdapter = new ResultListAdapter(this, mCityResultLists);
@@ -121,9 +122,7 @@ public class CityChoosePageActivity extends BaseActivity implements AbsListView.
         });
         initOverlay();
         cityInit();
-        hotAddressModelInit();
         hisAddressModelInit();
-//        setAdapter(mAllCityList, mCityHotLists, mCityHistory);
 
         InitLocation();
     }
@@ -131,24 +130,37 @@ public class CityChoosePageActivity extends BaseActivity implements AbsListView.
     @Override
     protected void loadData() {
         dismissLoading();
-        String province = AssetUtils.readFile("province.txt");
-        AssetUtils.parseProvince(this, province);
-
-        String city = AssetUtils.readFile("city_lists.txt");
-        AssetUtils.parseCity(this, city);
+        // all city
+        List<AddressModel> allCity = mDBHelper.getAllCity();
+        Message msg = mHandler.obtainMessage();
+        msg.obj = allCity;
+        msg.what = mHandler.NOTIFY_ALL_CITY_CHANGED;
+        msg.sendToTarget();
+        // hot city
+        List<AddressModel> hotCity = mDBHelper.getHotCity();
+        msg = mHandler.obtainMessage();
+        msg.obj = hotCity;
+        msg.what = mHandler.NOTIFY_HOT_CITY_CHANGED;
+        msg.sendToTarget();
+        // recent city
+        List<AddressModel> recentCity = mDBHelper.getRecentCity();
+        msg = mHandler.obtainMessage();
+        msg.what = mHandler.NOTIFY_RECCENT_CITY_CHANGED;
+        msg.obj = recentCity;
+        msg.sendToTarget();
     }
 
     private final class EditWatcher implements TextWatcher {
         @Override
         public void onTextChanged(CharSequence s, int start, int before, int count) {
             if (s.toString() == null || "".equals(s.toString())) {
-                letterListView.setVisibility(View.VISIBLE);
+                mLetterListView.setVisibility(View.VISIBLE);
                 mCityPageListView.setVisibility(View.VISIBLE);
                 resultList.setVisibility(View.GONE);
                 tv_noresult.setVisibility(View.GONE);
             } else {
                 mCityResultLists.clear();
-                letterListView.setVisibility(View.GONE);
+                mLetterListView.setVisibility(View.GONE);
                 mCityPageListView.setVisibility(View.GONE);
                 getResultAddressModelList(s.toString());
                 if (mCityResultLists.size() <= 0) {
@@ -170,6 +182,58 @@ public class CityChoosePageActivity extends BaseActivity implements AbsListView.
         @Override
         public void afterTextChanged(Editable s) {
 
+        }
+    }
+
+    private final class UIHandler extends Handler {
+        private final int NOTIFY_ALL_CITY_CHANGED = 0x000;
+        private final int NOTIFY_HOT_CITY_CHANGED = 0x001;
+        private final int NOTIFY_RECCENT_CITY_CHANGED = 0x002;
+        @Override
+        public void handleMessage(Message msg) {
+            super.handleMessage(msg);
+            switch (msg.what) {
+                case NOTIFY_ALL_CITY_CHANGED: {
+                    List<AddressModel> allCity = (List<AddressModel>) msg.obj;
+                    if (allCity != null) {
+                        mAllCityList.addAll(allCity);
+                        Collections.sort(mAllCityList, CityChoosePageActivity.this);
+                    }
+                    saveSections();
+                    mCityPageListView.getCityChooseAdapter().notifyDataSetChanged();
+                    break;
+                }
+                case NOTIFY_HOT_CITY_CHANGED: {
+                    List<AddressModel> hotCity = (List<AddressModel>) msg.obj;
+                    if (hotCity != null) {
+                        mCityHotLists.addAll(hotCity);
+                    }
+                    mCityPageListView.setHotList(mCityHotLists);
+                    break;
+                }
+                case NOTIFY_RECCENT_CITY_CHANGED: {
+                    List<AddressModel> recentCity = (List<AddressModel>) msg.obj;
+                    if (recentCity != null) {
+                        mCityResultLists.addAll(recentCity);
+                    }
+                    mCityPageListView.setRecentList(mCityResultLists);
+                }
+            }
+        }
+    }
+
+    private void saveSections() {
+        mSections = new String[mAllCityList.size()];
+        for (int i = 0; i < mAllCityList.size(); i++) {
+            // 当前汉语拼音首字母
+            String currentStr = StringUtils.getAlpha(this, mAllCityList.get(i).getCityPinYin());
+            // 上一个汉语拼音首字母，如果不存在为" "
+            String previewStr = (i - 1) >= 0 ? StringUtils.getAlpha(this, mAllCityList.get(i - 1).getCityPinYin()) : " ";
+            if (!previewStr.equals(currentStr)) {
+                String name = StringUtils.getAlpha(this, mAllCityList.get(i).getCityPinYin());
+                mAlphaIndexMap.put(name, i);
+                mSections[i] = name;
+            }
         }
     }
 
@@ -207,44 +271,25 @@ public class CityChoosePageActivity extends BaseActivity implements AbsListView.
     }
 
     private void cityInit() {
-//        AddressModel city = new AddressModel("定位", "0"); // 当前定位城市
-//        mAllCityList.add(city);
-//        city = new AddressModel("最近", "1"); // 最近访问的城市
-//        mAllCityList.add(city);
-//        city = new AddressModel("热门", "2"); // 热门城市
-//        mAllCityList.add(city);
-//        city = new AddressModel("全部", "3"); // 全部城市
-//        mAllCityList.add(city);
-//        mCityLists = getAddressModelList();
-//        mAllCityList.addAll(mCityLists);
-    }
-
-    /**
-     * 热门城市
-     */
-    public void hotAddressModelInit() {
-//        AddressModel city = new AddressModel("上海", "2");
-//        mCityHotLists.add(city);
-//        city = new AddressModel("北京", "2");
-//        mCityHotLists.add(city);
-//        city = new AddressModel("广州", "2");
-//        mCityHotLists.add(city);
-//        city = new AddressModel("深圳", "2");
-//        mCityHotLists.add(city);
-//        city = new AddressModel("武汉", "2");
-//        mCityHotLists.add(city);
-//        city = new AddressModel("天津", "2");
-//        mCityHotLists.add(city);
-//        city = new AddressModel("西安", "2");
-//        mCityHotLists.add(city);
-//        city = new AddressModel("南京", "2");
-//        mCityHotLists.add(city);
-//        city = new AddressModel("杭州", "2");
-//        mCityHotLists.add(city);
-//        city = new AddressModel("成都", "2");
-//        mCityHotLists.add(city);
-//        city = new AddressModel("重庆", "2");
-//        mCityHotLists.add(city);
+        mAllCityDefault = getResources().getStringArray(R.array.city_choose_page_letter);
+        List<AddressModel> virtual = new ArrayList<AddressModel>();
+        AddressModel city = new AddressModel(); // 当前定位城市
+        city.setCityName(mAllCityDefault[0]);
+        city.setCityPinYin("0");
+        virtual.add(city);
+        city = new AddressModel(); // 最近访问的城市
+        city.setCityName(mAllCityDefault[1]);
+        city.setCityPinYin("1");
+        virtual.add(city);
+        city = new AddressModel(); // 热门城市
+        city.setCityName(mAllCityDefault[2]);
+        city.setCityPinYin("2");
+        virtual.add(city);
+        city = new AddressModel(); // 全部城市
+        city.setCityName(mAllCityDefault[3]);
+        city.setCityPinYin("3");
+        virtual.add(city);
+        mAllCityList.addAll(virtual);
     }
 
     private void hisAddressModelInit() {
@@ -258,75 +303,26 @@ public class CityChoosePageActivity extends BaseActivity implements AbsListView.
 //        db.close();
     }
 
-    @SuppressWarnings("unchecked")
-    private ArrayList<AddressModel> getAddressModelList() {
-//        DBHelper dbHelper = new DBHelper(this);
-//        ArrayList<AddressModel> list = new ArrayList<AddressModel>();
-//        try {
-//            dbHelper.createDataBase();
-//            SQLiteDatabase db = dbHelper.getWritableDatabase();
-//            Cursor cursor = db.rawQuery("select * from city", null);
-//            AddressModel city;
-//            while (cursor.moveToNext()) {
-//                city = new AddressModel(cursor.getString(1), cursor.getString(2));
-//                list.add(city);
-//            }
-//            cursor.close();
-//            db.close();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        Collections.sort(list, comparator);
-//        return list;
-        return null;
-    }
-
-    @SuppressWarnings("unchecked")
     private void getResultAddressModelList(String keyword) {
-//        DBHelper dbHelper = new DBHelper(this);
-//        try {
-//            dbHelper.createDataBase();
-//            SQLiteDatabase db = dbHelper.getWritableDatabase();
-//            Cursor cursor = db.rawQuery(
-//                    "select * from city where name like \"%" + keyword
-//                            + "%\" or pinyin like \"%" + keyword + "%\"", null);
-//            AddressModel city;
-//            Log.e("info", "length = " + cursor.getCount());
-//            while (cursor.moveToNext()) {
-//                city = new AddressModel(cursor.getString(1), cursor.getString(2));
-//                mCityResultLists.add(city);
-//            }
-//            cursor.close();
-//            db.close();
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        Collections.sort(mCityResultLists, comparator);
+        List<AddressModel> searchResult = mDBHelper.getSearchCityBy(keyword);
+        if (searchResult != null) {
+            mCityResultLists.addAll(searchResult);
+        }
+        Collections.sort(mCityResultLists, this);
     }
 
-    /**
-     * a-z排序
-     */
-    @SuppressWarnings("rawtypes")
-    Comparator comparator = new Comparator<AddressModel>() {
-        @Override
-        public int compare(AddressModel lhs, AddressModel rhs) {
-            String a = lhs.getCityPinYin().substring(0, 1);
-            String b = rhs.getCityPinYin().substring(0, 1);
-            int flag = a.compareTo(b);
-            if (flag == 0) {
-                return a.compareTo(b);
-            } else {
-                return flag;
-            }
+    /** a-z排序 */
+    @Override
+    public int compare(AddressModel lhs, AddressModel rhs) {
+        String a = lhs.getCityPinYin().substring(0, 1);
+        String b = rhs.getCityPinYin().substring(0, 1);
+        int flag = a.compareTo(b);
+        if (flag == 0) {
+            return a.compareTo(b);
+        } else {
+            return flag;
         }
-    };
-
-//    private void setAdapter(List<AddressModel> list, List<AddressModel> hotList,
-//                            List<String> hisAddressModel) {
-//        adapter = new ListAdapter(this, list, hotList, hisAddressModel);
-//        mCityPageListView.setAdapter(adapter);
-//    }
+    }
 
     /**
      * 实现实位回调监听
@@ -395,7 +391,7 @@ public class CityChoosePageActivity extends BaseActivity implements AbsListView.
             } else {
                 viewHolder = (ViewHolder) convertView.getTag();
             }
-            viewHolder.name.setText(results.get(position).getCity());
+            viewHolder.name.setText(results.get(position).getCityName());
             return convertView;
         }
 
@@ -430,14 +426,14 @@ public class CityChoosePageActivity extends BaseActivity implements AbsListView.
         @Override
         public void onTouchingLetterChanged(final String s) {
             isScroll = false;
-            if (alphaIndexer.get(s) != null) {
-                int position = alphaIndexer.get(s);
+            if (mAlphaIndexMap.get(s) != null) {
+                int position = mAlphaIndexMap.get(s);
                 mCityPageListView.setSelection(position);
                 overlay.setText(s);
                 overlay.setVisibility(View.VISIBLE);
-                handler.removeCallbacks(overlayThread);
+                mHandler.removeCallbacks(overlayThread);
                 // 延迟一秒后执行，让overlay为不可见
-                handler.postDelayed(overlayThread, 1000);
+                mHandler.postDelayed(overlayThread, 1000);
             }
         }
     }
@@ -450,32 +446,6 @@ public class CityChoosePageActivity extends BaseActivity implements AbsListView.
         }
     }
 
-    // 获得汉语拼音首字母
-    private String getAlpha(String str) {
-        if (str == null) {
-            return "#";
-        }
-        if (str.trim().length() == 0) {
-            return "#";
-        }
-        char c = str.trim().substring(0, 1).charAt(0);
-        // 正则表达式，判断首字母是否是英文字母
-        Pattern pattern = Pattern.compile("^[A-Za-z]+$");
-        if (pattern.matcher(c + "").matches()) {
-            return (c + "").toUpperCase();
-        } else if (str.equals("0")) {
-            return "定位";
-        } else if (str.equals("1")) {
-            return "最近";
-        } else if (str.equals("2")) {
-            return "热门";
-        } else if (str.equals("3")) {
-            return "全部";
-        } else {
-            return "#";
-        }
-    }
-
     @Override
     public void onScrollStateChanged(AbsListView view, int scrollState) {
         if (scrollState == SCROLL_STATE_TOUCH_SCROLL
@@ -485,27 +455,25 @@ public class CityChoosePageActivity extends BaseActivity implements AbsListView.
     }
 
     @Override
-    public void onScroll(AbsListView view, int firstVisibleItem,
-                         int visibleItemCount, int totalItemCount) {
+    public void onScroll(AbsListView view, int firstVisibleItem, int visibleItemCount, int totalItemCount) {
         if (!isScroll) {
             return;
         }
 
         if (mReady) {
             String text;
-            String name = mAllCityList.get(firstVisibleItem).getCity();
+            String name = mAllCityList.get(firstVisibleItem).getCityName();
             String pinyin = mAllCityList.get(firstVisibleItem).getCityPinYin();
             if (firstVisibleItem < 4) {
                 text = name;
             } else {
-                text = PingYinUtil.converterToFirstSpell(pinyin)
-                        .substring(0, 1).toUpperCase();
+                text = PingYinUtil.converterToFirstSpell(pinyin).substring(0, 1).toUpperCase();
             }
             overlay.setText(text);
             overlay.setVisibility(View.VISIBLE);
-            handler.removeCallbacks(overlayThread);
+            mHandler.removeCallbacks(overlayThread);
             // 延迟一秒后执行，让overlay为不可见
-            handler.postDelayed(overlayThread, 1000);
+            mHandler.postDelayed(overlayThread, 1000);
         }
     }
 

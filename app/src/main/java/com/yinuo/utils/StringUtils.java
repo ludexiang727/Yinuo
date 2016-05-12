@@ -1,10 +1,13 @@
 package com.yinuo.utils;
 
+import android.content.Context;
 import android.graphics.Color;
 import android.text.SpannableString;
 import android.text.Spanned;
 import android.text.style.ForegroundColorSpan;
 import android.util.Log;
+
+import com.yinuo.R;
 
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
@@ -222,5 +225,32 @@ public class StringUtils {
             return longToString(lastShowTime, "yyyy-MM-dd HH:mm");
         }
         return "";
+    }
+
+    // 获得汉语拼音首字母
+    public static String getAlpha(Context context, String str) {
+        String[] letter = context.getResources().getStringArray(R.array.city_choose_page_letter);
+        if (str == null) {
+            return "#";
+        }
+        if (str.trim().length() == 0) {
+            return "#";
+        }
+        char c = str.trim().substring(0, 1).charAt(0);
+        // 正则表达式，判断首字母是否是英文字母
+        Pattern pattern = Pattern.compile("^[A-Za-z]+$");
+        if (pattern.matcher(c + "").matches()) {
+            return (c + "").toUpperCase();
+        } else if (str.equals("0")) {
+            return letter[0];
+        } else if (str.equals("1")) {
+            return letter[1];
+        } else if (str.equals("2")) {
+            return letter[2];
+        } else if (str.equals("3")) {
+            return letter[3];
+        } else {
+            return "#";
+        }
     }
 }

@@ -2,7 +2,7 @@ package com.yinuo.utils;
 
 import android.content.Context;
 import android.content.res.AssetManager;
-import android.util.Log;
+
 import com.yinuo.base.BaseApplication;
 import com.yinuo.helper.DBHelper;
 import com.yinuo.mode.AddressModel;
@@ -50,7 +50,9 @@ public class AssetUtils {
 
     public static void parseProvince(Context context , String str) {
         sHelper = new DBHelper(context);
-
+        if(sHelper.isTableEmpty(sHelper.TABLE_PROVINCE_LISTS)) {
+            return;
+        }
         try {
             JSONObject obj = new JSONObject(str);
             JSONArray array = obj.optJSONArray("province");
@@ -77,7 +79,9 @@ public class AssetUtils {
 
     public static void parseCity(Context context , String str) {
         sHelper = new DBHelper(context);
-
+        if(sHelper.isTableEmpty(sHelper.TABLE_CITY_LISTS)) {
+            return;
+        }
         try {
             JSONObject obj = new JSONObject(str);
             JSONArray array = obj.optJSONArray("city_lists");
@@ -90,17 +94,45 @@ public class AssetUtils {
                 model.setCityId(cityId);
                 model.setProId(proId);
                 if (cityName.contains("市")) {
-                    model.setCity(cityName.substring(0, cityName.indexOf("市")));
+                    model.setCityName(cityName.substring(0, cityName.indexOf("市")));
                 } else {
-                    model.setCity(cityName);
+                    model.setCityName(cityName);
                 }
                 if (inner.optInt("ishot") != 0) {
                     int isHot = inner.optInt("ishot");
                     model.setHotCity(isHot);
                 }
-                model.setCityPinYin(PingYinUtil.getPingYin(model.getCity()));
-                model.setCityFirstSpell(PingYinUtil.converterToFirstSpell(model.getCity()));
+                model.setCityPinYin(PingYinUtil.getPingYin(model.getCityName()));
+                model.setCityFirstSpell(PingYinUtil.converterToFirstSpell(model.getCityName()));
                 sHelper.insertValue2CityTable(model);
+            }
+
+        } catch (JSONException e) {
+            e.printStackTrace();
+        }
+
+    }
+
+    public static void parseCityArea(Context context , String str) {
+        sHelper = new DBHelper(context);
+        if(sHelper.isTableEmpty(sHelper.TABLE_CITY_AREA_LISTS)) {
+            return;
+        }
+        try {
+            JSONObject obj = new JSONObject(str);
+            JSONArray array = obj.optJSONArray("city_area_lists");
+            for (int i = 0; i < array.length(); ++i) {
+                AddressModel model = new AddressModel();
+                JSONObject inner =  array.getJSONObject(i);
+                int cityAreaId = inner.optInt("Id");
+                int cityId = inner.optInt("CityID");
+                String cityAreaName = inner.optString("DisName");
+                model.setCityAreaId(cityAreaId);
+                model.setCityId(cityId);
+                model.setCityAreaName(cityAreaName);
+                model.setCityAreaPinYin(PingYinUtil.getPingYin(cityAreaName));
+                model.setCityAreaFirstSpell(PingYinUtil.converterToFirstSpell(cityAreaName));
+                sHelper.insertValue2CityAreaTable(model);
             }
 
         } catch (JSONException e) {

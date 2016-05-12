@@ -2,7 +2,6 @@ package com.yinuo.ui.sub.bossonline;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.View.MeasureSpec;
@@ -124,11 +123,11 @@ public class BossOnlineAboutActivity extends BaseFragmentActivity implements Vie
             case R.id.boss_online_about_biking: {
                 AddressModel from = new AddressModel();
                 from.setAddress("滴滴大厦");
-                from.setCity("北京");
+                from.setCityName("北京");
                 from.setProvince("北京");
                 AddressModel to = new AddressModel();
                 to.setAddress("东村家园");
-                to.setCity("北京");
+                to.setCityName("北京");
                 to.setProvince("北京");
                 mLocationView.addRoute(MapHelper.RouteWay.BIKE, from, to);
                 break;
@@ -136,11 +135,11 @@ public class BossOnlineAboutActivity extends BaseFragmentActivity implements Vie
             case R.id.boss_online_about_walking: {
                 AddressModel from = new AddressModel();
                 from.setAddress("滴滴大厦");
-                from.setCity("北京");
+                from.setCityName("北京");
                 from.setProvince("北京");
                 AddressModel to = new AddressModel();
                 to.setAddress("东村家园");
-                to.setCity("北京");
+                to.setCityName("北京");
                 to.setProvince("北京");
                 mLocationView.addRoute(MapHelper.RouteWay.WALK, from, to);
                 break;
@@ -148,11 +147,11 @@ public class BossOnlineAboutActivity extends BaseFragmentActivity implements Vie
             case R.id.boss_online_about_bus: {
                 AddressModel from = new AddressModel();
                 from.setAddress("滴滴大厦");
-                from.setCity("北京");
+                from.setCityName("北京");
                 from.setProvince("北京");
                 AddressModel to = new AddressModel();
                 to.setAddress("东村家园");
-                to.setCity("北京");
+                to.setCityName("北京");
                 to.setProvince("北京");
                 mLocationView.addRoute(MapHelper.RouteWay.BUS, from, to);
                 break;
@@ -160,11 +159,11 @@ public class BossOnlineAboutActivity extends BaseFragmentActivity implements Vie
             case R.id.boss_online_about_driving: {
                 AddressModel from = new AddressModel();
                 from.setAddress("滴滴大厦");
-                from.setCity("北京");
+                from.setCityName("北京");
                 from.setProvince("北京");
                 AddressModel to = new AddressModel();
                 to.setAddress("东村家园");
-                to.setCity("北京");
+                to.setCityName("北京");
                 to.setProvince("北京");
                 mLocationView.addRoute(MapHelper.RouteWay.DRIVING, from, to);
                 break;

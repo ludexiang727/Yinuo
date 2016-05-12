@@ -1,8 +1,6 @@
 package com.yinuo.helper;
 
 import android.util.Log;
-import android.view.View;
-import android.widget.Toast;
 
 import com.baidu.location.BDLocation;
 import com.baidu.location.BDLocationListener;
@@ -76,8 +74,8 @@ public class MapHelper {
     }
 
     public void startLocationWithRoute(AddressModel from, AddressModel to) {
-        PlanNode stNode = PlanNode.withCityNameAndPlaceName(from.getProvince(), from.getCity());
-        PlanNode enNode = PlanNode.withCityNameAndPlaceName(to.getProvince(), to.getCity());
+        PlanNode stNode = PlanNode.withCityNameAndPlaceName(from.getProvince(), from.getCityName());
+        PlanNode enNode = PlanNode.withCityNameAndPlaceName(to.getProvince(), to.getCityName());
         mRouteSearch.transitSearch(new TransitRoutePlanOption().from(stNode).city(to.getProvince()).to(enNode));
     }
 
@@ -228,8 +226,8 @@ public class MapHelper {
         if (StringUtils.isEmpty(startAddress.getAddress()) || StringUtils.isEmpty(endAddress.getAddress())) {
             return;
         }
-        PlanNode stNode = PlanNode.withCityNameAndPlaceName(startAddress.getProvince(), startAddress.getCity());
-        PlanNode enNode = PlanNode.withCityNameAndPlaceName(endAddress.getProvince(), endAddress.getCity());
+        PlanNode stNode = PlanNode.withCityNameAndPlaceName(startAddress.getProvince(), startAddress.getCityName());
+        PlanNode enNode = PlanNode.withCityNameAndPlaceName(endAddress.getProvince(), endAddress.getCityName());
         switch (way) {
             case DRIVING: {
                 mRouteSearch.drivingSearch(new DrivingRoutePlanOption().from(stNode).to(enNode));

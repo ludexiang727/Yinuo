@@ -11,7 +11,7 @@ public class AddressModel extends BaseObject {
     /** province name - 所属省名称 */
     private String mProvince;
     /** city name -- 城市名称 */
-    private String mCity;
+    private String mCityName;
     /** province id -- 所属省id */
     private int mProId;
     /** city id -- 城市id*/
@@ -27,12 +27,18 @@ public class AddressModel extends BaseObject {
     /**1 -- hot city 0 -- normal*/
     private int mHotCity;
 
-    public String getCity() {
-        return mCity;
+    private int mCityAreaId;
+    private String mCityAreaName;
+    private String mCityAreaPinYin;
+    private String mCityAreaFirstSpell;
+
+
+    public String getCityName() {
+        return mCityName;
     }
 
-    public void setCity(String city) {
-        this.mCity = city;
+    public void setCityName(String city) {
+        this.mCityName = city;
     }
 
     public int getCityId() {
@@ -121,5 +127,37 @@ public class AddressModel extends BaseObject {
 
     public void setHotCity(int hotCity) {
         this.mHotCity = hotCity;
+    }
+
+    public String getCityAreaFirstSpell() {
+        return mCityAreaFirstSpell;
+    }
+
+    public void setCityAreaFirstSpell(String cityAreaFirstSpell) {
+        this.mCityAreaFirstSpell = cityAreaFirstSpell;
+    }
+
+    public int getCityAreaId() {
+        return mCityAreaId;
+    }
+
+    public void setCityAreaId(int cityAreaId) {
+        this.mCityAreaId = cityAreaId;
+    }
+
+    public String getCityAreaName() {
+        return mCityAreaName;
+    }
+
+    public void setCityAreaName(String cityAreaName) {
+        this.mCityAreaName = cityAreaName;
+    }
+
+    public String getCityAreaPinYin() {
+        return mCityAreaPinYin;
+    }
+
+    public void setCityAreaPinYin(String cityAreaPinYin) {
+        this.mCityAreaPinYin = cityAreaPinYin;
     }
 }

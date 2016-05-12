@@ -30,10 +30,17 @@ public class CityChoosePageListView extends ListView {
         mAdapter = new CityChoosePageAdapter(context);
     }
 
-    public void setList(List<AddressModel> hotList, List<AddressModel> defaultList) {
-        mAdapter.setHotList(hotList);
+    public void setList(List<AddressModel> defaultList) {
         mAdapter.setList(defaultList);
         setAdapter(mAdapter);
+    }
+
+    public void setHotList(List<AddressModel> hotList) {
+        mAdapter.setHotList(hotList);
+    }
+
+    public void setRecentList(List<AddressModel> recentList) {
+        mAdapter.setRecentAccessList(recentList);
     }
 
     public CityChoosePageAdapter getCityChooseAdapter() {

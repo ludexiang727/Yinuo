@@ -18,6 +18,7 @@ import com.yinuo.Constants;
 import com.yinuo.net.IRequestListener;
 import com.yinuo.net.base.NetBaseObject;
 import com.yinuo.net.request.NetRequest;
+import com.yinuo.utils.AssetUtils;
 
 import java.io.File;
 import java.io.IOException;
@@ -43,8 +44,10 @@ public class BaseApplication extends Application {
         sInstance = this;
 
         loadAppConfig();
+        loadAddress();
     }
 
+    /** load app config **/
     private void loadAppConfig() {
         NetRequest.getInstance().requestConfig(new IRequestListener() {
             @Override
@@ -60,5 +63,21 @@ public class BaseApplication extends Application {
 
     public Context getContext() {
         return mContext;
+    }
+
+    private void loadAddress() {
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                String province = AssetUtils.readFile("province.txt");
+                AssetUtils.parseProvince(mContext, province);
+
+                String city = AssetUtils.readFile("city_lists.txt");
+                AssetUtils.parseCity(mContext, city);
+
+                String cityArea =AssetUtils.readFile("city_area.txt");
+                AssetUtils.parseCityArea(mContext, cityArea);
+            }
+        }).start();
     }
 }

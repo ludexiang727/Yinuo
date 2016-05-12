@@ -1,6 +1,7 @@
 package com.yinuo.adapter;
 
 import android.content.Context;
+import android.util.Log;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -12,6 +13,7 @@ import com.yinuo.base.BaseObject;
 import com.yinuo.listener.IOnItemClickListener;
 import com.yinuo.mode.AddressModel;
 import com.yinuo.ui.component.widget.view.CityChooseRecentGridView;
+import com.yinuo.utils.StringUtils;
 
 import java.util.List;
 
@@ -20,12 +22,15 @@ import java.util.List;
  */
 public class CityChoosePageAdapter extends SuperAdapter {
     private final int VIEW_TYPE = 5;
+    private Context mContext;
 
     private List<AddressModel> mModels;
     private List<AddressModel> mHotModels;
+    private List<AddressModel> mRecentAccessModels;
 
     public CityChoosePageAdapter(Context context) {
         super(context);
+        mContext = context;
     }
 
     /** default alpha city name style --- list */
@@ -35,6 +40,10 @@ public class CityChoosePageAdapter extends SuperAdapter {
 
     public void setHotList(List<AddressModel> hotList) {
         mHotModels = hotList;
+    }
+
+    public void setRecentAccessList(List<AddressModel> recentList) {
+        mRecentAccessModels = recentList;
     }
 
     @Override
@@ -135,19 +144,48 @@ public class CityChoosePageAdapter extends SuperAdapter {
                 break;
             }
             case 1: {
+                showRecentAccessCity(holder);
                 break;
             }
             case 2: {
+                showHotCity(holder);
                 break;
             }
             case 3: {
                 break;
             }
             default: {
+                showAllCity(holder, position);
                 break;
             }
         }
     }
+
+    private void showRecentAccessCity(CityChooseViewHolder holder) {
+        holder.recentNotifyTxt.setText(mContext.getString(R.string.city_choose_page_recent_access_city));
+        holder.recentGridView.setList(mRecentAccessModels);
+    }
+
+    private void showHotCity(CityChooseViewHolder holder) {
+        holder.recentNotifyTxt.setText(mContext.getString(R.string.city_choose_page_hot_city));
+        holder.recentGridView.setList(mHotModels);
+        holder.recentGridView.getGridViewAdapter().notifyDataSetChanged();
+    }
+
+    private void showAllCity(CityChooseViewHolder holder, int position) {
+        AddressModel model = mModels.get(position);
+        holder.allCityName.setText(model.getCityName());
+        String currentStr = StringUtils.getAlpha(mContext, mModels.get(position).getCityPinYin());
+        String previewStr = (position - 1) >= 0 ? StringUtils.getAlpha(mContext, mModels.get(position - 1).getCityPinYin()) : " ";
+        if (!previewStr.equals(currentStr)) {
+            holder.allCityAlpha.setVisibility(View.VISIBLE);
+            holder.allCityAlpha.setText(currentStr);
+        } else {
+            holder.allCityAlpha.setVisibility(View.GONE);
+        }
+    }
+
+
 
     private final class CityChooseViewHolder extends SuperViewHolder {
         private TextView locationNotifyTxt;

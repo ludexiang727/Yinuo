@@ -77,8 +77,8 @@ public abstract class BaseActivity extends Activity implements IRequestListener 
         mContentParent = (RelativeLayout) findViewById(R.id.app_activity_content_parent);
         View view = LayoutInflater.from(this).inflate(mLayoutId, mContentParent, true);
         mLoading.loading();
-        loadData();
         loadView(view);
+        loadData();
     }
 
     @Override
