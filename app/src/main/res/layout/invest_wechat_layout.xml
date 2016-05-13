@@ -40,7 +40,8 @@
         android:id="@android:id/list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:cacheColorHint="@android:color/transparent"
+        android:listSelector="@drawable/list_view_catch_color_hint_selector"
+        android:cacheColorHint="@drawable/list_view_catch_color_hint_selector"
         android:layout_above="@id/invest_wechat_edit_layout"
         android:transcriptMode="alwaysScroll"
         android:divider="@null"/>

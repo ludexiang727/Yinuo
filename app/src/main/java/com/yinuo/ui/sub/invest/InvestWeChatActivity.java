@@ -6,7 +6,6 @@ import android.os.Handler;
 import android.os.Message;
 import android.text.Editable;
 import android.text.TextWatcher;
-import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
 import android.widget.TextView;
@@ -14,14 +13,13 @@ import android.widget.TextView;
 import com.yinuo.Constants;
 import com.yinuo.R;
 import com.yinuo.base.BaseActivity;
-import com.yinuo.helper.ToastHelper;
 import com.yinuo.mode.InvestPageDataModel;
 import com.yinuo.mode.InvestWeChatModel;
 import com.yinuo.net.base.NetBaseObject;
 import com.yinuo.net.request.NetRequest;
 import com.yinuo.net.response.NetInvestWeChatObj;
+import com.yinuo.ui.component.widget.baseview.BaseBezierRefreshListView;
 import com.yinuo.ui.component.widget.view.InvestWeChatListView;
-import com.yinuo.utils.AppUtils;
 import com.yinuo.utils.StringUtils;
 import com.yinuo.utils.UiThreadHandler;
 
@@ -31,7 +29,7 @@ import java.util.List;
 /**
  * Created by ludexiang on 2016/5/4.
  */
-public class InvestWeChatActivity extends BaseActivity implements View.OnClickListener {
+public class InvestWeChatActivity extends BaseActivity implements View.OnClickListener, BaseBezierRefreshListView.IWaterDropListViewListener {
 
     private int mPageIndex = 1;
     private final int PAGE_COUNT = 10;
@@ -44,6 +42,7 @@ public class InvestWeChatActivity extends BaseActivity implements View.OnClickLi
     private InvestWeChatListView mListView;
     private TextView mSend;
     private EditText mMsgEdit;
+    private boolean isRefrshing;
 
     @Override
     protected int getContentLayout() {
@@ -74,6 +73,9 @@ public class InvestWeChatActivity extends BaseActivity implements View.OnClickLi
         mListView.setItems(mModels);
         mSend.setOnClickListener(this);
         mMsgEdit.addTextChangedListener(new EditWatcher());
+
+        mListView.setWaterDropListViewListener(this);
+        mListView.setPullLoadEnable(false);
     }
 
     @Override
@@ -101,13 +103,14 @@ public class InvestWeChatActivity extends BaseActivity implements View.OnClickLi
     private final class UIHandler extends Handler {
         private final int NOTIFY_SUCCESS = 0x000;
         private final int NOTIFY_SEND_SUCCESS = 0x001;
+        private final int NOTIFY_REFRESH_SUCCESS = 0x002;
         @Override
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
             switch (msg.what) {
                 case NOTIFY_SUCCESS: {
                     NetInvestWeChatObj obj = (NetInvestWeChatObj) msg.obj;
-                    if (obj.getModels() != null) {
+                    if (obj != null && obj.getModels() != null) {
                         mModels.addAll(obj.getModels());
                     }
                     mListView.getInvestAdapter().notifyDataSetChanged();
@@ -115,6 +118,14 @@ public class InvestWeChatActivity extends BaseActivity implements View.OnClickLi
                 }
                 case NOTIFY_SEND_SUCCESS: {
                     mListView.getInvestAdapter().notifyDataSetChanged();
+                    break;
+                }
+                case NOTIFY_REFRESH_SUCCESS: {
+                    if (isRefrshing) {
+                        isRefrshing = false;
+                        mListView.stopRefresh();
+                    }
+                    break;
                 }
             }
         }
@@ -175,5 +186,22 @@ public class InvestWeChatActivity extends BaseActivity implements View.OnClickLi
                 }
             });
         }
+    }
+
+    @Override
+    public void onLoadMore() {
+
+    }
+
+    @Override
+    public void onRefresh() {
+        isRefrshing = true;
+        UiThreadHandler.postDelayed(new Runnable() {
+            @Override
+            public void run() {
+                mHandler.sendEmptyMessage(mHandler.NOTIFY_REFRESH_SUCCESS);
+            }
+        }, 5000);
+
     }
 }

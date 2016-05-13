@@ -157,4 +157,10 @@
     <dimen name="location_view_navigation_style_margin">10dp</dimen>
     <dimen name="boss_online_about_options_separator">30dp</dimen>
     <!-- boss online about location view end-->
+
+    <!-- refresh begin -->
+    <dimen name="app_refresh_loading_margin_top">10dp</dimen>
+    <dimen name="app_refresh_bezier_view_radius">10dp</dimen>
+    <!-- refresh end-->
+
 </resources>

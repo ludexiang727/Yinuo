@@ -3,6 +3,7 @@
     <color name="colorPrimary">#3F51B5</color>
     <color name="colorPrimaryDark">#303F9F</color>
     <color name="colorAccent">#FF4081</color>
+    <drawable name="catch_color_hint_transparent">#00000000</drawable>
     <color name="window_page_color">#fafafa</color>
     <color name="loading_background">#affafafa</color>
     <color name="recycle_view_divider">#EBEBEB</color>

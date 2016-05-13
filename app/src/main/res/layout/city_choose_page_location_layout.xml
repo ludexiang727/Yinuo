@@ -36,7 +36,9 @@
         android:layout_height="wrap_content"
         android:layout_centerVertical="true"
         android:layout_alignParentRight="true"
-        android:layout_alignBaseline="@id/city_choose_page_location_city"
+        android:layout_centerHorizontal="true"
+        android:layout_alignLeft="@id/city_choose_page_location_city"
+        android:layout_alignRight="@id/city_choose_page_location_city"
         android:src="@drawable/loading_anim"/>
 
     <View
