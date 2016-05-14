@@ -161,6 +161,8 @@
     <!-- refresh begin -->
     <dimen name="app_refresh_loading_margin_top">10dp</dimen>
     <dimen name="app_refresh_bezier_view_radius">10dp</dimen>
+    <dimen name="app_refresh_top_circle_radius">14dp</dimen>
+    <dimen name="app_refresh_bottom_circle_radius">5dp</dimen>
     <!-- refresh end-->
 
 </resources>

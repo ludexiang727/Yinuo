@@ -42,7 +42,7 @@ public class InvestWeChatActivity extends BaseActivity implements View.OnClickLi
     private InvestWeChatListView mListView;
     private TextView mSend;
     private EditText mMsgEdit;
-    private boolean isRefrshing;
+    private boolean isRefreshing;
 
     @Override
     protected int getContentLayout() {
@@ -121,8 +121,8 @@ public class InvestWeChatActivity extends BaseActivity implements View.OnClickLi
                     break;
                 }
                 case NOTIFY_REFRESH_SUCCESS: {
-                    if (isRefrshing) {
-                        isRefrshing = false;
+                    if (isRefreshing) {
+                        isRefreshing = false;
                         mListView.stopRefresh();
                     }
                     break;
@@ -195,7 +195,7 @@ public class InvestWeChatActivity extends BaseActivity implements View.OnClickLi
 
     @Override
     public void onRefresh() {
-        isRefrshing = true;
+        isRefreshing = true;
         UiThreadHandler.postDelayed(new Runnable() {
             @Override
             public void run() {

@@ -32,7 +32,7 @@ public class BezierRefreshView extends FrameLayout {
     private float mMinCircleRadius;
     private Bitmap arrowBitmap;
     private final static int BACK_ANIM_DURATION = 180;
-    private final static float STROKE_WIDTH = 2;//���߿��
+    private final static float STROKE_WIDTH = 2;
 
     public BezierRefreshView(Context context) {
         this(context, null);
@@ -45,52 +45,6 @@ public class BezierRefreshView extends FrameLayout {
     public BezierRefreshView(Context context, AttributeSet attrs, int defStyleAttr) {
         super(context, attrs, defStyleAttr);
         init(context, attrs);
-    }
-
-    private void parseAttrs(Context context, AttributeSet attrs) {
-        if (attrs != null) {
-            TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.WaterDropView, 0, 0);
-            try {
-                /*if (a.hasValue(R.styleable.WaterDropView_topcircle_x)) {
-                    topCircle.setX(a.getDimensionPixelSize(R.styleable.WaterDropView_topcircle_x, 0));
-                }
-                if (a.hasValue(R.styleable.WaterDropView_topcircle_y)) {
-                    topCircle.setY(a.getDimensionPixelSize(R.styleable.WaterDropView_topcircle_y, 0));
-                }
-                if (a.hasValue(R.styleable.WaterDropView_bottomcircle_x)) {
-                    bottomCircle.setX(a.getDimensionPixelSize(R.styleable.WaterDropView_topcircle_x, 0));
-                }
-                if (a.hasValue(R.styleable.WaterDropView_bottomcircle_y)) {
-                    bottomCircle.setY(a.getDimensionPixelSize(R.styleable.WaterDropView_topcircle_y, 0));
-                }*/
-                if (a.hasValue(R.styleable.WaterDropView_waterdrop_color)) {
-                    int waterDropColor = a.getColor(R.styleable.WaterDropView_waterdrop_color, Color.GRAY);
-                    mPaint.setColor(waterDropColor);
-                }
-                if (a.hasValue(R.styleable.WaterDropView_max_circle_radius)) {
-                    mMaxCircleRadius = a.getDimensionPixelSize(R.styleable.WaterDropView_max_circle_radius, 0);
-
-                    topCircle.setRadius(mMaxCircleRadius);
-                    bottomCircle.setRadius(mMaxCircleRadius);
-
-                    topCircle.setX(STROKE_WIDTH + mMaxCircleRadius);
-                    topCircle.setY(STROKE_WIDTH + mMaxCircleRadius);
-
-                    bottomCircle.setX(STROKE_WIDTH + mMaxCircleRadius);
-                    bottomCircle.setY(STROKE_WIDTH + mMaxCircleRadius);
-                }
-                if (a.hasValue(R.styleable.WaterDropView_min_circle_radius)) {
-                    mMinCircleRadius = a.getDimensionPixelSize(R.styleable.WaterDropView_min_circle_radius, 0);
-                    if (mMinCircleRadius > mMaxCircleRadius) {
-                        throw new IllegalStateException("Circle's MinRadius should be equal or lesser than the MaxRadius");
-                    }
-                }
-            } catch (Exception e) {
-                e.printStackTrace();
-            } finally {
-                a.recycle();
-            }
-        }
     }
 
     private void init(Context context, AttributeSet attrs) {
@@ -106,6 +60,40 @@ public class BezierRefreshView extends FrameLayout {
         arrowBitmap = BitmapUtils.drawableToBitmap(drawable);
         parseAttrs(context, attrs);
         setWillNotDraw(false);
+    }
+
+    private void parseAttrs(Context context, AttributeSet attrs) {
+        if (attrs != null) {
+            TypedArray a = context.obtainStyledAttributes(attrs, R.styleable.BezierRefreshView, 0, 0);
+            try {
+                if (a.hasValue(R.styleable.BezierRefreshView_bezier_view_color)) {
+                    int waterDropColor = a.getColor(R.styleable.BezierRefreshView_bezier_view_color, Color.GRAY);
+                    mPaint.setColor(waterDropColor);
+                }
+                if (a.hasValue(R.styleable.BezierRefreshView_max_circle_radius)) {
+                    mMaxCircleRadius = a.getDimensionPixelSize(R.styleable.BezierRefreshView_max_circle_radius, 0);
+
+                    topCircle.setRadius(mMaxCircleRadius);
+                    bottomCircle.setRadius(mMaxCircleRadius);
+
+                    topCircle.setX(STROKE_WIDTH + mMaxCircleRadius);
+                    topCircle.setY(STROKE_WIDTH + mMaxCircleRadius);
+
+                    bottomCircle.setX(STROKE_WIDTH + mMaxCircleRadius);
+                    bottomCircle.setY(STROKE_WIDTH + mMaxCircleRadius);
+                }
+                if (a.hasValue(R.styleable.BezierRefreshView_min_circle_radius)) {
+                    mMinCircleRadius = a.getDimensionPixelSize(R.styleable.BezierRefreshView_min_circle_radius, 0);
+                    if (mMinCircleRadius > mMaxCircleRadius) {
+                        throw new IllegalStateException("Circle's MinRadius should be equal or lesser than the MaxRadius");
+                    }
+                }
+            } catch (Exception e) {
+                e.printStackTrace();
+            } finally {
+                a.recycle();
+            }
+        }
     }
 
     @Override
@@ -201,7 +189,7 @@ public class BezierRefreshView extends FrameLayout {
         }
         float top_r = (float) (mMaxCircleRadius - 0.25 * percent * mMaxCircleRadius);
         float bottom_r = (mMinCircleRadius - mMaxCircleRadius) * percent + mMaxCircleRadius;
-        float bottomCricleOffset = 2 * percent * mMaxCircleRadius;
+        float bottomCricleOffset = 4 * percent * mMaxCircleRadius;
         topCircle.setRadius(top_r);
         bottomCircle.setRadius(bottom_r);
         bottomCircle.setY(topCircle.getY() + bottomCricleOffset);

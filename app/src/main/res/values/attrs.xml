@@ -49,10 +49,10 @@
         <attr name="content_id" format="reference"/>
     </declare-styleable>
 
-    <declare-styleable name="WaterDropView">
+    <declare-styleable name="BezierRefreshView">
         <attr name="max_circle_radius" format="dimension"/>
         <attr name="min_circle_radius" format="dimension"/>
-        <attr name="waterdrop_color" format="color"/>
+        <attr name="bezier_view_color" format="color"/>
         <attr name="topcircle_x" format="dimension"/>
         <attr name="topcircle_y" format="dimension"/>
         <attr name="bottomcircle_x" format="dimension"/>

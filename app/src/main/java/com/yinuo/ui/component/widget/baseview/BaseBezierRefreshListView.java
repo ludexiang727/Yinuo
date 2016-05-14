@@ -267,11 +267,12 @@ public class BaseBezierRefreshListView extends ListView implements OnScrollListe
         }
 
         switch (ev.getAction()) {
-            case MotionEvent.ACTION_DOWN:
+            case MotionEvent.ACTION_DOWN: {
                 mLastY = ev.getRawY();
                 isTouchingScreen = true;
                 break;
-            case MotionEvent.ACTION_MOVE:
+            }
+            case MotionEvent.ACTION_MOVE: {
                 final float deltaY = ev.getRawY() - mLastY;
                 mLastY = ev.getRawY();
                 if (getFirstVisiblePosition() == 0 && (mHeaderView.getVisiableHeight() > 0 || deltaY > 0)) {
@@ -283,7 +284,8 @@ public class BaseBezierRefreshListView extends ListView implements OnScrollListe
                     updateFooterHeight(-deltaY / OFFSET_RADIO);
                 }
                 break;
-            default:
+            }
+            default: {
                 mLastY = -1; // reset
                 isTouchingScreen = false;
                 //TODO 存在bug：当两个if的条件都满足的时候，只能滚动一个，所以在reSetHeader的时候就不起作用了，一般就只会reSetFooter
@@ -298,6 +300,7 @@ public class BaseBezierRefreshListView extends ListView implements OnScrollListe
                     resetFooterHeight();
                 }
                 break;
+            }
         }
         return super.onTouchEvent(ev);
     }

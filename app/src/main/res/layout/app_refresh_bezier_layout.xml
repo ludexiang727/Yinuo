@@ -12,7 +12,7 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/app_refresh_loading_margin_top"
         android:layout_marginBottom="@dimen/app_refresh_loading_margin_top"
-        android:layout_centerHorizontal="true"
+        android:layout_gravity="center_horizontal"
         android:src="@drawable/loading_anim"
         android:visibility="gone"/>
 
@@ -22,10 +22,10 @@
         android:layout_height="wrap_content"
         android:layout_marginTop="@dimen/app_refresh_loading_margin_top"
         android:layout_marginBottom="@dimen/app_refresh_loading_margin_top"
-        android:layout_centerHorizontal="true"
-        app:max_circle_radius = "20dp"
-        app:min_circle_radius="5dp"
-        app:waterdrop_color="#9ba2ab"
+        android:layout_gravity="center_horizontal"
+        app:max_circle_radius = "@dimen/app_refresh_top_circle_radius"
+        app:min_circle_radius="@dimen/app_refresh_bottom_circle_radius"
+        app:bezier_view_color="#9ba2ab"
         app:topcircle_x="20dp"
         app:topcircle_y="20dp"
         app:bottomcircle_x="20dp"
