@@ -1,0 +1,19 @@
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <com.yinuo.ui.component.widget.view.PullToRefreshLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <include layout="@layout/app_refresh_header_layout"/>
+
+        <com.yinuo.ui.component.widget.view.WorkspaceTenementListView
+            android:id="@+id/workspace_tenement_list_view"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"/>
+
+    </com.yinuo.ui.component.widget.view.PullToRefreshLayout>
+
+</merge>

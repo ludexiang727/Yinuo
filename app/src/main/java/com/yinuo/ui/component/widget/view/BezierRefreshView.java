@@ -189,10 +189,10 @@ public class BezierRefreshView extends FrameLayout {
         }
         float top_r = (float) (mMaxCircleRadius - 0.25 * percent * mMaxCircleRadius);
         float bottom_r = (mMinCircleRadius - mMaxCircleRadius) * percent + mMaxCircleRadius;
-        float bottomCricleOffset = 4 * percent * mMaxCircleRadius;
+        float bottomCircleOffset = 3.5f * percent * mMaxCircleRadius;
         topCircle.setRadius(top_r);
         bottomCircle.setRadius(bottom_r);
-        bottomCircle.setY(topCircle.getY() + bottomCricleOffset);
+        bottomCircle.setY(topCircle.getY() + bottomCircleOffset);
         requestLayout();
         postInvalidate();
     }

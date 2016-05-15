@@ -35,6 +35,7 @@ public abstract class BaseActivity extends Activity implements IRequestListener 
     private TextView mTitleMiddle;
 
     private int mTitleRightChildLeftMargin;
+    private int mTitleHeight;
 
     protected abstract int getContentLayout();
     protected abstract void loadData();
@@ -66,12 +67,11 @@ public abstract class BaseActivity extends Activity implements IRequestListener 
         if (mLayoutId == 0) {
             throw new IllegalArgumentException("content layout id is Illegal");
         }
+        mTitleHeight = ResUtils.getDimen(this, R.dimen.app_activity_title_height);
         mTitleRightChildLeftMargin = ResUtils.getDimen(this, R.dimen.app_title_right_child_margin);
         setContentView(R.layout.app_base_activity_layout);
         mTitleParent = (RelativeLayout) findViewById(R.id.app_activity_title_layout);
-        mTitleLeft = (ImageView) findViewById(R.id.app_activity_title_left);
-        mTitleRight = (LinearLayout) findViewById(R.id.app_activity_title_right);
-        mTitleMiddle = (TextView) findViewById(R.id.app_activity_title_middle);
+
         mLoading = (Loading) findViewById(R.id.app_activity_loading);
         mViewStub = (ViewStub) findViewById(R.id.app_activity_viewstub);
         mContentParent = (RelativeLayout) findViewById(R.id.app_activity_content_parent);
@@ -91,23 +91,57 @@ public abstract class BaseActivity extends Activity implements IRequestListener 
         mHandler.sendEmptyMessage(UIHandler.LOAD_DATA_SUCCESSFUL);
     }
 
+    protected int getTitleLayout() {
+        return 0;
+    }
+
     protected void showTitle(boolean isShow) {
-        mTitleParent.setVisibility(isShow ? View.VISIBLE : View.GONE);
+        if (isShow) {
+            View titleView;
+            mTitleParent.setVisibility(View.VISIBLE);
+            if (getTitleLayout() == 0) {
+                titleView = LayoutInflater.from(this).inflate(R.layout.app_title_normal_layout, mTitleParent, true);
+                RelativeLayout.LayoutParams params = (RelativeLayout.LayoutParams) mTitleParent.getLayoutParams();
+                params.height = mTitleHeight;
+                mTitleParent.setLayoutParams(params);
+            } else {
+                titleView = LayoutInflater.from(this).inflate(getTitleLayout(), mTitleParent, true);
+            }
+            initTitleView(titleView);
+        } else {
+            mTitleParent.setVisibility(View.GONE);
+        }
+    }
+
+    protected void initTitleView(View titleView) {
+        mTitleLeft = (ImageView) titleView.findViewById(R.id.app_activity_title_left);
+        mTitleRight = (LinearLayout) titleView.findViewById(R.id.app_activity_title_right);
+        mTitleMiddle = (TextView) titleView.findViewById(R.id.app_activity_title_middle);
     }
 
     protected void setMiddleTitle(String title) {
-        mTitleMiddle.setText(title);
+        if (mTitleMiddle != null) {
+            mTitleMiddle.setText(title);
+        }
     }
 
     protected void setMiddleTitle(int id) {
-        mTitleMiddle.setText(id);
+        if (mTitleMiddle != null) {
+            mTitleMiddle.setText(id);
+        }
     }
 
     protected void setLeftImg(int resId) {
-        mTitleLeft.setImageResource(resId);
+        if (mTitleLeft != null) {
+            mTitleLeft.setImageResource(resId);
+        }
     }
 
     protected void setRightChild(View... vs) {
+        if (mTitleRight == null) {
+            return;
+        }
+
         if (mTitleRight != null && mTitleRight.getChildCount() > 0) {
             mTitleRight.removeAllViews();
         }

@@ -70,6 +70,7 @@
             <!--android:hardwareAccelerated="true"/>-->
         <!--<activity android:name="io.card.payment.DataEntryActivity" android:screenOrientation="portrait"/>-->
 
+        <!-- loan sub page being -->
         <activity android:name=".ui.sub.loan.LoanVipUniqueActivity"
             android:screenOrientation="portrait"/>
         <activity android:name=".ui.sub.loan.LoanApplyActivity"
@@ -100,6 +101,12 @@
             android:screenOrientation="portrait"/>
         <activity android:name=".ui.sub.loan.LoanTransAccActivity"
             android:screenOrientation="portrait"/>
+        <!-- loan sub page end -->
+
+        <!-- workspace sub page begin -->
+        <activity android:name=".ui.sub.workspace.WorkspaceTenementActivity"
+            android:screenOrientation="portrait"/>
+        <!-- workspace sub page end-->
 
         <!-- boss online page begin -->
         <activity android:name=".ui.sub.bossonline.BossOnlineAboutActivity"

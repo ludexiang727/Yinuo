@@ -1,5 +1,6 @@
 package com.yinuo.ui.page;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -21,6 +22,7 @@ import com.yinuo.net.request.NetRequest;
 import com.yinuo.net.response.NetWorkspacePageObj;
 import com.yinuo.ui.component.widget.Loading;
 import com.yinuo.ui.component.widget.view.WorkspaceRecyclerView;
+import com.yinuo.ui.sub.workspace.WorkspaceTenementActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -42,6 +44,7 @@ public class WorkSpacePageFragment extends BaseFragment implements View.OnClickL
     private List<WorkspacePageModel> mLists = new ArrayList<WorkspacePageModel>();
     private List<WorkspaceOptionModel> mOptions = new ArrayList<WorkspaceOptionModel>();
     private LayoutInflater mInflater;
+    private OptionsClickListener mClickListener;
 
     public static WorkSpacePageFragment newInstance(int index) {
         WorkSpacePageFragment fragment = new WorkSpacePageFragment();
@@ -57,6 +60,7 @@ public class WorkSpacePageFragment extends BaseFragment implements View.OnClickL
         mInflater = LayoutInflater.from(getContext());
         isPrepared = true;
         loadData();
+        mClickListener = new OptionsClickListener();
         return view;
     }
 
@@ -140,12 +144,32 @@ public class WorkSpacePageFragment extends BaseFragment implements View.OnClickL
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT);
         params.gravity = Gravity.CENTER;
         params.weight = 1;
+        int position = 0;
         for (WorkspaceOptionModel optionModel : mOptions) {
             View view = mInflater.inflate(R.layout.workspace_options_layout, null);
             ImageView img = (ImageView) view.findViewById(R.id.workspace_page_option_img);
             TextView txt = (TextView) view.findViewById(R.id.workspace_page_option_txt);
             txt.setText(optionModel.getOptionTxt());
             mWorkspaceOptionParent.addView(view, params);
+            view.setTag(position);
+            position++;
+            view.setOnClickListener(mClickListener);
+        }
+    }
+
+    private class OptionsClickListener implements View.OnClickListener {
+        @Override
+        public void onClick(View view) {
+            int position = (Integer) view.getTag();
+            Intent intent = new Intent();
+            switch (position) {
+                case 0: {
+                    // workspace tenement
+                    intent.setClass(getContext(), WorkspaceTenementActivity.class);
+                    break;
+                }
+            }
+            startActivity(intent);
         }
     }
 

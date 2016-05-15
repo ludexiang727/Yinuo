@@ -1,0 +1,37 @@
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <ImageView
+        android:id="@+id/app_activity_title_left"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/app_title_parent_margin"
+        android:layout_alignParentLeft="true"/>
+
+    <LinearLayout
+        android:id="@+id/app_activity_title_right"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_centerVertical="true"
+        android:orientation="horizontal"
+        android:layout_alignParentRight="true"
+        android:layout_marginRight="@dimen/app_title_parent_margin"/>
+
+    <TextView
+        android:id="@+id/app_activity_title_middle"
+        android:layout_width="wrap_content"
+        android:layout_height="match_parent"
+        android:layout_centerInParent="true"
+        android:layout_marginLeft="@dimen/app_title_parent_margin"
+        android:layout_marginRight="@dimen/app_title_parent_margin"
+        android:textSize="@dimen/app_base_title_size"
+        android:textColor="@android:color/white"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:layout_toLeftOf="@id/app_activity_title_right"
+        android:layout_toRightOf="@id/app_activity_title_left"/>
+</merge>

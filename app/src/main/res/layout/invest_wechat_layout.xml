@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<merge
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<merge xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
@@ -9,23 +8,25 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true">
+
         <TextView
             android:id="@+id/invest_wechat_send"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/invest_wechat_send"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
-            android:clickable="true"
-            android:textColor="@android:color/white"
+            android:layout_marginBottom="@dimen/invest_wechat_send_padding_tb"
+            android:layout_marginRight="@dimen/invest_wechat_send_margin_right"
+            android:layout_marginTop="@dimen/invest_wechat_send_padding_tb"
             android:background="@drawable/invest_wechat_send_selector"
-            android:paddingLeft="@dimen/invest_wechat_send_padding_lr"
-            android:paddingTop="@dimen/invest_wechat_send_padding_tb"
-            android:paddingRight="@dimen/invest_wechat_send_padding_lr"
-            android:paddingBottom="@dimen/invest_wechat_send_padding_tb"
+            android:clickable="true"
             android:enabled="false"
-            android:layout_alignBottom="@+id/invest_wechat_edit"
-            android:layout_marginRight="@dimen/invest_wechat_send_margin_right"/>
+            android:paddingBottom="@dimen/invest_wechat_send_padding_tb"
+            android:paddingLeft="@dimen/invest_wechat_send_padding_lr"
+            android:paddingRight="@dimen/invest_wechat_send_padding_lr"
+            android:paddingTop="@dimen/invest_wechat_send_padding_tb"
+            android:text="@string/invest_wechat_send"
+            android:textColor="@android:color/white" />
 
         <EditText
             android:id="@+id/invest_wechat_edit"
@@ -33,17 +34,18 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/invest_wechat_edit_margin_left"
             android:layout_marginRight="@dimen/invest_wechat_edit_margin_right"
-            android:layout_toLeftOf="@id/invest_wechat_send"/>
+            android:maxLines="6"
+            android:layout_toLeftOf="@id/invest_wechat_send" />
     </RelativeLayout>
 
     <com.yinuo.ui.component.widget.view.InvestWeChatListView
         android:id="@android:id/list"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
-        android:listSelector="@drawable/list_view_catch_color_hint_selector"
-        android:cacheColorHint="@drawable/list_view_catch_color_hint_selector"
         android:layout_above="@id/invest_wechat_edit_layout"
-        android:transcriptMode="alwaysScroll"
-        android:divider="@null"/>
+        android:cacheColorHint="@drawable/list_view_catch_color_hint_selector"
+        android:divider="@null"
+        android:listSelector="@drawable/list_view_catch_color_hint_selector"
+        android:transcriptMode="alwaysScroll" />
 
 </merge>

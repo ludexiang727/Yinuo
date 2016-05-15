@@ -56,6 +56,7 @@ public class InvestWeChatActivity extends BaseActivity implements View.OnClickLi
         mBossId = mModel.getInvestId();
         super.onCreate(savedInstanceState);
 
+        showTitle(true);
         setMiddleTitle(mModel.getInvestName());
     }
 

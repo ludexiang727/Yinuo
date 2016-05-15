@@ -49,6 +49,9 @@
 
     <!-- workspace page begin -->
     <string name="workspace_holder_yinuo">一诺</string>
+    <string name="workspace_tenement_condition_area">区域</string>
+    <string name="workspace_tenement_condition_price">价格</string>
+    <string name="workspace_tenement_condition_more">更多</string>
     <!-- workspace page end-->
 
     <!-- boss online page begin -->

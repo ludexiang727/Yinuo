@@ -56,7 +56,7 @@ public class BezierRefreshHeaderView extends FrameLayout {
 
     private void initView(Context context) {
         mContainer = (LinearLayout) LayoutInflater.from(context).inflate(R.layout.app_refresh_bezier_layout, null);
-        mProgress = (ImageView) mContainer.findViewById(R.id.app_refresh_loading);
+        mProgress = (ImageView) mContainer.findViewById(R.id.app_bezier_refresh_loading);
         mBazierRefreshView = (BezierRefreshView) mContainer.findViewById(R.id.app_refresh_bezier_view);
         // 初始情况，设置下拉刷新view高度为0
         LayoutParams lp = new LayoutParams(LayoutParams.MATCH_PARENT, 0);
