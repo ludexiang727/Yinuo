@@ -1,25 +1,31 @@
 <RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/app_refresh_with_arrow_layout"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content"
-    android:paddingTop="@dimen/app_refresh_header_padding_tb"
-    android:paddingBottom="@dimen/app_refresh_header_padding_tb">
+    android:layout_height="match_parent"
+    android:background="@color/app_refresh_background">
+
 
     <TextView
         android:id="@+id/app_refresh_state"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:gravity="center"
+        android:layout_alignParentBottom="true"
         android:layout_centerHorizontal="true"
         android:layout_centerVertical="true"
-        android:layout_marginLeft="@dimen/app_refresh_state_margin_left"
-        android:text="test"/>
+        android:paddingTop="@dimen/app_refresh_header_padding_tb"
+        android:paddingBottom="@dimen/app_refresh_header_padding_tb"
+        android:text="@string/app_refresh_pull_to_refresh"
+        android:layout_marginLeft="@dimen/app_refresh_state_margin_left"/>
 
     <ImageView
         android:id="@+id/app_refresh_pull_icon"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:src="@drawable/pull_icon_big"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/app_refresh_arrow_margin"
+        android:layout_centerVertical="true"
         android:layout_toLeftOf="@id/app_refresh_state"
         android:contentDescription="@null"/>
 
@@ -29,6 +35,9 @@
         android:layout_height="wrap_content"
         android:contentDescription="@null"
         android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/app_refresh_header_padding_tb"
         android:src="@drawable/refreshing"
         android:layout_toLeftOf="@id/app_refresh_state"
         android:visibility="gone"/>
@@ -39,6 +48,10 @@
         android:layout_height="wrap_content"
         android:contentDescription="@null"
         android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="@dimen/app_refresh_header_padding_tb"
         android:layout_toLeftOf="@id/app_refresh_state"
+        android:src="@drawable/refresh_succeed"
         android:visibility="gone"/>
 </RelativeLayout>

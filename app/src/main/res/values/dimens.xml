@@ -165,7 +165,8 @@
     <dimen name="app_refresh_top_circle_radius">14dp</dimen>
     <dimen name="app_refresh_bottom_circle_radius">5dp</dimen>
     <dimen name="app_refresh_state_margin_left">20dp</dimen>
-    <dimen name="app_refresh_header_padding_tb">15dp</dimen>
+    <dimen name="app_refresh_header_padding_tb">30dp</dimen>
+    <dimen name="app_refresh_arrow_margin">25dp</dimen>
     <!-- refresh end-->
 
 </resources>

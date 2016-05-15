@@ -87,10 +87,10 @@
     <string name="app_refresh_listfooterview_ready">松开载入更多</string>
     <string name="app_refresh_listfooterview_load_more">正在加载...</string>
     <string name="app_refresh_listfooterview_no_more">没有更多的数据了</string>
-    <string name="pull_to_refresh">下拉刷新</string>
-    <string name="release_to_refresh">释放立即刷新</string>
-    <string name="refreshing">正在刷新...</string>
-    <string name="refresh_succeed">刷新成功</string>
-    <string name="refresh_fail">刷新失败</string>
+    <string name="app_refresh_pull_to_refresh">下拉刷新</string>
+    <string name="app_refresh_release_to_refresh">释放立即刷新</string>
+    <string name="app_refresh_refreshing">正在刷新...</string>
+    <string name="app_refresh_refresh_succeed">刷新成功</string>
+    <string name="app_refresh_refresh_fail">刷新失败</string>
     <!-- refersh end -->
 </resources>

@@ -162,7 +162,7 @@ public class PullToRefreshLayout extends RelativeLayout {
             case SUCCEED:
                 // 刷新成功
                 refreshStateImageView.setVisibility(View.VISIBLE);
-                refreshStateTextView.setText(R.string.refresh_succeed);
+                refreshStateTextView.setText(R.string.app_refresh_refresh_succeed);
                 refreshStateImageView
                         .setBackgroundResource(R.drawable.refresh_succeed);
                 break;
@@ -170,7 +170,7 @@ public class PullToRefreshLayout extends RelativeLayout {
             default:
                 // 刷新失败
                 refreshStateImageView.setVisibility(View.VISIBLE);
-                refreshStateTextView.setText(R.string.refresh_fail);
+                refreshStateTextView.setText(R.string.app_refresh_refresh_fail);
                 refreshStateImageView
                         .setBackgroundResource(R.drawable.refresh_failed);
                 break;
@@ -193,14 +193,14 @@ public class PullToRefreshLayout extends RelativeLayout {
             case INIT:
                 // 下拉布局初始状态
                 refreshStateImageView.setVisibility(View.GONE);
-                refreshStateTextView.setText(R.string.pull_to_refresh);
+                refreshStateTextView.setText(R.string.app_refresh_pull_to_refresh);
                 pullView.startAnimation((RotateAnimation) AnimationUtils
                         .loadAnimation(getContext(), R.anim.pull_refresh_arrow_reverse_anim2));
                 pullView.setVisibility(View.VISIBLE);
                 break;
             case RELEASE_TO_REFRESH:
                 // 释放刷新状态
-                refreshStateTextView.setText(R.string.release_to_refresh);
+                refreshStateTextView.setText(R.string.app_refresh_release_to_refresh);
                 pullView.startAnimation(rotateAnimation);
                 break;
             case REFRESHING:
@@ -209,7 +209,7 @@ public class PullToRefreshLayout extends RelativeLayout {
                 refreshingView.setVisibility(View.VISIBLE);
                 pullView.setVisibility(View.INVISIBLE);
                 refreshingView.startAnimation(refreshingAnimation);
-                refreshStateTextView.setText(R.string.refreshing);
+                refreshStateTextView.setText(R.string.app_refresh_refreshing);
                 break;
             case DONE:
                 // 刷新完毕，啥都不做

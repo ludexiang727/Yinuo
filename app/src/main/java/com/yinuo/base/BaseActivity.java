@@ -114,9 +114,11 @@ public abstract class BaseActivity extends Activity implements IRequestListener 
     }
 
     protected void initTitleView(View titleView) {
-        mTitleLeft = (ImageView) titleView.findViewById(R.id.app_activity_title_left);
-        mTitleRight = (LinearLayout) titleView.findViewById(R.id.app_activity_title_right);
-        mTitleMiddle = (TextView) titleView.findViewById(R.id.app_activity_title_middle);
+        if (getTitleLayout() == 0) {
+            mTitleLeft = (ImageView) titleView.findViewById(R.id.app_activity_title_left);
+            mTitleRight = (LinearLayout) titleView.findViewById(R.id.app_activity_title_right);
+            mTitleMiddle = (TextView) titleView.findViewById(R.id.app_activity_title_middle);
+        }
     }
 
     protected void setMiddleTitle(String title) {

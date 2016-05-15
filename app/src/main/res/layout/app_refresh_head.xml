@@ -31,7 +31,7 @@
                 android:id="@+id/state_tv"
                 android:layout_width="100dp"
                 android:layout_height="wrap_content"
-                android:text="@string/pull_to_refresh"
+                android:text="@string/app_refresh_pull_to_refresh"
                 android:textColor="@android:color/white"
                 android:gravity="center"
                 android:textSize="14sp" />
