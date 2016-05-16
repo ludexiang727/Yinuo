@@ -59,6 +59,7 @@
     <color name="workspace_holder_location_color">#CC999999</color>
     <color name="workspace_holder_tags_color">#AC3F51B5</color>
     <color name="workspace_holder_yinuo_color">#CCFFFFFF</color>
+    <color name="workspace_tenement_condition_layout_background">#AADFDFDF</color>
     <!-- workspace page end-->
 
     <!-- boss online page begin -->

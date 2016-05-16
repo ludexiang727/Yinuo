@@ -28,4 +28,11 @@
     </style>
     <!-- home page end-->
 
+    <!-- popup window begin -->
+    <style name="PopupAnimation" mce_bogus="1" parent="android:Animation">
+        <item name="android:windowEnterAnimation">@anim/popup_enter_anim</item>
+        <item name="android:windowExitAnimation">@anim/popup_exit_anim</item>
+    </style>
+    <!-- popup window end-->
+
 </resources>

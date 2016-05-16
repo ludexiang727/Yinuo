@@ -7,17 +7,18 @@
         android:id="@+id/invest_wechat_edit_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentBottom="true">
+        android:layout_alignParentBottom="true"
+        android:layout_marginTop="@dimen/invest_wechat_send_padding_tb">
 
         <TextView
             android:id="@+id/invest_wechat_send"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:layout_alignBottom="@+id/invest_wechat_edit"
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:layout_marginBottom="@dimen/invest_wechat_send_padding_tb"
             android:layout_marginRight="@dimen/invest_wechat_send_margin_right"
-            android:layout_marginTop="@dimen/invest_wechat_send_padding_tb"
             android:background="@drawable/invest_wechat_send_selector"
             android:clickable="true"
             android:enabled="false"
@@ -34,8 +35,8 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/invest_wechat_edit_margin_left"
             android:layout_marginRight="@dimen/invest_wechat_edit_margin_right"
-            android:maxLines="6"
-            android:layout_toLeftOf="@id/invest_wechat_send" />
+            android:layout_toLeftOf="@id/invest_wechat_send"
+            android:maxLines="6" />
     </RelativeLayout>
 
     <com.yinuo.ui.component.widget.view.InvestWeChatListView

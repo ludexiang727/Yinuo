@@ -4,6 +4,7 @@
     android:layout_height="match_parent">
 
     <com.yinuo.ui.component.widget.view.PullToRefreshLayout
+        android:id="@+id/workspace_tenement_pull_refresh_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
