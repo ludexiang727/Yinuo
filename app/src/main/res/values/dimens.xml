@@ -134,6 +134,8 @@
     <dimen name="workspace_holder_yinuo_size">11sp</dimen>
     <dimen name="workspace_tenement_condition_margin">10dp</dimen>
     <dimen name="workspace_tenement_pop_window_y_offset">20dp</dimen>
+    <dimen name="workspace_tenement_items_margin_left">10dp</dimen>
+    <dimen name="workspace_tenement_items_name_size">14sp</dimen>
     <!-- workspace page end-->
 
     <!-- boss online page begin -->

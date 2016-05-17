@@ -320,5 +320,27 @@ public class DBHelper extends SQLiteOpenHelper {
         }
         return searchResult;
     }
+
+    public List<AddressModel> getAreaByCityId(int cityId) {
+        List<AddressModel> areaLists = new ArrayList<AddressModel>();
+        SQLiteDatabase db = getReadableDatabase();
+        StringBuilder builder = new StringBuilder();
+        builder.append(TABLE_PARAM_CITY_AREA_OF_CITY_ID).append(" = ? ");
+        Cursor cursor = db.query(TABLE_CITY_AREA_LISTS, null, builder.toString(), new String[]{ String.valueOf(cityId) }, null, null, null);
+        if (cursor != null) {
+            while (cursor.moveToNext()) {
+                AddressModel model = new AddressModel();
+                int areaId = cursor.getColumnIndexOrThrow(TABLE_PARAM_CITY_AREA_ID);
+                int areaName = cursor.getColumnIndexOrThrow(TABLE_PARAM_CITY_AREA_NAME);
+
+                model.setCityId(cursor.getInt(cityId));
+                model.setCityAreaId(cursor.getInt(areaId));
+                model.setCityAreaName(cursor.getString(areaName));
+
+                areaLists.add(model);
+            }
+        }
+        return areaLists;
+    }
     /** about address begin */
 }
