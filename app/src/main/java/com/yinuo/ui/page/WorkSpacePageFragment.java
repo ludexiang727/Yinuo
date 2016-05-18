@@ -15,6 +15,7 @@ import android.widget.TextView;
 import com.yinuo.R;
 import com.yinuo.base.BaseFragment;
 import com.yinuo.base.BaseObject;
+import com.yinuo.base.WebActivity;
 import com.yinuo.mode.WorkspaceOptionModel;
 import com.yinuo.mode.WorkspacePageModel;
 import com.yinuo.net.base.NetBaseObject;
@@ -30,11 +31,10 @@ import java.util.List;
 /**
  * Created by ludexiang on 2016/4/18.
  */
-public class WorkSpacePageFragment extends BaseFragment implements View.OnClickListener {
+public class WorkSpacePageFragment extends BaseFragment {
 
-//    private TextView mWorkSpaceShop;
-//    private TextView mWorkSpaceArea;
-//    private TextView mWorkSpaceMore;
+    private final int TENEMENT_HOUSE = 0x001;
+    private final int TENEMENT_SHOP = 0x002;
     private int mPageIndex = 1;
     // just request 30 items
     private final int PAGE_COUNT = 30;
@@ -72,15 +72,9 @@ public class WorkSpacePageFragment extends BaseFragment implements View.OnClickL
     @Override
     public void initialize(View view) {
         mLoading = (Loading) view.findViewById(R.id.workspace_page_loading);
-//        mWorkSpaceShop = (TextView) view.findViewById(R.id.workspace_page_shop);
-//        mWorkSpaceArea = (TextView) view.findViewById(R.id.workspace_page_area);
-//        mWorkSpaceMore = (TextView) view.findViewById(R.id.workspace_page_more);
         mWorkspaceRecycleView = (WorkspaceRecyclerView) view.findViewById(R.id.workspace_page_recycle_view);
         mWorkspaceOptionParent = (LinearLayout) view.findViewById(R.id.workspace_page_option_parent);
 
-//        mWorkSpaceShop.setOnClickListener(this);
-//        mWorkSpaceArea.setOnClickListener(this);
-//        mWorkSpaceMore.setOnClickListener(this);
         mWorkspaceRecycleView.setSwipeRefreshLayout(mSwipeRefreshLayout);
         mWorkspaceRecycleView.bindRecycleView(mLists);
     }
@@ -100,21 +94,6 @@ public class WorkSpacePageFragment extends BaseFragment implements View.OnClickL
         mHasLoadedOnce = false;
         isRefreshing = true;
         loadData();
-    }
-
-    @Override
-    public void onClick(View v) {
-//        switch (v.getId()) {
-//            case R.id.workspace_page_shop: {
-//                break;
-//            }
-//            case R.id.workspace_page_area: {
-//                break;
-//            }
-//            case R.id.workspace_page_more: {
-//                break;
-//            }
-//        }
     }
 
     @Override
@@ -165,7 +144,23 @@ public class WorkSpacePageFragment extends BaseFragment implements View.OnClickL
             switch (position) {
                 case 0: {
                     // workspace tenement
+                    intent.putExtra("type", TENEMENT_HOUSE);
                     intent.setClass(getContext(), WorkspaceTenementActivity.class);
+                    break;
+                }
+                case 1: {
+                    intent.putExtra("type", TENEMENT_SHOP);
+                    intent.setClass(getContext(), WorkspaceTenementActivity.class);
+                    break;
+                }
+                case 2: {
+                    // intent must add WebModel
+                    intent.setClass(getContext(), WebActivity.class);
+                    break;
+                }
+                case 3: {
+                    // intent must add WebModel
+                    intent.setClass(getContext(), WebActivity.class);
                     break;
                 }
             }

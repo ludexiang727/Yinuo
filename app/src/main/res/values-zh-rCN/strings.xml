@@ -22,7 +22,8 @@
         <item>伯乐在线</item>
         <item>更&#160;&#160;多</item>
     </string-array>-->
-
+    <string name="app_confirm">确定</string>
+    <string name="app_cancel">取消</string>
     <string name="home_page_card_details_attention">%1$s关注</string>
     <string name="home_page_detail_download">下载看看</string>
     <string name="home_page_detail_join">入伙</string>
@@ -93,4 +94,7 @@
     <string name="app_refresh_refresh_succeed">刷新成功</string>
     <string name="app_refresh_refresh_fail">刷新失败</string>
     <!-- refersh end -->
+
+    <string name="qrcode_permission">开启摄像头失败，请检查您的权限是否开启。</string>
+
 </resources>

@@ -18,6 +18,7 @@ import com.yinuo.mode.LoanGridViewModel;
 import com.yinuo.net.base.NetBaseObject;
 import com.yinuo.net.request.NetRequest;
 import com.yinuo.net.response.NetLoanPageObj;
+import com.yinuo.qrcode.view.MipcaActivityCapture;
 import com.yinuo.ui.component.widget.Loading;
 import com.yinuo.ui.component.widget.view.LoanGridView;
 import com.yinuo.ui.sub.loan.LoanApplyActivity;
@@ -158,6 +159,8 @@ public class LoanPageFragment extends BaseFragment implements IOnItemClickListen
 //                // MY_SCAN_REQUEST_CODE is arbitrary and is only used within this activity.
 ////                startActivityForResult(scanIntent, MY_SCAN_REQUEST_CODE);
 //                startActivity(scanIntent);
+                Intent intent = new Intent(getContext(), MipcaActivityCapture.class);
+                startActivity(intent);
                 break;
             }
             case R.id.loan_page_redbag_parent: {

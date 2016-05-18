@@ -75,4 +75,9 @@
     <color name="location_map_view_options_color">#CCFFFFFF</color>
     <color name="boss_online_about_traffic_color">#CC999999</color>
     <!-- location map view page end-->
+
+    <!-- qrcode - 二维码 -->
+    <color name="result_view">#b0000000</color>
+    <color name="viewfinder_mask">#60000000</color>
+    <color name="possible_result_points">#c0ffff00</color>
 </resources>

@@ -1,6 +1,7 @@
 package com.yinuo.ui.sub.workspace;
 
 import android.content.Context;
+import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.os.Handler;
@@ -42,6 +43,7 @@ public class WorkspaceTenementActivity <T extends BaseObject> extends BaseActivi
     private final int SHOW_POP_WINDOW_TIME = 300;
     private int mScreenHeight;
     private UiHandler mHandler = new UiHandler();
+    private int mType;
 
     private EditText mWorkspaceTenementEdit;
     private ImageView mWorkspaceTenementBack;
@@ -97,6 +99,8 @@ public class WorkspaceTenementActivity <T extends BaseObject> extends BaseActivi
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Intent intent = getIntent();
+        mType = intent.getIntExtra("type", 0);
         super.onCreate(savedInstanceState);
         mScreenHeight = AppUtils.obtainScreenWidthAndHeight(this)[1];
         mPopYOffset = ResUtils.getDimen(this, R.dimen.workspace_tenement_pop_window_y_offset);

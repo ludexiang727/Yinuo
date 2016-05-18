@@ -4,7 +4,6 @@
 
     <uses-permission android:name="android.permission.INTERNET"/>
     <uses-permission android:name="android.permission.VIBRATE"/>
-    <uses-permission android:name="android.permission.CAMERA"/>
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
     <uses-permission android:name="com.android.launcher.permission.READ_SETTINGS" />
     <uses-permission android:name="android.permission.WAKE_LOCK"/>
@@ -15,9 +14,12 @@
     <uses-permission android:name="android.permission.WRITE_SETTINGS" />
     <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
     <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.FLASHLIGHT" />
 
-    <uses-feature android:name="android.hardware.camera" android:required="false"/>
-    <uses-feature android:name="android.hardware.camera.autofocus" android:required="false"/>
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.camera.autofocus"/>
+    <uses-feature android:name="android.hardware.camera.flash" />
 
     <application
         android:name="com.yinuo.base.BaseApplication"
@@ -71,6 +73,9 @@
         <!--<activity android:name="io.card.payment.DataEntryActivity" android:screenOrientation="portrait"/>-->
 
         <!-- loan sub page being -->
+        <activity android:name=".qrcode.view.MipcaActivityCapture"
+            android:screenOrientation="portrait"/>
+
         <activity android:name=".ui.sub.loan.LoanVipUniqueActivity"
             android:screenOrientation="portrait"/>
         <activity android:name=".ui.sub.loan.LoanApplyActivity"
