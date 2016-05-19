@@ -49,8 +49,8 @@ public class WorkspaceTenementActivity <T extends BaseObject> extends BaseActivi
     private ImageView mWorkspaceTenementBack;
     private PullToRefreshLayout mPullRefreshLayout;
     private WorkspaceTenementListView mListView;
-    private TextView mConditionAreaView;
-    private TextView mConditionPriceView;
+    private TextView mConditionItem1View;
+    private TextView mConditionItem2View;
     private TextView mConditionMoreView;
 
     private View mPopView;
@@ -83,13 +83,23 @@ public class WorkspaceTenementActivity <T extends BaseObject> extends BaseActivi
 
         mWorkspaceTenementBack = (ImageView) titleView.findViewById(R.id.workspace_tenement_title_left);
         mWorkspaceTenementEdit = (EditText) titleView.findViewById(R.id.workspace_tenement_title_edit);
-        mConditionAreaView = (TextView) titleView.findViewById(R.id.workspace_tenement_condition_area);
-        mConditionPriceView = (TextView) titleView.findViewById(R.id.workspace_tenement_condition_price);
+        mConditionItem1View = (TextView) titleView.findViewById(R.id.workspace_tenement_condition_item1);
+        mConditionItem2View = (TextView) titleView.findViewById(R.id.workspace_tenement_condition_item2);
         mConditionMoreView = (TextView) titleView.findViewById(R.id.workspace_tenement_condition_more);
         mWorkspaceTenementBack.setOnClickListener(this);
-        mConditionAreaView.setOnClickListener(this);
-        mConditionPriceView.setOnClickListener(this);
+        mConditionItem1View.setOnClickListener(this);
+        mConditionItem2View.setOnClickListener(this);
         mConditionMoreView.setOnClickListener(this);
+
+        if (mType == 1) {
+            // tenement house
+            mConditionItem1View.setText(R.string.workspace_tenement_condition_area);
+            mConditionItem2View.setText(R.string.workspace_tenement_condition_price);
+        } else if (mType == 2) {
+            // tenement shop
+            mConditionItem1View.setText(R.string.workspace_tenement_condition_shop);
+            mConditionItem2View.setText(R.string.workspace_tenement_condition_area);
+        }
 
         int width = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
         int height = View.MeasureSpec.makeMeasureSpec(0, View.MeasureSpec.UNSPECIFIED);
@@ -100,7 +110,7 @@ public class WorkspaceTenementActivity <T extends BaseObject> extends BaseActivi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         Intent intent = getIntent();
-        mType = intent.getIntExtra("type", 0);
+        mType = intent.getIntExtra("type", 1);
         super.onCreate(savedInstanceState);
         mScreenHeight = AppUtils.obtainScreenWidthAndHeight(this)[1];
         mPopYOffset = ResUtils.getDimen(this, R.dimen.workspace_tenement_pop_window_y_offset);
@@ -144,24 +154,33 @@ public class WorkspaceTenementActivity <T extends BaseObject> extends BaseActivi
                 finish();
                 break;
             }
-            case R.id.workspace_tenement_condition_area: {
+            case R.id.workspace_tenement_condition_item1: {
                 if (mPopHelper.isShowing()) {
                     heightAnim(true);
                 } else {
                     heightAnim(false);
                 }
-                List<AddressModel> models = mDBHelper.getAreaByCityId(1);
-                Message msg = mHandler.obtainMessage();
-                msg.obj = models;
-                msg.what = mHandler.NOTIFY_AREA_SUCCESS;
-                msg.sendToTarget();
+                if (mType == 1) {
+                    List<AddressModel> models = mDBHelper.getAreaByCityId(1);
+                    Message msg = mHandler.obtainMessage();
+                    msg.obj = models;
+                    msg.what = mHandler.NOTIFY_AREA_SUCCESS;
+                    msg.sendToTarget();
+                }
                 break;
             }
-            case R.id.workspace_tenement_condition_price: {
+            case R.id.workspace_tenement_condition_item2: {
                 if (mPopHelper.isShowing()) {
                     heightAnim(true);
                 } else {
                     heightAnim(false);
+                }
+                if (mType == 2) {
+                    List<AddressModel> models = mDBHelper.getAreaByCityId(1);
+                    Message msg = mHandler.obtainMessage();
+                    msg.obj = models;
+                    msg.what = mHandler.NOTIFY_AREA_SUCCESS;
+                    msg.sendToTarget();
                 }
                 break;
             }

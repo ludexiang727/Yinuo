@@ -35,8 +35,6 @@ public class PartnerViewPager extends ViewPager {
         super(context, attrs);
 
         mAdapter = new ViewpagerAdapter();
-
-        setCurrentItem(0);
     }
 
     public <T extends BaseRecyclerView> void setViews(List<T> views) {

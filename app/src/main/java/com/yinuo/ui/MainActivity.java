@@ -65,6 +65,7 @@ public class MainActivity extends BaseParentActivity {
         mPages.add(bossPage);
         mPages.add(morePage);
 
+        // viewpager pre load data
         mViewPager.setOffscreenPageLimit(1);
         mPagerAdapter.setFragments(mPages, mTabTitle);
         mViewPager.setAdapter(mPagerAdapter);

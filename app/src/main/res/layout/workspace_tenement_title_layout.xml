@@ -20,6 +20,9 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="@dimen/app_title_parent_margin"
             android:layout_marginRight="@dimen/app_title_parent_margin"
+            android:layout_marginTop="@dimen/app_title_parent_margin"
+            android:textSize="@dimen/workspace_tenement_edit_size"
+            android:textColor="@color/workspace_tenement_edit_color"
             android:layout_toRightOf="@id/workspace_tenement_title_left"/>
     </RelativeLayout>
 
@@ -28,28 +31,30 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="@dimen/workspace_tenement_condition_margin"
-        android:layout_marginBottom="@dimen/workspace_tenement_condition_margin"
         android:layout_below="@id/workspace_tenement_title_parent">
         <TextView
-            android:id="@+id/workspace_tenement_condition_area"
+            android:id="@+id/workspace_tenement_condition_item1"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:clickable="true"
             android:gravity="center"
             android:textColor="@android:color/white"
-            android:text="@string/workspace_tenement_condition_area"/>
+            android:paddingTop="@dimen/workspace_tenement_condition_margin"
+            android:paddingBottom="@dimen/workspace_tenement_condition_margin"
+            android:background="@drawable/workspace_tenement_condition_selector"/>
 
         <TextView
-            android:id="@+id/workspace_tenement_condition_price"
+            android:id="@+id/workspace_tenement_condition_item2"
             android:layout_width="0dp"
-            android:layout_height="wrap_content"
+            android:layout_height="match_parent"
             android:layout_weight="1"
             android:clickable="true"
             android:gravity="center"
             android:textColor="@android:color/white"
-            android:text="@string/workspace_tenement_condition_price"/>
+            android:paddingTop="@dimen/workspace_tenement_condition_margin"
+            android:paddingBottom="@dimen/workspace_tenement_condition_margin"
+            android:background="@drawable/workspace_tenement_condition_selector"/>
 
         <TextView
             android:id="@+id/workspace_tenement_condition_more"
@@ -59,6 +64,9 @@
             android:clickable="true"
             android:gravity="center"
             android:textColor="@android:color/white"
-            android:text="@string/workspace_tenement_condition_more"/>
+            android:text="@string/workspace_tenement_condition_more"
+            android:paddingTop="@dimen/workspace_tenement_condition_margin"
+            android:paddingBottom="@dimen/workspace_tenement_condition_margin"
+            android:background="@drawable/workspace_tenement_condition_selector"/>
     </LinearLayout>
 </merge>

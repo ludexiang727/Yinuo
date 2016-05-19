@@ -44,16 +44,25 @@ public class HomePageRecyclerViewAdapter<T extends BaseObject> extends BaseRecyc
 
     @Override
     public void onBindViewHolder(RecyclerViewHolder holder, int position) {
-        bindView(holder, position);
+        if (getItemViewType(position) == TYPE_HEADER) {
+            return;
+        }
+        int pos = getRealPosition(holder);
+        bindView(holder, pos);
     }
 
     @Override
     public int getItemCount() {
-        return mBindData != null ? mBindData.size() : 0;
+        return mHeaderView == null
+                ? mBindData != null ? mBindData.size() : 0
+                : mBindData != null ? mBindData.size() + 1 : 1;
     }
 
     @Override
     public HomeViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        if (mHeaderView != null && viewType == TYPE_HEADER) {
+            return new HomeViewHolder(mHeaderView);
+        }
         View view = mInflater.inflate(R.layout.home_page_listview_sub_layout, null);
         HomeViewHolder holder = new HomeViewHolder(view);
         view.setOnClickListener(holder);
@@ -62,8 +71,8 @@ public class HomePageRecyclerViewAdapter<T extends BaseObject> extends BaseRecyc
 
     @Override
     public <E extends RecyclerViewHolder> void bindView(E parentHolder, int position) {
-        final HomeViewHolder holder = (HomeViewHolder) parentHolder;
         if (mBindData != null && position < mBindData.size() && mBindData.get(position) instanceof HomePageDataModel) {
+            final HomeViewHolder holder = (HomeViewHolder) parentHolder;
             HomePageDataModel bind = (HomePageDataModel) mBindData.get(position);
             loadImage(bind.getImgURL(), holder.cardImg);
             holder.cardTitle.setText(bind.getTitle());
@@ -91,6 +100,9 @@ public class HomePageRecyclerViewAdapter<T extends BaseObject> extends BaseRecyc
 
         public HomeViewHolder(View view) {
             super(view);
+            if (view == mHeaderView) {
+                return;
+            }
 
             cardImg = (ImageView) view.findViewById(R.id.home_page_card_img);
             cardCollection = (ImageView) view.findViewById(R.id.home_page_card_detail_option_collection);

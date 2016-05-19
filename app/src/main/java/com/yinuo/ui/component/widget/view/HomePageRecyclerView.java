@@ -23,7 +23,7 @@ import java.util.List;
 public class HomePageRecyclerView extends BaseRecyclerView {
     private HomePageRecyclerViewAdapter mPageAdapter;
     private Context mContext;
-    private FlipperViewGroup mFlipperViewGroup;
+
     private IDynamicLoadListener mDynamicLoadListener;
     private ITransationSceneListener mSceneListener;
     private SwipeRefreshLayout mSwipeRefreshLayout;
@@ -41,8 +41,7 @@ public class HomePageRecyclerView extends BaseRecyclerView {
 
         mContext = context;
         mPageAdapter = new HomePageRecyclerViewAdapter(mContext);
-        View headerView = View.inflate(mContext, R.layout.home_page_listview_headerview_layout, null);
-        mFlipperViewGroup = (FlipperViewGroup) headerView.findViewById(R.id.home_page_listview_viewgroup);
+
 //        addHeaderView(headerView);
 //        setOnItemClickListener(this);
 //        setOnScrollListener(this);
@@ -73,7 +72,7 @@ public class HomePageRecyclerView extends BaseRecyclerView {
 //    }
 
     public void setBanners(List<HomePageBannersModel> banners) {
-        mFlipperViewGroup.setFlipperView(banners);
+        mPageAdapter.setBanners(banners);
     }
 
     @Override

@@ -20,7 +20,7 @@
                 app:contentScrim="@color/colorPrimary"
                 app:expandedTitleMarginStart="48dp"
                 app:layout_scrollFlags="scroll|exitUntilCollapsed">
-                <com.yinuo.ui.component.widget.view.FlipperViewGroup
+                <com.yinuo.ui.component.widget.view.common.FlipperViewGroup
                     android:id="@+id/home_page_detail_flipper_viewgroup"
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"

@@ -66,6 +66,7 @@ public class HomePageFragment extends BaseFragment {
         mListView.bindRecycleView(mCardLists);
         mListView.setListener(this, this);
         mListView.getRecyclerAdapter().setOnItemClickListener(this);
+        mListView.setBanners(mBanners);
     }
 
     @Override
@@ -90,6 +91,11 @@ public class HomePageFragment extends BaseFragment {
             NetHomePageObj obj = (NetHomePageObj) object;
             mDataCount = obj.getDataTotalCount();
             List<HomePageDataModel> cards = obj.getModeLists();
+            if (/*mBanners.size() == 0 && */obj.getHomePageBanners() != null) {
+                mBanners.clear();
+                mBanners.addAll(obj.getHomePageBanners());
+                mHandler.sendEmptyMessage(UIHandler.NOTIFY_HEADER_BANNERS);
+            }
             if (mCardLists != null && mCardLists.size() > 0 && mPageIndex == 1) {
                 mCardLists.clear();
                 mHandler.sendEmptyMessage(UIHandler.NOTIFY_REFRESH_FINISHED);
@@ -97,11 +103,7 @@ public class HomePageFragment extends BaseFragment {
             if (cards != null) {
                 mCardLists.addAll(cards);
             }
-            if (/*mBanners.size() == 0 && */obj.getHomePageBanners() != null) {
-                mBanners.clear();
-                mBanners.addAll(obj.getHomePageBanners());
-                mHandler.sendEmptyMessage(UIHandler.NOTIFY_HEADER_BANNERS);
-            }
+
 
             mHandler.sendEmptyMessage(UIHandler.NOTIFY_DATA_CHANGED);
         }

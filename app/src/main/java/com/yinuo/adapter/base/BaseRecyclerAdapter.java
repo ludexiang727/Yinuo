@@ -7,15 +7,37 @@ import android.widget.ImageView;
 
 import com.nostra13.universalimageloader.core.assist.FailReason;
 import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
+import com.yinuo.R;
+import com.yinuo.base.BaseApplication;
 import com.yinuo.listener.IOnItemClickListener;
 import com.yinuo.helper.ImageLoaderHelper;
+import com.yinuo.mode.HomePageBannersModel;
+import com.yinuo.ui.component.widget.view.common.FlipperViewGroup;
+import com.yinuo.ui.component.widget.view.common.IndicatorView;
+
+import java.util.List;
 
 /**
  * Created by ludexiang on 2016/4/18.
  */
 public abstract class BaseRecyclerAdapter extends RecyclerView.Adapter<RecyclerViewHolder> {
+    protected final int TYPE_HEADER = 0;
+    protected final int TYPE_NORMAL = 1;
+    protected View mHeaderView;
+    private List<HomePageBannersModel> mBanners;
 
     protected abstract <E extends RecyclerViewHolder> void bindView(E holder, int position);
+
+    @Override
+    public int getItemViewType(int position) {
+        if (mHeaderView == null) {
+            return TYPE_NORMAL;
+        }
+        if (position == 0) {
+            return TYPE_HEADER;
+        }
+        return TYPE_NORMAL;
+    }
 
     protected IOnItemClickListener iClickListener;
 
@@ -37,7 +59,7 @@ public abstract class BaseRecyclerAdapter extends RecyclerView.Adapter<RecyclerV
 
             @Override
             public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
-                if (loadedImage != null) {
+                if (loadedImage != null && imageView != null) {
                     imageView.setImageBitmap(loadedImage);
                 }
             }
@@ -47,5 +69,22 @@ public abstract class BaseRecyclerAdapter extends RecyclerView.Adapter<RecyclerV
 
             }
         });
+    }
+
+    public void setBanners(List<HomePageBannersModel> banners) {
+        mBanners = banners;
+        if (mBanners != null && mBanners.size() > 0) {
+            mHeaderView = View.inflate(BaseApplication.getInstance().getContext(), R.layout.listview_headerview_layout, null);
+            FlipperViewGroup flipperViewGroup = (FlipperViewGroup) mHeaderView.findViewById(R.id.app_header_listview_viewgroup);
+            IndicatorView indicatorView = (IndicatorView) mHeaderView.findViewById(R.id.app_header_list_indicator);
+            flipperViewGroup.setIndicator(indicatorView);
+            flipperViewGroup.setFlipperView(banners);
+        }
+    }
+
+    /** 添加header之后要重新计算position*/
+    public int getRealPosition(RecyclerViewHolder holder) {
+        int position = holder.getLayoutPosition();
+        return mHeaderView == null ? position : position - 1;
     }
 }

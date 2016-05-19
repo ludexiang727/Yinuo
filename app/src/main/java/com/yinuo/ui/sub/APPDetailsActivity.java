@@ -23,7 +23,7 @@ import com.yinuo.mode.HomeItemDetailBannerModel;
 import com.yinuo.net.base.NetBaseObject;
 import com.yinuo.net.request.NetRequest;
 import com.yinuo.net.response.NetHomePageDetailsObj;
-import com.yinuo.ui.component.widget.view.FlipperViewGroup;
+import com.yinuo.ui.component.widget.view.common.FlipperViewGroup;
 import com.yinuo.ui.component.widget.view.FloatingOptionView;
 import com.yinuo.ui.component.widget.view.IconRoundCornerProgressBar;
 import com.yinuo.utils.AppUtils;

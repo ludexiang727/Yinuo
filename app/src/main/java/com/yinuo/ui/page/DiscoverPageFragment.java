@@ -66,6 +66,7 @@ public class DiscoverPageFragment extends BaseFragment {
         mRecycleView = (DiscoverRecyclerView) view.findViewById(R.id.discover_recycle_view);
         mRecycleView.setSwipeRefreshLayout(mSwipeRefreshLayout);
         mNavScrollViewParent = (LinearLayout) view.findViewById(R.id.discover_navigation_parent_layout);
+        postOptions();
         mRecycleView.bindRecycleView(mRecycleLists);
         mRecycleView.getRecyclerAdapter().setOnItemClickListener(this);
     }
@@ -109,16 +110,7 @@ public class DiscoverPageFragment extends BaseFragment {
                     NetDiscoveryPageObj discovery = (NetDiscoveryPageObj) msg.obj;
                     mNavDefaultChoose = discovery.getDiscoveryNavDefault();
                     mNavScrollViews = discovery.getDiscoveryNavScrollView();
-                    if (mNavScrollViews != null) {
-                        if (mNavScrollViewParent.getChildCount() > 0) {
-                            mNavScrollViewParent.removeAllViews();
-                        }
-                        for (int i = 0; i < mNavScrollViews.length; ++i) {
-                            DiscoverNavView navView = new DiscoverNavView(DiscoverPageFragment.this.getContext());
-                            navView.setNavText(mNavScrollViews[i], i == mNavDefaultChoose);
-                            mNavScrollViewParent.addView(navView, i);
-                        }
-                    }
+                    postOptions();
                     List<DiscoveryRecycleModel> models = discovery.getDiscoveryLists();
                     if (mPageIndex == 1) {
                         mRecycleLists.clear();
@@ -129,6 +121,19 @@ public class DiscoverPageFragment extends BaseFragment {
                     mRecycleView.getAdapter().notifyDataSetChanged();
                     break;
                 }
+            }
+        }
+    }
+
+    private void postOptions() {
+        if (mNavScrollViews != null) {
+            if (mNavScrollViewParent.getChildCount() > 0) {
+                mNavScrollViewParent.removeAllViews();
+            }
+            for (int i = 0; i < mNavScrollViews.length; ++i) {
+                DiscoverNavView navView = new DiscoverNavView(DiscoverPageFragment.this.getContext());
+                navView.setNavText(mNavScrollViews[i], i == mNavDefaultChoose);
+                mNavScrollViewParent.addView(navView, i);
             }
         }
     }

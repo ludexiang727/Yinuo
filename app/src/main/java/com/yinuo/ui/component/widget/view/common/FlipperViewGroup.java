@@ -1,4 +1,4 @@
-package com.yinuo.ui.component.widget.view;
+package com.yinuo.ui.component.widget.view.common;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -55,7 +55,7 @@ public class FlipperViewGroup extends ViewGroup implements Runnable {
 	private boolean mAllowLongPress = true;
 
 	// mark current image size , now is test so mSize is fixed
-	private int mSize = 1;
+	private int mSize = 0;
 	private ScreenHelper mScreenHelper;
 	private Duration tDuration = Duration.DURATION_NONE;
 
@@ -65,7 +65,7 @@ public class FlipperViewGroup extends ViewGroup implements Runnable {
 
 	private Duration duration = Duration.DURATION_NONE;
 
-//	private IndicatorView mIndicatorView;
+	private IndicatorView mIndicatorView;
 	private boolean autoFlipping = false;
 	private static final int SLEEP_TIME = 500;
 	private Thread autoFlippingThread = new Thread(this);
@@ -99,9 +99,13 @@ public class FlipperViewGroup extends ViewGroup implements Runnable {
 		for (int i = 0; i < mSize; ++i) {
 			getChildAt(i).measure(widthMeasureSpec, heightMeasureSpec);
 		}
-		
 
 		setMeasuredDimension(width, height);
+        if (mIndicatorView != null) {
+            // app detail page without indicator
+            mIndicatorView.addDotView(mSize);
+            mIndicatorView.snapToScreen(mCurrentScreen);
+        }
 	}
 
 	@Override
@@ -268,9 +272,9 @@ public class FlipperViewGroup extends ViewGroup implements Runnable {
 		if (mScroller.computeScrollOffset()) {
 			scrollTo(mScroller.getCurrX(), mScroller.getCurrY());
 			if (Math.abs(getScrollX()) >= mParentWidth / 2) {
-//				if (mIndicatorView != null) {
-//					mIndicatorView.snapToScreen(mNextScreen);
-//				}
+				if (mIndicatorView != null) {
+					mIndicatorView.snapToScreen(mNextScreen);
+				}
 			}
 			postInvalidate();
 		} else if (mNextScreen != INVALID_SCREEN) {
@@ -647,11 +651,9 @@ public class FlipperViewGroup extends ViewGroup implements Runnable {
 		}
 	}
 
-//	public void setIndicator(IndicatorView indicator) {
-//		mIndicatorView = indicator;
-//		mIndicatorView.addDotView(mSize);
-//		mIndicatorView.snapToScreen(mCurrentScreen);
-//	}
+	public void setIndicator(IndicatorView indicator) {
+		mIndicatorView = indicator;
+	}
 
 	private void addVelocityTracker(MotionEvent event) {
 		if (mVelocityTracker == null) {
@@ -669,6 +671,9 @@ public class FlipperViewGroup extends ViewGroup implements Runnable {
 
 	/** add flipper child */
 	public <T extends BaseObject> void setFlipperView(List<T> banners) {
+        if (getChildCount() > 0) {
+            removeAllViews();
+        }
 		mSize = banners.size();
 		isLayout = false;
 		for (int i = 0; i < banners.size(); ++i) {

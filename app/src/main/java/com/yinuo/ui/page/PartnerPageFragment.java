@@ -34,6 +34,7 @@ import java.util.List;
  */
 public class PartnerPageFragment extends BaseFragment implements PartnerConditionView.IConditionListener, ViewPager.OnPageChangeListener {
     private int mPageIndex = 1;
+    private int mInvestPageIndex = 1;
     private final int PAGE_COUNT = 10;
     private int mPartnerCount;
     private int mInvestCount;
@@ -101,6 +102,8 @@ public class PartnerPageFragment extends BaseFragment implements PartnerConditio
 
         mViewPager.setViews(mRecyclerViews);
         mViewPager.setOnPageChangeListener(this);
+        mViewPager.setCurrentItem(mCurrentPosition);
+        onConditionClick(mCurrentPosition);
     }
 
     @Override
@@ -112,13 +115,18 @@ public class PartnerPageFragment extends BaseFragment implements PartnerConditio
         if (mCondition == 0 && mViewPager.getCurrentItem() == 0) {
             NetRequest.getInstance().requestPartnerPageData(mPageIndex, PAGE_COUNT, 0, mCondition, this);
         } else if (mCondition == 1 && mViewPager.getCurrentItem() == 1) {
-            NetRequest.getInstance().requestInvestPageData(mPageIndex, PAGE_COUNT, this);
+            NetRequest.getInstance().requestInvestPageData(mInvestPageIndex, PAGE_COUNT, this);
         }
     }
 
     @Override
     public void onRefresh() {
-        mPageIndex = 1;
+        if (mCurrentPosition == 0) {
+            mPageIndex = 1;
+        } else if (mCurrentPosition == 1) {
+            mInvestPageIndex = 1;
+        }
+        mHasLoadedOnce = false;
         loadData();
     }
 
@@ -126,13 +134,11 @@ public class PartnerPageFragment extends BaseFragment implements PartnerConditio
     public void onSuccess(NetBaseObject object) {
         super.onSuccess(object);
         if (object instanceof NetPartnerPageObj) {
-            mHasLoadedOnce = true;
             NetPartnerPageObj obj = (NetPartnerPageObj) object;
             Message msg = mHandler.obtainMessage(mHandler.PARTNER_NOTIFY_SUCCESS);
             msg.obj = obj;
             msg.sendToTarget();
         } else if (object instanceof NetInvestPageObj) {
-            mHasLoadedOnce = true;
             NetInvestPageObj obj = (NetInvestPageObj) object;
             Message msg = mHandler.obtainMessage();
             msg.what = mHandler.INVEST_NOTIFY_SUCCESS;
@@ -154,7 +160,7 @@ public class PartnerPageFragment extends BaseFragment implements PartnerConditio
         public void handleMessage(Message msg) {
             super.handleMessage(msg);
             mLoading.dismiss();
-            if (mPageIndex == 1) {
+            if (mPageIndex == 1 || mInvestPageIndex == 1) {
                 mSwipeRefreshLayout.setRefreshing(false);
             }
             switch (msg.what) {
@@ -163,6 +169,9 @@ public class PartnerPageFragment extends BaseFragment implements PartnerConditio
                     if (obj != null) {
                         mPartnerCount = obj.getModelCount();
                         List<PartnerRecyclerModel> lists = obj.getModels();
+                        if (mPageIndex == 1 && mPartnerModels.size() > 0) {
+                            mPartnerModels.clear();
+                        }
                         if (lists != null) {
                             mPartnerModels.addAll(lists);
                             mPartnerRecyclerView.getRecyclerAdapter().notifyDataSetChanged();
@@ -175,6 +184,9 @@ public class PartnerPageFragment extends BaseFragment implements PartnerConditio
                     if (obj != null) {
                         mInvestCount = obj.getCount();
                         List<InvestPageDataModel> lists = obj.getModels();
+                        if (mInvestPageIndex == 1 && mInvestModels.size() > 0) {
+                            mInvestModels.clear();
+                        }
                         if (lists != null) {
                             mInvestModels.addAll(lists);
                             mInvestRecyclerView.getRecyclerAdapter().notifyDataSetChanged();
@@ -182,6 +194,10 @@ public class PartnerPageFragment extends BaseFragment implements PartnerConditio
                     }
                     break;
                 }
+            }
+
+            if (mPartnerModels.size() > 0 && mInvestModels.size() > 0) {
+                mHasLoadedOnce = true;
             }
         }
     }

@@ -10,4 +10,5 @@
 
     <drawable name="boss_online_work_item_selector_select">#A0E3E3E3</drawable>
     <drawable name="boss_online_work_item_selector_normal">#FFFFFFFF</drawable>
+    <drawable name="workspace_tenement_condition_pressed">#20FFFFFF</drawable>
 </resources>

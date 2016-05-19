@@ -77,6 +77,7 @@ public class WorkSpacePageFragment extends BaseFragment {
 
         mWorkspaceRecycleView.setSwipeRefreshLayout(mSwipeRefreshLayout);
         mWorkspaceRecycleView.bindRecycleView(mLists);
+        postOptions();
     }
 
     @Override
@@ -120,6 +121,9 @@ public class WorkSpacePageFragment extends BaseFragment {
     }
 
     private void postOptions() {
+        if (mWorkspaceOptionParent.getChildCount() > 0 && mOptions.size() > 0) {
+            mWorkspaceOptionParent.removeAllViews();
+        }
         LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(0, LinearLayout.LayoutParams.WRAP_CONTENT);
         params.gravity = Gravity.CENTER;
         params.weight = 1;

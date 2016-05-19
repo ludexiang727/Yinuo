@@ -25,6 +25,8 @@
     <dimen name="app_splash_skip_size">10sp</dimen>
     <dimen name="app_splash_skip_padding_lr">10dp</dimen>
     <dimen name="app_splash_skip_padding_tb">5dp</dimen>
+    <dimen name="app_header_indicator_padding">3dp</dimen>
+    <dimen name="app_header_indicator_margin_bottom">5dp</dimen>
 
     <!-- home page begin -->
     <dimen name="home_page_card_view_margin">0dp</dimen>
@@ -136,6 +138,7 @@
     <dimen name="workspace_tenement_pop_window_y_offset">20dp</dimen>
     <dimen name="workspace_tenement_items_margin_left">10dp</dimen>
     <dimen name="workspace_tenement_items_name_size">14sp</dimen>
+    <dimen name="workspace_tenement_edit_size">14sp</dimen>
     <!-- workspace page end-->
 
     <!-- boss online page begin -->
