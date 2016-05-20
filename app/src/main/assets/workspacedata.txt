@@ -25,36 +25,45 @@
     ],
     "workspace_page_lists":[
         {
+            "workspace_list_id":10001,
+            "workspace_list_img":"http://www.114offices.com/buildingphoto/zst2009102511855_2.jpg",
+            "workspace_list_title":"朝外SOHO",
+            "workspace_list_tags":"建国门,CBD",
+            "workspace_list_location":"朝阳",
+            "workspace_list_extra":"320平米",
+            "workspace_list_price":"3 元/平米·天"
+        },
+        {
             "workspace_list_id":10002,
-            "workspace_list_img":"",
-            "workspace_list_title":"test1",
-            "workspace_list_tags":"学校,物美",
+            "workspace_list_img":"http://www.xfzx.org/d/file/20130930/8a048d2bf7aed2501017551158336d54.jpg",
+            "workspace_list_title":"【融科资讯中心】凸显公司形象彰显不凡",
+            "workspace_list_tags":"学校,物美,融科资讯中心",
             "workspace_list_location":"海淀",
             "workspace_list_extra":"",
             "workspace_list_price":"3 元/平米·天"
         },
         {
             "workspace_list_id":10003,
-            "workspace_list_img":"",
-            "workspace_list_title":"test2",
-            "workspace_list_tags":"龙旗广场",
+            "workspace_list_img":"http://bbs.soupu.com/upload/2013/2/2810575070.jpg",
+            "workspace_list_title":"龙旗广场",
+            "workspace_list_tags":"龙旗广场,永辉,物美",
             "workspace_list_location":"昌平",
             "workspace_list_extra":"1000 平米",
             "workspace_list_price":"2 元/平米·天"
         },
         {
             "workspace_list_id":10004,
-            "workspace_list_img":"",
-            "workspace_list_title":"test3",
-            "workspace_list_tags":"永辉,物美,龙旗广场",
-            "workspace_list_location":"",
+            "workspace_list_img":"http://img3.douban.com/view/group_topic/large/public/p32324381.jpg",
+            "workspace_list_title":"望京SOHO - 艺术的建筑，彰显不凡的品质",
+            "workspace_list_tags":"望京SOHO",
+            "workspace_list_location":"望京",
             "workspace_list_extra":"200 平米",
             "workspace_list_price":"6.5 元/平米·天"
         },
         {
             "workspace_list_id":10005,
-            "workspace_list_img":"",
-            "workspace_list_title":"test4",
+            "workspace_list_img":"http://img6.hfhouse.com/news/content/2014-03-28/0479863001395978024.jpg",
+            "workspace_list_title":"富尔大厦",
             "workspace_list_tags":"CBD,繁华地段",
             "workspace_list_location":"朝阳-金台夕照",
             "workspace_list_extra":"600平米",
@@ -62,8 +71,8 @@
         },
         {
             "workspace_list_id":10006,
-            "workspace_list_img":"",
-            "workspace_list_title":"test5",
+            "workspace_list_img":"http://img6.hfhouse.com/news/content/2014-03-21/0681903001395388609.jpg",
+            "workspace_list_title":"房山super蜂巢",
             "workspace_list_tags":"物美价廉",
             "workspace_list_location":"丰台",
             "workspace_list_extra":"1200 平米",
@@ -71,10 +80,37 @@
         },
         {
             "workspace_list_id":10007,
-            "workspace_list_img":"",
-            "workspace_list_title":"test6",
-            "workspace_list_tags":"北京大学,13号线",
+            "workspace_list_img":"http://img6.hfhouse.com/news/content/2014-11-21/0007952001416539788.jpg",
+            "workspace_list_title":"E世界",
+            "workspace_list_tags":"北京大学,13号线,中关村",
             "workspace_list_location":"海淀-五道口",
+            "workspace_list_extra":"300 平米,周边繁华",
+            "workspace_list_price":"2 元/平米·天"
+        },
+        {
+            "workspace_list_id":10008,
+            "workspace_list_img":"http://user.sjfzxm.com/mall/upload/2011/5/18/1855467968ZR7U1.jpg",
+            "workspace_list_title":"北京新世界",
+            "workspace_list_tags":"新世界中心",
+            "workspace_list_location":"崇文 崇文门",
+            "workspace_list_extra":"300 平米,周边繁华",
+            "workspace_list_price":"2 元/平米·天"
+        },
+        {
+            "workspace_list_id":10009,
+            "workspace_list_img":"http://jiaju.fyigou.com/uploads/allimg/c141128/141G0H43232P-L0S.jpg",
+            "workspace_list_title":"北京财富中心",
+            "workspace_list_tags":"东三环,CBD",
+            "workspace_list_location":"朝阳",
+            "workspace_list_extra":"300 平米,周边繁华",
+            "workspace_list_price":"2 元/平米·天"
+        },
+        {
+            "workspace_list_id":10010,
+            "workspace_list_img":"http://www.ttzs-office.com/uploads/allimg/130828/1-130RQJ40V43.jpg",
+            "workspace_list_title":"国贸京广桥",
+            "workspace_list_tags":"国贸",
+            "workspace_list_location":"朝阳",
             "workspace_list_extra":"300 平米,周边繁华",
             "workspace_list_price":"2 元/平米·天"
         }
