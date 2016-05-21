@@ -13,7 +13,7 @@
 		{    "banners_image_url":"http://f.hiphotos.baidu.com/baike/c0%3Dbaike80%2C5%2C5%2C80%2C26/sign=7daf3d1d31adcbef15397654cdc645b8/b7fd5266d01609240615a6c2d40735fae6cd3432.jpg",
 		     "banners_redirect_url":"http://www.tencent.com"
 		},
-		{    "banners_image_url": "http://www.bkill.com/u/info_img/2012-09/02/2012083116140516694.jpg",
+		{    "banners_image_url": "http://b.hiphotos.baidu.com/baike/c0%3Dbaike80%2C5%2C5%2C80%2C26/sign=6f6a6e520e2442a7ba03f5f7b02ac62e/6159252dd42a2834c5a062da5ab5c9ea14cebfd9.jpg",
 		     "banners_redirect_url":"http://www.163.com"
 		}
   ],
