@@ -74,7 +74,6 @@
                     android:layout_height="wrap_content"
                     android:singleLine="true"
                     android:ellipsize="end"
-                    android:text="titleaabcdefghijklmnopqrstuvwxyz"
                     style="@style/HomePageCardTitle"
                     android:layout_toLeftOf="@id/home_page_card_detail_options_layout"/>
             </RelativeLayout>
@@ -84,14 +83,16 @@
                 android:id="@+id/home_page_card_detail_tags_layout"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal"/>
+                android:orientation="horizontal"
+                android:layout_marginTop="@dimen/home_page_card_tags_layout_margin"
+                android:layout_marginBottom="@dimen/home_page_card_tags_layout_margin"/>
 
             <!-- information about the apk -->
             <TextView
                 android:id="@+id/home_page_card_detail_summary"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:text="summary a summary abc summary cd summary d summary summary summary summary summary summary summary summary summary summary summary summary ..."/>
+                android:textSize="@dimen/home_page_card_summary_size"/>
         </LinearLayout>
     </RelativeLayout>
 </FrameLayout>

@@ -4,13 +4,13 @@
   "home_page_data_count":40,
   "home_page_banners":[
         {            
-		    "banners_image_url":"http://cdn.duitang.com/uploads/blog/201308/18/20130818150526_Ru2Bk.thumb.600_0.png",
+		    "banners_image_url":"http://b.hiphotos.baidu.com/baike/c0%3Dbaike116%2C5%2C5%2C116%2C38/sign=2378fc1a08d79123f4ed9c26cc5d32e7/b8389b504fc2d5626ccd7cffe31190ef77c66cdf.jpg",
 			"banners_redirect_url":"http://www.baidu.com"
 		},
-		{    "banners_image_url":"http://img1.touxiang.cn/uploads/20120902/02-055331_356.jpg",
-		     "banners_redirect_url":"http://www.sina.com"
+		{    "banners_image_url":"http://b.hiphotos.baidu.com/baike/c0%3Dbaike272%2C5%2C5%2C272%2C90/sign=797973e866380cd7f213aabfc02dc651/2e2eb9389b504fc21c653c5de6dde71190ef6db4.jpg",
+		     "banners_redirect_url":"http://www.douyu.com/"
 		},
-		{    "banners_image_url":"http://www.qqbody.com/uploads/allimg/201302/20-143539_945.jpg",
+		{    "banners_image_url":"http://f.hiphotos.baidu.com/baike/c0%3Dbaike80%2C5%2C5%2C80%2C26/sign=7daf3d1d31adcbef15397654cdc645b8/b7fd5266d01609240615a6c2d40735fae6cd3432.jpg",
 		     "banners_redirect_url":"http://www.tencent.com"
 		},
 		{    "banners_image_url": "http://www.bkill.com/u/info_img/2012-09/02/2012083116140516694.jpg",
@@ -19,69 +19,84 @@
   ],
   "home_page_lists":[
       {
-	    "card_img":"http://img1.touxiang.cn/uploads/20120902/02-055331_356.jpg",
-		"card_title":"title1",
-		"card_summary":"summary summarysummarysummary summary summary summary summary summary summary summary summary summary summary summary abbcls",
+	    "card_img":"http://a.hiphotos.baidu.com/baike/c0%3Dbaike80%2C5%2C5%2C80%2C26/sign=a529e8ea56da81cb5aeb8b9f330fbb73/d6ca7bcb0a46f21fb64e5e4df1246b600c33aeb1.jpg",
+		"card_title":"plus",
+		"card_summary":"用户预约摄影师，选择拍摄时间、套系、写出自己的需求和想法，与摄影师互动交流，定制专属拍摄计划。摄影师个人信息展示、作品风格和摄影服务的详细介绍。提供的摄影服务类型包括定制写真、个性婚纱、婚礼纪实、人物肖像、商业拍摄和旅行跟拍。",
+        "card_attention":1200,
+		"card_collection":0,
+		"card_tags":"摄影"
+      },
+      {
+	    "card_img":"http://e.hiphotos.baidu.com/baike/c0%3Dbaike92%2C5%2C5%2C92%2C30/sign=4b853d1a9f504fc2b652b85784b48c74/d833c895d143ad4bb5b8f7d286025aafa40f0609.jpg",
+		"card_title":"百词斩",
+		"card_summary":"百词斩针对英语学习开发的一款“图背单词软件”。软件为每一个单词提供了趣味的配图和例句，让记单词成为一种乐趣。覆盖了从初高中、四六级、考研、到雅思、托福、SAT、GMAT、GRE等全部英语考试词表。适合从12岁到24岁的所有学生群体，备考英语。",
+        "card_attention":500,
+		"card_collection":0,
+		"card_tags":"学习,助手"
+      },
+      {
+	    "card_img":"http://img.wdjimg.com/mms/icon/v1/c/a7/1c16e2f4e8b623532c4954e0f2bf6a7c_256_256.png",
+		"card_title":"旅行翻译官",
+		"card_summary":"世界这么大,么有翻译怎么行。拥有多个场景,让你轻松走遍世界每一个角落。",
+        "card_attention":5000,
+		"card_collection":0,
+		"card_tags":"生活,旅游,学习"
+      },
+      {
+	    "card_img":"http://a.hiphotos.baidu.com/baike/w%3D268/sign=6386cc67f036afc30e0c38638b18eb85/060828381f30e924d8501d964b086e061c95f7a5.jpg",
+		"card_title":"店长直聘",
+		"card_summary":"不想赶招聘会，不想要中介，不想先交钱;\n离家近，待遇福利好，入职快。",
+        "card_attention":200,
+		"card_collection":0,
+		"card_tags":"生活,招聘"
+      },
+      {
+	    "card_img":"http://b.hiphotos.baidu.com/baike/c0%3Dbaike72%2C5%2C5%2C72%2C24/sign=88dc55e8534e9258b2398ebcfdebba3d/f9198618367adab4cb12a6cf8ed4b31c8601e478.jpg",
+		"card_title":"one·一个",
+		"card_summary":"《ONE·一个》是由韩寒与腾讯合作推出的全新互联网产品。“ONE·一个”的团队成员仍主要是原《独唱团》的团队，韩寒任主编，马一木任执行主编，小饭、蔡蕾任执行副主编，周云哲担任视觉总监，何禾任美术总监。\n《ONE·一个》主要是搭建一个智能手机上的内容聚合平台，每天一位作者写给你一篇好文章，或是一组好图片，还有一个问题，可以想问谁就问谁。其编辑团队会帮你问，帮你搜集回答。",
+        "card_attention":1200,
+		"card_collection":0,
+		"card_tags":"生活,社交"
+      },
+      {
+	    "card_img":"http://d.hiphotos.baidu.com/baike/w%3D268/sign=01c3dd5765d0f703e6b292da30fb5148/500fd9f9d72a6059aefd6a5a2f34349b023bba85.jpg",
+		"card_title":"火柴人联盟",
+		"card_summary":"《火柴人联盟》是一款根据火柴人动画改编而来的横版2D动作手游，游戏角色是让大家非常耳熟能详的角色~强烈的打击感配合完美的音效，简约而不简单。蒙面英雄、剪影战士、暗黑风格、极爽战斗、独特玩法。2015年最酷炫暗黑风格斗手游《火柴人联盟》，用剪影风格改变看脸时代，让玩法回归真正的格斗舞台，全新英雄震撼出击，打造专属于你的“中国好英雄”。",
         "card_attention":1200,
 		"card_collection":0,
 		"card_tags":"游戏"
       },
       {
-	    "card_img":"http://www.qqw21.com/article/UploadPic/2012-8/20128923812441.jpg",
-		"card_title":"title2",
-		"card_summary":"summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary ",
-        "card_attention":1200,
+	    "card_img":"http://ecma.bdimg.com/lego-mat/bb271936edab2a5eab16a75e8b346f39_222_222.jpg",
+		"card_title":"寺库",
+		"card_summary":"寺库（SECOO）致力打造全球奢侈品服务平台的多元化集团，总部设于北京。主要业务涉及奢侈品网上销售、奢侈品实体体验会所、奢侈品鉴定、养护服务等主营业务。寺库（SECOO）拥有目前国内最专业奢侈品鉴定团队，全球最大的奢侈品养护工厂及遍布全球的多家奢侈品库会所，会所遍布北京、上海、成都、香港、东京、纽约、米兰中心地段，打造最具实力的全球领先奢侈品一站式服务平台，追求高品质生活人士的交流平台。",
+        "card_attention":300,
 		"card_collection":0,
-		"card_tags":""
+		"card_tags":"海淘,购物,奢侈品"
       },
       {
-	    "card_img":"http://www.qqbody.com/uploads/allimg/201302/20-143539_945.jpg",
-		"card_title":"title3",
-		"card_summary":"summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary ",
+	    "card_img":"http://g.hiphotos.baidu.com/baike/whfpf%3D180%2C140%2C50/sign=54f96cf516dfa9ecfd7b055704edc63b/9f510fb30f2442a77f19f34cd643ad4bd01302c7.jpg",
+		"card_title":"斗鱼tv",
+		"card_summary":"斗鱼TV是一家弹幕式直播分享网站，是国内直播分享网站中的一员。斗鱼TV的前身为ACFUN生放送直播，于2014年1月1日起正式更名为斗鱼TV。斗鱼TV以游戏直播为主，涵盖了体育、综艺、娱乐、户外等多种直播内容。",
         "card_attention":1200,
 		"card_collection":0,
-		"card_tags":""
+		"card_tags":"视频,互动直播"
       },
       {
-	    "card_img":"http://www.meilinvsheng.com/upload_files/article/135/1_20130521210555_iexeg.jpg",
-		"card_title":"title4",
-		"card_summary":"summary abslcdsls yellow red summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary ",
+        "card_img":"https://ss0.baidu.com/6ONWsjip0QIZ8tyhnq/it/u=781625745,1415793935&fm=58&s=3214E6220A7070981D0A096D0300F06B",
+      	"card_title":"啪啪游戏厅",
+      	"card_summary":"首创立体摇杆按键;自研物理引擎，酣畅打击感;支持蓝牙手柄，支持按键位置自定义;突破技术瓶颈，给你真正的实时同步联机,零流量零延时面对面PK,约上小伙伴，一决高低;真实还原经典游戏，全新玩法;现已支持街机、FC小霸王、GBA、SFC游戏",
         "card_attention":1200,
-		"card_collection":0,
-		"card_tags":""
+      	"card_collection":0,
+      	"card_tags":"游戏"
       },
       {
-	    "card_img":"http://www.qqbody.com/uploads/allimg/201302/20-143539_945.jpg",
-		"card_title":"title5",
-		"card_summary":"alsl summary summary summary summary summary summary facebooksummary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary ",
+        "card_img":"http://ka.edushi.com/images/def.jpg",
+        "card_title":"e卡包",
+        "card_summary":"e卡包，手机里的卡世界。玩乐达人必备的折扣利器。作为一款管理和申领会员卡的手机应用，能帮您一站式解决会员卡申领、管理、携带及使用四大难题。用户自主选择，灵活收藏，一键激活，方便申领您想要的会员卡，从此释放卡包，轻松逛街，让您尊享商家的会员服务。\ne卡包——手机里的卡世界，给您一站式会员卡服务。",
         "card_attention":1200,
-		"card_collection":0,
-		"card_tags":""
-      },
-      {
-	    "card_img":"http://www.qqgqtx.com/uploads/allimg/130326/1-1303261A329-51.jpg",
-		"card_title":"title6",
-		"card_summary":"summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary ",
-        "card_attention":1200,
-		"card_collection":0,
-		"card_tags":""
-      },
-      {
-	    "card_img":"http://www.qqgqtx.com/uploads/allimg/130326/1-1303261A329-51.jpg",
-		"card_title":"title7",
-		"card_summary":"abcdefghizkelalsjdlad lsdll lsljlj summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary ",
-        "card_attention":1200,
-		"card_collection":0,
-		"card_tags":""
-      },
-      {
-	    "card_img":"http://www.qqgqtx.com/uploads/allimg/130326/1-1303261A329-51.jpg",
-		"card_title":"title8",
-		"card_summary":"summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary summary sdsdf sdfsdfsummary summary summary summary summary ",
-        "card_attention":1200,
-		"card_collection":0,
-		"card_tags":""
+        "card_collection":0,
+        "card_tags":"生活"
       }
-      
     ]
 }

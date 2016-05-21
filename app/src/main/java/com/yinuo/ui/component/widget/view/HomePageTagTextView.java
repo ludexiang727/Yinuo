@@ -4,6 +4,7 @@ import android.content.Context;
 import android.content.res.Resources;
 import android.util.AttributeSet;
 import android.util.TypedValue;
+import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.yinuo.R;
@@ -72,5 +73,8 @@ public class HomePageTagTextView extends TextView {
         setBackground(type);
         setTextSize(TypedValue.COMPLEX_UNIT_PX, mTextSize);
         setPadding(mPadding, 0, mPadding, 0);
+        LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+        params.rightMargin = mPadding;
+        setLayoutParams(params);
     }
 }
