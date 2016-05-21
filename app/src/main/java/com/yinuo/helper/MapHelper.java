@@ -1,5 +1,6 @@
 package com.yinuo.helper;
 
+import android.content.Context;
 import android.util.Log;
 
 import com.baidu.location.BDLocation;
@@ -31,6 +32,7 @@ import com.baidu.mapapi.search.route.WalkingRoutePlanOption;
 import com.baidu.mapapi.search.route.WalkingRouteResult;
 import com.yinuo.R;
 import com.yinuo.base.BaseApplication;
+import com.yinuo.listener.ILocation;
 import com.yinuo.map.BikingRouteOverlay;
 import com.yinuo.map.DrivingRouteOverlay;
 import com.yinuo.map.OverlayManager;
@@ -46,25 +48,35 @@ import java.util.List;
  */
 public class MapHelper {
 
+    private static MapHelper sInstance;
     private BaiduMap mBaiduMap;
     private MapView mMapView;
     /** location - 定位 begin */
     private LocationListener mLocationListener;
-    private static MapHelper sInstance;
-    private boolean isFirstLocation;
-    public static enum NavigationStyle {NORMAL, COMPASS, FOLLOWING}
+    public static enum NavigationStyle {NORMAL, // normal -- 正常 只定位一次
+        COMPASS, FOLLOWING}
+    private NavigationStyle mNavigationStyle = NavigationStyle.NORMAL;
+    private boolean isLocationSuccess = false;
     private MyLocationConfiguration.LocationMode mCurrentMode;
+    private BDLocation mBDLocation;
+    private boolean isShowLocationPoint;
     /** location - 定位 end */
     /** route line -- 路线规划 begin */
-    public static enum RouteWay {DRIVING, BUS, WALK, BIKE};
+    public static enum RouteWay {DRIVING, BUS, WALK, BIKE}
     private RoutePlanSearch mRouteSearch;
     private RouteListener mRouteListener;
     private RouteLine mRoute;
     private OverlayManager mRouteOverlayManager;
     private RouteWay mWay = RouteWay.BUS;
     /** route line -- 路线规划 end */
+    public MapHelper(Context context) {
+        mMapView = new MapView(context);
+        mBaiduMap = mMapView.getMap();
+        mLocationListener = new LocationListener();
+    }
 
-    private MapHelper(MapView view) {
+    public MapHelper(MapView view) {
+        isShowLocationPoint = true;
         mMapView = view;
         mBaiduMap = mMapView.getMap();
         mLocationListener = new LocationListener();
@@ -77,19 +89,6 @@ public class MapHelper {
         PlanNode stNode = PlanNode.withCityNameAndPlaceName(from.getProvince(), from.getCityName());
         PlanNode enNode = PlanNode.withCityNameAndPlaceName(to.getProvince(), to.getCityName());
         mRouteSearch.transitSearch(new TransitRoutePlanOption().from(stNode).city(to.getProvince()).to(enNode));
-    }
-
-    public static MapHelper getInstance(MapView mapView) {
-        return LocationFactory.createInstance(mapView);
-    }
-
-    private static final class LocationFactory {
-        public static MapHelper createInstance(MapView view) {
-            if (sInstance == null) {
-                sInstance = new MapHelper(view);
-            }
-            return sInstance;
-        }
     }
 
     /** start location enable */
@@ -113,8 +112,13 @@ public class MapHelper {
 //        client.requestLocation();
     }
 
+    public BDLocation getBDLocation() {
+        return mBDLocation;
+    }
+
     /** location position style -- 定位点样式 */
     public void setNavigationStyle(NavigationStyle style) {
+        mNavigationStyle = style;
         switch (style) {
             case NORMAL:{
                 mCurrentMode = MyLocationConfiguration.LocationMode.FOLLOWING;
@@ -134,12 +138,35 @@ public class MapHelper {
     }
 
     /** location call back -- 定位回调接口 */
+    private ILocation iLocation;
+    public void setLocation(ILocation iLocation) {
+        this.iLocation = iLocation;
+    }
+
     private final class LocationListener implements BDLocationListener {
         @Override
         public void onReceiveLocation(BDLocation location) {
             // map view 销毁后不在处理新接收的位置
             if (location == null || mMapView == null) {
                 return;
+            }
+
+
+            int locType = location.getLocType();
+            if (locType == BDLocation.TypeGpsLocation
+                    || locType == BDLocation.TypeNetWorkLocation
+                    || locType == BDLocation.TypeOffLineLocation) {
+                isLocationSuccess = true;
+            } else {
+                isLocationSuccess = false;
+            }
+
+            mBDLocation = location;
+
+            if (iLocation != null && isLocationSuccess) {
+                iLocation.locationSuccess(mBDLocation);
+            } else if (iLocation != null && !isLocationSuccess){
+                iLocation.locationFail();
             }
             StringBuffer sb = new StringBuffer(256);
             sb.append("time : ");
@@ -199,24 +226,30 @@ public class MapHelper {
                 }
             }
             Log.e("ldx", sb.toString());
+            locationInMapView(location);
 
-            MyLocationData locData = new MyLocationData.Builder()
-                    .accuracy(location.getRadius())
-                    .direction(location.getDirection()).latitude(location.getLatitude())
-                    .longitude(location.getLongitude()).build();
-            mBaiduMap.setMyLocationData(locData);
-            LatLng ll = new LatLng(location.getLatitude(),
-                    location.getLongitude());
-            final MapStatus.Builder builder = new MapStatus.Builder();
-            if (!isFirstLocation) {
-                isFirstLocation = true;
-                builder.zoom(18f);
-            }
-            builder.target(ll);
-            mBaiduMap.animateMapStatus(MapStatusUpdateFactory.newMapStatus(builder.build()), 3000);
         }
 
     }
+
+    private void locationInMapView(BDLocation location) {
+        if (mMapView != null) {
+            if (mNavigationStyle == NavigationStyle.FOLLOWING || isShowLocationPoint) {
+                MyLocationData locData = new MyLocationData.Builder()
+                        .accuracy(location.getRadius())
+                        .direction(location.getDirection()).latitude(location.getLatitude())
+                        .longitude(location.getLongitude()).build();
+                mBaiduMap.setMyLocationData(locData);
+                LatLng ll = new LatLng(location.getLatitude(),
+                        location.getLongitude());
+                final MapStatus.Builder builder = new MapStatus.Builder();
+                builder.zoom(18f);
+                builder.target(ll);
+                mBaiduMap.animateMapStatus(MapStatusUpdateFactory.newMapStatus(builder.build()), 3000);
+            }
+        }
+    }
+    /** location end **/
 
     /** route call back -- 路线规划回调接口 begin */
     public void searchRoute(RouteWay way, AddressModel startAddress, AddressModel endAddress) {
@@ -426,4 +459,10 @@ public class MapHelper {
         }
     }
     /** route call back -- 路线规划回调接口 end */
+
+    public void release() {
+        locationEnable(false);
+        mMapView.onDestroy();
+        mMapView = null;
+    }
 }

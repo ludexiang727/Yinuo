@@ -172,10 +172,7 @@ public class BossOnlineAboutActivity extends BaseFragmentActivity implements Vie
     }
 
     private void showLocationView() {
-        int topWidth = MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED);
-        int topHeight = MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED);
-        mLocationAdrParent.measure(topWidth, topHeight);
-        int height = mLocationAdrParent.getMeasuredHeight();
+        int height = AppUtils.measureView(mLocationAdrParent);
         int scrollViewHeight = mScreenHeight - height;
         AnimatorSet set = new AnimatorSet();
         Animator adrParentView = UiHelper.translateY(mLocationAdrParent, 0, -height, 200L, false);

@@ -27,6 +27,7 @@
 
     <!-- discovery page begin -->
     <color name="discovery_page_property_bg">#CCFFFFFF</color>
+    <color name="discovery_page_category_bg">#EFFFFFFF</color>
     <!-- discovery page end-->
 
     <!-- partner page begin -->

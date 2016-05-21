@@ -29,7 +29,7 @@ public class LocationFragment extends Fragment implements View.OnClickListener {
         mMapView = (MapView) view.findViewById(R.id.app_location_view_map);
         mNavigationStyle = (ImageView) view.findViewById(R.id.app_location_style);
         mContext = getActivity();
-        mMapHelper = MapHelper.getInstance(mMapView);
+        mMapHelper = new MapHelper(mMapView);
         mMapView.showZoomControls(false);
         mNavigationStyle.setOnClickListener(this);
         return view;

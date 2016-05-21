@@ -36,7 +36,7 @@ public class DiscoverNavView extends TextView implements View.OnClickListener {
         if (colorState) {
             setTextColor(Color.parseColor("#ccff4081"));
         } else {
-            setTextColor(Color.parseColor("#ccffffff"));
+            setTextColor(Color.parseColor("#CC909090"));
         }
 
         setText(navOptions);
