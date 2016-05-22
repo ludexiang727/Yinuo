@@ -70,7 +70,6 @@ public class FlipperViewGroup extends ViewGroup implements Runnable {
 	private boolean autoFlipping = false;
 	private static final int SLEEP_TIME = 500;
 	private Thread autoFlippingThread = new Thread(this);
-	private boolean isLayout = false;
     private IClickListener mClickListener;
 
 	public FlipperViewGroup(Context context) {
@@ -94,12 +93,16 @@ public class FlipperViewGroup extends ViewGroup implements Runnable {
 	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 		super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 		int width = MeasureSpec.getSize(widthMeasureSpec);
-		int height = MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED);
+		int height = 0;
 		int childCount = getChildCount();
-        Log.e("ldx", "width " + width + " height " + height);
+
 		mSize = childCount;
 		for (int i = 0; i < mSize; ++i) {
 			getChildAt(i).measure(widthMeasureSpec, heightMeasureSpec);
+			int h = getChildAt(i).getMeasuredHeight();
+			if (h > height) {
+				height = h;
+			}
 		}
 
 		setMeasuredDimension(width, height);
@@ -112,12 +115,12 @@ public class FlipperViewGroup extends ViewGroup implements Runnable {
 
 	@Override
 	protected void onLayout(boolean changed, int l, int t, int r, int b) {
-		if (!isLayout) {
-			isLayout = true;
+        Log.e("ldx", "onLayout .changed " + changed);
+		if (changed) {
 			int childCount = getChildCount();
 			mParentWidth = getMeasuredWidth();
 			mParentHeight = getMeasuredHeight();
-
+            Log.e("ldx", "width " + mParentWidth + " height " + mParentHeight);
 			mSnapSlop = (Math.min(mParentWidth, mParentHeight) >> 1);
 
 			List<FlipperView> childsView = new ArrayList<FlipperView>();
@@ -616,8 +619,6 @@ public class FlipperViewGroup extends ViewGroup implements Runnable {
 					break;
 				}
 				case 1: {
-                    Log.e("ldx", "handler handleMessage..............");
-                    postInvalidate();
 					requestLayout();
 					carousel();
 					break;
@@ -681,7 +682,6 @@ public class FlipperViewGroup extends ViewGroup implements Runnable {
             removeAllViews();
         }
 		mSize = banners.size();
-		isLayout = false;
 		for (int i = 0; i < banners.size(); ++i) {
 			final ImageView child = new ImageView(getContext());
 			child.setScaleType(ImageView.ScaleType.FIT_XY);
