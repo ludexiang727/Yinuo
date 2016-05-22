@@ -24,7 +24,6 @@ public class HeaderViewGroup extends RelativeLayout {
 
     @Override
     public boolean dispatchTouchEvent(MotionEvent ev) {
-        Log.e("ldx", "onTouchEvent...............");
         switch (ev.getAction()) {
             case MotionEvent.ACTION_DOWN: {
                 requestDisallowInterceptTouchEvent(false);

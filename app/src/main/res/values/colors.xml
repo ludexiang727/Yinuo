@@ -26,6 +26,7 @@
     <color name="app_splash_skip_bg_color">#AAFFFFFF</color>
 
     <!-- discovery page begin -->
+    <color name="discovery_page_navigate_select">#CCFF4081</color>
     <color name="discovery_page_property_bg">#CCFFFFFF</color>
     <color name="discovery_page_category_bg">#EFFFFFFF</color>
     <!-- discovery page end-->

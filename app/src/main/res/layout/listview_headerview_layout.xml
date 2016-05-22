@@ -1,13 +1,15 @@
 <?xml version="1.0" encoding="utf-8"?>
-<com.yinuo.ui.component.widget.view.common.HeaderViewGroup
+<!--<com.yinuo.ui.component.widget.view.common.HeaderViewGroup-->
+<RelativeLayout
     xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
+    <!--@dimen/home_page_listview_header_height-->
     <com.yinuo.ui.component.widget.view.common.FlipperViewGroup
         android:id="@+id/app_header_listview_viewgroup"
         android:layout_width="match_parent"
-        android:layout_height="@dimen/home_page_listview_header_height"
+        android:layout_height="wrap_content"
         android:layout_marginBottom="@dimen/home_page_card_layout_margin"/>
 
     <com.yinuo.ui.component.widget.view.common.IndicatorView
@@ -17,4 +19,6 @@
         android:layout_centerHorizontal="true"
         android:layout_alignBottom="@id/app_header_listview_viewgroup"
         android:layout_marginBottom="@dimen/app_header_indicator_margin_bottom"/>
-</com.yinuo.ui.component.widget.view.common.HeaderViewGroup>
+
+<!--</com.yinuo.ui.component.widget.view.common.HeaderViewGroup>-->
+</RelativeLayout>

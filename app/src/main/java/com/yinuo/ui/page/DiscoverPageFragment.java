@@ -4,7 +4,10 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.support.v7.widget.LinearLayoutCompat;
 import android.util.Log;
+import android.util.TypedValue;
+import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -21,6 +24,7 @@ import com.yinuo.ui.component.widget.Loading;
 import com.yinuo.ui.component.widget.view.DiscoverNavView;
 import com.yinuo.ui.component.widget.view.DiscoverRecyclerView;
 import com.yinuo.ui.sub.APPDetailsActivity;
+import com.yinuo.utils.ResUtils;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -38,6 +42,7 @@ public class DiscoverPageFragment extends BaseFragment {
     private List<DiscoveryRecycleModel> mRecycleLists = new ArrayList<DiscoveryRecycleModel>();
     private String[] mNavScrollViews;
     private int mNavDefaultChoose;
+    private ClickListener mClickListener = new ClickListener();
 
     public static DiscoverPageFragment newInstance(int index) {
         DiscoverPageFragment fragment = new DiscoverPageFragment();
@@ -130,11 +135,37 @@ public class DiscoverPageFragment extends BaseFragment {
             if (mNavScrollViewParent.getChildCount() > 0) {
                 mNavScrollViewParent.removeAllViews();
             }
+
             for (int i = 0; i < mNavScrollViews.length; ++i) {
                 DiscoverNavView navView = new DiscoverNavView(DiscoverPageFragment.this.getContext());
-                navView.setNavText(mNavScrollViews[i], i == mNavDefaultChoose);
-                mNavScrollViewParent.addView(navView, i);
+                navView.setNavText(mNavScrollViews[i]);
+                navView.setNavBackground(i == mNavDefaultChoose);
+                navView.setTextSize(TypedValue.COMPLEX_UNIT_PX, ResUtils.getDimen(getActivity(), R.dimen.discovery_page_nav_size));
+                LinearLayout.LayoutParams params = new LinearLayout.LayoutParams(LinearLayout.LayoutParams.WRAP_CONTENT, LinearLayout.LayoutParams.WRAP_CONTENT);
+                params.leftMargin = params.rightMargin = ResUtils.getDimen(getActivity(), R.dimen.discovery_page_nav_margin);
+                params.gravity = Gravity.CENTER;
+                navView.setTag(i);
+                navView.setClickable(true);
+                navView.setOnClickListener(mClickListener);
+                mNavScrollViewParent.addView(navView, i, params);
             }
+        }
+    }
+
+    private final class ClickListener implements View.OnClickListener {
+        private int position;
+        @Override
+        public void onClick(View view) {
+            Integer integer = (Integer) view.getTag();
+            position = integer.intValue();
+            if (position == mNavDefaultChoose) {
+                return;
+            }
+            DiscoverNavView lastSelectView = (DiscoverNavView) mNavScrollViewParent.getChildAt(mNavDefaultChoose);
+            lastSelectView.setNavBackground(false);
+            DiscoverNavView navView = (DiscoverNavView) mNavScrollViewParent.getChildAt(position);
+            navView.setNavBackground(true);
+            mNavDefaultChoose = position;
         }
     }
 

@@ -8,6 +8,7 @@ import android.graphics.Bitmap;
 import android.os.Handler;
 import android.os.Looper;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
 import android.view.VelocityTracker;
 import android.view.View;
@@ -70,6 +71,7 @@ public class FlipperViewGroup extends ViewGroup implements Runnable {
 	private static final int SLEEP_TIME = 500;
 	private Thread autoFlippingThread = new Thread(this);
 	private boolean isLayout = false;
+    private IClickListener mClickListener;
 
 	public FlipperViewGroup(Context context) {
 		this(context, null);
@@ -92,9 +94,9 @@ public class FlipperViewGroup extends ViewGroup implements Runnable {
 	protected void onMeasure(int widthMeasureSpec, int heightMeasureSpec) {
 		super.onMeasure(widthMeasureSpec, heightMeasureSpec);
 		int width = MeasureSpec.getSize(widthMeasureSpec);
-		int height = MeasureSpec.getSize(heightMeasureSpec);
-
+		int height = MeasureSpec.makeMeasureSpec(0, MeasureSpec.UNSPECIFIED);
 		int childCount = getChildCount();
+        Log.e("ldx", "width " + width + " height " + height);
 		mSize = childCount;
 		for (int i = 0; i < mSize; ++i) {
 			getChildAt(i).measure(widthMeasureSpec, heightMeasureSpec);
@@ -258,8 +260,10 @@ public class FlipperViewGroup extends ViewGroup implements Runnable {
 				autoFlipping = true;
 				float upX = event.getRawX();
 				float upY = event.getRawY();
-				if ((upX - mLastDownX) <= mTouchSlop && (upY - mLastDownY) <= mTouchSlop ) {
-					// // TODO: 2016/4/11 Flipper view click listener 
+				if ((upX - mLastDownX) <= mTouchSlop && (upY - mLastDownY) <= mTouchSlop) {
+                    if (mClickListener != null) {
+                        mClickListener.onClick(mCurrentScreen);
+                    }
 				}
 			}
 		}
@@ -612,6 +616,8 @@ public class FlipperViewGroup extends ViewGroup implements Runnable {
 					break;
 				}
 				case 1: {
+                    Log.e("ldx", "handler handleMessage..............");
+                    postInvalidate();
 					requestLayout();
 					carousel();
 					break;
@@ -720,4 +726,12 @@ public class FlipperViewGroup extends ViewGroup implements Runnable {
 			getParent().requestDisallowInterceptTouchEvent(isAllow);
 		}
 	}
+
+    public void setClickListener(IClickListener listener) {
+        mClickListener = listener;
+    }
+
+    public interface IClickListener {
+        void onClick(int position);
+    }
 }

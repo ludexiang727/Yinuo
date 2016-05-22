@@ -1,6 +1,8 @@
 package com.yinuo.adapter;
 
 import android.content.Context;
+import android.content.Intent;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -8,11 +10,15 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 
+import com.yinuo.Constants;
 import com.yinuo.R;
 import com.yinuo.adapter.base.BaseRecyclerAdapter;
 import com.yinuo.adapter.base.RecyclerViewHolder;
 import com.yinuo.base.BaseObject;
+import com.yinuo.base.WebActivity;
+import com.yinuo.mode.HomePageBannersModel;
 import com.yinuo.mode.HomePageDataModel;
+import com.yinuo.mode.WebModel;
 import com.yinuo.ui.component.widget.view.HomePageTagTextView;
 import com.yinuo.utils.ResUtils;
 
@@ -88,6 +94,17 @@ public class HomePageRecyclerViewAdapter<T extends BaseObject> extends BaseRecyc
                 holder.cardTagsLayout.addView(homePageTag);
             }
         }
+    }
+
+    @Override
+    public void onClick(int position) {
+        HomePageBannersModel bannersModel = mBanners.get(position);
+        Log.e("ldx", "banner url " + bannersModel.getRedirectURL());
+        Intent intent = new Intent(mContext, WebActivity.class);
+        WebModel model = new WebModel();
+        model.setUrl(bannersModel.getRedirectURL());
+        intent.putExtra(Constants.WEB_MODEL, model);
+        mContext.startActivity(intent);
     }
 
     private final class HomeViewHolder extends RecyclerViewHolder implements View.OnClickListener {

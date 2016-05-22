@@ -20,11 +20,11 @@ import java.util.List;
 /**
  * Created by ludexiang on 2016/4/18.
  */
-public abstract class BaseRecyclerAdapter extends RecyclerView.Adapter<RecyclerViewHolder> {
+public abstract class BaseRecyclerAdapter extends RecyclerView.Adapter<RecyclerViewHolder> implements FlipperViewGroup.IClickListener {
     protected final int TYPE_HEADER = 0;
     protected final int TYPE_NORMAL = 1;
     protected View mHeaderView;
-    private List<HomePageBannersModel> mBanners;
+    protected List<HomePageBannersModel> mBanners;
 
     protected abstract <E extends RecyclerViewHolder> void bindView(E holder, int position);
 
@@ -77,6 +77,7 @@ public abstract class BaseRecyclerAdapter extends RecyclerView.Adapter<RecyclerV
             mHeaderView = View.inflate(BaseApplication.getInstance().getContext(), R.layout.listview_headerview_layout, null);
             FlipperViewGroup flipperViewGroup = (FlipperViewGroup) mHeaderView.findViewById(R.id.app_header_listview_viewgroup);
             IndicatorView indicatorView = (IndicatorView) mHeaderView.findViewById(R.id.app_header_list_indicator);
+            flipperViewGroup.setClickListener(this);
             flipperViewGroup.setIndicator(indicatorView);
             flipperViewGroup.setFlipperView(banners);
         }
@@ -86,5 +87,10 @@ public abstract class BaseRecyclerAdapter extends RecyclerView.Adapter<RecyclerV
     public int getRealPosition(RecyclerViewHolder holder) {
         int position = holder.getLayoutPosition();
         return mHeaderView == null ? position : position - 1;
+    }
+
+    @Override
+    public void onClick(int position) {
+
     }
 }

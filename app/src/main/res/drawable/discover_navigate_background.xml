@@ -1,0 +1,6 @@
+<shape
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:shape="rectangle">
+    <solid android:color="@color/discovery_page_navigate_select"/>
+    <corners android:radius="@dimen/discovery_page_navigate_select_radius"/>
+</shape>
