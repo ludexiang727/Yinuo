@@ -405,6 +405,5 @@ public class CityChoosePageActivity extends BaseActivity implements AbsListView.
     @Override
     protected void onDestroy() {
         super.onDestroy();
-        mCityPageListView.getCityChooseAdapter().release();
     }
 }

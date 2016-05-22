@@ -7,6 +7,7 @@ import android.os.AsyncTask;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
+import android.util.Log;
 import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
@@ -14,10 +15,14 @@ import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.baidu.location.BDLocation;
 import com.yinuo.Constants;
 import com.yinuo.R;
+import com.yinuo.base.BaseApplication;
 import com.yinuo.base.WebActivity;
 import com.yinuo.helper.ImageLoaderHelper;
+import com.yinuo.helper.MapHelper;
+import com.yinuo.listener.ILocation;
 import com.yinuo.mode.WebModel;
 import com.yinuo.net.utils.NetHelper;
 import com.yinuo.utils.PreferenceUtils;
@@ -27,7 +32,7 @@ import com.yinuo.utils.StringUtils;
 /**
  * Created by Administrator on 2016/5/5.
  */
-public class SplashActivity extends Activity implements View.OnClickListener {
+public class SplashActivity extends Activity implements View.OnClickListener, ILocation {
     private ImageView mAdImg;
     private RelativeLayout mDefaultParent;
     private TextView mDefaultVersion;
@@ -39,6 +44,7 @@ public class SplashActivity extends Activity implements View.OnClickListener {
     private final int ENTER_AD_WEB = 0x001;
     private boolean isGotoMain = false;
     private boolean isClickAd = false;
+    private MapHelper mHelper;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -47,6 +53,11 @@ public class SplashActivity extends Activity implements View.OnClickListener {
         window.setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, WindowManager.LayoutParams.FLAG_FULLSCREEN);
         super.onCreate(savedInstanceState);
         setContentView(R.layout.app_splash_layout);
+
+        mHelper = new MapHelper(this);
+        mHelper.locationEnable(true);
+        mHelper.location();
+        mHelper.setLocation(this);
 
         mAdImg = (ImageView) findViewById(R.id.app_splash_activity_img);
         mDefaultParent = (RelativeLayout) findViewById(R.id.app_splash_default_parent_layout);
@@ -171,8 +182,22 @@ public class SplashActivity extends Activity implements View.OnClickListener {
     }
 
     @Override
+    public void locationSuccess(BDLocation location) {
+        Log.e("ldx", "location success >> " + location.getCity() + " id " + location.getCityCode()
+                + " adrStr " + location.getAddrStr() + " build Id == " + location.getBuildingID()
+                + " build name " + location.getBuildingName() + " country : " + location.getCountry()
+                + " district " + location.getDistrict() + " province " + location.getProvince());
+        BaseApplication.getInstance().setBDLocation(location);
+    }
+
+    @Override
+    public void locationFail() {
+    }
+
+    @Override
     protected void onDestroy() {
         super.onDestroy();
         finish();
+        mHelper.release();
     }
 }

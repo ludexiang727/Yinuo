@@ -1,11 +1,14 @@
 package com.yinuo.base;
 
+import android.app.Activity;
 import android.app.Application;
 import android.content.Context;
 import android.content.res.AssetManager;
 import android.util.Log;
 
+import com.baidu.location.BDLocation;
 import com.baidu.mapapi.SDKInitializer;
+import com.baidu.mapapi.map.MapView;
 import com.nostra13.universalimageloader.cache.disc.impl.UnlimitedDiskCache;
 import com.nostra13.universalimageloader.cache.disc.naming.HashCodeFileNameGenerator;
 import com.nostra13.universalimageloader.cache.memory.impl.LruMemoryCache;
@@ -15,6 +18,9 @@ import com.nostra13.universalimageloader.core.assist.QueueProcessingType;
 import com.nostra13.universalimageloader.core.download.BaseImageDownloader;
 import com.nostra13.universalimageloader.utils.StorageUtils;
 import com.yinuo.Constants;
+import com.yinuo.helper.MapHelper;
+import com.yinuo.listener.ILocation;
+import com.yinuo.mode.AddressModel;
 import com.yinuo.net.IRequestListener;
 import com.yinuo.net.base.NetBaseObject;
 import com.yinuo.net.request.NetRequest;
@@ -31,6 +37,8 @@ public class BaseApplication extends Application {
 
     private Context mContext;
     private static BaseApplication sInstance;
+    private BDLocation mBDLocation;
+
 
     public static BaseApplication getInstance() {
         return sInstance;
@@ -42,6 +50,7 @@ public class BaseApplication extends Application {
         SDKInitializer.initialize(getApplicationContext());
         mContext = getBaseContext();
         sInstance = this;
+
 
         loadAppConfig();
         loadAddress();
@@ -63,6 +72,14 @@ public class BaseApplication extends Application {
 
     public Context getContext() {
         return mContext;
+    }
+
+    public void setBDLocation(BDLocation location) {
+        mBDLocation = location;
+    }
+
+    public BDLocation getBDLocation() {
+        return mBDLocation;
     }
 
     private void loadAddress() {

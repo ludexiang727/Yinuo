@@ -11,6 +11,7 @@ import com.baidu.location.BDLocation;
 import com.yinuo.R;
 import com.yinuo.adapter.base.SuperAdapter;
 import com.yinuo.adapter.base.SuperViewHolder;
+import com.yinuo.base.BaseApplication;
 import com.yinuo.base.BaseObject;
 import com.yinuo.helper.MapHelper;
 import com.yinuo.listener.ILocation;
@@ -24,11 +25,9 @@ import java.util.List;
 /**
  * Created by ludexiang on 2016/5/10.
  */
-public class CityChoosePageAdapter extends SuperAdapter implements ILocation {
+public class CityChoosePageAdapter extends SuperAdapter {
     private final int VIEW_TYPE = 5;
     private Context mContext;
-    private MapHelper mMapHelper;
-    private BDLocation mBDLocation;
 
     private List<AddressModel> mModels;
     private List<AddressModel> mHotModels;
@@ -37,10 +36,6 @@ public class CityChoosePageAdapter extends SuperAdapter implements ILocation {
     public CityChoosePageAdapter(Context context) {
         super(context);
         mContext = context;
-        mMapHelper = new MapHelper(mContext);
-        mMapHelper.locationEnable(true);
-        mMapHelper.location();
-        mMapHelper.setLocation(this);
     }
 
     /** default alpha city name style --- list */
@@ -174,13 +169,14 @@ public class CityChoosePageAdapter extends SuperAdapter implements ILocation {
 
     private void showLocationCity(CityChooseViewHolder holder) {
         AnimationDrawable animationDrawable = null;
-        if (mBDLocation != null) {
+        BDLocation bdLocation = BaseApplication.getInstance().getBDLocation();
+        if (bdLocation != null) {
             if (animationDrawable != null && animationDrawable.isRunning()) {
                 animationDrawable.stop();
             }
             holder.locationCity.setVisibility(View.VISIBLE);
             holder.locationNotifyTxt.setText(R.string.city_choose_page_current_location);
-            holder.locationCity.setText(mBDLocation.getCity());
+            holder.locationCity.setText(bdLocation.getCity());
             holder.locationProgress.setVisibility(View.GONE);
         } else {
             holder.locationNotifyTxt.setText(R.string.city_choose_page_locating);
@@ -217,17 +213,6 @@ public class CityChoosePageAdapter extends SuperAdapter implements ILocation {
         }
     }
 
-    @Override
-    public void locationSuccess(BDLocation location) {
-        mBDLocation = location;
-        notifyDataSetChanged();
-    }
-
-    @Override
-    public void locationFail() {
-
-    }
-
     private final class CityChooseViewHolder extends SuperViewHolder {
         private TextView locationNotifyTxt;
         private ImageView locationProgress;
@@ -253,7 +238,4 @@ public class CityChoosePageAdapter extends SuperAdapter implements ILocation {
         }
     }
 
-    public void release() {
-        mMapHelper.release();
-    }
 }
