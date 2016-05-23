@@ -11,11 +11,19 @@
     <color name="splash_app_name_color">#CCC80000</color>
     <color name="app_splahs_ad_infos_color">#ADFFFFFF</color>
     <color name="app_refresh_background">#C3C3C3</color>
+    <color name="app_default_edit_normal_color">#e3e3e3</color>
+    <color name="app_default_edit_focus_color">#ff4081</color>
 
     <color name="refresh_color_progress1">#CC3F51B5</color>
     <color name="refresh_color_progress2">#FF4081</color>
     <color name="refresh_color_progress3">#CC303F9F</color>
     <color name="refresh_color_progress4">#FE40B2</color>
+
+    <!-- mine page begin -->
+    <color name="mine_page_separator_color">#e3e3e3</color>
+    <color name="mine_page_infomation_bg">#CCe6e6e6</color>
+    <!-- mine page end -->
+
     <color name="home_page_card_tag_none_bg">#A0000000</color>
     <color name="home_page_detail_download_layout">#A0FFFFFF</color>
     <color name="round_corner_progress_bar_background_default">#3F51B5</color>
@@ -62,7 +70,8 @@
     <color name="workspace_holder_tags_color">#AC3F51B5</color>
     <color name="workspace_holder_yinuo_color">#CCFFFFFF</color>
     <color name="workspace_tenement_condition_layout_background">#AADFDFDF</color>
-    <color name="workspace_tenement_edit_color">#CCFFFFFF</color>
+    <color name="workspace_tenement_edit_hint_color">#CC999999</color>
+    <color name="workspace_tenement_edit_color">#CC333333</color>
     <!-- workspace page end-->
 
     <!-- boss online page begin -->

@@ -1,0 +1,170 @@
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <!-- header 头像 -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:paddingLeft="@dimen/mine_notify_padding"
+            android:paddingTop="@dimen/mine_cell_notify_padding_tb"
+            android:paddingBottom="@dimen/mine_cell_notify_padding_tb"
+            android:text="@string/mine_page_header"/>
+
+        <ImageView
+            android:id="@+id/mine_header"
+            android:layout_width="@dimen/mine_page_header_wh"
+            android:layout_height="@dimen/mine_page_header_wh"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:scaleType="center"
+            android:contentDescription="@null"/>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/mine_page_separator_color"/>
+
+    <!-- account -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:paddingLeft="@dimen/mine_notify_padding"
+            android:paddingTop="@dimen/mine_cell_notify_padding_tb"
+            android:paddingBottom="@dimen/mine_cell_notify_padding_tb"
+            android:text="@string/mine_page_account"/>
+
+        <TextView
+            android:id="@+id/mine_account"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/mine_page_separator_color"/>
+
+    <!-- mine qrcode -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:paddingLeft="@dimen/mine_notify_padding"
+            android:paddingTop="@dimen/mine_cell_notify_padding_tb"
+            android:paddingBottom="@dimen/mine_cell_notify_padding_tb"
+            android:text="@string/mine_page_qrcode"/>
+
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/mine_page_separator_color"/>
+
+    <!-- gender -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:paddingLeft="@dimen/mine_notify_padding"
+            android:paddingTop="@dimen/mine_cell_notify_padding_tb"
+            android:paddingBottom="@dimen/mine_cell_notify_padding_tb"
+            android:text="@string/mine_page_gender"/>
+
+        <TextView
+            android:id="@+id/mine_gender"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/mine_page_separator_color"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:paddingLeft="@dimen/mine_notify_padding"
+            android:paddingTop="@dimen/mine_cell_notify_padding_tb"
+            android:paddingBottom="@dimen/mine_cell_notify_padding_tb"
+            android:text="@string/mine_page_credit_report"/>
+
+        <TextView
+            android:id="@+id/mine_credit_report"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/mine_page_separator_color"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <TextView
+            android:id="@+id/mine_loan_process"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:clickable="true"
+            android:text="@string/mine_loan_processing"
+            android:paddingTop="@dimen/mine_cell_notify_padding_tb"
+            android:paddingBottom="@dimen/mine_cell_notify_padding_tb"
+            android:layout_gravity="center"/>
+
+        <View
+            android:layout_width="1px"
+            android:layout_height="50dp"
+            android:layout_gravity="center_vertical"
+            android:background="@color/mine_page_separator_color"/>
+
+        <TextView
+            android:id="@+id/mine_loan_repayment"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:gravity="center"
+            android:clickable="true"
+            android:layout_gravity="center"
+            android:paddingTop="@dimen/mine_cell_notify_padding_tb"
+            android:paddingBottom="@dimen/mine_cell_notify_padding_tb"
+            android:text="@string/mine_loan_repayment"/>
+    </LinearLayout>
+</merge>

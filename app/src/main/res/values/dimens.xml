@@ -27,6 +27,14 @@
     <dimen name="app_splash_skip_padding_tb">5dp</dimen>
     <dimen name="app_header_indicator_padding">3dp</dimen>
     <dimen name="app_header_indicator_margin_bottom">5dp</dimen>
+    <dimen name="app_default_edit_radius">4dp</dimen>
+
+    <!-- mine page begin -->
+    <dimen name="mine_notify_padding">5dp</dimen>
+    <dimen name="mine_cell_notify_padding_tb">10dp</dimen>
+    <dimen name="mine_page_header_wh">60dp</dimen>
+    <dimen name="mine_auchentication_margin_right">5dp</dimen>
+    <!-- mine page end -->
 
     <!-- home page begin -->
     <dimen name="home_page_card_view_margin">0dp</dimen>
@@ -145,6 +153,7 @@
     <dimen name="workspace_tenement_items_margin_left">10dp</dimen>
     <dimen name="workspace_tenement_items_name_size">14sp</dimen>
     <dimen name="workspace_tenement_edit_size">14sp</dimen>
+    <dimen name="workspace_tenement_title_edit_padding">5dp</dimen>
     <!-- workspace page end-->
 
     <!-- boss online page begin -->

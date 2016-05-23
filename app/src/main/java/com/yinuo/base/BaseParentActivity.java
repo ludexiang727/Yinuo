@@ -18,10 +18,12 @@ import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
+import android.widget.ImageView;
 
 import com.yinuo.R;
 import com.yinuo.adapter.MainViewPagerAdapter;
 import com.yinuo.ui.CityChoosePageActivity;
+import com.yinuo.ui.MineActivity;
 import com.yinuo.utils.SystemBarTintManager;
 
 import java.util.ArrayList;
@@ -41,6 +43,7 @@ public class BaseParentActivity extends AppCompatActivity
     protected ViewPager mViewPager;
     protected MainViewPagerAdapter mPagerAdapter;
     protected List<String> mTabTitle = new ArrayList<String>();
+    private ImageView mHeaderView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -74,6 +77,9 @@ public class BaseParentActivity extends AppCompatActivity
         mFloatActionButton.setOnClickListener(this);
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
+        View headerView = navigationView.getHeaderView(0);
+        mHeaderView = (ImageView) headerView.findViewById(R.id.app_mine_header);
+        mHeaderView.setOnClickListener(this);
         navigationView.setNavigationItemSelectedListener(this);
     }
 
@@ -160,6 +166,11 @@ public class BaseParentActivity extends AppCompatActivity
             case R.id.fab: {
                 Snackbar.make(v, "Replace with your own action", Snackbar.LENGTH_LONG)
                         .setAction("Action", null).show();
+                break;
+            }
+            case R.id.app_mine_header: {
+                Intent intent = new Intent(this, MineActivity.class);
+                startActivity(intent);
                 break;
             }
         }

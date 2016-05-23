@@ -1,0 +1,260 @@
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:paddingLeft="@dimen/mine_notify_padding"
+            android:paddingTop="@dimen/mine_cell_notify_padding_tb"
+            android:paddingBottom="@dimen/mine_cell_notify_padding_tb"
+            android:text="@string/mine_location"/>
+
+        <ImageView
+            android:id="@+id/mine_page_arrow1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:scaleType="center"
+            android:contentDescription="@null"/>
+
+        <TextView
+            android:id="@+id/mine_auchentication_location"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/mine_auchentication_margin_right"
+            android:layout_toLeftOf="@id/mine_page_arrow1"/>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/mine_page_separator_color"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:paddingLeft="@dimen/mine_notify_padding"
+            android:paddingTop="@dimen/mine_cell_notify_padding_tb"
+            android:paddingBottom="@dimen/mine_cell_notify_padding_tb"
+            android:text="@string/mine_school"/>
+
+        <ImageView
+            android:id="@+id/mine_page_arrow2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:scaleType="center"
+            android:contentDescription="@null"/>
+
+        <TextView
+            android:id="@+id/mine_auchentication_school"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/mine_auchentication_margin_right"
+            android:layout_toLeftOf="@id/mine_page_arrow2"/>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/mine_page_separator_color"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:paddingLeft="@dimen/mine_notify_padding"
+            android:paddingTop="@dimen/mine_cell_notify_padding_tb"
+            android:paddingBottom="@dimen/mine_cell_notify_padding_tb"
+            android:text="@string/mine_highest_education"/>
+
+        <ImageView
+            android:id="@+id/mine_page_arrow3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:scaleType="center"
+            android:contentDescription="@null"/>
+
+        <TextView
+            android:id="@+id/mine_auchentication_highest_education"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/mine_auchentication_margin_right"
+            android:layout_toLeftOf="@id/mine_page_arrow3"/>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/mine_page_separator_color"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:paddingLeft="@dimen/mine_notify_padding"
+            android:paddingTop="@dimen/mine_cell_notify_padding_tb"
+            android:paddingBottom="@dimen/mine_cell_notify_padding_tb"
+            android:text="@string/mine_education_major"/>
+
+        <ImageView
+            android:id="@+id/mine_page_arrow4"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:scaleType="center"
+            android:contentDescription="@null"/>
+
+        <TextView
+            android:id="@+id/mine_auchentication_major"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/mine_auchentication_margin_right"
+            android:layout_toLeftOf="@id/mine_page_arrow4"/>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/mine_page_separator_color"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:paddingLeft="@dimen/mine_notify_padding"
+            android:paddingTop="@dimen/mine_cell_notify_padding_tb"
+            android:paddingBottom="@dimen/mine_cell_notify_padding_tb"
+            android:text="@string/mine_work_location"/>
+
+        <ImageView
+            android:id="@+id/mine_page_arrow7"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:scaleType="center"
+            android:contentDescription="@null"/>
+
+        <TextView
+            android:id="@+id/mine_auchentication_work_in"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/mine_auchentication_margin_right"
+            android:layout_toLeftOf="@id/mine_page_arrow7"/>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/mine_page_separator_color"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:paddingLeft="@dimen/mine_notify_padding"
+            android:paddingTop="@dimen/mine_cell_notify_padding_tb"
+            android:paddingBottom="@dimen/mine_cell_notify_padding_tb"
+            android:text="@string/mine_job"/>
+
+        <ImageView
+            android:id="@+id/mine_page_arrow5"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:scaleType="center"
+            android:contentDescription="@null"/>
+
+        <TextView
+            android:id="@+id/mine_auchentication_job"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/mine_auchentication_margin_right"
+            android:layout_toLeftOf="@id/mine_page_arrow5"/>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/mine_page_separator_color"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:paddingLeft="@dimen/mine_notify_padding"
+            android:paddingTop="@dimen/mine_cell_notify_padding_tb"
+            android:paddingBottom="@dimen/mine_cell_notify_padding_tb"
+            android:text="@string/mine_id_card"/>
+
+        <ImageView
+            android:id="@+id/mine_page_arrow6"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:scaleType="center"
+            android:contentDescription="@null"/>
+
+        <TextView
+            android:id="@+id/mine_auchentication_id_card"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="@dimen/mine_auchentication_margin_right"
+            android:layout_toLeftOf="@id/mine_page_arrow6"/>
+    </RelativeLayout>
+
+</merge>

@@ -1,0 +1,35 @@
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mine_infomation"
+                android:padding="@dimen/mine_notify_padding"
+                android:background="@color/mine_page_infomation_bg"/>
+
+            <include layout="@layout/mine_info_layout"/>
+
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="@string/mine_auchentication"
+                android:padding="@dimen/mine_notify_padding"
+                android:background="@color/mine_page_infomation_bg"/>
+
+            <include layout="@layout/mine_auchentication_layout"/>
+
+        </LinearLayout>
+    </ScrollView>
+
+</merge>

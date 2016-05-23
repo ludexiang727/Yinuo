@@ -1,7 +1,7 @@
 <resources>
     <string name="app_name">一诺</string>
     <string name="app_splash_skip_txt">%1$ss跳过</string>
-    <!--<string-array name="main_view_pager_tab">
+    <string-array name="main_view_pager_tab">
         <item>One</item>
         <item>Two</item>
         <item>Three</item>
@@ -10,9 +10,9 @@
         <item>Six</item>
         <item>Seven</item>
         <item>Eight</item>
-    </string-array>-->
+    </string-array>
 
-    <string-array name="main_view_pager_tab">
+    <!--<string-array name="main_view_pager_tab">
         <item>首&#160;&#160;页</item>
         <item>发&#160;&#160;现</item>
         <item>合伙人</item>
@@ -21,17 +21,45 @@
         <item>工作间</item>
         <item>伯乐在线</item>
         <item>更&#160;&#160;多</item>
-    </string-array>
+    </string-array>-->
     <string name="app_confirm">确定</string>
     <string name="app_cancel">取消</string>
+    <!-- mine page begin -->
+    <string name="mine_infomation">个人信息</string>
+    <string name="mine_page_header">头像</string>
+    <string name="mine_page_account">一诺账户</string>
+    <string name="mine_page_qrcode">我的二维码</string>
+    <string name="mine_page_gender">性别</string>
+    <string name="mine_page_credit_report">信用记录</string>
+    <string name="mine_loan_processing">进行中</string>
+    <string name="mine_loan_repayment">还款</string>
+
+    <string name="mine_auchentication">认证</string>
+    <string name="mine_location">所在地</string>
+    <string name="mine_school">毕业于</string>
+    <string name="mine_highest_education">最高学历</string>
+    <string name="mine_education_major">专业</string>
+    <string name="mine_work_location">工作在</string>
+    <string name="mine_job">职业</string>
+    <string name="mine_id_card">身份证号码</string>
+
+    <string name="mine_collection">收藏</string>
+    <string name="mine_message">消息</string>
+    <string name="mine_service_customer">客服</string>
+    <string name="mine_settings">设置</string>
+    <!-- mine page end-->
+    <!-- home page begin -->
     <string name="home_page_card_details_attention">%1$s关注</string>
     <string name="home_page_detail_download">下载看看</string>
     <string name="home_page_detail_join">入伙</string>
     <string name="home_page_detail_invest">投资</string>
     <string name="home_page_detail_connect_us">联系我们</string>
+    <!-- home page end -->
 
+    <!-- partner page begin -->
     <string name="partner_page_condition_skill">技术</string>
     <string name="partner_page_condition_invest">投资</string>
+    <!-- partner page end -->
 
     <!-- invest page begin -->
     <string name="invest_view_holder_chat">微聊</string>
@@ -46,6 +74,9 @@
     <string name="loan_page_primary_scan">扫一扫</string>
     <string name="loan_page_primary_red_bag">红包</string>
     <string name="loan_page_primary_vip">VIP专享</string>
+    <string name="loan_page_calculator_price">金额</string>
+    <string name="loan_page_calculator_unit">元</string>
+    <string name="loan_page_calculator_insurance">各项社会保险</string>
     <!-- loan page end-->
 
     <!-- workspace page begin -->
@@ -54,6 +85,7 @@
     <string name="workspace_tenement_condition_area">区域</string>
     <string name="workspace_tenement_condition_price">价格</string>
     <string name="workspace_tenement_condition_more">更多</string>
+    <string name="workspace_tenement_hint">请输入小区名称或地址</string>
     <!-- workspace page end-->
 
     <!-- boss online page begin -->

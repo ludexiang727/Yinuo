@@ -18,8 +18,13 @@ public class LoanCalculatorActivity extends BaseActivity {
     }
 
     @Override
-    protected void loadData() {
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+    }
 
+    @Override
+    protected void loadData() {
+        dismissLoading();
     }
 
     @Override
@@ -27,10 +32,7 @@ public class LoanCalculatorActivity extends BaseActivity {
 
     }
 
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-    }
+
 
     @Override
     public void onFail(NetBaseObject object) {
