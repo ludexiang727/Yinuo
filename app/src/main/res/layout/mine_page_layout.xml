@@ -16,7 +16,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/mine_infomation"
                 android:padding="@dimen/mine_notify_padding"
-                android:background="@color/mine_page_infomation_bg"/>
+                android:background="@color/mine_page_information_bg"/>
 
             <include layout="@layout/mine_info_layout"/>
 
@@ -25,7 +25,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/mine_auchentication"
                 android:padding="@dimen/mine_notify_padding"
-                android:background="@color/mine_page_infomation_bg"/>
+                android:background="@color/mine_page_information_bg"/>
 
             <include layout="@layout/mine_auchentication_layout"/>
 

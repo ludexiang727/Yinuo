@@ -25,8 +25,10 @@
     <string name="app_confirm">确定</string>
     <string name="app_cancel">取消</string>
     <!-- mine page begin -->
+    <string name="mine_title">我的</string>
     <string name="mine_infomation">个人信息</string>
     <string name="mine_page_header">头像</string>
+    <string name="mine_nike_name">昵称</string>
     <string name="mine_page_account">一诺账户</string>
     <string name="mine_page_qrcode">我的二维码</string>
     <string name="mine_page_gender">性别</string>
@@ -35,7 +37,7 @@
     <string name="mine_loan_repayment">还款</string>
 
     <string name="mine_auchentication">认证</string>
-    <string name="mine_location">所在地</string>
+    <string name="mine_location">户口所在地</string>
     <string name="mine_school">毕业于</string>
     <string name="mine_highest_education">最高学历</string>
     <string name="mine_education_major">专业</string>

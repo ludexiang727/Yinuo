@@ -21,7 +21,7 @@
 
     <!-- mine page begin -->
     <color name="mine_page_separator_color">#e3e3e3</color>
-    <color name="mine_page_infomation_bg">#CCe6e6e6</color>
+    <color name="mine_page_information_bg">#CCe6e6e6</color>
     <!-- mine page end -->
 
     <color name="home_page_card_tag_none_bg">#A0000000</color>

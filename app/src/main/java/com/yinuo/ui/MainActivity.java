@@ -7,6 +7,7 @@ import android.support.v4.app.FragmentTransaction;
 
 import com.yinuo.base.BaseFragment;
 import com.yinuo.base.BaseParentActivity;
+import com.yinuo.net.request.NetRequest;
 import com.yinuo.ui.page.BossOnlinePageFragment;
 import com.yinuo.ui.page.DiscoverPageFragment;
 import com.yinuo.ui.page.HomePageFragment;
@@ -81,6 +82,7 @@ public class MainActivity extends BaseParentActivity {
 //                .hide(bossPage).hide(morePage).commitAllowingStateLoss();
 
         mCurrentFragment = homePage;
+
     }
 
     public BaseFragment getCurrentFragment() {

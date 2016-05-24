@@ -22,6 +22,7 @@ import android.widget.ImageView;
 
 import com.yinuo.R;
 import com.yinuo.adapter.MainViewPagerAdapter;
+import com.yinuo.net.request.NetRequest;
 import com.yinuo.ui.CityChoosePageActivity;
 import com.yinuo.ui.MineActivity;
 import com.yinuo.utils.SystemBarTintManager;
@@ -34,6 +35,7 @@ import java.util.List;
  */
 public class BaseParentActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener, View.OnClickListener {
+    private final int MINE_REQUEST_CODE = 0X000;
 
     private FloatingActionButton mFloatActionButton;
     private DrawerLayout mDrawerLayout;
@@ -59,6 +61,9 @@ public class BaseParentActivity extends AppCompatActivity
         initialize();
         initViewPager();
         initTabLayout();
+
+        // test default sign up
+        NetRequest.getInstance().requestUserInfoBy(1, null);
     }
 
     private void initialize() {
@@ -161,6 +166,11 @@ public class BaseParentActivity extends AppCompatActivity
     }
 
     @Override
+    protected void onActivityResult(int requestCode, int resultCode, Intent data) {
+        super.onActivityResult(requestCode, resultCode, data);
+    }
+
+    @Override
     public void onClick(View v) {
         switch(v.getId()) {
             case R.id.fab: {
@@ -170,7 +180,7 @@ public class BaseParentActivity extends AppCompatActivity
             }
             case R.id.app_mine_header: {
                 Intent intent = new Intent(this, MineActivity.class);
-                startActivity(intent);
+                startActivityForResult(intent, MINE_REQUEST_CODE);
                 break;
             }
         }

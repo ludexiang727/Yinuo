@@ -6,7 +6,9 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:gravity="center_vertical">
+        android:gravity="center_vertical"
+        android:clickable="true"
+        android:background="@drawable/mine_cell_selector">
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -24,7 +26,37 @@
             android:layout_alignParentRight="true"
             android:layout_centerVertical="true"
             android:scaleType="center"
+            android:src="@mipmap/ic_launcher"
             android:contentDescription="@null"/>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/mine_page_separator_color"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:clickable="true"
+        android:background="@drawable/mine_cell_selector">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:paddingLeft="@dimen/mine_notify_padding"
+            android:paddingTop="@dimen/mine_cell_notify_padding_tb"
+            android:paddingBottom="@dimen/mine_cell_notify_padding_tb"
+            android:text="@string/mine_nike_name"/>
+
+        <TextView
+            android:id="@+id/mine_nick_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"/>
     </RelativeLayout>
 
     <View
@@ -35,7 +67,9 @@
     <!-- account -->
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:background="@drawable/mine_cell_selector">
 
         <TextView
             android:layout_width="wrap_content"
@@ -61,8 +95,11 @@
 
     <!-- mine qrcode -->
     <RelativeLayout
+        android:id="@+id/mine_qrcode_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:background="@drawable/mine_cell_selector">
 
         <TextView
             android:layout_width="wrap_content"
@@ -83,7 +120,9 @@
     <!-- gender -->
     <RelativeLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:background="@drawable/mine_cell_selector">
 
         <TextView
             android:layout_width="wrap_content"
@@ -108,8 +147,11 @@
         android:background="@color/mine_page_separator_color"/>
 
     <RelativeLayout
+        android:id="@+id/mine_credit_report_layout"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:background="@drawable/mine_cell_selector">
 
         <TextView
             android:layout_width="wrap_content"
@@ -144,6 +186,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:clickable="true"
+            android:background="@drawable/mine_cell_selector"
             android:text="@string/mine_loan_processing"
             android:paddingTop="@dimen/mine_cell_notify_padding_tb"
             android:paddingBottom="@dimen/mine_cell_notify_padding_tb"
@@ -162,6 +205,7 @@
             android:layout_weight="1"
             android:gravity="center"
             android:clickable="true"
+            android:background="@drawable/mine_cell_selector"
             android:layout_gravity="center"
             android:paddingTop="@dimen/mine_cell_notify_padding_tb"
             android:paddingBottom="@dimen/mine_cell_notify_padding_tb"

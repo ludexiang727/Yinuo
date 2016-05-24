@@ -16,6 +16,7 @@ import com.yinuo.net.response.NetLoanPageObj;
 import com.yinuo.net.response.NetLoginObj;
 import com.yinuo.net.response.NetPartnerPageObj;
 import com.yinuo.net.response.NetRegisterObj;
+import com.yinuo.net.response.NetUserInfoObj;
 import com.yinuo.net.response.NetWorkspacePageObj;
 import com.yinuo.net.utils.NetConstant;
 
@@ -186,6 +187,15 @@ public class NetRequest <T extends NetBaseObject> {
         build.add(NetConstant.NET_REQUEST_BOSS_ONLINE_ABOUT_PARAM_COMPANY_ID, String.valueOf(companyId));
         int requestCode = OkHttpRequest.getInstance().httpPostRequest(NetConstant.REQUEST_URL_BOSS_ONLINE_ABOUT_PAGE,
                 build.build(), listener, new NetBossOnlineAboutPageObj());
+        return requestCode;
+    }
+
+    /** user info page begin -- query user info base userid*/
+    public int requestUserInfoBy(int userId, IRequestListener<T> listener) {
+        FormEncodingBuilder build = build();
+        build.add(NetConstant.NET_REQUEST_USER_INFO_USER_ID, String.valueOf(userId));
+        int requestCode = OkHttpRequest.getInstance().httpPostRequest(NetConstant.REQUEST_URL_USER_INFO,
+                build.build(), listener, new NetUserInfoObj());
         return requestCode;
     }
 

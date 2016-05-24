@@ -20,6 +20,7 @@ public class NetConstant {
     public static final String REQUEST_URL_WORKSPACE_PAGE = "pGetWorkspacePage";
     public static final String REQUEST_URL_BOSS_ONLINE_PAGE = "pGetBossOnlinePage";
     public static final String REQUEST_URL_BOSS_ONLINE_ABOUT_PAGE = "pGetBossOnlineAboutPage";
+    public static final String REQUEST_URL_USER_INFO = "pGetUserInfo";
     /***************** request interface end *********************/
 
     /*************  json parse begin field -- 接口response json field **********************/
@@ -202,5 +203,31 @@ public class NetConstant {
 
     // json
     /** boss online about page data end */
+
+    /** user info begin **/
+    // param
+    public static final String NET_REQUEST_USER_INFO_USER_ID = "user_id";
+
+    // json
+    public static final String NET_JSON_USER_INFOS = "user_infos";
+    public static final String NET_JSON_USER_ID = "user_id";
+    public static final String NET_JSON_USER_HEADER = "user_header";
+    public static final String NET_JSON_USER_NICK_NAME = "user_nick_name";
+    public static final String NET_JSON_USER_QRCODE_URL = "user_qrcode_url";
+    public static final String NET_JSON_USER_ACCOUNT = "user_account";
+    public static final String NET_JSON_USER_GENDER = "user_gender";
+    public static final String NET_JSON_USER_CREDIT_REPORT = "user_credit_report";
+    public static final String NET_JSON_USER_LOAN_PROCESS ="user_loan_process";
+    public static final String NET_JSON_USER_LOAN_REPAYMENT = "user_loan_repayment";
+    public static final String NET_JSON_USER_REGISTER_LOCATION = "user_register_location";
+    public static final String NET_JSON_USER_SCHOOL = "user_school";
+    public static final String NET_JSON_USER_HIGHEST_EDU = "user_highest_edu";
+    public static final String NET_JSON_USER_EDU_MAJOR = "user_edu_major";
+    public static final String NET_JSON_USER_WORK_IN = "user_work_in";
+    public static final String NET_JSON_USER_JOB = "user_job";
+    public static final String NET_JSON_USER_ID_CARD = "user_id_card";
+    /** user info end **/
+
+
     /******************  json parse end field **********************/
 }

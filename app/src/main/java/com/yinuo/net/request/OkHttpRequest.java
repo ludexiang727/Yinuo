@@ -21,6 +21,7 @@ import com.yinuo.net.response.NetInvestPageObj;
 import com.yinuo.net.response.NetInvestWeChatObj;
 import com.yinuo.net.response.NetLoanPageObj;
 import com.yinuo.net.response.NetPartnerPageObj;
+import com.yinuo.net.response.NetUserInfoObj;
 import com.yinuo.net.response.NetWorkspacePageObj;
 import com.yinuo.net.utils.NetConstant;
 import com.yinuo.net.utils.NetHelper;
@@ -133,7 +134,11 @@ public class OkHttpRequest <T extends NetBaseObject> implements Callback {
                 mObject.parse(AssetUtils.readFile("investwechat.txt"));
             } else if (mObject instanceof NetAppConfigObj) {
                 mObject.parse(AssetUtils.readFile("appconfig.txt"));
-            } else if (mObject instanceof NetBaseObject) {
+            } else if (mObject instanceof NetUserInfoObj) {
+                mObject.parse(AssetUtils.readFile("userdata.txt"));
+            }
+            // ...
+            else if (mObject instanceof NetBaseObject) {
                 mObject.parse(AssetUtils.readFile("investwechatsendmsg.txt"));
             }
             // test end

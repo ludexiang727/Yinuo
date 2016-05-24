@@ -21,6 +21,7 @@ import com.yinuo.Constants;
 import com.yinuo.helper.MapHelper;
 import com.yinuo.listener.ILocation;
 import com.yinuo.mode.AddressModel;
+import com.yinuo.mode.UserModel;
 import com.yinuo.net.IRequestListener;
 import com.yinuo.net.base.NetBaseObject;
 import com.yinuo.net.request.NetRequest;
@@ -38,7 +39,7 @@ public class BaseApplication extends Application {
     private Context mContext;
     private static BaseApplication sInstance;
     private BDLocation mBDLocation;
-
+    private UserModel mUserModel;
 
     public static BaseApplication getInstance() {
         return sInstance;
@@ -80,6 +81,14 @@ public class BaseApplication extends Application {
 
     public BDLocation getBDLocation() {
         return mBDLocation;
+    }
+
+    public void setUserModel(UserModel model) {
+        mUserModel = model;
+    }
+
+    public UserModel getUserModel() {
+        return mUserModel;
     }
 
     private void loadAddress() {

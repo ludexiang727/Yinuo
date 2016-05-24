@@ -60,4 +60,13 @@ public final class PreferenceUtils {
         return mSharePrefer.getInt("app_config_version", 0);
     }
     /** save config info end **/
+
+    public void setAccount(String userAccount) {
+        mEditor.putString("user_account", userAccount);
+        mEditor.commit();
+    }
+
+    public String getAccount() {
+        return mSharePrefer.getString("user_account", "");
+    }
 }
