@@ -34,6 +34,7 @@
     <dimen name="mine_cell_notify_padding_tb">15dp</dimen>
     <dimen name="mine_page_header_wh">60dp</dimen>
     <dimen name="mine_auchentication_margin_right">5dp</dimen>
+    <dimen name="mine_setting_margin_top">10dp</dimen>
     <!-- mine page end -->
 
     <!-- home page begin -->

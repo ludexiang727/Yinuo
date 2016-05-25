@@ -2,6 +2,8 @@ package com.yinuo.base;
 
 import android.content.Intent;
 import android.content.res.Resources;
+import android.graphics.Bitmap;
+import android.graphics.drawable.BitmapDrawable;
 import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -19,12 +21,20 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
+import android.widget.LinearLayout;
+import android.widget.TextView;
 
 import com.yinuo.R;
+import com.yinuo.adapter.EventBusAdapter;
 import com.yinuo.adapter.MainViewPagerAdapter;
+import com.yinuo.helper.ImageLoaderHelper;
+import com.yinuo.mode.UserModel;
 import com.yinuo.net.request.NetRequest;
 import com.yinuo.ui.CityChoosePageActivity;
 import com.yinuo.ui.MineActivity;
+import com.yinuo.ui.SettingsActivity;
+import com.yinuo.utils.BitmapUtils;
+import com.yinuo.utils.MessageEventUtil;
 import com.yinuo.utils.SystemBarTintManager;
 
 import java.util.ArrayList;
@@ -45,7 +55,11 @@ public class BaseParentActivity extends AppCompatActivity
     protected ViewPager mViewPager;
     protected MainViewPagerAdapter mPagerAdapter;
     protected List<String> mTabTitle = new ArrayList<String>();
+    private LinearLayout mNavigationView;
     private ImageView mHeaderView;
+    private TextView mUserName;
+    private TextView mUserAccount;
+    private LoginEvent mLoginEvent = new LoginEvent();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -64,6 +78,8 @@ public class BaseParentActivity extends AppCompatActivity
 
         // test default sign up
         NetRequest.getInstance().requestUserInfoBy(1, null);
+        MessageEventUtil.getInstance().setEventAdapter(mLoginEvent);
+        MessageEventUtil.getInstance().register();
     }
 
     private void initialize() {
@@ -83,7 +99,10 @@ public class BaseParentActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         View headerView = navigationView.getHeaderView(0);
+        mNavigationView = (LinearLayout) headerView.findViewById(R.id.app_navigation_layout);
         mHeaderView = (ImageView) headerView.findViewById(R.id.app_mine_header);
+        mUserName = (TextView) headerView.findViewById(R.id.app_mine_name);
+        mUserAccount = (TextView) headerView.findViewById(R.id.app_mine_account);
         mHeaderView.setOnClickListener(this);
         navigationView.setNavigationItemSelectedListener(this);
     }
@@ -140,6 +159,9 @@ public class BaseParentActivity extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
         switch (id) {
+            case R.id.nav_camera: {
+                break;
+            }
             // Handle the camera action
             case R.id.nav_gallery : {
                 break;
@@ -148,6 +170,8 @@ public class BaseParentActivity extends AppCompatActivity
                 break;
             }
             case R.id.nav_manage: {
+                Intent intent = new Intent(this, SettingsActivity.class);
+                startActivity(intent);
                 break;
             }
             case R.id.nav_share: {
@@ -184,5 +208,28 @@ public class BaseParentActivity extends AppCompatActivity
                 break;
             }
         }
+    }
+
+    private final class LoginEvent extends EventBusAdapter {
+
+        @Override
+        public void onEventMainThread(EventBusAdapter event) {
+            UserModel userInfo = BaseApplication.getInstance().getUserModel();
+            Bitmap bitmap = ImageLoaderHelper.getInstance().loadBitmap(userInfo.getUserHeader());
+            mUserName.setText(userInfo.getUserNickName());
+            mUserAccount.setText(userInfo.getUserAccount());
+            if (bitmap != null) {
+                Bitmap blurBit = BitmapUtils.doBlur(bitmap, 2, true);
+                mNavigationView.setBackgroundDrawable(BitmapUtils.bitmapToDrawable(blurBit));
+            } else {
+                mNavigationView.setBackgroundResource(R.drawable.side_nav_bar);
+            }
+        }
+    }
+
+    @Override
+    protected void onDestroy() {
+        super.onDestroy();
+        MessageEventUtil.getInstance().unRegister();
     }
 }

@@ -5,6 +5,7 @@ import com.yinuo.mode.UserModel;
 import com.yinuo.net.base.NetBaseObject;
 import com.yinuo.net.utils.NetConstant;
 import com.yinuo.net.utils.NetParseUtils;
+import com.yinuo.utils.MessageEventUtil;
 
 import org.json.JSONObject;
 
@@ -53,5 +54,6 @@ public class NetUserInfoObj extends NetBaseObject {
         model.setUserJob(job);
         model.setUserIdCard(idCard);
         BaseApplication.getInstance().setUserModel(model);
+        MessageEventUtil.getInstance().post();
     }
 }

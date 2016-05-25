@@ -1,0 +1,115 @@
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginTop="@dimen/mine_setting_margin_top"
+        android:background="@color/mine_page_separator_color"/>
+
+    <RelativeLayout
+        android:id="@+id/setting_change_account_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:background="@drawable/mine_cell_selector">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/mine_notify_padding"
+            android:paddingTop="@dimen/mine_cell_notify_padding_tb"
+            android:paddingBottom="@dimen/mine_cell_notify_padding_tb"
+            android:layout_alignParentLeft="true"
+            android:text="@string/setting_change_account"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/mine_page_separator_color"/>
+
+    <RelativeLayout
+        android:id="@+id/setting_change_tel_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:background="@drawable/mine_cell_selector">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/mine_notify_padding"
+            android:paddingTop="@dimen/mine_cell_notify_padding_tb"
+            android:paddingBottom="@dimen/mine_cell_notify_padding_tb"
+            android:layout_alignParentLeft="true"
+            android:text="@string/setting_change_tel"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/mine_page_separator_color"/>
+
+    <RelativeLayout
+        android:id="@+id/setting_change_pwd_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:background="@drawable/mine_cell_selector">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/mine_notify_padding"
+            android:paddingTop="@dimen/mine_cell_notify_padding_tb"
+            android:paddingBottom="@dimen/mine_cell_notify_padding_tb"
+            android:layout_alignParentLeft="true"
+            android:text="@string/setting_change_pwd"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/mine_page_separator_color"/>
+
+    <RelativeLayout
+        android:id="@+id/setting_change_gesture_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:clickable="true"
+        android:background="@drawable/mine_cell_selector">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:paddingLeft="@dimen/mine_notify_padding"
+            android:paddingTop="@dimen/mine_cell_notify_padding_tb"
+            android:paddingBottom="@dimen/mine_cell_notify_padding_tb"
+            android:layout_alignParentLeft="true"
+            android:text="@string/setting_gesture_set"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/mine_page_separator_color"/>
+</merge>

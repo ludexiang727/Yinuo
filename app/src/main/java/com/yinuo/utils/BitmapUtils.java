@@ -9,6 +9,7 @@ import android.graphics.PorterDuff;
 import android.graphics.PorterDuffXfermode;
 import android.graphics.Rect;
 import android.graphics.RectF;
+import android.graphics.drawable.BitmapDrawable;
 import android.graphics.drawable.Drawable;
 import android.view.View;
 import android.view.ViewGroup;
@@ -325,5 +326,10 @@ public class BitmapUtils {
         drawable.draw(canvas);
         return bitmap;
 
+    }
+
+    public static Drawable bitmapToDrawable(Bitmap bitmap) {
+        BitmapDrawable drawable = new BitmapDrawable(bitmap);
+        return drawable;
     }
 }

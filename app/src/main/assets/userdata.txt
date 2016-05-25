@@ -3,7 +3,7 @@
     "errmsg":"",
     "user_infos":{
         "user_id":1,
-        "user_header":"",
+        "user_header":"http://www.qqtouxiang.com.cn/uploads/allimg/130111/1-130111210R4.png",
         "user_nick_name":"开膛手杰克",
         "user_qrcode_url":"",
         "user_account":"bubblelu@163.com",

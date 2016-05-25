@@ -50,6 +50,26 @@
     <string name="mine_service_customer">客服</string>
     <string name="mine_settings">设置</string>
     <!-- mine page end-->
+
+    <!-- settings page begin -->
+    <string name="setting_title">设置</string>
+    <string name="setting_change_account">修改账户</string>
+    <string name="setting_change_tel">修改手机号</string>
+    <string name="setting_change_pwd">修改密码</string>
+    <string name="setting_gesture_set">手势设置</string>
+
+    <string name="setting_notify_set">消息通知</string>
+    <string name="setting_private_set">隐私设置</string>
+    <string name="setting_clear_memory">清理缓存</string>
+
+    <string name="setting_suggest_back">意见反馈</string>
+    <string name="setting_usually_question">常见问题</string>
+    <string name="setting_yinuo_version">版本检测</string>
+    <string name="setting_about_yinuo">关于一诺</string>
+
+    <string name="setting_sign_out">退出登录</string>
+    <!-- settings page end -->
+
     <!-- home page begin -->
     <string name="home_page_card_details_attention">%1$s关注</string>
     <string name="home_page_detail_download">下载看看</string>
