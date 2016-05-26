@@ -128,6 +128,13 @@
     <!-- loan page begin -->
     <dimen name="loan_item_view_height">135dp</dimen>
     <dimen name="loan_page_primary_tools_height">130dp</dimen>
+    <dimen name="loan_calculator_padding_left">5dp</dimen>
+    <dimen name="loan_calculator_padding_tb">15dp</dimen>
+
+    <dimen name="loan_calculator_margin_bottom">20dp</dimen>
+    <dimen name="loan_calculator_view_size">15dp</dimen>
+    <dimen name="loan_guide_circle_radius">50dp</dimen>
+    <dimen name="loan_guide_stroke_size">4dp</dimen>
     <!-- loan page end-->
 
     <!-- workspace page begin -->

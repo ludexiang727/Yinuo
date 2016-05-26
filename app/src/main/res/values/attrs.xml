@@ -58,4 +58,13 @@
         <attr name="bottomcircle_x" format="dimension"/>
         <attr name="bottomcircle_y" format="dimension"/>
     </declare-styleable>
+
+    <declare-styleable name="LoanCalculatorGuide">
+        <attr name="guide_stroke" format="dimension"/>
+        <attr name="circle_radius" format="dimension"/>
+        <attr name="after_tax_color" format="color"/>
+        <attr name="pre_tax_color" format="color"/>
+        <attr name="insurance_benefit_color" format="color"/>
+        <attr name="individual_tax" format="color"/>
+    </declare-styleable>
 </resources>

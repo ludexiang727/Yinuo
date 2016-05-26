@@ -9,10 +9,11 @@
     <color name="recycle_view_divider">#EBEBEB</color>
 
     <color name="splash_app_name_color">#CCC80000</color>
-    <color name="app_splahs_ad_infos_color">#ADFFFFFF</color>
+    <color name="app_splash_ad_infos_color">#ADFFFFFF</color>
     <color name="app_refresh_background">#C3C3C3</color>
     <color name="app_default_edit_normal_color">#e3e3e3</color>
     <color name="app_default_edit_focus_color">#ff4081</color>
+    <color name="app_separator_color">#e3e3e3</color>
 
     <color name="refresh_color_progress1">#CC3F51B5</color>
     <color name="refresh_color_progress2">#FF4081</color>
@@ -58,6 +59,10 @@
 
     <!-- loan page begin -->
     <color name="loan_page_separator_color">#ebebeb</color>
+    <color name="loan_after_tax_color">#CC3F51B5</color>
+    <color name="loan_pre_tax_color">#CCFF4081</color>
+    <color name="loan_benefit_color">#CCD8FC9A</color>
+    <color name="loan_individual_color">#CCFC908C</color>
     <!-- loan page end -->
 
     <!-- workspace page begin -->

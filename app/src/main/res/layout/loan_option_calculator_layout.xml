@@ -11,6 +11,7 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
+            <!-- calculator -->
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -19,6 +20,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
+                    android:paddingBottom="@dimen/loan_calculator_padding_tb"
+                    android:paddingTop="@dimen/loan_calculator_padding_tb"
+                    android:paddingLeft="@dimen/loan_calculator_padding_left"
                     android:text="@string/loan_page_calculator_price"/>
 
                 <!-- TODO add spinner view or popup window -->
@@ -27,6 +31,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentRight="true"
+                    android:paddingBottom="@dimen/loan_calculator_padding_tb"
+                    android:paddingTop="@dimen/loan_calculator_padding_tb"
+                    android:paddingLeft="@dimen/loan_calculator_padding_left"
                     android:text="@string/loan_page_calculator_unit"/>
 
                 <EditText
@@ -35,6 +42,7 @@
                     android:layout_height="match_parent"
                     android:background="@null"
                     android:gravity="right"
+                    android:layout_centerVertical="true"
                     android:inputType="number|numberDecimal"
                     android:layout_toLeftOf="@id/loan_calculator_page_price_unit"/>
             </RelativeLayout>
@@ -42,8 +50,9 @@
             <View
                 android:layout_width="match_parent"
                 android:layout_height="1px"
-                android:background="#e3e3e3"/>
+                android:background="@color/app_separator_color"/>
 
+            <!-- current location city -->
             <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content">
@@ -52,6 +61,9 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_alignParentLeft="true"
+                    android:paddingBottom="@dimen/loan_calculator_padding_tb"
+                    android:paddingTop="@dimen/loan_calculator_padding_tb"
+                    android:paddingLeft="@dimen/loan_calculator_padding_left"
                     android:text="@string/loan_page_calculator_insurance"/>
 
                 <!-- TODO add spinner view or popup window -->
@@ -59,6 +71,7 @@
                     android:id="@+id/loan_calculator_page_location_arrow"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
+                    android:layout_centerVertical="true"
                     android:layout_alignParentRight="true"/>
 
                 <TextView
@@ -66,9 +79,71 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:background="@null"
+                    android:paddingBottom="@dimen/loan_calculator_padding_tb"
+                    android:paddingTop="@dimen/loan_calculator_padding_tb"
+                    android:paddingLeft="@dimen/loan_calculator_padding_left"
                     android:gravity="right"
                     android:layout_toLeftOf="@id/loan_calculator_page_location_arrow"/>
             </RelativeLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginBottom="@dimen/loan_calculator_margin_bottom"
+                android:background="@color/app_separator_color"/>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:background="@color/app_separator_color"/>
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <TextView
+                    android:id="@+id/loan_calculator_page_after_tax"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:clickable="true"
+                    android:paddingBottom="@dimen/loan_calculator_padding_tb"
+                    android:paddingTop="@dimen/loan_calculator_padding_tb"
+                    android:text="@string/loan_page_calculator_after_tax"
+                    android:background="@drawable/mine_cell_selector"/>
+
+                <View
+                    android:layout_width="1px"
+                    android:layout_height="match_parent"
+                    android:background="@color/app_separator_color"/>
+
+                <TextView
+                    android:id="@+id/loan_calculator_page_pre_tax"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:clickable="true"
+                    android:layout_gravity="center"
+                    android:gravity="center"
+                    android:paddingBottom="@dimen/loan_calculator_padding_tb"
+                    android:paddingTop="@dimen/loan_calculator_padding_tb"
+                    android:text="@string/loan_page_calculator_pre_tax"
+                    android:background="@drawable/mine_cell_selector"/>
+            </LinearLayout>
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1px"
+                android:layout_marginBottom="@dimen/loan_calculator_margin_bottom"
+                android:background="@color/app_separator_color"/>
+
+            <com.yinuo.ui.component.widget.view.LoanCalculatorView
+                android:id="@+id/loan_page_calculator_view"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"/>
         </LinearLayout>
     </ScrollView>
 

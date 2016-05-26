@@ -96,9 +96,19 @@
     <string name="loan_page_primary_scan">扫一扫</string>
     <string name="loan_page_primary_red_bag">红包</string>
     <string name="loan_page_primary_vip">VIP专享</string>
+    <string name="loan_page_calculator_title">个税计算</string>
     <string name="loan_page_calculator_price">金额</string>
     <string name="loan_page_calculator_unit">元</string>
     <string name="loan_page_calculator_insurance">各项社会保险</string>
+    <string name="loan_page_calculator_after_tax">计算税后收入</string>
+    <string name="loan_page_calculator_pre_tax">反推税前收入</string>
+    <string name="loan_calculator_result_details">明细</string>
+    <string name="loan_calculator_result_person">个人</string>
+    <string name="loan_calculator_result_company">企业</string>
+    <string name="loan_calculator_after_tax">税后:</string>
+    <string name="loan_calculator_pre_tax">税前:</string>
+    <string name="loan_calculator_benefit">保险金:</string>
+    <string name="loan_calculator_individulate">个税:</string>
     <!-- loan page end-->
 
     <!-- workspace page begin -->

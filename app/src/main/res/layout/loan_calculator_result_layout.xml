@@ -1,0 +1,198 @@
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <com.yinuo.ui.component.widget.view.LoanCalculatorGuide
+            android:id="@+id/loan_calculator_guide"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            app:guide_stroke="@dimen/loan_guide_stroke_size"
+            app:circle_radius="@dimen/loan_guide_circle_radius"
+            app:after_tax_color="@color/loan_after_tax_color"
+            app:pre_tax_color="@color/loan_pre_tax_color"
+            app:insurance_benefit_color="@color/loan_benefit_color"
+            app:individual_tax="@color/loan_individual_color"/>
+
+        <LinearLayout
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:gravity="center_vertical"
+            android:layout_centerVertical="true"
+            android:layout_alignParentRight="true"
+            android:layout_toRightOf="@id/loan_calculator_guide">
+
+            <!-- after tax -->
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <View
+                    android:id="@+id/loan_calculator_after_tax_view"
+                    android:layout_width="@dimen/loan_calculator_view_size"
+                    android:layout_height="@dimen/loan_calculator_view_size"
+                    android:background="@color/loan_after_tax_color"
+                    android:layout_alignParentLeft="true"/>
+
+                <TextView
+                    android:id="@+id/loan_calculator_after_tax_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:textColor="@color/loan_after_tax_color"
+                    android:layout_centerVertical="true"
+                    android:text="0.00"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/loan_calculator_after_tax"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@id/loan_calculator_after_tax_price"
+                    android:layout_toRightOf="@id/loan_calculator_after_tax_view"/>
+            </RelativeLayout>
+
+            <!-- pre tax -->
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <View
+                    android:id="@+id/loan_calculator_pre_tax_view"
+                    android:layout_width="@dimen/loan_calculator_view_size"
+                    android:layout_height="@dimen/loan_calculator_view_size"
+                    android:background="@color/loan_pre_tax_color"
+                    android:layout_alignParentLeft="true"/>
+
+                <TextView
+                    android:id="@+id/loan_calculator_pre_tax_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:textColor="@color/loan_pre_tax_color"
+                    android:layout_centerVertical="true"
+                    android:text="0.00"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/loan_calculator_pre_tax"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@id/loan_calculator_pre_tax_price"
+                    android:layout_toRightOf="@id/loan_calculator_pre_tax_view"/>
+            </RelativeLayout>
+
+            <!-- benefit -->
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <View
+                    android:id="@+id/loan_calculator_benefit_view"
+                    android:layout_width="@dimen/loan_calculator_view_size"
+                    android:layout_height="@dimen/loan_calculator_view_size"
+                    android:background="@color/loan_benefit_color"
+                    android:layout_alignParentLeft="true"/>
+
+                <TextView
+                    android:id="@+id/loan_calculator_benefit_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:textColor="@color/loan_benefit_color"
+                    android:layout_centerVertical="true"
+                    android:text="0.00"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/loan_calculator_benefit"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@id/loan_calculator_benefit_price"
+                    android:layout_toRightOf="@id/loan_calculator_benefit_view"/>
+            </RelativeLayout>
+
+            <!-- individual -->
+            <RelativeLayout
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+                <View
+                    android:id="@+id/loan_calculator_individual_view"
+                    android:layout_width="@dimen/loan_calculator_view_size"
+                    android:layout_height="@dimen/loan_calculator_view_size"
+                    android:background="@color/loan_individual_color"
+                    android:layout_alignParentLeft="true"/>
+
+                <TextView
+                    android:id="@+id/loan_calculator_individual_price"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:textColor="@color/loan_individual_color"
+                    android:layout_centerVertical="true"
+                    android:text="0.00"/>
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="@string/loan_calculator_individulate"
+                    android:layout_centerVertical="true"
+                    android:layout_toLeftOf="@id/loan_calculator_individual_price"
+                    android:layout_toRightOf="@id/loan_calculator_individual_view"/>
+            </RelativeLayout>
+
+        </LinearLayout>
+
+    </RelativeLayout>
+
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="@string/loan_calculator_result_details"/>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginBottom="@dimen/loan_calculator_margin_bottom"
+        android:background="@color/app_separator_color"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/loan_calculator_result_person"/>
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/loan_calculator_result_company"/>
+
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:layout_marginBottom="@dimen/loan_calculator_margin_bottom"
+        android:background="@color/app_separator_color"/>
+
+    <LinearLayout
+        android:id="@+id/loan_calculator_result_list_layout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"/>
+
+</merge>
