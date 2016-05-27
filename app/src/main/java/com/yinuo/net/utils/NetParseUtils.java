@@ -32,6 +32,13 @@ public class NetParseUtils {
         return -1;
     }
 
+    public static double getDouble(String key, JSONObject obj) {
+        if (obj.has(key)) {
+            return obj.optDouble(key);
+        }
+        return 0.00;
+    }
+
     /** default return null */
     public static JSONArray getArray(String key, JSONObject obj) {
         if (obj.has(key)) {

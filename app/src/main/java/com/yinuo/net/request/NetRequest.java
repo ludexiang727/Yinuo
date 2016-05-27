@@ -12,6 +12,7 @@ import com.yinuo.net.response.NetHomePageDetailsObj;
 import com.yinuo.net.response.NetHomePageObj;
 import com.yinuo.net.response.NetInvestPageObj;
 import com.yinuo.net.response.NetInvestWeChatObj;
+import com.yinuo.net.response.NetLoanCalculatorObj;
 import com.yinuo.net.response.NetLoanPageObj;
 import com.yinuo.net.response.NetLoginObj;
 import com.yinuo.net.response.NetPartnerPageObj;
@@ -158,6 +159,16 @@ public class NetRequest <T extends NetBaseObject> {
         build.add(NetConstant.NET_REQUEST_LOAN_PARAM_OPTION_LOCATION, String.valueOf(optionLocation));
         int requestCode = OkHttpRequest.getInstance().httpPostRequest(NetConstant.REQUEST_URL_LOAN_PAGE,
                 build.build(), listener, new NetLoanPageObj());
+        return requestCode;
+    }
+
+    public int requestLoanCalculator(int cityId, double calculatorPrice, int type, IRequestListener<T> listener) {
+        FormEncodingBuilder builder = build();
+        builder.add(NetConstant.NET_REQUEST_LOAN_PARAM_CALCULATOR_LOCATION, String.valueOf(cityId));
+        builder.add(NetConstant.NET_REQUEST_LOAN_PARAM_CALCULATOR_PRICE, String.valueOf(calculatorPrice));
+        builder.add(NetConstant.NET_REQUEST_LOAN_PARAM_CALCULATOR_TYPE, String.valueOf(type));
+        int requestCode = OkHttpRequest.getInstance().httpPostRequest(NetConstant.REQUEST_URL_LOAN_CALCULATION,
+                builder.build(), listener, new NetLoanCalculatorObj());
         return requestCode;
     }
 

@@ -21,6 +21,7 @@ public class NetConstant {
     public static final String REQUEST_URL_BOSS_ONLINE_PAGE = "pGetBossOnlinePage";
     public static final String REQUEST_URL_BOSS_ONLINE_ABOUT_PAGE = "pGetBossOnlineAboutPage";
     public static final String REQUEST_URL_USER_INFO = "pGetUserInfo";
+    public static final String REQUEST_URL_LOAN_CALCULATION = "pGetLoanCalculator";
     /***************** request interface end *********************/
 
     /*************  json parse begin field -- 接口response json field **********************/
@@ -133,6 +134,9 @@ public class NetConstant {
     /** loan page data begin */
     public static final String NET_REQUEST_LOAN_PARAM_OPTION_ID = "loan_option_id";
     public static final String NET_REQUEST_LOAN_PARAM_OPTION_LOCATION = "loan_option_location";
+    public static final String NET_REQUEST_LOAN_PARAM_CALCULATOR_LOCATION= "loan_calculator_city";
+    public static final String NET_REQUEST_LOAN_PARAM_CALCULATOR_PRICE = "loan_calculator_price";
+    public static final String NET_REQUEST_LOAN_PARAM_CALCULATOR_TYPE = "loan_calculator_type";
 
     // json
     public static final String NET_JSON_LOAN_FIELD_OPTIONS_LISTS = "loan_options_list";
@@ -141,6 +145,15 @@ public class NetConstant {
     public static final String NET_JSON_LOAN_OPTIONS_TXT = "loan_option_txt";
     public static final String NET_JSON_LOAN_OPTIONS_HOT = "loan_option_hot";
     public static final String NET_JSON_LOAN_OPTIONS_LOCATION = "loan_option_location";
+
+    public static final String NET_JSON_LOAN_CALCULATOR_AFTER_TAX = "after_tax";
+    public static final String NET_JSON_LOAN_CALCULATOR_PRE_TAX = "pre_tax";
+    public static final String NET_JSON_LOAN_CALCULATOR_BENEFIT = "benefit";
+    public static final String NET_JSON_LOAN_CALCULATOR_INDIVIDUAL = "individual";
+    public static final String NET_JSON_LOAN_CALCULATOR_BENEFIT_LISTS = "benefit_lists";
+    public static final String NET_JSON_LOAN_CALCULATOR_BENEFIT_NAME = "benefit_name";
+    public static final String NET_JSON_LOAN_CALCULATOR_BENEFIT_PERSON = "benefit_person";
+    public static final String NET_JSON_LOAN_CALCULATOR_BENEFIT_COMPANY = "benefit_company";
     /** loan page data end */
 
     /** workspace page data begin */

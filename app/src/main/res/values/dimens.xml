@@ -28,6 +28,7 @@
     <dimen name="app_header_indicator_padding">3dp</dimen>
     <dimen name="app_header_indicator_margin_bottom">5dp</dimen>
     <dimen name="app_default_edit_radius">4dp</dimen>
+    <dimen name="app_dialog_loading_wh">105dp</dimen>
 
     <!-- mine page begin -->
     <dimen name="mine_notify_padding">5dp</dimen>
@@ -134,7 +135,9 @@
     <dimen name="loan_calculator_margin_bottom">20dp</dimen>
     <dimen name="loan_calculator_view_size">15dp</dimen>
     <dimen name="loan_guide_circle_radius">50dp</dimen>
-    <dimen name="loan_guide_stroke_size">4dp</dimen>
+    <dimen name="loan_guide_stroke_size">2dp</dimen>
+    <dimen name="loan_calculator_info_margin">10dp</dimen>
+    <dimen name="loan_calculator_edit_size">14sp</dimen>
     <!-- loan page end-->
 
     <!-- workspace page begin -->

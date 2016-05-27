@@ -41,9 +41,12 @@
                     android:layout_width="wrap_content"
                     android:layout_height="match_parent"
                     android:background="@null"
-                    android:gravity="right"
+                    android:gravity="right|center_vertical"
                     android:layout_centerVertical="true"
                     android:inputType="number|numberDecimal"
+                    android:maxLength="11"
+                    android:textSize="@dimen/loan_calculator_edit_size"
+                    android:hint="@string/loan_page_calculator_price"
                     android:layout_toLeftOf="@id/loan_calculator_page_price_unit"/>
             </RelativeLayout>
 

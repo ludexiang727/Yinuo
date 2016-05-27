@@ -35,4 +35,16 @@
     </style>
     <!-- popup window end-->
 
+    <style name="DialogTheme" parent="@android:style/Theme.Dialog">
+        <item name="android:windowFrame">@null</item>
+        <!-- 边框 -->
+        <item name="android:windowNoTitle">true</item>
+        <!-- 无标题 -->
+        <item name="android:windowBackground">@color/gray_translate</item>
+        <!-- 背景透明 -->
+        <item name="android:windowIsFloating">false</item>
+        <!-- 是否浮现在activity之上 -->
+        <item name="android:windowContentOverlay">@null</item>
+    </style>
+
 </resources>

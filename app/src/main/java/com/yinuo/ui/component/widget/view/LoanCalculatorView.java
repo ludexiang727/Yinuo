@@ -8,6 +8,9 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import com.yinuo.R;
+import com.yinuo.mode.LoanCalculatorModel;
+
+import java.util.List;
 
 /**
  * Created by didi on 16/5/26.
@@ -37,6 +40,7 @@ public class LoanCalculatorView extends LinearLayout {
     }
 
     private void initView(Context context) {
+        setOrientation(VERTICAL);
         mInflater = LayoutInflater.from(context);
 
         View view = mInflater.inflate(R.layout.loan_calculator_result_layout, this, true);
@@ -48,7 +52,35 @@ public class LoanCalculatorView extends LinearLayout {
         mIndividualPrice = (TextView) view.findViewById(R.id.loan_calculator_individual_price);
     }
 
-    public void setPrices() {
+    public void setPrices(double inputPrice, double...prices) {
+        mAfterTaxPrice.setText(String.valueOf(prices[0]));
+        mPreTaxPrice.setText(String.valueOf(prices[1]));
+        mBenefitPrice.setText(String.valueOf(prices[2]));
+        mIndividualPrice.setText(String.valueOf(prices[3]));
 
+        long afterTax = Math.round((prices[0] / inputPrice) * 360);
+        long preTax = Math.round((prices[1] / inputPrice) * 360);
+        long benefit = Math.round((prices[2] / inputPrice) * 360);
+        long individual = Math.round((prices[3] / inputPrice) * 360);
+        mLoanGuide.setPrices(afterTax, preTax, benefit, individual);
+    }
+
+    public void setDetails(List<LoanCalculatorModel> models) {
+        if (models == null || models.size() == 0) {
+            return;
+        }
+
+        for (int i = 0; i < models.size(); ++i) {
+            LoanCalculatorModel model = models.get(i);
+            View view = mInflater.inflate(R.layout.loan_calculator_details_layout, null);
+            TextView name = (TextView) view.findViewById(R.id.loan_calculator_name);
+            TextView person = (TextView) view.findViewById(R.id.loan_calculator_person);
+            TextView company = (TextView) view.findViewById(R.id.loan_calculator_company);
+
+            name.setText(model.getBenefitName());
+            person.setText(model.getBenefitPerson());
+            company.setText(model.getBenefitCompany());
+            mLoanDetailsLayout.addView(view, i);
+        }
     }
 }

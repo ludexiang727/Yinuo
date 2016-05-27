@@ -19,6 +19,7 @@
     <color name="refresh_color_progress2">#FF4081</color>
     <color name="refresh_color_progress3">#CC303F9F</color>
     <color name="refresh_color_progress4">#FE40B2</color>
+    <color name="gray_translate">#33000000</color>
 
     <!-- mine page begin -->
     <color name="mine_page_separator_color">#e3e3e3</color>

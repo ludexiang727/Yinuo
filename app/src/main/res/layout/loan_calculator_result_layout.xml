@@ -34,12 +34,15 @@
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginLeft="@dimen/loan_calculator_info_margin"
+                android:layout_marginRight="@dimen/loan_calculator_info_margin">
                 <View
                     android:id="@+id/loan_calculator_after_tax_view"
                     android:layout_width="@dimen/loan_calculator_view_size"
                     android:layout_height="@dimen/loan_calculator_view_size"
                     android:background="@color/loan_after_tax_color"
+                    android:layout_centerVertical="true"
                     android:layout_alignParentLeft="true"/>
 
                 <TextView
@@ -57,19 +60,23 @@
                     android:text="@string/loan_calculator_after_tax"
                     android:layout_centerVertical="true"
                     android:layout_toLeftOf="@id/loan_calculator_after_tax_price"
-                    android:layout_toRightOf="@id/loan_calculator_after_tax_view"/>
+                    android:layout_toRightOf="@id/loan_calculator_after_tax_view"
+                    android:layout_marginLeft="@dimen/loan_calculator_info_margin"/>
             </RelativeLayout>
 
             <!-- pre tax -->
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginLeft="@dimen/loan_calculator_info_margin"
+                android:layout_marginRight="@dimen/loan_calculator_info_margin">
                 <View
                     android:id="@+id/loan_calculator_pre_tax_view"
                     android:layout_width="@dimen/loan_calculator_view_size"
                     android:layout_height="@dimen/loan_calculator_view_size"
                     android:background="@color/loan_pre_tax_color"
+                    android:layout_centerVertical="true"
                     android:layout_alignParentLeft="true"/>
 
                 <TextView
@@ -87,19 +94,23 @@
                     android:text="@string/loan_calculator_pre_tax"
                     android:layout_centerVertical="true"
                     android:layout_toLeftOf="@id/loan_calculator_pre_tax_price"
-                    android:layout_toRightOf="@id/loan_calculator_pre_tax_view"/>
+                    android:layout_toRightOf="@id/loan_calculator_pre_tax_view"
+                    android:layout_marginLeft="@dimen/loan_calculator_info_margin"/>
             </RelativeLayout>
 
             <!-- benefit -->
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginLeft="@dimen/loan_calculator_info_margin"
+                android:layout_marginRight="@dimen/loan_calculator_info_margin">
                 <View
                     android:id="@+id/loan_calculator_benefit_view"
                     android:layout_width="@dimen/loan_calculator_view_size"
                     android:layout_height="@dimen/loan_calculator_view_size"
                     android:background="@color/loan_benefit_color"
+                    android:layout_centerVertical="true"
                     android:layout_alignParentLeft="true"/>
 
                 <TextView
@@ -117,19 +128,23 @@
                     android:text="@string/loan_calculator_benefit"
                     android:layout_centerVertical="true"
                     android:layout_toLeftOf="@id/loan_calculator_benefit_price"
-                    android:layout_toRightOf="@id/loan_calculator_benefit_view"/>
+                    android:layout_toRightOf="@id/loan_calculator_benefit_view"
+                    android:layout_marginLeft="@dimen/loan_calculator_info_margin"/>
             </RelativeLayout>
 
             <!-- individual -->
             <RelativeLayout
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                android:layout_marginLeft="@dimen/loan_calculator_info_margin"
+                android:layout_marginRight="@dimen/loan_calculator_info_margin">
                 <View
                     android:id="@+id/loan_calculator_individual_view"
                     android:layout_width="@dimen/loan_calculator_view_size"
                     android:layout_height="@dimen/loan_calculator_view_size"
                     android:background="@color/loan_individual_color"
+                    android:layout_centerVertical="true"
                     android:layout_alignParentLeft="true"/>
 
                 <TextView
@@ -147,7 +162,8 @@
                     android:text="@string/loan_calculator_individulate"
                     android:layout_centerVertical="true"
                     android:layout_toLeftOf="@id/loan_calculator_individual_price"
-                    android:layout_toRightOf="@id/loan_calculator_individual_view"/>
+                    android:layout_toRightOf="@id/loan_calculator_individual_view"
+                    android:layout_marginLeft="@dimen/loan_calculator_info_margin"/>
             </RelativeLayout>
 
         </LinearLayout>
@@ -158,36 +174,41 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:paddingLeft="@dimen/mine_notify_padding"
         android:text="@string/loan_calculator_result_details"/>
 
     <View
         android:layout_width="match_parent"
         android:layout_height="1px"
-        android:layout_marginBottom="@dimen/loan_calculator_margin_bottom"
         android:background="@color/app_separator_color"/>
 
-    <LinearLayout
+    <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:gravity="center_vertical"
         android:orientation="horizontal">
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/loan_calculator_result_person"/>
+            android:text="@string/loan_calculator_result_person"
+            android:gravity="center_horizontal"
+            android:layout_centerHorizontal="true"
+            android:paddingTop="@dimen/mine_cell_notify_padding_tb"
+            android:paddingBottom="@dimen/mine_cell_notify_padding_tb"
+            android:layout_gravity="center_horizontal"/>
 
         <TextView
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/loan_calculator_result_company"/>
+            android:text="@string/loan_calculator_result_company"
+            android:gravity="right"
+            android:layout_gravity="right"
+            android:paddingTop="@dimen/mine_cell_notify_padding_tb"
+            android:paddingBottom="@dimen/mine_cell_notify_padding_tb"
+            android:layout_alignParentRight="true"/>
 
-    </LinearLayout>
-
-    <View
-        android:layout_width="match_parent"
-        android:layout_height="1px"
-        android:layout_marginBottom="@dimen/loan_calculator_margin_bottom"
-        android:background="@color/app_separator_color"/>
+    </RelativeLayout>
 
     <LinearLayout
         android:id="@+id/loan_calculator_result_list_layout"

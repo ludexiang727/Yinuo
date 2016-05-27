@@ -89,6 +89,7 @@
         <activity android:name=".ui.sub.loan.LoanBalanceActivity"
             android:screenOrientation="portrait"/>
         <activity android:name=".ui.sub.loan.LoanCalculatorActivity"
+            android:windowSoftInputMode="adjustResize"
             android:screenOrientation="portrait"/>
         <activity android:name=".ui.sub.loan.LoanCardTicketActivity"
             android:screenOrientation="portrait"/>
