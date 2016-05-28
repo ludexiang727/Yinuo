@@ -3,6 +3,7 @@ package com.yinuo.ui.sub.loan;
 import android.os.Bundle;
 import android.view.View;
 
+import com.yinuo.R;
 import com.yinuo.base.BaseActivity;
 import com.yinuo.net.base.NetBaseObject;
 
@@ -13,12 +14,12 @@ public class LoanVipUniqueActivity extends BaseActivity {
 
     @Override
     protected int getContentLayout() {
-        return 0;
+        return R.layout.loan_vip_layout;
     }
 
     @Override
-    protected void loadData() {
-
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
     }
 
     @Override
@@ -27,8 +28,8 @@ public class LoanVipUniqueActivity extends BaseActivity {
     }
 
     @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
+    protected void loadData() {
+
     }
 
     @Override

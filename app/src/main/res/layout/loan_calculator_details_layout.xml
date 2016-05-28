@@ -43,7 +43,7 @@
             android:paddingLeft="@dimen/mine_notify_padding"
             android:paddingTop="@dimen/mine_cell_notify_padding_tb"
             android:paddingBottom="@dimen/mine_cell_notify_padding_tb"
-            android:gravity="left|center_vertical"/>
+            android:gravity="right|center_vertical"/>
 
     </RelativeLayout>
 

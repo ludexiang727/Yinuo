@@ -41,7 +41,7 @@
 
                 <EditText
                     android:id="@+id/loan_calculator_page_input_price"
-                    android:layout_width="wrap_content"
+                    android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:background="@null"
                     android:gravity="right|center_vertical"
@@ -50,6 +50,7 @@
                     android:maxLength="11"
                     android:textSize="@dimen/loan_calculator_edit_size"
                     android:hint="@string/loan_page_calculator_price"
+                    android:layout_toRightOf="@id/loan_calculator_page_price"
                     android:layout_toLeftOf="@id/loan_calculator_page_price_unit"/>
             </RelativeLayout>
 
