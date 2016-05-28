@@ -70,6 +70,9 @@ public class LoanCalculatorView extends LinearLayout {
             return;
         }
 
+        if (mLoanDetailsLayout.getChildCount() > 0) {
+            mLoanDetailsLayout.removeAllViews();
+        }
         for (int i = 0; i < models.size(); ++i) {
             LoanCalculatorModel model = models.get(i);
             View view = mInflater.inflate(R.layout.loan_calculator_details_layout, null);
@@ -82,5 +85,9 @@ public class LoanCalculatorView extends LinearLayout {
             company.setText(model.getBenefitCompany());
             mLoanDetailsLayout.addView(view, i);
         }
+    }
+
+    public void resetGuide() {
+        mLoanGuide.reset();
     }
 }

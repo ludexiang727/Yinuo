@@ -14,7 +14,9 @@
             <!-- calculator -->
             <RelativeLayout
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:background="@drawable/mine_cell_selector">
                 <TextView
                     android:id="@+id/loan_calculator_page_price"
                     android:layout_width="wrap_content"
@@ -22,7 +24,7 @@
                     android:layout_alignParentLeft="true"
                     android:paddingBottom="@dimen/loan_calculator_padding_tb"
                     android:paddingTop="@dimen/loan_calculator_padding_tb"
-                    android:paddingLeft="@dimen/loan_calculator_padding_left"
+                    android:paddingLeft="@dimen/loan_calculator_padding_lr"
                     android:text="@string/loan_page_calculator_price"/>
 
                 <!-- TODO add spinner view or popup window -->
@@ -33,7 +35,8 @@
                     android:layout_alignParentRight="true"
                     android:paddingBottom="@dimen/loan_calculator_padding_tb"
                     android:paddingTop="@dimen/loan_calculator_padding_tb"
-                    android:paddingLeft="@dimen/loan_calculator_padding_left"
+                    android:paddingLeft="@dimen/loan_calculator_padding_lr"
+                    android:paddingRight="@dimen/loan_calculator_padding_lr"
                     android:text="@string/loan_page_calculator_unit"/>
 
                 <EditText
@@ -57,8 +60,11 @@
 
             <!-- current location city -->
             <RelativeLayout
+                android:id="@+id/loan_calculator_location_layout"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="wrap_content"
+                android:clickable="true"
+                android:background="@drawable/mine_cell_selector">
                 <TextView
                     android:id="@+id/loan_calculator_page_location"
                     android:layout_width="wrap_content"
@@ -66,7 +72,7 @@
                     android:layout_alignParentLeft="true"
                     android:paddingBottom="@dimen/loan_calculator_padding_tb"
                     android:paddingTop="@dimen/loan_calculator_padding_tb"
-                    android:paddingLeft="@dimen/loan_calculator_padding_left"
+                    android:paddingLeft="@dimen/loan_calculator_padding_lr"
                     android:text="@string/loan_page_calculator_insurance"/>
 
                 <!-- TODO add spinner view or popup window -->
@@ -75,6 +81,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
+                    android:layout_marginRight="@dimen/loan_calculator_padding_lr"
                     android:layout_alignParentRight="true"/>
 
                 <TextView
@@ -84,7 +91,7 @@
                     android:background="@null"
                     android:paddingBottom="@dimen/loan_calculator_padding_tb"
                     android:paddingTop="@dimen/loan_calculator_padding_tb"
-                    android:paddingLeft="@dimen/loan_calculator_padding_left"
+                    android:paddingLeft="@dimen/loan_calculator_padding_lr"
                     android:gravity="right"
                     android:layout_toLeftOf="@id/loan_calculator_page_location_arrow"/>
             </RelativeLayout>

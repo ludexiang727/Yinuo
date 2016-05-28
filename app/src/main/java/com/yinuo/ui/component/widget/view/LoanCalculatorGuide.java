@@ -174,4 +174,15 @@ public class LoanCalculatorGuide extends View {
         set.setInterpolator(new LinearInterpolator());
         set.start();
     }
+
+    public void reset() {
+        mStrokeSweep = 0f;
+        mAfterStart = 0f;
+        mAfterSweep = 0f;
+        mBenefitStart = 0f;
+        mBenefitSweep = 0f;
+        mIndividualStart = 0f;
+        mIndividualSweep = 0f;
+        postInvalidate();
+    }
 }

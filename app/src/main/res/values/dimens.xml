@@ -31,7 +31,7 @@
     <dimen name="app_dialog_loading_wh">105dp</dimen>
 
     <!-- mine page begin -->
-    <dimen name="mine_notify_padding">5dp</dimen>
+    <dimen name="mine_notify_padding">10dp</dimen>
     <dimen name="mine_cell_notify_padding_tb">15dp</dimen>
     <dimen name="mine_page_header_wh">60dp</dimen>
     <dimen name="mine_auchentication_margin_right">5dp</dimen>
@@ -129,7 +129,7 @@
     <!-- loan page begin -->
     <dimen name="loan_item_view_height">135dp</dimen>
     <dimen name="loan_page_primary_tools_height">130dp</dimen>
-    <dimen name="loan_calculator_padding_left">5dp</dimen>
+    <dimen name="loan_calculator_padding_lr">10dp</dimen>
     <dimen name="loan_calculator_padding_tb">15dp</dimen>
 
     <dimen name="loan_calculator_margin_bottom">20dp</dimen>

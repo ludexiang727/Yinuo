@@ -20,9 +20,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:gravity="left|center_vertical"
-            android:paddingLeft="@dimen/mine_notify_padding"
-            android:paddingTop="@dimen/mine_cell_notify_padding_tb"
-            android:paddingBottom="@dimen/mine_cell_notify_padding_tb"
+            android:paddingTop="@dimen/loan_calculator_padding_tb"
+            android:paddingBottom="@dimen/loan_calculator_padding_tb"
             android:layout_alignParentLeft="true"/>
 
         <TextView
@@ -30,10 +29,9 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
-            android:paddingLeft="@dimen/mine_notify_padding"
-            android:paddingTop="@dimen/mine_cell_notify_padding_tb"
-            android:paddingBottom="@dimen/mine_cell_notify_padding_tb"
-            android:gravity="left|center_vertical"
+            android:paddingTop="@dimen/loan_calculator_padding_tb"
+            android:paddingBottom="@dimen/loan_calculator_padding_tb"
+            android:gravity="right|center_vertical"
             android:layout_alignParentRight="true"/>
 
         <TextView

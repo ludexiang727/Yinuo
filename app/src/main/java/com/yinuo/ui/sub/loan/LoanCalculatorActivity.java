@@ -1,11 +1,13 @@
 package com.yinuo.ui.sub.loan;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
 import android.util.Log;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.yinuo.R;
@@ -14,6 +16,7 @@ import com.yinuo.mode.LoanCalculatorModel;
 import com.yinuo.net.base.NetBaseObject;
 import com.yinuo.net.request.NetRequest;
 import com.yinuo.net.response.NetLoanCalculatorObj;
+import com.yinuo.ui.CityChoosePageActivity;
 import com.yinuo.ui.component.widget.DialogLoading;
 import com.yinuo.ui.component.widget.view.LoanCalculatorView;
 import com.yinuo.utils.StringUtils;
@@ -26,6 +29,7 @@ import java.util.List;
  */
 public class LoanCalculatorActivity extends BaseActivity implements View.OnClickListener {
     private EditText mLoanPriceEdit;
+    private RelativeLayout mLoanLocationLayout;
     private TextView mAfterTax;
     private TextView mPreTax;
     private LoanCalculatorView mLoanCalculatorView;
@@ -53,10 +57,12 @@ public class LoanCalculatorActivity extends BaseActivity implements View.OnClick
     @Override
     protected void loadView(View view) {
         mLoanPriceEdit = (EditText) view.findViewById(R.id.loan_calculator_page_input_price);
+        mLoanLocationLayout = (RelativeLayout) view.findViewById(R.id.loan_calculator_location_layout);
         mAfterTax = (TextView) view.findViewById(R.id.loan_calculator_page_after_tax);
         mPreTax = (TextView) view.findViewById(R.id.loan_calculator_page_pre_tax);
         mLoanCalculatorView = (LoanCalculatorView) view.findViewById(R.id.loan_page_calculator_view);
 
+        mLoanLocationLayout.setOnClickListener(this);
         mAfterTax.setOnClickListener(this);
         mPreTax.setOnClickListener(this);
         mLoanPriceEdit.requestFocus();
@@ -84,6 +90,11 @@ public class LoanCalculatorActivity extends BaseActivity implements View.OnClick
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
+            case R.id.loan_calculator_location_layout: {
+                Intent intent = new Intent(this, CityChoosePageActivity.class);
+                startActivity(intent);
+                break;
+            }
             case R.id.loan_calculator_page_after_tax: {
                 calculatorAfterTax();
                 break;
@@ -98,6 +109,7 @@ public class LoanCalculatorActivity extends BaseActivity implements View.OnClick
     private void calculatorAfterTax() {
         String price = mLoanPriceEdit.getText().toString();
         if (!StringUtils.isEmpty(price)) {
+            mLoanCalculatorView.resetGuide();
             mInputPrice = Double.parseDouble(price);
             mLoading.startAnim();
             NetRequest.getInstance().requestLoanCalculator(1, mInputPrice, 0, this);
@@ -107,6 +119,7 @@ public class LoanCalculatorActivity extends BaseActivity implements View.OnClick
     private void calculatorPreTax() {
         String price = mLoanPriceEdit.getText().toString();
         if (!StringUtils.isEmpty(price)) {
+            mLoanCalculatorView.resetGuide();
             mInputPrice = Double.parseDouble(price);
             mLoading.startAnim();
             NetRequest.getInstance().requestLoanCalculator(1, mInputPrice, 1, this);

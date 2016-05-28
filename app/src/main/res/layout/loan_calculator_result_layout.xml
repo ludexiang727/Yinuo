@@ -206,6 +206,7 @@
             android:layout_gravity="right"
             android:paddingTop="@dimen/mine_cell_notify_padding_tb"
             android:paddingBottom="@dimen/mine_cell_notify_padding_tb"
+            android:paddingRight="@dimen/loan_calculator_padding_lr"
             android:layout_alignParentRight="true"/>
 
     </RelativeLayout>
@@ -214,6 +215,8 @@
         android:id="@+id/loan_calculator_result_list_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginLeft="@dimen/loan_calculator_padding_lr"
+        android:layout_marginRight="@dimen/loan_calculator_padding_lr"
         android:orientation="vertical"/>
 
 </merge>
