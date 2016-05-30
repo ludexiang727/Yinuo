@@ -1,4 +1,4 @@
-package com.yinuo.ui.sub.loan;
+package com.yinuo.ui.sub;
 
 import android.os.Bundle;
 import android.view.View;
@@ -10,7 +10,7 @@ import com.yinuo.net.base.NetBaseObject;
 /**
  * Created by ludexiang on 2016/4/21.
  */
-public class LoanVipUniqueActivity extends BaseActivity {
+public class VipActivity extends BaseActivity {
 
     @Override
     protected int getContentLayout() {
