@@ -29,13 +29,13 @@ import com.yinuo.ui.sub.loan.LoanCardTicketActivity;
 import com.yinuo.ui.sub.loan.LoanCreditCardActivity;
 import com.yinuo.ui.sub.loan.LoanCreditReportActivity;
 import com.yinuo.ui.sub.loan.LoanExtremityActivity;
+import com.yinuo.ui.sub.loan.LoanInsuranceActivity;
 import com.yinuo.ui.sub.loan.LoanProgressActivity;
 import com.yinuo.ui.sub.loan.LoanRateQueryActivity;
 import com.yinuo.ui.sub.loan.LoanRecepitActivity;
 import com.yinuo.ui.sub.loan.LoanRepaymentActivity;
 import com.yinuo.ui.sub.loan.LoanStrategyActivity;
 import com.yinuo.ui.sub.loan.LoanTransAccActivity;
-import com.yinuo.ui.sub.loan.LoanVipUniqueActivity;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -48,7 +48,7 @@ import java.util.List;
 public class LoanPageFragment extends BaseFragment implements IOnItemClickListener, View.OnClickListener {
     private LinearLayout mScanParent;
     private LinearLayout mRedbagParent;
-    private LinearLayout mVipParent;
+    private LinearLayout mInsuranceParent;
     private LoanGridView mGridView;
     private List<LoanGridViewModel> mLoanOptions = new ArrayList<LoanGridViewModel>();
     private int mOptionId;
@@ -81,7 +81,7 @@ public class LoanPageFragment extends BaseFragment implements IOnItemClickListen
     public void initialize(View view) {
         mScanParent = (LinearLayout) view.findViewById(R.id.loan_page_scan_layout);
         mRedbagParent = (LinearLayout) view.findViewById(R.id.loan_page_redbag_parent);
-        mVipParent = (LinearLayout) view.findViewById(R.id.loan_page_vip_layout);
+        mInsuranceParent = (LinearLayout) view.findViewById(R.id.loan_page_insurance_layout);
         mLoading = (Loading) view.findViewById(R.id.loan_page_loading);
         mGridView = (LoanGridView) view.findViewById(R.id.loan_page_grid_view);
         mGridView.setOptions(mLoanOptions, this);
@@ -89,7 +89,7 @@ public class LoanPageFragment extends BaseFragment implements IOnItemClickListen
 
         mScanParent.setOnClickListener(this);
         mRedbagParent.setOnClickListener(this);
-        mVipParent.setOnClickListener(this);
+        mInsuranceParent.setOnClickListener(this);
     }
 
     @Override
@@ -166,8 +166,8 @@ public class LoanPageFragment extends BaseFragment implements IOnItemClickListen
             case R.id.loan_page_redbag_parent: {
                 break;
             }
-            case R.id.loan_page_vip_layout: {
-                Intent intent = new Intent(getContext(), LoanVipUniqueActivity.class);
+            case R.id.loan_page_insurance_layout: {
+                Intent intent = new Intent(getContext(), LoanInsuranceActivity.class);
                 startActivity(intent);
                 break;
             }

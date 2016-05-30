@@ -14,7 +14,7 @@ public class VipActivity extends BaseActivity {
 
     @Override
     protected int getContentLayout() {
-        return R.layout.loan_vip_layout;
+        return R.layout.vip_layout;
     }
 
     @Override

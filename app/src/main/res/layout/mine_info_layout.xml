@@ -35,6 +35,7 @@
         android:layout_height="1px"
         android:background="@color/mine_page_separator_color"/>
 
+    <!-- nick name - 昵称 -->
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -57,6 +58,39 @@
             android:layout_height="wrap_content"
             android:layout_centerVertical="true"
             android:layout_alignParentRight="true"/>
+    </RelativeLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/mine_page_separator_color"/>
+
+    <!-- grade - 等级 -->
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center_vertical"
+        android:clickable="true"
+        android:background="@drawable/mine_cell_selector">
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:paddingLeft="@dimen/mine_notify_padding"
+            android:paddingTop="@dimen/mine_cell_notify_padding_tb"
+            android:paddingBottom="@dimen/mine_cell_notify_padding_tb"
+            android:text="@string/mine_page_grade"/>
+
+        <ImageView
+            android:id="@+id/mine_grade"
+            android:layout_width="@dimen/mine_page_header_wh"
+            android:layout_height="@dimen/mine_page_header_wh"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:scaleType="center"
+            android:src="@mipmap/ic_launcher"
+            android:contentDescription="@null"/>
     </RelativeLayout>
 
     <View

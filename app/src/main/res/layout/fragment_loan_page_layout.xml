@@ -53,7 +53,7 @@
         </LinearLayout>
 
         <LinearLayout
-            android:id="@+id/loan_page_vip_layout"
+            android:id="@+id/loan_page_insurance_layout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
             android:layout_weight="1"
@@ -70,7 +70,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:textStyle="bold"
-                android:text="@string/loan_page_primary_vip"/>
+                android:text="@string/loan_page_primary_insurance"/>
         </LinearLayout>
     </LinearLayout>
 

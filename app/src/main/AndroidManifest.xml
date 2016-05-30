@@ -74,6 +74,8 @@
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize"/>
 
+        <activity android:name=".ui.sub.VipActivity"
+            android:screenOrientation="portrait"/>
         <!--<activity android:name="io.card.payment.CardIOActivity" android:configChanges="keyboardHidden|orientation"-->
             <!--android:hardwareAccelerated="true"/>-->
         <!--<activity android:name="io.card.payment.DataEntryActivity" android:screenOrientation="portrait"/>-->
@@ -81,8 +83,7 @@
         <!-- loan sub page being -->
         <activity android:name=".qrcode.view.MipcaActivityCapture"
             android:screenOrientation="portrait"/>
-
-        <activity android:name=".ui.sub.loan.LoanVipUniqueActivity"
+        <activity android:name=".ui.sub.loan.LoanInsuranceActivity"
             android:screenOrientation="portrait"/>
         <activity android:name=".ui.sub.loan.LoanApplyActivity"
             android:screenOrientation="portrait"/>
