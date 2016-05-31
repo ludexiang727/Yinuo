@@ -24,6 +24,17 @@
     </string-array>-->
     <string name="app_confirm">确定</string>
     <string name="app_cancel">取消</string>
+
+    <!-- login page begin -->
+    <string name="app_login_right">注册</string>
+    <string name="app_login_middle">登录</string>
+    <string name="app_login_account_hint">手机号/邮箱/用户名</string>
+    <string name="app_login_pwd_hint">密码</string>
+    <string name="app_login_check_num_hint">验证码</string>
+    <string name="app_login_obtain_check_num">获取验证码</string>
+    <string name="app_login_forgot_pwd">忘记密码?</string>
+    <!-- login page end -->
+
     <!-- mine page begin -->
     <string name="mine_title">我的</string>
     <string name="mine_infomation">个人信息</string>
@@ -110,6 +121,9 @@
     <string name="loan_calculator_pre_tax">税前:</string>
     <string name="loan_calculator_benefit">保险金:</string>
     <string name="loan_calculator_individulate">个税:</string>
+
+    <string name="loan_extremity_mode">极速模式</string>
+    <string name="loan_extremity_limit">最快{3}个工作日放款,最高可借{10}万元</string>
     <!-- loan page end-->
 
     <!-- workspace page begin -->

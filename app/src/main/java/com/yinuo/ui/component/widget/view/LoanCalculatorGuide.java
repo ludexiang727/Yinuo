@@ -115,13 +115,13 @@ public class LoanCalculatorGuide extends View {
         startAnim();
     }
 
-    // draw stroke
+    // draw stroke 描边 也是 preTax 收入
     private void drawStroke(Canvas canvas) {
         Paint strokePaint = new Paint(Paint.ANTI_ALIAS_FLAG);
         strokePaint.setStyle(Paint.Style.STROKE);
         strokePaint.setDither(true);
         strokePaint.setStrokeWidth(5f);
-        strokePaint.setColor(Color.parseColor("#E3E3E3"));
+        strokePaint.setColor(/*Color.parseColor("#E3E3E3")*/mPreTaxColor);
         canvas.drawArc(mStrokeRect, 180f, mStrokeSweep, false, strokePaint);
     }
 

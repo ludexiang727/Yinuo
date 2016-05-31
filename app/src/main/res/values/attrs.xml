@@ -67,4 +67,10 @@
         <attr name="insurance_benefit_color" format="color"/>
         <attr name="individual_tax" format="color"/>
     </declare-styleable>
+    
+    <declare-styleable name="FastClearEditLayout">
+        <attr name="left_img" format="reference"/>
+        <attr name="is_pwd" format="boolean"/>
+        <attr name="is_show_x" format="boolean"/>
+    </declare-styleable>
 </resources>

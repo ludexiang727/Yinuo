@@ -22,6 +22,7 @@
         android:layout_marginLeft="@dimen/invest_wechat_header_margin_left"
         android:layout_marginRight="@dimen/invest_wechat_header_margin"
         android:scaleType="center"
+        android:adjustViewBounds="true"
         android:contentDescription="@null"/>
 
     <TextView

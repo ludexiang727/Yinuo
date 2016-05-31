@@ -64,6 +64,7 @@
     <color name="loan_pre_tax_color">#CCFF4081</color>
     <color name="loan_benefit_color">#CCD8FC9A</color>
     <color name="loan_individual_color">#CCFC908C</color>
+    <color name="loan_extremity_mode_color">#CCFFFFFF</color>
     <!-- loan page end -->
 
     <!-- workspace page begin -->

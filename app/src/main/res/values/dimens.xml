@@ -114,7 +114,7 @@
     <dimen name="invest_wechat_header_margin">10dp</dimen>
     <dimen name="invest_wechat_header_margin_left">5dp</dimen>
     <dimen name="invest_wechat_header_margin_right">5dp</dimen>
-    <dimen name="invest_wechat_header_wh">60dp</dimen>
+    <dimen name="invest_wechat_header_wh">45dp</dimen>
     <dimen name="invest_wechat_send_padding_tb">8dp</dimen>
     <dimen name="invest_wechat_send_padding_lr">15dp</dimen>
     <dimen name="invest_wechat_send_margin_right">10dp</dimen>
@@ -138,6 +138,7 @@
     <dimen name="loan_guide_stroke_size">2dp</dimen>
     <dimen name="loan_calculator_info_margin">10dp</dimen>
     <dimen name="loan_calculator_edit_size">14sp</dimen>
+    <dimen name="loan_extremity_title_size">18sp</dimen>
     <!-- loan page end-->
 
     <!-- workspace page begin -->

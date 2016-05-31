@@ -1,0 +1,28 @@
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/fast_clear_edit_left_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentLeft="true"
+        android:contentDescription="@null"/>
+
+    <ImageView
+        android:id="@+id/fast_clear_edit_clear"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:contentDescription="@null"/>
+
+    <EditText
+        android:id="@+id/fast_clear_edit_txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@null"
+        android:layout_toRightOf="@id/fast_clear_edit_left_img"
+        android:layout_toLeftOf="@id/fast_clear_edit_clear"/>
+
+</merge>

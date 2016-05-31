@@ -1,0 +1,57 @@
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="vertical">
+
+            <!-- account -->
+            <com.yinuo.ui.component.widget.view.common.FastClearEditLayout
+                android:id="@+id/login_account"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:left_img="@drawable/ic_android"
+                app:is_show_x="true"/>
+
+            <!-- password -->
+            <com.yinuo.ui.component.widget.view.common.FastClearEditLayout
+                android:id="@+id/login_pwd"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:left_img="@mipmap/ic_android"
+                app:is_pwd="true"
+                app:is_show_x="true"/>
+
+            <!-- check number -->
+            <com.yinuo.ui.component.widget.view.common.FastClearEditLayout
+                android:id="@+id/login_check_num"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                app:is_show_x="true"/>
+
+            <TextView
+                android:id="@+id/app_login_confirm"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:clickable="true"
+                android:text="@string/app_login_middle"/>
+
+            <TextView
+                android:id="@+id/app_login_forget_pwd"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:text="@string/app_login_forgot_pwd"
+                android:clickable="true"/>
+        </LinearLayout>
+    </ScrollView>
+
+</merge>

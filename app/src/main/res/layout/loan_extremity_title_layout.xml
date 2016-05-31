@@ -1,0 +1,46 @@
+<merge
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+
+    <ImageView
+        android:id="@+id/loan_extremity_title_background"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        android:adjustViewBounds="true"
+        android:src="@drawable/loan_extremity_bg"
+        android:contentDescription="@null"/>
+
+    <ImageView
+        android:id="@+id/loan_extremity_title_back"
+        android:layout_alignParentLeft="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:scaleType="fitXY"
+        android:contentDescription="@null"/>
+
+    <TextView
+        android:id="@+id/loan_extremity_mode"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/loan_extremity_mode"
+        android:textStyle="bold"
+        android:layout_centerHorizontal="true"
+        android:gravity="center_horizontal"
+        android:textSize="@dimen/loan_extremity_title_size"
+        android:layout_marginTop="?android:attr/actionBarSize"
+        android:textColor="@color/loan_extremity_mode_color"/>
+
+    <TextView
+        android:id="@+id/loan_extremity_limit"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/loan_extremity_mode"
+        android:textStyle="bold"
+        android:gravity="center_horizontal"
+        android:layout_centerHorizontal="true"
+        android:textSize="@dimen/loan_extremity_title_size"
+        android:layout_below="@id/loan_extremity_mode"
+        android:textColor="@color/loan_extremity_mode_color"/>
+</merge>
