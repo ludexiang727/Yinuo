@@ -72,5 +72,7 @@
         <attr name="left_img" format="reference"/>
         <attr name="is_pwd" format="boolean"/>
         <attr name="is_show_x" format="boolean"/>
+        <attr name="is_check_num" format="boolean"/>
+        <attr name="edit_hint" format="reference"/>
     </declare-styleable>
 </resources>

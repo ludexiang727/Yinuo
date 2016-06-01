@@ -3,6 +3,18 @@
     android:layout_width="match_parent"
     android:layout_height="wrap_content">
 
+    <EditText
+        android:id="@+id/fast_clear_edit_txt"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:textSize="@dimen/app_fast_clear_edit_size"
+        android:paddingTop="@dimen/app_fast_edit_padding_tb"
+        android:paddingBottom="@dimen/app_fast_edit_padding_tb"
+        android:clickable="true"
+        android:background="@drawable/app_fast_clear_edit_selector"
+        android:layout_marginLeft="@dimen/app_fast_clear_edit_margin_left"/>
+
     <ImageView
         android:id="@+id/fast_clear_edit_left_img"
         android:layout_width="wrap_content"
@@ -15,14 +27,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
+        android:src="@mipmap/ic_android"
+        android:visibility="gone"
         android:contentDescription="@null"/>
 
-    <EditText
-        android:id="@+id/fast_clear_edit_txt"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:background="@null"
-        android:layout_toRightOf="@id/fast_clear_edit_left_img"
-        android:layout_toLeftOf="@id/fast_clear_edit_clear"/>
+
 
 </merge>

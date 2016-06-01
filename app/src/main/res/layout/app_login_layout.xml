@@ -17,8 +17,13 @@
                 android:id="@+id/login_account"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:left_img="@drawable/ic_android"
-                app:is_show_x="true"/>
+                android:clickable="true"
+                android:layout_marginTop="@dimen/app_login_layout_margin_top"
+                android:layout_marginRight="@dimen/app_login_layout_margin_lr"
+                android:layout_marginLeft="@dimen/app_login_layout_margin_lr"
+                app:left_img="@mipmap/ic_android"
+                app:is_show_x="true"
+                app:edit_hint="@string/app_login_account_hint"/>
 
             <!-- password -->
             <com.yinuo.ui.component.widget.view.common.FastClearEditLayout
@@ -26,15 +31,43 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:left_img="@mipmap/ic_android"
+                android:clickable="true"
+                android:layout_marginTop="@dimen/app_login_layout_margin_top"
+                android:layout_marginRight="@dimen/app_login_layout_margin_lr"
+                android:layout_marginLeft="@dimen/app_login_layout_margin_lr"
                 app:is_pwd="true"
-                app:is_show_x="true"/>
+                app:is_show_x="true"
+                app:edit_hint="@string/app_login_pwd_hint"/>
 
             <!-- check number -->
-            <com.yinuo.ui.component.widget.view.common.FastClearEditLayout
-                android:id="@+id/login_check_num"
+            <RelativeLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:is_show_x="true"/>
+                android:layout_marginTop="@dimen/app_login_layout_margin_top"
+                android:layout_marginLeft="@dimen/app_login_layout_margin_lr"
+                android:layout_marginRight="@dimen/app_login_layout_margin_lr">
+                <TextView
+                    android:id="@+id/login_obtain_check_num"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignParentRight="true"
+                    android:gravity="center"
+                    android:layout_centerVertical="true"
+                    android:text="@string/app_login_obtain_check_num"/>
+
+
+                <com.yinuo.ui.component.widget.view.common.FastClearEditLayout
+                    android:id="@+id/login_check_num"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:clickable="true"
+                    android:layout_marginRight="@dimen/app_login_check_num_layout_margin"
+                    android:layout_toLeftOf="@id/login_obtain_check_num"
+                    app:is_show_x="true"
+                    app:is_check_num="true"
+                    app:edit_hint="@string/app_login_check_num_hint"/>
+            </RelativeLayout>
+
 
             <TextView
                 android:id="@+id/app_login_confirm"
@@ -42,6 +75,13 @@
                 android:layout_height="wrap_content"
                 android:gravity="center"
                 android:clickable="true"
+                android:textColor="@android:color/white"
+                android:paddingTop="@dimen/app_login_layout_margin_top"
+                android:paddingBottom="@dimen/app_login_layout_margin_top"
+                android:background="@drawable/app_login_confirm_selector"
+                android:layout_marginTop="@dimen/app_login_layout_margin_top"
+                android:layout_marginRight="@dimen/app_login_layout_margin_lr"
+                android:layout_marginLeft="@dimen/app_login_layout_margin_lr"
                 android:text="@string/app_login_middle"/>
 
             <TextView
@@ -49,6 +89,8 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:gravity="center"
+                android:layout_marginTop="@dimen/app_login_layout_margin_top"
+                android:layout_marginLeft="@dimen/app_login_layout_margin_lr"
                 android:text="@string/app_login_forgot_pwd"
                 android:clickable="true"/>
         </LinearLayout>

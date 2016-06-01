@@ -31,6 +31,7 @@ import com.yinuo.helper.ImageLoaderHelper;
 import com.yinuo.mode.UserModel;
 import com.yinuo.net.request.NetRequest;
 import com.yinuo.ui.CityChoosePageActivity;
+import com.yinuo.ui.LoginActivity;
 import com.yinuo.ui.MineActivity;
 import com.yinuo.ui.SettingsActivity;
 import com.yinuo.utils.BitmapUtils;
@@ -203,7 +204,7 @@ public class BaseParentActivity extends AppCompatActivity
                 break;
             }
             case R.id.app_mine_header: {
-                Intent intent = new Intent(this, MineActivity.class);
+                Intent intent = new Intent(this, LoginActivity.class);
                 startActivityForResult(intent, MINE_REQUEST_CODE);
                 break;
             }

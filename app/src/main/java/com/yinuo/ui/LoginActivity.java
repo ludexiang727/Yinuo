@@ -2,12 +2,14 @@ package com.yinuo.ui;
 
 import android.os.Bundle;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.yinuo.R;
 import com.yinuo.base.BaseActivity;
 import com.yinuo.net.base.NetBaseObject;
+import com.yinuo.ui.component.widget.view.common.FastClearEditLayout;
 
 /**
  * Created by ludexiang on 16/5/31.
@@ -15,6 +17,9 @@ import com.yinuo.net.base.NetBaseObject;
 public class LoginActivity extends BaseActivity implements View.OnClickListener {
     private ImageView mBack;
     private TextView mRight;
+    private FastClearEditLayout mAccountLayout;
+    private FastClearEditLayout mPwdLayout;
+    private FastClearEditLayout mCheckNumLayout;
 
     @Override
     protected int getTitleLayout() {
@@ -42,13 +47,16 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     }
 
     @Override
-    protected void loadData() {
+    protected void loadView(View view) {
+        mAccountLayout = (FastClearEditLayout) view.findViewById(R.id.login_account);
+        mPwdLayout = (FastClearEditLayout) view.findViewById(R.id.login_pwd);
+        mCheckNumLayout = (FastClearEditLayout) view.findViewById(R.id.login_check_num);
 
     }
 
     @Override
-    protected void loadView(View view) {
-
+    protected void loadData() {
+        dismissLoading();
     }
 
     @Override
@@ -71,5 +79,11 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
                 break;
             }
         }
+    }
+
+    private void showInputMethod(FastClearEditLayout layout) {
+        EditText edit = layout.getEditText();
+        edit.setFocusable(true);
+        edit.requestFocus();
     }
 }

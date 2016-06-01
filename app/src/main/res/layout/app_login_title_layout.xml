@@ -8,6 +8,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
+        android:layout_marginLeft="@dimen/app_login_layout_margin_top"
         android:contentDescription="@null"/>
 
     <TextView
@@ -15,7 +16,10 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
+        android:layout_centerVertical="true"
         android:text="@string/app_login_right"
+        android:layout_marginRight="@dimen/app_login_layout_margin_top"
+        android:gravity="center_vertical"
         android:textColor="@android:color/white"/>
 
     <TextView

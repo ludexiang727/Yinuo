@@ -7,6 +7,9 @@
     <color name="window_page_color">#fafafa</color>
     <color name="loading_background">#affafafa</color>
     <color name="recycle_view_divider">#EBEBEB</color>
+    <color name="app_fast_clear_edit_selected">#3F51B5</color>
+    <color name="app_fast_clear_edit_normal">#E3E3E3</color>
+    <color name="app_fast_confirm_normal">#CC3F51B5</color>
 
     <color name="splash_app_name_color">#CCC80000</color>
     <color name="app_splash_ad_infos_color">#ADFFFFFF</color>
