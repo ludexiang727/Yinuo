@@ -21,6 +21,7 @@ import com.yinuo.net.response.NetInvestPageObj;
 import com.yinuo.net.response.NetInvestWeChatObj;
 import com.yinuo.net.response.NetLoanCalculatorObj;
 import com.yinuo.net.response.NetLoanPageObj;
+import com.yinuo.net.response.NetLoginObj;
 import com.yinuo.net.response.NetPartnerPageObj;
 import com.yinuo.net.response.NetUserInfoObj;
 import com.yinuo.net.response.NetWorkspacePageObj;
@@ -139,6 +140,8 @@ public class OkHttpRequest <T extends NetBaseObject> implements Callback {
                 mObject.parse(AssetUtils.readFile("userdata.txt"));
             } else if (mObject instanceof NetLoanCalculatorObj) {
                 mObject.parse(AssetUtils.readFile("loan_calculator.txt"));
+            } else if (mObject instanceof NetLoginObj) {
+                mObject.parse(AssetUtils.readFile("login_data"));
             }
             // ...
             else if (mObject instanceof NetBaseObject) {

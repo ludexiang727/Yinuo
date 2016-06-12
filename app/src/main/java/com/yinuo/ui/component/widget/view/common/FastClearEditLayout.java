@@ -52,7 +52,7 @@ public class FastClearEditLayout extends RelativeLayout implements View.OnClickL
         mLeftDrawableRes = a.getResourceId(R.styleable.FastClearEditLayout_left_img, 0);
         isPwd = a.getBoolean(R.styleable.FastClearEditLayout_is_pwd, false);
         isShowX = a.getBoolean(R.styleable.FastClearEditLayout_is_show_x, false);
-        isCheckNum = a.getBoolean(R.styleable.FastClearEditLayout_is_check_num, false);
+        isCheckNum = a.getBoolean(R.styleable.FastClearEditLayout_is_num, false);
         mEditHint = a.getResourceId(R.styleable.FastClearEditLayout_edit_hint, 0);
         a.recycle();
 

@@ -1,0 +1,23 @@
+{
+    "errno":0,
+    "errmsg":"",
+    "ad_url":"",
+    "user_infos": {
+        "user_id":1,
+        "user_header":"http://www.qqtouxiang.com.cn/uploads/allimg/130111/1-130111210R4.png",
+        "user_nick_name":"开膛手杰克",
+        "user_qrcode_url":"",
+        "user_account":"bubblelu@163.com",
+        "user_gender":1,
+        "user_credit_report":"",
+        "user_loan_process":"",
+        "user_loan_repayment":"",
+        "user_register_location":"黑龙江省",
+        "user_school":"",
+        "user_highest_edu":"本科",
+        "user_edu_major":"",
+        "user_work_in":"北京",
+        "user_job":"",
+        "user_id_card":""
+    }
+}

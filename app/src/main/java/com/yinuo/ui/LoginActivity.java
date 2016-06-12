@@ -10,6 +10,7 @@ import com.yinuo.R;
 import com.yinuo.base.BaseActivity;
 import com.yinuo.net.base.NetBaseObject;
 import com.yinuo.ui.component.widget.view.common.FastClearEditLayout;
+import com.yinuo.ui.component.widget.view.common.FlipperViewGroup;
 
 /**
  * Created by ludexiang on 16/5/31.
@@ -17,6 +18,7 @@ import com.yinuo.ui.component.widget.view.common.FastClearEditLayout;
 public class LoginActivity extends BaseActivity implements View.OnClickListener {
     private ImageView mBack;
     private TextView mRight;
+    private FlipperViewGroup mFlipperViewGroup;
     private FastClearEditLayout mAccountLayout;
     private FastClearEditLayout mPwdLayout;
     private FastClearEditLayout mCheckNumLayout;
@@ -48,10 +50,10 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
 
     @Override
     protected void loadView(View view) {
+        mFlipperViewGroup = (FlipperViewGroup) view.findViewById(R.id.login_flipper_view_group);
         mAccountLayout = (FastClearEditLayout) view.findViewById(R.id.login_account);
         mPwdLayout = (FastClearEditLayout) view.findViewById(R.id.login_pwd);
         mCheckNumLayout = (FastClearEditLayout) view.findViewById(R.id.login_check_num);
-
     }
 
     @Override
