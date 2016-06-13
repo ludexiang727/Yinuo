@@ -26,7 +26,7 @@
                 android:layout_marginTop="@dimen/app_login_layout_margin_top"
                 android:layout_marginRight="@dimen/app_login_layout_margin_lr"
                 android:layout_marginLeft="@dimen/app_login_layout_margin_lr"
-                app:left_img="@mipmap/ic_android"
+                app:left_img="@drawable/ic_android"
                 app:is_show_x="true"
                 app:edit_hint="@string/app_login_account_hint"/>
 
@@ -35,7 +35,7 @@
                 android:id="@+id/login_pwd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:left_img="@mipmap/ic_android"
+                app:left_img="@drawable/ic_android"
                 android:clickable="true"
                 android:layout_marginTop="@dimen/app_login_layout_margin_top"
                 android:layout_marginRight="@dimen/app_login_layout_margin_lr"
@@ -49,7 +49,7 @@
                 android:id="@+id/login_tel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                app:left_img="@mipmap/ic_android"
+                app:left_img="@drawable/ic_android"
                 android:clickable="true"
                 android:layout_marginTop="@dimen/app_login_layout_margin_top"
                 android:layout_marginRight="@dimen/app_login_layout_margin_lr"
@@ -57,6 +57,7 @@
                 app:is_pwd="false"
                 app:is_show_x="true"
                 app:is_num="true"
+                app:is_tel="true"
                 app:edit_hint="@string/app_login_tel_hint"/>
 
             <!-- check number -->
@@ -73,8 +74,13 @@
                     android:layout_alignParentRight="true"
                     android:gravity="center"
                     android:layout_centerVertical="true"
-                    android:text="@string/app_login_obtain_check_num"/>
-
+                    android:paddingLeft="@dimen/app_login_check_num_padding"
+                    android:paddingRight="@dimen/app_login_check_num_padding"
+                    android:paddingTop="@dimen/app_login_check_num_padding_tb"
+                    android:paddingBottom="@dimen/app_login_check_num_padding_tb"
+                    android:text="@string/app_login_obtain_check_num"
+                    android:textColor="@android:color/white"
+                    android:background="@drawable/app_login_obtain_check_num_selector"/>
 
                 <com.yinuo.ui.component.widget.view.common.FastClearEditLayout
                     android:id="@+id/login_check_num"

@@ -76,7 +76,7 @@ public class IconRoundCornerProgressBar extends BaseRoundCornerProgressBar imple
     protected void initStyleable(Context context, AttributeSet attrs) {
         TypedArray typedArray = context.obtainStyledAttributes(attrs, R.styleable.IconRoundCornerProgress);
 
-        iconResource = typedArray.getResourceId(R.styleable.IconRoundCornerProgress_rcIconSrc, R.mipmap.round_corner_progress_icon);
+        iconResource = typedArray.getResourceId(R.styleable.IconRoundCornerProgress_rcIconSrc, R.drawable.round_corner_progress_icon);
 
         iconSize = (int) typedArray.getDimension(R.styleable.IconRoundCornerProgress_rcIconSize, -1);
         iconWidth = (int) typedArray.getDimension(R.styleable.IconRoundCornerProgress_rcIconWidth, dp2px(DEFAULT_ICON_SIZE));
@@ -355,6 +355,6 @@ public class IconRoundCornerProgressBar extends BaseRoundCornerProgressBar imple
     }
 
     public interface OnIconClickListener {
-        public void onIconClick();
+        void onIconClick();
     }
 }

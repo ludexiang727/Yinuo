@@ -32,11 +32,15 @@
     <dimen name="app_fast_clear_edit_size">14sp</dimen>
     <dimen name="app_fast_clear_edit_margin_left">6dp</dimen>
     <dimen name="app_fast_edit_padding_tb">10dp</dimen>
+    <dimen name="app_fast_edit_x_margin_right">6dp</dimen>
 
     <!-- login/register page begin -->
     <dimen name="app_login_layout_margin_top">10dp</dimen>
     <dimen name="app_login_layout_margin_lr">50dp</dimen>
     <dimen name="app_login_check_num_layout_margin">10dp</dimen>
+    <dimen name="app_login_check_num_bg_radius">2dp</dimen>
+    <dimen name="app_login_check_num_padding">6dp</dimen>
+    <dimen name="app_login_check_num_padding_tb">9dp</dimen>
     <!-- login/register page begin-->
 
     <!-- mine page begin -->

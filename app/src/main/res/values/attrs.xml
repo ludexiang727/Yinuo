@@ -73,6 +73,7 @@
         <attr name="is_pwd" format="boolean"/>
         <attr name="is_show_x" format="boolean"/>
         <attr name="is_num" format="boolean"/>
+        <attr name="is_tel" format="boolean"/>
         <attr name="edit_hint" format="reference"/>
     </declare-styleable>
 </resources>

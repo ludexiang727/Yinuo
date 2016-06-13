@@ -14,7 +14,7 @@
         android:id="@+id/app_location_style"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@mipmap/ic_android"
+        android:src="@drawable/ic_android"
         android:clickable="true"
         android:layout_alignParentBottom="true"
         android:layout_alignParentRight="true"

@@ -19,7 +19,7 @@
             android:layout_height="@dimen/discovery_page_img_height"
             android:layout_alignParentTop="true"
             android:scaleType="centerCrop"
-            android:src="@mipmap/ic_launcher"
+            android:src="@drawable/ic_android"
             android:contentDescription="@null"/>
 
         <TextView

@@ -26,6 +26,7 @@ import com.yinuo.helper.PopupWindowHelper;
 import com.yinuo.mode.AddressModel;
 import com.yinuo.ui.component.widget.view.PullToRefreshLayout;
 import com.yinuo.ui.component.widget.view.WorkspaceTenementListView;
+import com.yinuo.ui.component.widget.view.common.FastClearEditLayout;
 import com.yinuo.utils.AppUtils;
 import com.yinuo.utils.ResUtils;
 
@@ -45,7 +46,7 @@ public class WorkspaceTenementActivity <T extends BaseObject> extends BaseActivi
     private UiHandler mHandler = new UiHandler();
     private int mType;
 
-    private EditText mWorkspaceTenementEdit;
+    private FastClearEditLayout mWorkspaceTenementEdit;
     private ImageView mWorkspaceTenementBack;
     private PullToRefreshLayout mPullRefreshLayout;
     private WorkspaceTenementListView mListView;
@@ -82,7 +83,7 @@ public class WorkspaceTenementActivity <T extends BaseObject> extends BaseActivi
         mDropView = titleView;
 
         mWorkspaceTenementBack = (ImageView) titleView.findViewById(R.id.workspace_tenement_title_left);
-        mWorkspaceTenementEdit = (EditText) titleView.findViewById(R.id.workspace_tenement_title_edit);
+        mWorkspaceTenementEdit = (FastClearEditLayout) titleView.findViewById(R.id.workspace_tenement_title_edit);
         mConditionItem1View = (TextView) titleView.findViewById(R.id.workspace_tenement_condition_item1);
         mConditionItem2View = (TextView) titleView.findViewById(R.id.workspace_tenement_condition_item2);
         mConditionMoreView = (TextView) titleView.findViewById(R.id.workspace_tenement_condition_more);

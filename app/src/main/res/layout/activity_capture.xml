@@ -32,7 +32,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="bottom|center_horizontal"
         android:layout_marginBottom="20dp"
-        android:background="@mipmap/ic_android" />
+        android:background="@drawable/ic_android" />
     <!--<include layout="@layout/common_top_view_2btn" />-->
 
 </FrameLayout>

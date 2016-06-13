@@ -12,14 +12,16 @@
         android:paddingTop="@dimen/app_fast_edit_padding_tb"
         android:paddingBottom="@dimen/app_fast_edit_padding_tb"
         android:clickable="true"
-        android:background="@drawable/app_fast_clear_edit_selector"
-        android:layout_marginLeft="@dimen/app_fast_clear_edit_margin_left"/>
+        android:background="@drawable/app_fast_clear_edit_selector"/>
 
     <ImageView
         android:id="@+id/fast_clear_edit_left_img"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentLeft="true"
+        android:layout_gravity="center_vertical"
+        android:visibility="gone"
+        android:layout_centerVertical="true"
         android:contentDescription="@null"/>
 
     <ImageView
@@ -27,7 +29,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_alignParentRight="true"
-        android:src="@mipmap/ic_android"
+        android:scaleType="center"
+        android:layout_marginRight="@dimen/app_fast_edit_x_margin_right"
+        android:src="@drawable/fast_clear_edit_x"
+        android:layout_gravity="center_vertical"
+        android:gravity="center_vertical"
+        android:layout_centerVertical="true"
         android:visibility="gone"
         android:contentDescription="@null"/>
 

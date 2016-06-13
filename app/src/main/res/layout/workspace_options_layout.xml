@@ -9,7 +9,7 @@
         android:id="@+id/workspace_page_option_img"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:src="@mipmap/ic_launcher"
+        android:src="@drawable/ic_android"
         android:gravity="center_horizontal"
         android:layout_gravity="center_horizontal"/>
 

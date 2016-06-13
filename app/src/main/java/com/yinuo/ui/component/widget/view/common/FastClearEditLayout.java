@@ -2,10 +2,13 @@ package com.yinuo.ui.component.widget.view.common;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.drawable.Drawable;
 import android.text.Editable;
+import android.text.InputFilter;
 import android.text.InputType;
 import android.text.TextWatcher;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.widget.EditText;
@@ -20,11 +23,13 @@ import com.yinuo.utils.ResUtils;
  */
 public class FastClearEditLayout extends RelativeLayout implements View.OnClickListener {
 
+    private Context mContext;
     private LayoutInflater mInflater;
     private int mLeftDrawableRes;
     private boolean isPwd;
     private boolean isShowX;
     private boolean isCheckNum;
+    private boolean isTel;
     private int mEditHint;
     private int mPaddingTB;
     private int mPaddingLR;
@@ -54,12 +59,14 @@ public class FastClearEditLayout extends RelativeLayout implements View.OnClickL
         isShowX = a.getBoolean(R.styleable.FastClearEditLayout_is_show_x, false);
         isCheckNum = a.getBoolean(R.styleable.FastClearEditLayout_is_num, false);
         mEditHint = a.getResourceId(R.styleable.FastClearEditLayout_edit_hint, 0);
+        isTel = a.getBoolean(R.styleable.FastClearEditLayout_is_tel, false);
         a.recycle();
 
         init(context);
     }
 
     private void init(Context context) {
+        mContext = context;
         mInflater = LayoutInflater.from(context);
         if (getChildCount() > 0) {
             removeAllViews();
@@ -79,9 +86,10 @@ public class FastClearEditLayout extends RelativeLayout implements View.OnClickL
             mLeftImg.setVisibility(View.GONE);
             mEdit.setPadding(mPaddingLR, mPaddingTB, mFastClear.getMeasuredWidth() + mPaddingLR, mPaddingTB);
         } else {
-            mLeftImg.setImageResource(mLeftDrawableRes);
+            Drawable drawable = ResUtils.getDrawable(mContext, mLeftDrawableRes);
+            mLeftImg.setImageDrawable(drawable);
             mLeftImg.setVisibility(View.VISIBLE);
-            mEdit.setPadding(mFastClear.getMeasuredWidth() + mPaddingLR, mPaddingTB, mFastClear.getMeasuredWidth() + mPaddingLR, mPaddingTB);
+            mEdit.setPadding(drawable.getIntrinsicWidth() + mPaddingLR, mPaddingTB, mFastClear.getMeasuredWidth() + mPaddingLR, mPaddingTB);
         }
 
         if (!isCheckNum) {
@@ -91,6 +99,11 @@ public class FastClearEditLayout extends RelativeLayout implements View.OnClickL
                 mEdit.setInputType(InputType.TYPE_CLASS_TEXT | InputType.TYPE_TEXT_VARIATION_NORMAL);
             }
         } else {
+            if (!isTel) {
+                mEdit.setFilters(new InputFilter[]{new InputFilter.LengthFilter(6)});
+            } else {
+                mEdit.setFilters(new InputFilter[]{new InputFilter.LengthFilter(11)});
+            }
             mEdit.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_VARIATION_NORMAL);
         }
 
@@ -120,7 +133,6 @@ public class FastClearEditLayout extends RelativeLayout implements View.OnClickL
 
         @Override
         public void afterTextChanged(Editable s) {
-
         }
     }
 

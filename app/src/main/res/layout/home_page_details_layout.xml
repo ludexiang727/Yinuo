@@ -118,7 +118,7 @@
             app:rcIconBackgroundColor="@color/custom_progress_blue_progress"
             app:rcIconPadding="5dp"
             app:rcIconSize="44dp"
-            app:rcIconSrc="@mipmap/ic_android"
+            app:rcIconSrc="@drawable/ic_android"
             app:rcMax="100"
             app:rcProgressColor="@color/custom_progress_blue_progress"
             app:rcRadius="5dp"
