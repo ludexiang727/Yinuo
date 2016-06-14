@@ -38,6 +38,8 @@ public class FastClearEditLayout extends RelativeLayout implements View.OnClickL
     private ImageView mFastClear;
     private EditText mEdit;
 
+    private ITextWatcherListener iTextWatcherListener;
+
     private EditWatcher mWatcher;
 
     public FastClearEditLayout(Context context) {
@@ -129,6 +131,9 @@ public class FastClearEditLayout extends RelativeLayout implements View.OnClickL
                 int editLen = content.length();
                 mFastClear.setVisibility(editLen > 0 ? View.VISIBLE : View.GONE);
             }
+            if (iTextWatcherListener != null) {
+                iTextWatcherListener.onTextWatcher(s);
+            }
         }
 
         @Override
@@ -148,5 +153,13 @@ public class FastClearEditLayout extends RelativeLayout implements View.OnClickL
                 break;
             }
         }
+    }
+
+    public void setTextWatcherListener(ITextWatcherListener listener) {
+        iTextWatcherListener = listener;
+    }
+
+    public interface ITextWatcherListener {
+        void onTextWatcher(CharSequence s);
     }
 }

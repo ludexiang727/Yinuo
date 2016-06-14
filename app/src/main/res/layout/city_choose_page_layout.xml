@@ -1,20 +1,21 @@
 <?xml version="1.0" encoding="utf-8"?>
 <merge
     xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:layout_width="match_parent"
     android:layout_height="match_parent">
-    <EditText
+    <com.yinuo.ui.component.widget.view.common.FastClearEditLayout
         android:id="@+id/city_choose_search"
         android:layout_width="fill_parent"
         android:layout_height="55dp"
         android:layout_margin="10dip"
-        android:background="@drawable/city_choose_edittext_bg"
-        android:drawableLeft="@drawable/city_choose_search_icon"
         android:drawablePadding="5dp"
-        android:hint="@string/city_choose_page_search_hint"
         android:padding="10dip"
         android:textColor="#515151"
-        android:textSize="16dp" />
+        android:textSize="16dp"
+        app:left_img="@drawable/city_choose_search_icon"
+        app:is_show_x="true"
+        app:edit_hint="@string/city_choose_page_search_hint"/>
 
     <com.yinuo.ui.component.widget.view.CityChoosePageListView
         android:id="@+id/city_choose_page_list_view"

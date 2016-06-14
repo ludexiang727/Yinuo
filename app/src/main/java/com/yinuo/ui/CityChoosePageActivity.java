@@ -26,6 +26,7 @@ import com.yinuo.listener.ILocation;
 import com.yinuo.mode.AddressModel;
 import com.yinuo.ui.component.widget.view.CityChoosePageListView;
 import com.yinuo.ui.component.widget.view.LetterListView;
+import com.yinuo.ui.component.widget.view.common.FastClearEditLayout;
 import com.yinuo.utils.PingYinUtil;
 import com.yinuo.utils.StringUtils;
 
@@ -38,7 +39,7 @@ import java.util.List;
 /**
  * Created by ludexiang on 2016/5/10.
  */
-public class CityChoosePageActivity extends BaseActivity implements AbsListView.OnScrollListener, Comparator<AddressModel> {
+public class CityChoosePageActivity extends BaseActivity implements AbsListView.OnScrollListener, Comparator<AddressModel>, FastClearEditLayout.ITextWatcherListener {
     private ResultListAdapter resultListAdapter;
     private CityChoosePageListView mCityPageListView;
     private ListView resultList;
@@ -47,7 +48,7 @@ public class CityChoosePageActivity extends BaseActivity implements AbsListView.
     private HashMap<String, Integer> mAlphaIndexMap;// 存放存在的汉语拼音首字母和与之对应的列表位置
     private String[] mSections;// 存放存在的汉语拼音首字母
     private OverlayThread overlayThread; // 显示首字母对话框
-    private EditText mCityEditView;
+    private FastClearEditLayout mCityEditView;
     private TextView tv_noresult;
 
     private UIHandler mHandler = new UIHandler();
@@ -79,9 +80,9 @@ public class CityChoosePageActivity extends BaseActivity implements AbsListView.
         mDBHelper = new DBHelper(this);
         mCityPageListView = (CityChoosePageListView) view.findViewById(R.id.city_choose_page_list_view);
         resultList = (ListView) view.findViewById(R.id.city_choose_search_result_list_view);
-        mCityEditView = (EditText) view.findViewById(R.id.city_choose_search);
+        mCityEditView = (FastClearEditLayout) view.findViewById(R.id.city_choose_search);
         tv_noresult = (TextView) view.findViewById(R.id.city_choose_page_search_no_result);
-        mCityEditView.addTextChangedListener(new EditWatcher());
+        mCityEditView.setTextWatcherListener(this);
         mLetterListView = (LetterListView) findViewById(R.id.city_choose_page_letter_view);
         mLetterListView.setOnTouchingLetterChangedListener(new LetterListViewListener());
 
@@ -150,38 +151,26 @@ public class CityChoosePageActivity extends BaseActivity implements AbsListView.
         msg.sendToTarget();
     }
 
-    private final class EditWatcher implements TextWatcher {
-        @Override
-        public void onTextChanged(CharSequence s, int start, int before, int count) {
-            if (s.toString() == null || "".equals(s.toString())) {
-                mLetterListView.setVisibility(View.VISIBLE);
-                mCityPageListView.setVisibility(View.VISIBLE);
+    @Override
+    public void onTextWatcher(CharSequence s) {
+        if (s.toString() == null || "".equals(s.toString())) {
+            mLetterListView.setVisibility(View.VISIBLE);
+            mCityPageListView.setVisibility(View.VISIBLE);
+            resultList.setVisibility(View.GONE);
+            tv_noresult.setVisibility(View.GONE);
+        } else {
+            mCityResultLists.clear();
+            mLetterListView.setVisibility(View.GONE);
+            mCityPageListView.setVisibility(View.GONE);
+            getResultAddressModelList(s.toString());
+            if (mCityResultLists.size() <= 0) {
+                tv_noresult.setVisibility(View.VISIBLE);
                 resultList.setVisibility(View.GONE);
-                tv_noresult.setVisibility(View.GONE);
             } else {
-                mCityResultLists.clear();
-                mLetterListView.setVisibility(View.GONE);
-                mCityPageListView.setVisibility(View.GONE);
-                getResultAddressModelList(s.toString());
-                if (mCityResultLists.size() <= 0) {
-                    tv_noresult.setVisibility(View.VISIBLE);
-                    resultList.setVisibility(View.GONE);
-                } else {
-                    tv_noresult.setVisibility(View.GONE);
-                    resultList.setVisibility(View.VISIBLE);
-                    resultListAdapter.notifyDataSetChanged();
-                }
+                tv_noresult.setVisibility(View.GONE);
+                resultList.setVisibility(View.VISIBLE);
+                resultListAdapter.notifyDataSetChanged();
             }
-        }
-
-        @Override
-        public void beforeTextChanged(CharSequence s, int start, int count,
-                                      int after) {
-        }
-
-        @Override
-        public void afterTextChanged(Editable s) {
-
         }
     }
 
