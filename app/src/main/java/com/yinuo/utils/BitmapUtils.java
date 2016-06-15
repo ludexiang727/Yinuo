@@ -29,63 +29,57 @@ public class BitmapUtils {
 
     /**
      * obtain circle bitmap
+     *
      * @param bitmap
+     * @param circleWidth 圆形大小
      * @return
      */
-    public static Bitmap circularBitmap(Bitmap bitmap) {
+    public static Bitmap circularBitmap(Bitmap bitmap, int circleWidth) {
         int width = bitmap.getWidth();
         int height = bitmap.getHeight();
         float roundPx;
-        float left,top,right,bottom,dst_left,dst_top,dst_right,dst_bottom;
+        float left, top, right, bottom;
         if (width <= height) {
-            roundPx = width / 2 -5;
-            top = 0;
-            bottom = width;
+            roundPx = width / 2 - 5;
             left = 0;
+            top = 0;
             right = width;
+            bottom = width;
             height = width;
-            dst_left = 0;
-            dst_top = 0;
-            dst_right = width;
-            dst_bottom = width;
         } else {
-            roundPx = height / 2 -5;
+            roundPx = height / 2 - 5;
             float clip = (width - height) / 2;
             left = clip;
-            right = width - clip;
             top = 0;
+            right = width - clip;
             bottom = height;
             width = height;
-            dst_left = 0;
-            dst_top = 0;
-            dst_right = height;
-            dst_bottom = height;
         }
 
-        Bitmap output = Bitmap.createBitmap(width,
-                height, Bitmap.Config.ARGB_8888);
+        Bitmap output = Bitmap.createBitmap(width, height, Bitmap.Config.ARGB_8888);
         Canvas canvas = new Canvas(output);
+
+        final Rect src = new Rect((int) left, (int) top, (int) right, (int) bottom);
+        final RectF rectF = new RectF(left + (right - circleWidth) / 2, top + (bottom - circleWidth) / 2,
+                right - (right - circleWidth) / 2, bottom - (bottom - circleWidth) / 2);
 
         final int color = 0xff424242;
         final Paint paint = new Paint();
-        final Rect src = new Rect((int)left, (int)top, (int)right, (int)bottom);
-        final Rect dst = new Rect((int)dst_left, (int)dst_top, (int)dst_right, (int)dst_bottom);
-        final RectF rectF = new RectF(dst_left + 20, dst_top + 20, dst_right - 20, dst_bottom - 20);
-
         paint.setAntiAlias(true);
 
         canvas.drawARGB(0, 0, 0, 0);
         paint.setColor(color);
-
+        // dst
         canvas.drawRoundRect(rectF, roundPx, roundPx, paint);
-
         paint.setXfermode(new PorterDuffXfermode(PorterDuff.Mode.SRC_IN));
-        canvas.drawBitmap(bitmap, src, dst, paint);
+        // src
+        canvas.drawBitmap(bitmap, src, src, paint);
         return output;
     }
 
     /**
-     *  bitmap blur
+     * bitmap blur
+     *
      * @param sentBitmap
      * @param radius
      * @param canReuseInBitmap
@@ -298,13 +292,14 @@ public class BitmapUtils {
 
     /**
      * set margins of the specific view
+     *
      * @param target
      * @param l
      * @param t
      * @param r
      * @param b
      */
-    public static void setMargin(View target, int l, int t, int r, int b){
+    public static void setMargin(View target, int l, int t, int r, int b) {
         if (target.getLayoutParams() instanceof ViewGroup.MarginLayoutParams) {
             ViewGroup.MarginLayoutParams p = (ViewGroup.MarginLayoutParams) target.getLayoutParams();
             p.setMargins(l, t, r, b);
@@ -314,6 +309,7 @@ public class BitmapUtils {
 
     /**
      * convert drawable to bitmap
+     *
      * @param drawable
      * @return
      */

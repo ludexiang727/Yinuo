@@ -135,6 +135,7 @@
     <dimen name="invest_wechat_edit_margin_right">3dp</dimen>
     <dimen name="invest_wechat_msg_padding">10dp</dimen>
     <dimen name="invest_wechat_msg_padding_offset">15dp</dimen>
+    <dimen name="invest_wechat_msg_padding_tb">10dp</dimen>
     <dimen name="invest_wechat_msg_margin">15dp</dimen>
     <dimen name="invest_wechat_send_radius">4dp</dimen>
     <!-- invest page end -->

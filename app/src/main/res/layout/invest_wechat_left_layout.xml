@@ -34,6 +34,8 @@
         android:layout_centerVertical="true"
         android:paddingLeft="@dimen/invest_wechat_msg_padding_offset"
         android:paddingRight="@dimen/invest_wechat_msg_padding"
+        android:paddingTop="@dimen/invest_wechat_msg_padding_tb"
+        android:paddingBottom="@dimen/invest_wechat_msg_padding_tb"
         android:background="@drawable/invest_wechat_its_send"
         android:textColor="@color/invest_wechat_msg_left_color"
         android:layout_marginRight="@dimen/invest_wechat_header_wh"/>

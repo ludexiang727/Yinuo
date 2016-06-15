@@ -15,6 +15,7 @@ import com.yinuo.base.BaseObject;
 import com.yinuo.listener.IOnItemClickListener;
 import com.yinuo.mode.InvestWeChatModel;
 import com.yinuo.utils.BitmapUtils;
+import com.yinuo.utils.ResUtils;
 import com.yinuo.utils.StringUtils;
 
 import java.util.List;
@@ -24,12 +25,14 @@ import java.util.List;
  */
 public class InvestListViewAdapter extends SuperAdapter {
 
+    private Context mContext;
     private List<InvestWeChatModel> mItems;
     private SparseArray<String> mShowTimePosition = new SparseArray<String>();
     private long mLastShowTime;
 
     public InvestListViewAdapter(Context context) {
         super(context);
+        mContext = context;
     }
 
     public void setList(List<InvestWeChatModel> models) {
@@ -124,8 +127,9 @@ public class InvestListViewAdapter extends SuperAdapter {
         }
     }
 
+    @Override
     protected void loadBitmapSuccess(Bitmap bitmap, ImageView imageView) {
-        imageView.setImageBitmap(BitmapUtils.circularBitmap(bitmap));
+        imageView.setImageBitmap(BitmapUtils.circularBitmap(bitmap, ResUtils.getDimen(mContext, R.dimen.invest_wechat_header_wh)));
     }
 
     @Override
