@@ -1,6 +1,7 @@
 package com.yinuo.base;
 
 import android.app.Activity;
+import android.graphics.Bitmap;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -14,7 +15,10 @@ import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
+import com.nostra13.universalimageloader.core.assist.FailReason;
+import com.nostra13.universalimageloader.core.listener.ImageLoadingListener;
 import com.yinuo.R;
+import com.yinuo.helper.ImageLoaderHelper;
 import com.yinuo.net.IRequestListener;
 import com.yinuo.net.base.NetBaseObject;
 import com.yinuo.ui.component.widget.Loading;
@@ -157,5 +161,37 @@ public abstract class BaseActivity extends Activity implements IRequestListener 
     public void dismissLoading() {
         mLoading.dismiss();
         mContentParent.setVisibility(View.VISIBLE);
+    }
+
+    /** child class base work handle bitmap */
+    protected void loadBitmapSuccess(Bitmap bitmap, ImageView imageView) {
+    }
+
+    public void loadImage(String url, final ImageView imageView) {
+        ImageLoaderHelper.getInstance().loadImage(url, new ImageLoadingListener() {
+            @Override
+            public void onLoadingStarted(String imageUri, View view) {
+
+            }
+
+            @Override
+            public void onLoadingFailed(String imageUri, View view, FailReason failReason) {
+
+            }
+
+            @Override
+            public void onLoadingComplete(String imageUri, View view, Bitmap loadedImage) {
+                if (loadedImage != null && imageView != null) {
+                    imageView.setImageBitmap(loadedImage);
+                }
+
+                loadBitmapSuccess(loadedImage, imageView);
+            }
+
+            @Override
+            public void onLoadingCancelled(String imageUri, View view) {
+
+            }
+        });
     }
 }

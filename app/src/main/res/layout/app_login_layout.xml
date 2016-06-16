@@ -78,6 +78,7 @@
                     android:paddingRight="@dimen/app_login_check_num_padding"
                     android:paddingTop="@dimen/app_login_check_num_padding_tb"
                     android:paddingBottom="@dimen/app_login_check_num_padding_tb"
+                    android:enabled="false"
                     android:text="@string/app_login_obtain_check_num"
                     android:textColor="@android:color/white"
                     android:background="@drawable/app_login_obtain_check_num_selector"/>

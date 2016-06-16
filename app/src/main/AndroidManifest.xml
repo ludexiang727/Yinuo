@@ -74,6 +74,10 @@
         <activity android:name=".ui.sub.APPDetailsActivity"
             android:screenOrientation="portrait"/>
 
+        <!-- partner sub page -->
+        <activity android:name=".ui.sub.partner.PartnerOwnCenterActivity"
+            android:screenOrientation="portrait"/>
+
         <activity android:name=".ui.sub.invest.InvestWeChatActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize"/>

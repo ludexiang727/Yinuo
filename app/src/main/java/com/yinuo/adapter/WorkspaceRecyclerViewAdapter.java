@@ -61,8 +61,10 @@ public class WorkspaceRecyclerViewAdapter <T extends BaseObject> extends BaseRec
         if (position == 0) {
             int topMargin = ResUtils.getInt(mContext, R.dimen.workspace_holder_first_margin_top);
             params.topMargin = topMargin;
+            holder.recommendLayout.setVisibility(View.VISIBLE);
         } else {
             params.topMargin = 0;
+            holder.recommendLayout.setVisibility(View.GONE);
         }
         holder.mView.setLayoutParams(params);
         if (position < mModels.size() && mModels.get(position) instanceof WorkspacePageModel) {
@@ -92,6 +94,7 @@ public class WorkspaceRecyclerViewAdapter <T extends BaseObject> extends BaseRec
     }
 
     private final class WorkspaceViewHolder extends RecyclerViewHolder {
+        private LinearLayout recommendLayout;
         private ImageView workspaceImg;
         private TextView workspaceTitle;
         private TextView workspaceLocation;
@@ -104,7 +107,7 @@ public class WorkspaceRecyclerViewAdapter <T extends BaseObject> extends BaseRec
             super(view);
 
             mView = view;
-
+            recommendLayout = (LinearLayout) mView.findViewById(R.id.app_recommend_layout);
             workspaceImg = (ImageView) mView.findViewById(R.id.workspace_holder_img);
             workspaceTitle = (TextView) mView.findViewById(R.id.workspace_holder_title);
             workspaceRent = (TextView) mView.findViewById(R.id.workspace_holder_price);

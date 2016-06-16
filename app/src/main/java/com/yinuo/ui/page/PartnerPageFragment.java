@@ -1,5 +1,6 @@
 package com.yinuo.ui.page;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.os.Handler;
 import android.os.Message;
@@ -9,8 +10,10 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 
+import com.yinuo.Constants;
 import com.yinuo.R;
 import com.yinuo.base.BaseFragment;
+import com.yinuo.base.BaseObject;
 import com.yinuo.mode.InvestPageDataModel;
 import com.yinuo.mode.PartnerRecyclerModel;
 import com.yinuo.net.base.NetBaseObject;
@@ -23,6 +26,7 @@ import com.yinuo.ui.component.widget.view.InvestRecyclerView;
 import com.yinuo.ui.component.widget.view.PartnerConditionView;
 import com.yinuo.ui.component.widget.view.PartnerRecyclerView;
 import com.yinuo.ui.component.widget.view.PartnerViewPager;
+import com.yinuo.ui.sub.partner.PartnerOwnCenterActivity;
 import com.yinuo.utils.ResUtils;
 
 import java.util.ArrayList;
@@ -89,6 +93,8 @@ public class PartnerPageFragment extends BaseFragment implements PartnerConditio
         mInvestRecyclerView.setSwipeRefreshLayout(mSwipeRefreshLayout);
         mInvestRecyclerView.isTopAddMargin(true);
         mInvestRecyclerView.bindRecycleView(mInvestModels);
+
+        mPartnerRecyclerView.getRecyclerAdapter().setOnItemClickListener(this);
 
         mSkill.setPosition(0);
         mInvest.setPosition(1);
@@ -240,5 +246,16 @@ public class PartnerPageFragment extends BaseFragment implements PartnerConditio
     @Override
     public void onPageScrollStateChanged(int state) {
 
+    }
+
+    @Override
+    public void onItemClick(View view, BaseObject baseObject, int position) {
+        super.onItemClick(view, baseObject, position);
+        if (baseObject instanceof PartnerRecyclerModel) {
+            PartnerRecyclerModel model = mPartnerModels.get(position);
+            Intent intent = new Intent(getActivity(), PartnerOwnCenterActivity.class);
+            intent.putExtra(Constants.PARTNER_OWN_CENTER, model);
+            getActivity().startActivity(intent);
+        }
     }
 }

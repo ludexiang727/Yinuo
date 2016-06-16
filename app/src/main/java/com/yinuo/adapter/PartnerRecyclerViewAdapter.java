@@ -72,7 +72,7 @@ public class PartnerRecyclerViewAdapter <T extends BaseObject> extends BaseRecyc
         }
     }
 
-    private final class PartnerViewHolder extends RecyclerViewHolder {
+    private final class PartnerViewHolder extends RecyclerViewHolder implements View.OnClickListener {
         private ImageView imgView;
         private TextView name;
         private View mView;
@@ -80,8 +80,18 @@ public class PartnerRecyclerViewAdapter <T extends BaseObject> extends BaseRecyc
         public PartnerViewHolder(View view) {
             super(view);
             mView = view;
+
             imgView = (ImageView) view.findViewById(R.id.partner_img);
             name = (TextView) view.findViewById(R.id.partner_name);
+
+            mView.setOnClickListener(this);
+        }
+
+        @Override
+        public void onClick(View v) {
+            if (iClickListener != null) {
+                iClickListener.onItemClick(v, mModels.get(getLayoutPosition()), getLayoutPosition());
+            }
         }
     }
 }

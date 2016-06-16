@@ -9,6 +9,8 @@ public class Constants {
     public static final String PREFERENCES = "yinuo_config_prefer";
     public static final String WEB_MODEL = "web_model";
 
+    public static final String PARTNER_OWN_CENTER = "partner_own_center";
+
     /**apply for loan -- 申请贷款 */
     public static final int LOAN_PAGE_APPLY = 110;
     /**extremity loan for loan -- 极速贷款 */

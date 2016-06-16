@@ -6,7 +6,6 @@
     <RelativeLayout
         android:layout_width="match_parent"
         android:layout_height="match_parent">
-
         <com.yinuo.ui.component.widget.view.WorkspaceRecyclerView
             android:id="@+id/workspace_page_recycle_view"
             android:layout_width="match_parent"

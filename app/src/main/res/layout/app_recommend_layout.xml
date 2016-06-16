@@ -1,0 +1,22 @@
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/app_recommend_layout"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    android:layout_alignParentTop="true"
+    android:background="@android:color/white">
+    <View
+        android:layout_width="3dp"
+        android:layout_height="@dimen/app_recommend_schema_height"
+        android:background="@color/colorAccent"/>
+
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="@color/colorPrimary"
+        android:layout_gravity="center_vertical"
+        android:textSize="@dimen/app_recommend_tip_size"
+        android:layout_margin="@dimen/app_recommend_margin"
+        android:text="@string/app_recommend_tip"/>
+</LinearLayout>

@@ -33,6 +33,9 @@
     <dimen name="app_fast_clear_edit_margin_left">6dp</dimen>
     <dimen name="app_fast_edit_padding_tb">10dp</dimen>
     <dimen name="app_fast_edit_x_margin_right">6dp</dimen>
+    <dimen name="app_recommend_schema_height">30dp</dimen>
+    <dimen name="app_recommend_margin">8dp</dimen>
+    <dimen name="app_recommend_tip_size">12sp</dimen>
 
     <!-- login/register page begin -->
     <dimen name="app_login_layout_margin_top">10dp</dimen>
@@ -108,6 +111,10 @@
     <dimen name="partner_page_img_wh">180dp</dimen>
     <dimen name="partner_page_info_height">45dp</dimen>
     <dimen name="partner_page_info_margin">2dp</dimen>
+
+    <dimen name="partner_own_center_back_padding">5dp</dimen>
+    <dimen name="partner_own_center_header_wh">40dp</dimen>
+    <dimen name="partner_own_center_title_margin">10dp</dimen>
     <!-- partner page end-->
 
     <!-- invest page begin -->

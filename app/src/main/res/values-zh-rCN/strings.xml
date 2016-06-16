@@ -12,6 +12,7 @@
         <item>Eight</item>
     </string-array>
 
+
     <!--<string-array name="main_view_pager_tab">
         <item>首&#160;&#160;页</item>
         <item>发&#160;&#160;现</item>
@@ -22,6 +23,7 @@
         <item>伯乐在线</item>
         <item>更&#160;&#160;多</item>
     </string-array>-->
+    <string name="app_recommend_tip">为您推荐</string>
     <string name="app_confirm">确定</string>
     <string name="app_cancel">取消</string>
 
