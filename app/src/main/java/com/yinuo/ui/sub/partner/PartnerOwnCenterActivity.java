@@ -53,6 +53,10 @@ public class PartnerOwnCenterActivity extends BaseActivity {
         mPartnerName.setText(model.getPartnerName());
     }
 
+    /** TODO 此处有一问题在PartnerPageFragment已经下载该图片(已放大)
+     * 通过ImageLoader 会从 memory catch中获取的图片大小会与PartnerPageFragment图片大小相同
+     * 所以显示的时候会出现问题
+     * 解决方案: 重新下载图片 (保存两份图片)**/
     @Override
     protected void loadBitmapSuccess(Bitmap bitmap, ImageView imageView) {
         if (bitmap != null) {
