@@ -17,11 +17,12 @@ import android.widget.RelativeLayout;
 
 import com.yinuo.R;
 import com.yinuo.utils.ResUtils;
+import com.yinuo.utils.StringUtils;
 
 /**
  * Created by ludexiang on 16/5/31.
  */
-public class FastClearEditLayout extends RelativeLayout implements View.OnClickListener {
+public class FastClearEditLayout extends RelativeLayout implements View.OnClickListener, View.OnFocusChangeListener {
 
     private Context mContext;
     private LayoutInflater mInflater;
@@ -112,7 +113,7 @@ public class FastClearEditLayout extends RelativeLayout implements View.OnClickL
         if (mEditHint > 0) {
             mEdit.setHint(mEditHint);
         }
-
+        mEdit.setOnFocusChangeListener(this);
         mEdit.addTextChangedListener(mWatcher);
         mFastClear.setOnClickListener(this);
     }
@@ -161,5 +162,16 @@ public class FastClearEditLayout extends RelativeLayout implements View.OnClickL
 
     public interface ITextWatcherListener {
         void onTextWatcher(CharSequence s);
+    }
+
+    @Override
+    public void onFocusChange(View v, boolean hasFocus) {
+        if (!hasFocus) {
+            mFastClear.setVisibility(View.GONE);
+        } else {
+            if (!StringUtils.isEmpty(mEdit.getText().toString())) {
+                mFastClear.setVisibility(View.VISIBLE);
+            }
+        }
     }
 }
