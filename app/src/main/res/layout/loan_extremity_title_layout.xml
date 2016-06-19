@@ -43,4 +43,23 @@
         android:textSize="@dimen/loan_extremity_title_size"
         android:layout_below="@id/loan_extremity_mode"
         android:textColor="@color/loan_extremity_mode_color"/>
+
+    <!--
+        android:layout_marginTop="@dimen/loan_extremity_margin_top"
+        android:layout_marginBottom="@dimen/loan_extremity_margin_bottom"-->
+    <TextView
+        android:id="@+id/loan_extremity_detail"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/loan_extremity_limit"
+        android:textSize="@dimen/loan_extremity_detail_size"
+        android:text="@string/loan_extremity_detail"
+        android:textColor="@android:color/white"
+        android:clickable="true"
+        android:paddingLeft="@dimen/loan_calculator_padding_lr"
+        android:paddingTop="@dimen/loan_extremity_padding_tb"
+        android:paddingRight="@dimen/loan_calculator_padding_lr"
+        android:paddingBottom="@dimen/loan_extremity_padding_tb"
+        android:layout_centerHorizontal="true"
+        android:background="@drawable/loan_extremity_detail_selector"/>
 </merge>

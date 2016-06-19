@@ -127,7 +127,8 @@
     <string name="loan_calculator_individulate">个税:</string>
 
     <string name="loan_extremity_mode">极速模式</string>
-    <string name="loan_extremity_limit">最快{3}个工作日放款,最高可借{10}万元</string>
+    <string name="loan_extremity_limit">最快{%1$s}个工作日放款,最高可借{%2$s}万元</string>
+    <string name="loan_extremity_detail">查看详细介绍</string>
     <!-- loan page end-->
 
     <!-- workspace page begin -->

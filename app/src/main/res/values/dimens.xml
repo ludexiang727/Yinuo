@@ -159,7 +159,13 @@
     <dimen name="loan_guide_stroke_size">2dp</dimen>
     <dimen name="loan_calculator_info_margin">10dp</dimen>
     <dimen name="loan_calculator_edit_size">14sp</dimen>
-    <dimen name="loan_extremity_title_size">18sp</dimen>
+    <dimen name="loan_extremity_title_size">16sp</dimen>
+    <dimen name="loan_extremity_detail_size">12sp</dimen>
+    <dimen name="loan_extremity_detail_radius">2dp</dimen>
+    <dimen name="loan_extremity_padding_tb">6dp</dimen>
+    <dimen name="loan_extremity_padding_lr">10dp</dimen>
+    <dimen name="loan_extremity_margin_top">8dp</dimen>
+    <dimen name="loan_extremity_margin_bottom">10dp</dimen>
     <!-- loan page end-->
 
     <!-- workspace page begin -->
