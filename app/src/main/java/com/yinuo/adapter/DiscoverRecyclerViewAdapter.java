@@ -4,6 +4,7 @@ import android.content.Context;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -12,13 +13,14 @@ import com.yinuo.adapter.base.BaseRecyclerAdapter;
 import com.yinuo.adapter.base.RecyclerViewHolder;
 import com.yinuo.base.BaseObject;
 import com.yinuo.mode.DiscoveryRecycleModel;
+import com.yinuo.utils.ResUtils;
 
 import java.util.List;
 
 /**
  * Created by gus on 16/4/16.
  */
-public class DiscoverRecyclerViewAdapter <T extends BaseObject> extends BaseRecyclerAdapter {
+public class DiscoverRecyclerViewAdapter<T extends BaseObject> extends BaseRecyclerAdapter {
     public Context mContext;
     private LayoutInflater mInflater;
     private List<T> mListHolder;
@@ -55,9 +57,12 @@ public class DiscoverRecyclerViewAdapter <T extends BaseObject> extends BaseRecy
         private TextView propertyView;
         private TextView titleView;
         private TextView summaryView;
+        private View rootView;
 
         public DiscoverViewHolder(View view) {
             super(view);
+            rootView = view;
+
             propertyView = (TextView) view.findViewById(R.id.discover_holder_property);
             imageView = (ImageView) view.findViewById(R.id.discover_holder_img);
             titleView = (TextView) view.findViewById(R.id.discover_holder_title);
@@ -77,6 +82,14 @@ public class DiscoverRecyclerViewAdapter <T extends BaseObject> extends BaseRecy
         final DiscoverViewHolder holder = (DiscoverViewHolder) viewHolder;
         if (position < mListHolder.size() && mListHolder.get(position) instanceof DiscoveryRecycleModel) {
             DiscoveryRecycleModel model = (DiscoveryRecycleModel) mListHolder.get(position);
+            FrameLayout.LayoutParams params = new FrameLayout.LayoutParams(FrameLayout.LayoutParams.MATCH_PARENT, FrameLayout.LayoutParams.WRAP_CONTENT);
+            if (position == 0 || position == 1) {
+                int topMargin = ResUtils.getDimen(mContext, R.dimen.discover_navigation_parent_height);
+                params.topMargin = topMargin;
+            } else {
+                params.topMargin = 0;
+            }
+            holder.rootView.setLayoutParams(params);
             holder.titleView.setText(model.getTitle());
             holder.propertyView.setText(model.getProperty());
             loadImage(model.getBannerOrImgURL(), holder.imageView);

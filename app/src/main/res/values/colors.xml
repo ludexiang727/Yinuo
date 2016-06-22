@@ -44,6 +44,7 @@
     <color name="discovery_page_navigate_select">#CCFF4081</color>
     <color name="discovery_page_property_bg">#CCFFFFFF</color>
     <color name="discovery_page_category_bg">#EFFFFFFF</color>
+    <color name="discovery_page_separator">#CCEBEBEB</color>
     <!-- discovery page end-->
 
     <!-- partner page begin -->
