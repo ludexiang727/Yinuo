@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal"
+    android:background="@drawable/app_toast_bg">
+
+    <ImageView
+        android:id="@+id/app_toast_img"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_android"
+        android:layout_centerVertical="true"
+        android:contentDescription="@null"
+        android:layout_marginLeft="@dimen/app_toast_margin_lr"
+        android:layout_marginRight="@dimen/app_toast_margin_lr"
+        android:layout_marginTop="@dimen/app_toast_margin_tb"
+        android:layout_marginBottom="@dimen/app_toast_margin_tb"
+        android:visibility="gone"
+        android:layout_alignParentLeft="true"/>
+
+    <TextView
+        android:id="@+id/app_toast_msg"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:layout_marginLeft="@dimen/app_toast_margin_lr"
+        android:layout_marginRight="@dimen/app_toast_margin_lr"
+        android:layout_marginTop="@dimen/app_toast_margin_tb"
+        android:layout_marginBottom="@dimen/app_toast_margin_tb"
+        android:textSize="@dimen/app_toast_msg_size"
+        android:textColor="@android:color/white"
+        android:layout_toRightOf="@id/app_toast_img"/>
+
+</RelativeLayout>

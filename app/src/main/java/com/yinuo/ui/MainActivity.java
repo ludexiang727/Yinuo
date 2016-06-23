@@ -4,9 +4,13 @@ import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentTransaction;
+import android.util.Log;
+import android.view.KeyEvent;
 
+import com.yinuo.R;
 import com.yinuo.base.BaseFragment;
 import com.yinuo.base.BaseParentActivity;
+import com.yinuo.helper.ToastHelper;
 import com.yinuo.net.request.NetRequest;
 import com.yinuo.ui.page.BossOnlinePageFragment;
 import com.yinuo.ui.page.DiscoverPageFragment;
@@ -21,6 +25,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends BaseParentActivity {
+    private static final long TIME_MILL = 1500L;
 
     private List<Fragment> mPages = new ArrayList<Fragment>();
     private FragmentManager mFragmentMgr;
@@ -35,6 +40,8 @@ public class MainActivity extends BaseParentActivity {
     private final int WORKSPACE_FRAGMENT = 5;
     private final int BOSSONLINE_FRAGMENT = 6;
     private final int MORE_FRAGMENT = 7;
+
+    private long mLastPressTime = 0;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -99,5 +106,29 @@ public class MainActivity extends BaseParentActivity {
                 mFragmentTransaction.hide(from).show(to).commitAllowingStateLoss();
             }
         }
+    }
+
+    @Override
+    public boolean onKeyDown(int keyCode, KeyEvent event) {
+        switch (keyCode) {
+            case KeyEvent.KEYCODE_BACK: {
+                long currentTime = System.currentTimeMillis();
+                if (currentTime - mLastPressTime <= TIME_MILL) {
+                    releaseFree();
+                    break;
+                } else {
+                    mLastPressTime = System.currentTimeMillis();
+                    ToastHelper.getInstance(this).showShortToast(R.string.app_toast_exit,
+                            ToastHelper.ToastLocation.BOTTOM);
+                    return false;
+                }
+            }
+        }
+        mLastPressTime = 0;
+        return super.onKeyDown(keyCode, event);
+    }
+
+    private void releaseFree() {
+
     }
 }

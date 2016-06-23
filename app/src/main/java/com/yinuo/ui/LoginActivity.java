@@ -21,7 +21,9 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
     private FlipperViewGroup mFlipperViewGroup;
     private FastClearEditLayout mAccountLayout;
     private FastClearEditLayout mPwdLayout;
+    private FastClearEditLayout mTelLayout;
     private FastClearEditLayout mCheckNumLayout;
+    private TextView mObtainCheckNum;
 
     @Override
     protected int getTitleLayout() {
@@ -53,7 +55,9 @@ public class LoginActivity extends BaseActivity implements View.OnClickListener 
         mFlipperViewGroup = (FlipperViewGroup) view.findViewById(R.id.login_flipper_view_group);
         mAccountLayout = (FastClearEditLayout) view.findViewById(R.id.login_account);
         mPwdLayout = (FastClearEditLayout) view.findViewById(R.id.login_pwd);
+        mTelLayout = (FastClearEditLayout) view.findViewById(R.id.login_tel);
         mCheckNumLayout = (FastClearEditLayout) view.findViewById(R.id.login_check_num);
+        mObtainCheckNum = (TextView) view.findViewById(R.id.login_obtain_check_num);
     }
 
     @Override

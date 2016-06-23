@@ -26,6 +26,7 @@
     <string name="app_recommend_tip">为您推荐</string>
     <string name="app_confirm">确定</string>
     <string name="app_cancel">取消</string>
+    <string name="app_toast_exit">再按一次退出</string>
 
     <!-- login page begin -->
     <string name="app_login_right">注册</string>

@@ -19,6 +19,7 @@
     <color name="app_default_edit_normal_color">#e3e3e3</color>
     <color name="app_default_edit_focus_color">#ff4081</color>
     <color name="app_separator_color">#e3e3e3</color>
+    <color name="app_toast_bg_color">#CC000000</color>
 
     <color name="refresh_color_progress1">#CC3F51B5</color>
     <color name="refresh_color_progress2">#FF4081</color>

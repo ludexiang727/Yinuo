@@ -36,6 +36,12 @@
     <dimen name="app_recommend_schema_height">30dp</dimen>
     <dimen name="app_recommend_margin">8dp</dimen>
     <dimen name="app_recommend_tip_size">12sp</dimen>
+    <dimen name="app_toast_bg_radius">2dp</dimen>
+    <dimen name="app_toast_margin_lr">15dp</dimen>
+    <dimen name="app_toast_margin_tb">6dp</dimen>
+    <dimen name="app_toast_msg_size">12sp</dimen>
+    <dimen name="app_toast_margin_top">60dp</dimen>
+    <dimen name="app_toast_margin_bottom">60dp</dimen>
 
     <!-- login/register page begin -->
     <dimen name="app_login_layout_margin_top">10dp</dimen>
