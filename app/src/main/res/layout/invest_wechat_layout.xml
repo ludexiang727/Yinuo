@@ -36,6 +36,7 @@
             android:layout_marginLeft="@dimen/invest_wechat_edit_margin_left"
             android:layout_marginRight="@dimen/invest_wechat_edit_margin_right"
             android:layout_toLeftOf="@id/invest_wechat_send"
+            android:text="http://api.udache.com/gulfstream/api/v1/passenger/"
             android:maxLines="6" />
     </RelativeLayout>
 

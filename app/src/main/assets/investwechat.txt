@@ -37,6 +37,12 @@
             "wechat_header_url":"http://img1.touxiang.cn/uploads/20120902/02-055331_356.jpg",
             "wechat_msg_type":1,
             "wechat_msg_body":"有些事要麻烦您一些"
+        },
+        {
+            "wechat_time":"2016-05-04 14:20:41",
+            "wechat_header_url":"http://www.qqw21.com/article/UploadPic/2012-8/20128923812441.jpg",
+            "wechat_msg_type":0,
+            "wechat_msg_body":"http://api.udache.com/gulfstream/api/v1/passenger/"
         }
     ]
 }
