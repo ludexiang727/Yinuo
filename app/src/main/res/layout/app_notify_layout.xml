@@ -1,0 +1,14 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:layout_height="match_parent"
+    android:gravity="center_vertical">
+
+    <TextView
+        android:id="@+id/app_notify_msg"
+        android:layout_width="@dimen/app_notify_msg_wh"
+        android:layout_height="@dimen/app_notify_msg_wh"
+        android:background="@drawable/app_notify_shape_bg"
+        android:gravity="center"
+        android:textSize="@dimen/app_notify_msg_size"
+        android:textColor="@android:color/white" />
+</LinearLayout>

@@ -4,7 +4,6 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.view.Window;
-import android.view.View.MeasureSpec;
 import android.view.WindowManager;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
@@ -22,7 +21,7 @@ import com.yinuo.listener.ILocationView;
 import com.yinuo.mode.AddressModel;
 import com.yinuo.net.base.NetBaseObject;
 import com.yinuo.net.request.NetRequest;
-import com.yinuo.ui.LocationView;
+import com.yinuo.ui.component.widget.view.common.LocationView;
 import com.yinuo.utils.AppUtils;
 
 /**

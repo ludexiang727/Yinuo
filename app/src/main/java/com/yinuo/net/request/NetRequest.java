@@ -15,6 +15,7 @@ import com.yinuo.net.response.NetInvestWeChatObj;
 import com.yinuo.net.response.NetLoanCalculatorObj;
 import com.yinuo.net.response.NetLoanPageObj;
 import com.yinuo.net.response.NetLoginObj;
+import com.yinuo.net.response.NetNotifyMsgObj;
 import com.yinuo.net.response.NetPartnerPageObj;
 import com.yinuo.net.response.NetRegisterObj;
 import com.yinuo.net.response.NetUserInfoObj;
@@ -207,6 +208,15 @@ public class NetRequest <T extends NetBaseObject> {
         build.add(NetConstant.NET_REQUEST_USER_INFO_USER_ID, String.valueOf(userId));
         int requestCode = OkHttpRequest.getInstance().httpPostRequest(NetConstant.REQUEST_URL_USER_INFO,
                 build.build(), listener, new NetUserInfoObj());
+        return requestCode;
+    }
+
+    /** notify msg ad -- 我的消息界面 **/
+    public int requestNotifyMsg(long lastMsgTime, IRequestListener<T> listener) {
+        FormEncodingBuilder build = build();
+        build.add(NetConstant.NET_JSON_NOTIFY_MSG_LAST_TIME, String.valueOf(lastMsgTime));
+        int requestCode = OkHttpRequest.getInstance().httpPostRequest(NetConstant.REQUEST_URL_NOTIFY_MSG,
+                build.build(), listener, new NetNotifyMsgObj());
         return requestCode;
     }
 

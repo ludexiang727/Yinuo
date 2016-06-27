@@ -51,6 +51,8 @@ public class Loading extends FrameLayout {
         if (mAnimationDrawable != null) {
             mAnimationDrawable.start();
         }
+        show(mLoadingError);
+        mLoadingError.setText(R.string.app_loading);
     }
 
     public void dismiss() {
@@ -66,5 +68,13 @@ public class Loading extends FrameLayout {
 
     private void hide() {
         setVisibility(View.GONE);
+    }
+
+    private void show(View view) {
+        view.setVisibility(View.VISIBLE);
+    }
+
+    public void hide(View view) {
+        view.setVisibility(View.GONE);
     }
 }

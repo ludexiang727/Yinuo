@@ -13,7 +13,8 @@
     </string-array>
 
 
-    <!--<string-array name="main_view_pager_tab">
+<!--
+    <string-array name="main_view_pager_tab">
         <item>首&#160;&#160;页</item>
         <item>发&#160;&#160;现</item>
         <item>合伙人</item>
@@ -22,11 +23,16 @@
         <item>工作间</item>
         <item>伯乐在线</item>
         <item>更&#160;&#160;多</item>
-    </string-array>-->
+    </string-array>
+-->
     <string name="app_recommend_tip">为您推荐</string>
     <string name="app_confirm">确定</string>
     <string name="app_cancel">取消</string>
     <string name="app_toast_exit">再按一次退出</string>
+    <string name="app_loading">正在加载...</string>
+    <string name="app_notify_change">换一批看看</string>
+    <string name="app_loading_data">正在加载数据...</string>
+
 
     <!-- login page begin -->
     <string name="app_login_right">注册</string>
@@ -66,6 +72,7 @@
     <string name="mine_message">消息</string>
     <string name="mine_service_customer">客服</string>
     <string name="mine_settings">设置</string>
+    <string name="mine_news">我的消息</string>
     <!-- mine page end-->
 
     <!-- settings page begin -->

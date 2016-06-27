@@ -1,4 +1,4 @@
-package com.yinuo.ui;
+package com.yinuo.ui.component.widget.view.common;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -12,6 +12,7 @@ import com.yinuo.R;
 import com.yinuo.helper.MapHelper;
 import com.yinuo.listener.ILocationView;
 import com.yinuo.mode.AddressModel;
+import com.yinuo.ui.LocationFragment;
 
 /**
  * Created by ludexiang on 2016/4/27.

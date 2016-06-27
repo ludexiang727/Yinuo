@@ -18,7 +18,7 @@ import com.yinuo.utils.ResUtils;
 /**
  * Created by ludexiang on 16/6/16.
  */
-public class PartnerOwnCenterActivity extends BaseActivity {
+public class PartnerOwnCenterActivity extends BaseActivity implements View.OnClickListener {
     private TextView mPartnerName;
     private ImageView mPartnerHeader;
     private int mUserId;
@@ -33,6 +33,7 @@ public class PartnerOwnCenterActivity extends BaseActivity {
     protected void initTitleView(View titleView) {
         mPartnerName = (TextView) titleView.findViewById(R.id.partner_own_center_back);
         mPartnerHeader = (ImageView) titleView.findViewById(R.id.partner_own_center_header);
+        mPartnerName.setOnClickListener(this);
     }
 
     @Override
@@ -82,5 +83,14 @@ public class PartnerOwnCenterActivity extends BaseActivity {
     @Override
     public void onSuccess(NetBaseObject object) {
         super.onSuccess(object);
+    }
+
+    @Override
+    public void onClick(View v) {
+        switch (v.getId()) {
+            case R.id.partner_own_center_back: {
+                finish();
+            }
+        }
     }
 }

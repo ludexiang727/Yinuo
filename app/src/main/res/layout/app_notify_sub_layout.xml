@@ -1,0 +1,37 @@
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/app_notify_sub_parent"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:clickable="true">
+
+    <View
+        android:id="@+id/notify_sub_separator"
+        android:layout_width="match_parent"
+        android:layout_height="1px"
+        android:background="@color/app_separator_color"
+        android:layout_alignParentTop="true"/>
+
+    <ImageView
+        android:id="@+id/app_notify_sub_img"
+        android:layout_width="@dimen/app_notify_sub_img_wh"
+        android:layout_height="@dimen/app_notify_sub_img_wh"
+        android:layout_centerVertical="true"
+        android:layout_alignParentLeft="true"
+        android:layout_below="@id/notify_sub_separator"
+        android:src="@drawable/ic_android"
+        android:scaleType="center"
+        android:layout_margin="@dimen/app_notify_sub_img_margin"
+        android:contentDescription="@null"/>
+
+    <TextView
+        android:id="@+id/app_notify_sub_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerVertical="true"
+        android:gravity="center_vertical"
+        android:layout_gravity="center_vertical"
+        android:layout_marginLeft="@dimen/app_notify_sub_margin_left"
+        android:layout_marginRight="@dimen/app_notify_sub_margin_left"
+        android:layout_toRightOf="@id/app_notify_sub_img"/>
+</RelativeLayout>

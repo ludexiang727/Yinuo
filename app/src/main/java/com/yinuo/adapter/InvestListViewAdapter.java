@@ -95,6 +95,7 @@ public class InvestListViewAdapter extends SuperAdapter {
             holder.headerImg = (ImageView) view.findViewById(R.id.invest_wechat_header);
             holder.msgTime = (TextView) view.findViewById(R.id.invest_wechat_send_msg_time);
             holder.msgBody = (TextView) view.findViewById(R.id.invest_wechat_msg_body);
+            holder.msgBody.setOnLongClickListener(holder);
         }
     }
 
@@ -137,7 +138,7 @@ public class InvestListViewAdapter extends SuperAdapter {
 
     }
 
-    private final class ViewHolder extends SuperViewHolder {
+    private final class ViewHolder extends SuperViewHolder implements View.OnLongClickListener {
         private TextView msgTime;
         private ImageView headerImg;
         private TextView msgBody;
@@ -151,6 +152,16 @@ public class InvestListViewAdapter extends SuperAdapter {
         @Override
         public void onClick(View v) {
 
+        }
+
+        @Override
+        public boolean onLongClick(View v) {
+            switch (v.getId()) {
+                case R.id.invest_wechat_msg_body: {
+                    break;
+                }
+            }
+            return false;
         }
     }
 }

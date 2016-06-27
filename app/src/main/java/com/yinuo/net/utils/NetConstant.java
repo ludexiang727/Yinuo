@@ -22,6 +22,7 @@ public class NetConstant {
     public static final String REQUEST_URL_BOSS_ONLINE_ABOUT_PAGE = "pGetBossOnlineAboutPage";
     public static final String REQUEST_URL_USER_INFO = "pGetUserInfo";
     public static final String REQUEST_URL_LOAN_CALCULATION = "pGetLoanCalculator";
+    public static final String REQUEST_URL_NOTIFY_MSG = "pGetNotifyMsg";
     /***************** request interface end *********************/
 
     /*************  json parse begin field -- 接口response json field **********************/
@@ -74,6 +75,18 @@ public class NetConstant {
     // json
     public static final String NET_JSON_APP_CONFIG_VERSION = "app_config_version";
     /** app config -- app 配置 end **/
+
+    /** app notify -- app 消息中心 begin **/
+    public static final String NET_JSON_NOTIFY_MSG_LAST_TIME = "app_notify_last_msg_time";
+
+    // json
+    public static final String NET_JSON_NOTIFY_MSG_TIME = "notify_msg_time";
+    public static final String NET_JSON_NOTIFY_LISTS = "notify_msg_list";
+    public static final String NET_JSON_NOTIFY_MSG_ID = "notify_msg_id";
+    public static final String NET_JSON_NOTIFY_MSG_IMG = "notify_msg_img";
+    public static final String NET_JSON_NOTIFY_MSG_TITLE = "notify_msg_title";
+    public static final String NET_JSON_NOTIFY_MSG_REDIRECT = "notify_msg_redirect";
+    /** app notify -- app 消息中心 end **/
 
     /**home page data begin */
     public static final String NET_REQUEST_HOMEPAGE_PARAM_INDEX = "home_page_index";

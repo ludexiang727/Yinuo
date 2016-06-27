@@ -33,6 +33,7 @@ import com.yinuo.net.request.NetRequest;
 import com.yinuo.ui.CityChoosePageActivity;
 import com.yinuo.ui.LoginActivity;
 import com.yinuo.ui.MineActivity;
+import com.yinuo.ui.NotifyMsgActivity;
 import com.yinuo.ui.SettingsActivity;
 import com.yinuo.utils.BitmapUtils;
 import com.yinuo.utils.MessageEventUtil;
@@ -61,6 +62,7 @@ public class BaseParentActivity extends AppCompatActivity
     private TextView mUserName;
     private TextView mUserAccount;
     private LoginEvent mLoginEvent = new LoginEvent();
+    private TextView mAppNotifyMsg;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -100,12 +102,15 @@ public class BaseParentActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         View headerView = navigationView.getHeaderView(0);
+        View appNotify = navigationView.getMenu().findItem(R.id.nav_gallery).getActionView();
         mNavigationView = (LinearLayout) headerView.findViewById(R.id.app_navigation_layout);
         mHeaderView = (ImageView) headerView.findViewById(R.id.app_mine_header);
         mUserName = (TextView) headerView.findViewById(R.id.app_mine_name);
         mUserAccount = (TextView) headerView.findViewById(R.id.app_mine_account);
         mHeaderView.setOnClickListener(this);
         navigationView.setNavigationItemSelectedListener(this);
+
+        mAppNotifyMsg = (TextView) appNotify.findViewById(R.id.app_notify_msg);
     }
 
     private void initViewPager() {
@@ -165,6 +170,9 @@ public class BaseParentActivity extends AppCompatActivity
             }
             // Handle the camera action
             case R.id.nav_gallery : {
+                setNotifyMsgCount(0);
+                Intent intent = new Intent(this, NotifyMsgActivity.class);
+                startActivity(intent);
                 break;
             }
             case R.id.nav_slideshow: {
@@ -225,6 +233,19 @@ public class BaseParentActivity extends AppCompatActivity
             } else {
                 mNavigationView.setBackgroundResource(R.drawable.side_nav_bar);
             }
+        }
+    }
+
+    /***
+     * how much unread messages in mine page
+     * -- 设置我的消息中有多少未读信息
+     */
+    protected void setNotifyMsgCount(int count) {
+        if (count > 0) {
+            mAppNotifyMsg.setVisibility(View.VISIBLE);
+            mAppNotifyMsg.setText(String.valueOf(count));
+        } else {
+            mAppNotifyMsg.setVisibility(View.GONE);
         }
     }
 

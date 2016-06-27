@@ -42,6 +42,22 @@
     <dimen name="app_toast_msg_size">12sp</dimen>
     <dimen name="app_toast_margin_top">60dp</dimen>
     <dimen name="app_toast_margin_bottom">60dp</dimen>
+    <dimen name="app_loading_error_margin_top">5dp</dimen>
+    <dimen name="app_loading_error_size">12sp</dimen>
+    <dimen name="app_notify_msg_wh">20dp</dimen>
+    <dimen name="app_notify_msg_size">12sp</dimen>
+    <dimen name="app_notify_shape_radius">4dp</dimen>
+    <dimen name="app_notify_msg_layout_margin">15dp</dimen>
+    <dimen name="app_notify_msg_img_height">120dp</dimen>
+    <dimen name="app_notify_msg_title_size">16sp</dimen>
+    <dimen name="app_notify_msg_title_padding">6dp</dimen>
+    <dimen name="app_notify_msg_other_margin">6dp</dimen>
+    <dimen name="app_notify_sub_img_wh">65dp</dimen>
+    <dimen name="app_notify_sub_img_margin">10dp</dimen>
+    <dimen name="app_notify_sub_margin_left">6dp</dimen>
+    <dimen name="app_notify_change_size">16sp</dimen>
+    <dimen name="app_notify_change_margin_tb">12dp</dimen>
+    <dimen name="app_notify_time_margin_tb">10dp</dimen>
 
     <!-- login/register page begin -->
     <dimen name="app_login_layout_margin_top">10dp</dimen>

@@ -1,0 +1,52 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_gravity="center_horizontal">
+    <TextView
+        android:id="@+id/app_notify_msg_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="@dimen/app_notify_time_margin_tb"
+        android:layout_alignParentTop="true"/>
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/app_notify_msg_time"
+        android:layout_margin="@dimen/app_notify_msg_layout_margin"
+        android:background="@drawable/app_notify_msg_layout_bg">
+        <ImageView
+            android:id="@+id/app_notify_img"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/app_notify_msg_img_height"
+            android:adjustViewBounds="true"
+            android:scaleType="fitXY"
+            android:layout_margin="@dimen/app_notify_msg_other_margin"
+            android:contentDescription="@null"/>
+
+        <TextView
+            android:id="@+id/app_notify_title"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:textSize="@dimen/app_notify_msg_title_size"
+            android:textColor="@android:color/white"
+            android:layout_alignBottom="@id/app_notify_img"
+            android:layout_alignLeft="@id/app_notify_img"
+            android:layout_alignRight="@id/app_notify_img"
+            android:padding="@dimen/app_notify_msg_title_padding"
+            android:background="@color/app_notify_msg_title_bg"/>
+
+        <LinearLayout
+            android:id="@+id/app_notify_other_msg_layout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/app_notify_img"
+            android:orientation="vertical"
+            android:layout_marginTop="@dimen/app_notify_msg_other_margin"
+            android:layout_marginBottom="2dp"/>
+    </RelativeLayout>
+
+</RelativeLayout>
