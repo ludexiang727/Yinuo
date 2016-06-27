@@ -1,31 +1,65 @@
 {
     "errno":0,
     "errmsg":"",
-    "notify_msg_time":"2016-06-27 14:27:30",
-    "notify_msg_list":[
+    "notify_lists":[
         {
-            "notify_msg_id":10010,
-            "notify_msg_img":"http://b.hiphotos.baidu.com/baike/c0%3Dbaike272%2C5%2C5%2C272%2C90/sign=797973e866380cd7f213aabfc02dc651/2e2eb9389b504fc21c653c5de6dde71190ef6db4.jpg",
-            "notify_msg_title":"独立日卷土真能重来?外星人一言不合就炸地球",
-            "notify_msg_redirect":"http://www.baidu.com"
+            "notify_msg_time":"2016-06-27 14:27:30",
+            "notify_msg_list":[
+                {
+                    "notify_msg_id":10010,
+                    "notify_msg_img":"http://b.hiphotos.baidu.com/baike/c0%3Dbaike272%2C5%2C5%2C272%2C90/sign=797973e866380cd7f213aabfc02dc651/2e2eb9389b504fc21c653c5de6dde71190ef6db4.jpg",
+                    "notify_msg_title":"独立日卷土真能重来?外星人一言不合就炸地球",
+                    "notify_msg_redirect":"http://www.baidu.com"
+                },
+                {
+                    "notify_msg_id":10011,
+                    "notify_msg_img":"http://a.hiphotos.baidu.com/baike/c0%3Dbaike80%2C5%2C5%2C80%2C26/sign=a529e8ea56da81cb5aeb8b9f330fbb73/d6ca7bcb0a46f21fb64e5e4df1246b600c33aeb1.jpg",
+                    "notify_msg_title":"仍是记忆里的飞侠!回顾16赛季比1V1单挑巨星瞬间",
+                    "notify_msg_redirect":"http://www.baidu.com"
+                },
+                {
+                    "notify_msg_id":10012,
+                    "notify_msg_img":"http://img.wdjimg.com/mms/icon/v1/c/a7/1c16e2f4e8b623532c4954e0f2bf6a7c_256_256.png",
+                    "notify_msg_title":"太空发现隐形不明生物,神秘外星生物侵犯地球?",
+                    "notify_msg_redirect":"http://www.baidu.com"
+                },
+                {
+                    "notify_msg_id":10013,
+                    "notify_msg_img":"http://b.hiphotos.baidu.com/baike/c0%3Dbaike72%2C5%2C5%2C72%2C24/sign=88dc55e8534e9258b2398ebcfdebba3d/f9198618367adab4cb12a6cf8ed4b31c8601e478.jpg",
+                    "notify_msg_title":"美洲杯-智利点球4-2胜阿根廷夺冠梅西失点球",
+                    "notify_msg_redirect":"http://www.baidu.com"
+                }
+            ]
         },
         {
-            "notify_msg_id":10011,
-            "notify_msg_img":"http://a.hiphotos.baidu.com/baike/c0%3Dbaike80%2C5%2C5%2C80%2C26/sign=a529e8ea56da81cb5aeb8b9f330fbb73/d6ca7bcb0a46f21fb64e5e4df1246b600c33aeb1.jpg",
-            "notify_msg_title":"仍是记忆里的飞侠!回顾16赛季比1V1单挑巨星瞬间",
-            "notify_msg_redirect":"http://www.baidu.com"
-        },
-        {
-            "notify_msg_id":10012,
-            "notify_msg_img":"http://img.wdjimg.com/mms/icon/v1/c/a7/1c16e2f4e8b623532c4954e0f2bf6a7c_256_256.png",
-            "notify_msg_title":"太空发现隐形不明生物,神秘外星生物侵犯地球?",
-            "notify_msg_redirect":"http://www.baidu.com"
-        },
-        {
-            "notify_msg_id":10013,
-            "notify_msg_img":"http://b.hiphotos.baidu.com/baike/c0%3Dbaike72%2C5%2C5%2C72%2C24/sign=88dc55e8534e9258b2398ebcfdebba3d/f9198618367adab4cb12a6cf8ed4b31c8601e478.jpg",
-            "notify_msg_title":"美洲杯-智利点球4-2胜阿根廷夺冠梅西失点球",
-            "notify_msg_redirect":"http://www.baidu.com"
+            "notify_msg_time":"2016-06-27 18:07:30",
+            "notify_msg_list":[
+                {
+                    "notify_msg_id":10010,
+                    "notify_msg_img":"http://b.hiphotos.baidu.com/baike/c0%3Dbaike272%2C5%2C5%2C272%2C90/sign=797973e866380cd7f213aabfc02dc651/2e2eb9389b504fc21c653c5de6dde71190ef6db4.jpg",
+                    "notify_msg_title":"111111111111111",
+                    "notify_msg_redirect":"http://www.baidu.com"
+                },
+                {
+                    "notify_msg_id":10011,
+                    "notify_msg_img":"http://a.hiphotos.baidu.com/baike/c0%3Dbaike80%2C5%2C5%2C80%2C26/sign=a529e8ea56da81cb5aeb8b9f330fbb73/d6ca7bcb0a46f21fb64e5e4df1246b600c33aeb1.jpg",
+                    "notify_msg_title":"2222222222222",
+                    "notify_msg_redirect":"http://www.baidu.com"
+                },
+                {
+                    "notify_msg_id":10012,
+                    "notify_msg_img":"http://img.wdjimg.com/mms/icon/v1/c/a7/1c16e2f4e8b623532c4954e0f2bf6a7c_256_256.png",
+                    "notify_msg_title":"333333333333333?",
+                    "notify_msg_redirect":"http://www.baidu.com"
+                },
+                {
+                    "notify_msg_id":10013,
+                    "notify_msg_img":"http://b.hiphotos.baidu.com/baike/c0%3Dbaike72%2C5%2C5%2C72%2C24/sign=88dc55e8534e9258b2398ebcfdebba3d/f9198618367adab4cb12a6cf8ed4b31c8601e478.jpg",
+                    "notify_msg_title":"44444444444444444444",
+                    "notify_msg_redirect":"http://www.baidu.com"
+                }
+            ]
         }
     ]
+
 }

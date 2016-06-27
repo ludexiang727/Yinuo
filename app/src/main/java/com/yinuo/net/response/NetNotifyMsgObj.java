@@ -16,16 +16,14 @@ import java.util.List;
  * Created by ludexiang on 16/6/27.
  */
 public class NetNotifyMsgObj extends NetBaseObject {
-    private NotifyMsgModel mModel;
+    private List<NotifyMsgModel> mModelLists;
     private String mMsgTime;
 
     @Override
     protected void parse(JSONObject obj) {
         super.parse(obj);
-        mModel = new NotifyMsgModel();
+        mModelLists = new ArrayList<NotifyMsgModel>();
         JSONArray array = NetParseUtils.getArray(NetConstant.NET_JSON_NOTIFY_LISTS, obj);
-        mMsgTime = NetParseUtils.getString(NetConstant.NET_JSON_NOTIFY_MSG_TIME, obj);
-        mModel.setNotifyTime(mMsgTime);
         parseArray(array);
     }
 
@@ -33,32 +31,41 @@ public class NetNotifyMsgObj extends NetBaseObject {
         if (array == null) {
             return;
         }
-        List<NotifyMsgModel.NotifyMsg> data = new ArrayList<NotifyMsgModel.NotifyMsg>();
         int length = array.length();
         for (int i = 0; i < length; ++i) {
+            NotifyMsgModel model = new NotifyMsgModel();
             try {
                 JSONObject obj = array.getJSONObject(i);
-                NotifyMsgModel.NotifyMsg model = new NotifyMsgModel.NotifyMsg();
-                int id = NetParseUtils.getInt(NetConstant.NET_JSON_NOTIFY_MSG_ID, obj);
-                String imgUrl = NetParseUtils.getString(NetConstant.NET_JSON_NOTIFY_MSG_IMG, obj);
-                String msgTitle = NetParseUtils.getString(NetConstant.NET_JSON_NOTIFY_MSG_TITLE, obj);
-                String redirect = NetParseUtils.getString(NetConstant.NET_JSON_NOTIFY_MSG_REDIRECT, obj);
+                mMsgTime = NetParseUtils.getString(NetConstant.NET_JSON_NOTIFY_MSG_TIME, obj);
+                model.setNotifyTime(mMsgTime);
 
-                model.setNotifyMsgId(id);
-                model.setNotifyImg(imgUrl);
-                model.setNotifyTitle(msgTitle);
-                model.setNotifyUrl(redirect);
+                JSONArray innerArray = NetParseUtils.getArray(NetConstant.NET_JSON_NOTIFY_MSG_LISTS, obj);
+                List<NotifyMsgModel.NotifyMsg> data = new ArrayList<NotifyMsgModel.NotifyMsg>();
+                for (int j = 0; j < innerArray.length(); ++j) {
+                    JSONObject innerObj = innerArray.getJSONObject(j);
+                    NotifyMsgModel.NotifyMsg modelMsg = new NotifyMsgModel.NotifyMsg();
+                    int id = NetParseUtils.getInt(NetConstant.NET_JSON_NOTIFY_MSG_ID, innerObj);
+                    String imgUrl = NetParseUtils.getString(NetConstant.NET_JSON_NOTIFY_MSG_IMG, innerObj);
+                    String msgTitle = NetParseUtils.getString(NetConstant.NET_JSON_NOTIFY_MSG_TITLE, innerObj);
+                    String redirect = NetParseUtils.getString(NetConstant.NET_JSON_NOTIFY_MSG_REDIRECT, innerObj);
 
-                data.add(model);
+                    modelMsg.setNotifyMsgId(id);
+                    modelMsg.setNotifyImg(imgUrl);
+                    modelMsg.setNotifyTitle(msgTitle);
+                    modelMsg.setNotifyUrl(redirect);
+
+                    data.add(modelMsg);
+                }
+                model.setNotifyLists(data);
             } catch (JSONException e) {
                 e.printStackTrace();
             }
+            mModelLists.add(model);
         }
 
-        mModel.setNotifyLists(data);
     }
 
-    public NotifyMsgModel getData() {
-        return mModel;
+    public List<NotifyMsgModel> getData() {
+        return mModelLists;
     }
 }

@@ -84,7 +84,7 @@ public class NotifyMsgActivity extends BaseActivity implements View.OnClickListe
                     }
                     NetNotifyMsgObj notify = (NetNotifyMsgObj) msg.obj;
                     if (notify != null && notify.getData() != null) {
-                        mItems.add(notify.getData());
+                        mItems.addAll(notify.getData());
                         mListView.getNotifyAdapter().notifyDataSetChanged();
                     }
                     break;

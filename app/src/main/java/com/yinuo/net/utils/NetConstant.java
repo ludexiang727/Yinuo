@@ -80,8 +80,9 @@ public class NetConstant {
     public static final String NET_JSON_NOTIFY_MSG_LAST_TIME = "app_notify_last_msg_time";
 
     // json
+    public static final String NET_JSON_NOTIFY_LISTS = "notify_lists";
     public static final String NET_JSON_NOTIFY_MSG_TIME = "notify_msg_time";
-    public static final String NET_JSON_NOTIFY_LISTS = "notify_msg_list";
+    public static final String NET_JSON_NOTIFY_MSG_LISTS = "notify_msg_list";
     public static final String NET_JSON_NOTIFY_MSG_ID = "notify_msg_id";
     public static final String NET_JSON_NOTIFY_MSG_IMG = "notify_msg_img";
     public static final String NET_JSON_NOTIFY_MSG_TITLE = "notify_msg_title";
