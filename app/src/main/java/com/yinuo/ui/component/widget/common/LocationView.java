@@ -1,4 +1,4 @@
-package com.yinuo.ui.component.widget.view.common;
+package com.yinuo.ui.component.widget.common;
 
 import android.content.Context;
 import android.content.res.TypedArray;

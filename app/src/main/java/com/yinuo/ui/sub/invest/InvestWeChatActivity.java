@@ -18,7 +18,7 @@ import com.yinuo.mode.InvestWeChatModel;
 import com.yinuo.net.base.NetBaseObject;
 import com.yinuo.net.request.NetRequest;
 import com.yinuo.net.response.NetInvestWeChatObj;
-import com.yinuo.ui.component.widget.baseview.BaseBezierRefreshListView;
+import com.yinuo.ui.component.baseview.BaseBezierRefreshListView;
 import com.yinuo.ui.component.widget.view.InvestWeChatListView;
 import com.yinuo.utils.StringUtils;
 import com.yinuo.utils.UiThreadHandler;

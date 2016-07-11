@@ -3,7 +3,7 @@ package com.yinuo.ui.component.widget.view;
 import android.content.Context;
 import android.util.AttributeSet;
 
-import com.yinuo.ui.component.widget.baseview.BaseRefreshListView;
+import com.yinuo.ui.component.baseview.BaseRefreshListView;
 
 /**
  * Created by gus on 16/5/15.

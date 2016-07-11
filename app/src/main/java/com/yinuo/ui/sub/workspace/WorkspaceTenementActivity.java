@@ -11,7 +11,6 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.BaseAdapter;
-import android.widget.EditText;
 import android.widget.FrameLayout;
 import android.widget.ImageView;
 import android.widget.ListView;
@@ -26,7 +25,7 @@ import com.yinuo.helper.PopupWindowHelper;
 import com.yinuo.mode.AddressModel;
 import com.yinuo.ui.component.widget.view.PullToRefreshLayout;
 import com.yinuo.ui.component.widget.view.WorkspaceTenementListView;
-import com.yinuo.ui.component.widget.view.common.FastClearEditLayout;
+import com.yinuo.ui.component.widget.common.FastClearEditLayout;
 import com.yinuo.utils.AppUtils;
 import com.yinuo.utils.ResUtils;
 

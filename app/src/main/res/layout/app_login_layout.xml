@@ -12,13 +12,13 @@
             android:layout_height="match_parent"
             android:orientation="vertical">
 
-            <com.yinuo.ui.component.widget.view.common.FlipperViewGroup
+            <com.yinuo.ui.component.widget.common.FlipperViewGroup
                 android:id="@+id/login_flipper_view_group"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"/>
 
             <!-- account -->
-            <com.yinuo.ui.component.widget.view.common.FastClearEditLayout
+            <com.yinuo.ui.component.widget.common.FastClearEditLayout
                 android:id="@+id/login_account"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -31,7 +31,7 @@
                 app:edit_hint="@string/app_login_account_hint"/>
 
             <!-- password -->
-            <com.yinuo.ui.component.widget.view.common.FastClearEditLayout
+            <com.yinuo.ui.component.widget.common.FastClearEditLayout
                 android:id="@+id/login_pwd"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -45,7 +45,7 @@
                 app:edit_hint="@string/app_login_pwd_hint"/>
 
             <!-- tel -->
-            <com.yinuo.ui.component.widget.view.common.FastClearEditLayout
+            <com.yinuo.ui.component.widget.common.FastClearEditLayout
                 android:id="@+id/login_tel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
@@ -83,7 +83,7 @@
                     android:textColor="@android:color/white"
                     android:background="@drawable/app_login_obtain_check_num_selector"/>
 
-                <com.yinuo.ui.component.widget.view.common.FastClearEditLayout
+                <com.yinuo.ui.component.widget.common.FastClearEditLayout
                     android:id="@+id/login_check_num"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

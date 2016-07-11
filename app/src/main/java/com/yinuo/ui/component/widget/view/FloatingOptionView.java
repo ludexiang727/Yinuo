@@ -8,11 +8,9 @@ import android.graphics.Path;
 import android.graphics.PathMeasure;
 import android.graphics.RectF;
 import android.util.AttributeSet;
-import android.util.Log;
-import android.view.MotionEvent;
 
 import com.yinuo.R;
-import com.yinuo.ui.component.widget.baseview.BaseFloatOptionView;
+import com.yinuo.ui.component.baseview.BaseFloatOptionView;
 import com.yinuo.utils.AppUtils;
 import com.yinuo.utils.ResUtils;
 

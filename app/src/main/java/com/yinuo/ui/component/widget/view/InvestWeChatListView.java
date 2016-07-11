@@ -5,7 +5,7 @@ import android.util.AttributeSet;
 
 import com.yinuo.adapter.InvestListViewAdapter;
 import com.yinuo.mode.InvestWeChatModel;
-import com.yinuo.ui.component.widget.baseview.BaseBezierRefreshListView;
+import com.yinuo.ui.component.baseview.BaseBezierRefreshListView;
 
 import java.util.List;
 

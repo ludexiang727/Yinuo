@@ -4,7 +4,7 @@ import android.support.v4.view.PagerAdapter;
 import android.view.View;
 import android.view.ViewGroup;
 
-import com.yinuo.ui.component.widget.baseview.BaseRecyclerView;
+import com.yinuo.ui.component.baseview.BaseRecyclerView;
 
 import java.util.List;
 

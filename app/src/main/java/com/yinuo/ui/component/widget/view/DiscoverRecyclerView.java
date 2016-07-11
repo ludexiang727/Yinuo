@@ -1,16 +1,12 @@
 package com.yinuo.ui.component.widget.view;
 
 import android.content.Context;
-import android.support.v4.widget.SwipeRefreshLayout;
-import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.StaggeredGridLayoutManager;
 import android.util.AttributeSet;
-import android.util.Log;
 
 import com.yinuo.adapter.DiscoverRecyclerViewAdapter;
 import com.yinuo.base.BaseObject;
-import com.yinuo.mode.DiscoveryRecycleModel;
-import com.yinuo.ui.component.widget.baseview.BaseRecyclerView;
+import com.yinuo.ui.component.baseview.BaseRecyclerView;
 
 import java.util.List;
 

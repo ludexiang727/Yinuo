@@ -16,7 +16,7 @@ limitations under the License.
 
 */
 
-package com.yinuo.ui.component.widget.baseview;
+package com.yinuo.ui.component.baseview;
 
 import android.annotation.SuppressLint;
 import android.annotation.TargetApi;

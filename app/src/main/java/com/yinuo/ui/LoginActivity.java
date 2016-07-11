@@ -9,8 +9,8 @@ import android.widget.TextView;
 import com.yinuo.R;
 import com.yinuo.base.BaseActivity;
 import com.yinuo.net.base.NetBaseObject;
-import com.yinuo.ui.component.widget.view.common.FastClearEditLayout;
-import com.yinuo.ui.component.widget.view.common.FlipperViewGroup;
+import com.yinuo.ui.component.widget.common.FastClearEditLayout;
+import com.yinuo.ui.component.widget.common.FlipperViewGroup;
 
 /**
  * Created by ludexiang on 16/5/31.

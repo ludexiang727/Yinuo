@@ -6,9 +6,8 @@ import android.util.AttributeSet;
 import android.view.View;
 
 import com.yinuo.adapter.WorkspaceRecyclerViewAdapter;
-import com.yinuo.adapter.base.BaseRecyclerAdapter;
 import com.yinuo.base.BaseObject;
-import com.yinuo.ui.component.widget.baseview.BaseRecyclerView;
+import com.yinuo.ui.component.baseview.BaseRecyclerView;
 
 import java.util.List;
 

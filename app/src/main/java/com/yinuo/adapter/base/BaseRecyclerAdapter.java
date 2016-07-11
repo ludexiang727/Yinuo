@@ -12,8 +12,8 @@ import com.yinuo.base.BaseApplication;
 import com.yinuo.listener.IOnItemClickListener;
 import com.yinuo.helper.ImageLoaderHelper;
 import com.yinuo.mode.HomePageBannersModel;
-import com.yinuo.ui.component.widget.view.common.FlipperViewGroup;
-import com.yinuo.ui.component.widget.view.common.IndicatorView;
+import com.yinuo.ui.component.widget.common.FlipperViewGroup;
+import com.yinuo.ui.component.widget.common.IndicatorView;
 
 import java.util.List;
 

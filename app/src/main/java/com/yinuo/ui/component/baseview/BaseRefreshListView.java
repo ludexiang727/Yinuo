@@ -1,4 +1,4 @@
-package com.yinuo.ui.component.widget.baseview;
+package com.yinuo.ui.component.baseview;
 
 import android.content.Context;
 import android.graphics.drawable.AnimationDrawable;

@@ -4,16 +4,13 @@ import android.content.Context;
 import android.support.v4.widget.SwipeRefreshLayout;
 import android.support.v7.widget.LinearLayoutManager;
 import android.util.AttributeSet;
-import android.view.View;
 
-import com.yinuo.R;
 import com.yinuo.adapter.HomePageRecyclerViewAdapter;
 import com.yinuo.base.BaseObject;
 import com.yinuo.listener.IDynamicLoadListener;
 import com.yinuo.listener.ITransationSceneListener;
 import com.yinuo.mode.HomePageBannersModel;
-import com.yinuo.mode.HomePageDataModel;
-import com.yinuo.ui.component.widget.baseview.BaseRecyclerView;
+import com.yinuo.ui.component.baseview.BaseRecyclerView;
 
 import java.util.List;
 

@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent">
 
-    <com.yinuo.ui.component.widget.view.common.LocationView
+    <com.yinuo.ui.component.widget.common.LocationView
         android:id="@+id/location_view"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
@@ -13,7 +13,7 @@
 
         <include layout="@layout/boss_online_about_location"/>
 
-    </com.yinuo.ui.component.widget.view.common.LocationView>
+    </com.yinuo.ui.component.widget.common.LocationView>
     <RelativeLayout
         android:id="@+id/boss_online_about_view_parent"
         android:layout_width="match_parent"

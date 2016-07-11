@@ -16,7 +16,7 @@
             android:src="@drawable/ic_android"
             android:layout_alignParentLeft="true"/>
 
-        <com.yinuo.ui.component.widget.view.common.FastClearEditLayout
+        <com.yinuo.ui.component.widget.common.FastClearEditLayout
             android:id="@+id/workspace_tenement_title_edit"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"

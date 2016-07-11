@@ -5,9 +5,8 @@ import android.support.v7.widget.LinearLayoutManager;
 import android.util.AttributeSet;
 
 import com.yinuo.adapter.BossOnlineRecyclerViewAdapter;
-import com.yinuo.adapter.base.BaseRecyclerAdapter;
 import com.yinuo.base.BaseObject;
-import com.yinuo.ui.component.widget.baseview.BaseRecyclerView;
+import com.yinuo.ui.component.baseview.BaseRecyclerView;
 
 import java.util.List;
 

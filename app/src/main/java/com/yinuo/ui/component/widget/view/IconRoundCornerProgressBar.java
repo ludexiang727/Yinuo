@@ -31,7 +31,7 @@ import android.widget.ImageView;
 import android.widget.LinearLayout;
 
 import com.yinuo.R;
-import com.yinuo.ui.component.widget.baseview.BaseRoundCornerProgressBar;
+import com.yinuo.ui.component.baseview.BaseRoundCornerProgressBar;
 
 
 /**

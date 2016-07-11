@@ -40,7 +40,7 @@
         <!-- 边框 -->
         <item name="android:windowNoTitle">true</item>
         <!-- 无标题 -->
-        <item name="android:windowBackground">@color/gray_translate</item>
+        <item name="android:windowBackground">@android:color/transparent</item>
         <!-- 背景透明 -->
         <item name="android:windowIsFloating">false</item>
         <!-- 是否浮现在activity之上 -->

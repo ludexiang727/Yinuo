@@ -21,7 +21,7 @@ import com.yinuo.listener.ILocationView;
 import com.yinuo.mode.AddressModel;
 import com.yinuo.net.base.NetBaseObject;
 import com.yinuo.net.request.NetRequest;
-import com.yinuo.ui.component.widget.view.common.LocationView;
+import com.yinuo.ui.component.widget.common.LocationView;
 import com.yinuo.utils.AppUtils;
 
 /**

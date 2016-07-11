@@ -1,8 +1,7 @@
-package com.yinuo.ui.component.widget.view.common;
+package com.yinuo.ui.component.widget.common;
 
 import android.content.Context;
 import android.util.AttributeSet;
-import android.util.Log;
 import android.view.MotionEvent;
 import android.widget.RelativeLayout;
 

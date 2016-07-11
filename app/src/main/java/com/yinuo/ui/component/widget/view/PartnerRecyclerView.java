@@ -6,10 +6,8 @@ import android.util.AttributeSet;
 
 import com.yinuo.adapter.PartnerRecyclerViewAdapter;
 import com.yinuo.base.BaseObject;
-import com.yinuo.mode.PartnerRecyclerModel;
-import com.yinuo.ui.component.widget.baseview.BaseRecyclerView;
+import com.yinuo.ui.component.baseview.BaseRecyclerView;
 
-import java.util.ArrayList;
 import java.util.List;
 
 /**

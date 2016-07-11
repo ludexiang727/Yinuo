@@ -7,7 +7,7 @@ import android.view.MotionEvent;
 import android.view.View;
 
 import com.yinuo.adapter.ViewpagerAdapter;
-import com.yinuo.ui.component.widget.baseview.BaseRecyclerView;
+import com.yinuo.ui.component.baseview.BaseRecyclerView;
 
 import java.util.List;
 
