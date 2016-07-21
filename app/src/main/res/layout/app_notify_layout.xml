@@ -10,5 +10,6 @@
         android:background="@drawable/app_notify_shape_bg"
         android:gravity="center"
         android:textSize="@dimen/app_notify_msg_size"
+        android:visibility="gone"
         android:textColor="@android:color/white" />
 </LinearLayout>

@@ -60,6 +60,9 @@
         <activity android:name=".ui.NotifyMsgActivity"
             android:screenOrientation="portrait"/>
 
+        <activity android:name=".ui.ServicesActivity"
+            android:screenOrientation="portrait"/>
+
         <activity android:name=".ui.LoginActivity"
             android:screenOrientation="portrait"
             android:windowSoftInputMode="adjustResize"/>

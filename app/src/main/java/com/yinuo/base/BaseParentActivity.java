@@ -34,6 +34,7 @@ import com.yinuo.ui.CityChoosePageActivity;
 import com.yinuo.ui.LoginActivity;
 import com.yinuo.ui.MineActivity;
 import com.yinuo.ui.NotifyMsgActivity;
+import com.yinuo.ui.ServicesActivity;
 import com.yinuo.ui.SettingsActivity;
 import com.yinuo.utils.BitmapUtils;
 import com.yinuo.utils.MessageEventUtil;
@@ -176,6 +177,8 @@ public class BaseParentActivity extends AppCompatActivity
                 break;
             }
             case R.id.nav_slideshow: {
+                Intent intent = new Intent(this, ServicesActivity.class);
+                startActivity(intent);
                 break;
             }
             case R.id.nav_manage: {
