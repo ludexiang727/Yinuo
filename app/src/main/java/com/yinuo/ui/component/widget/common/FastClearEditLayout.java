@@ -104,6 +104,7 @@ public class FastClearEditLayout extends RelativeLayout implements View.OnClickL
             if (!isTel) {
                 mEdit.setFilters(new InputFilter[]{new InputFilter.LengthFilter(6)});
             } else {
+                // is tel phone number
                 mEdit.setFilters(new InputFilter[]{new InputFilter.LengthFilter(11)});
             }
             mEdit.setInputType(InputType.TYPE_CLASS_NUMBER | InputType.TYPE_NUMBER_VARIATION_NORMAL);

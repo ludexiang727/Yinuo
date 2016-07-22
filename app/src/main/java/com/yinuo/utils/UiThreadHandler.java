@@ -14,11 +14,11 @@ public class UiThreadHandler {
     }
 
     public static final boolean post(Runnable r) {
-        return sUiHandler == null?false:sUiHandler.post(r);
+        return sUiHandler == null ? false : sUiHandler.post(r);
     }
 
     public static final boolean postDelayed(Runnable r, long delayMillis) {
-        return sUiHandler == null?false:sUiHandler.postDelayed(r, delayMillis);
+        return sUiHandler == null ? false : sUiHandler.postDelayed(r, delayMillis);
     }
 
     public static final Handler getsUiHandler() {
@@ -26,7 +26,7 @@ public class UiThreadHandler {
     }
 
     public static final boolean postOnceDelayed(Runnable r, long delayMillis) {
-        if(sUiHandler == null) {
+        if (sUiHandler == null) {
             return false;
         } else {
             sUiHandler.removeCallbacks(r, sToken);
@@ -35,7 +35,7 @@ public class UiThreadHandler {
     }
 
     public static void removeCallbacks(Runnable runnable) {
-        if(sUiHandler != null) {
+        if (sUiHandler != null) {
             sUiHandler.removeCallbacks(runnable);
         }
     }
