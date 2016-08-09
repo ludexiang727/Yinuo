@@ -22,6 +22,7 @@ import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import com.yinuo.R;
@@ -58,7 +59,8 @@ public class BaseParentActivity extends AppCompatActivity
     protected ViewPager mViewPager;
     protected MainViewPagerAdapter mPagerAdapter;
     protected List<String> mTabTitle = new ArrayList<String>();
-    private LinearLayout mNavigationView;
+    private RelativeLayout mNavigationView;
+    private View mBoundsView;
     private ImageView mHeaderView;
     private TextView mUserName;
     private TextView mUserAccount;
@@ -104,7 +106,8 @@ public class BaseParentActivity extends AppCompatActivity
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         View headerView = navigationView.getHeaderView(0);
         View appNotify = navigationView.getMenu().findItem(R.id.nav_gallery).getActionView();
-        mNavigationView = (LinearLayout) headerView.findViewById(R.id.app_navigation_layout);
+        mNavigationView = (RelativeLayout) headerView.findViewById(R.id.app_navigation_layout);
+        mBoundsView = headerView.findViewById(R.id.app_navigation_bounds_view);
         mHeaderView = (ImageView) headerView.findViewById(R.id.app_mine_header);
         mUserName = (TextView) headerView.findViewById(R.id.app_mine_name);
         mUserAccount = (TextView) headerView.findViewById(R.id.app_mine_account);
@@ -231,10 +234,12 @@ public class BaseParentActivity extends AppCompatActivity
             mUserName.setText(userInfo.getUserNickName());
             mUserAccount.setText(userInfo.getUserAccount());
             if (bitmap != null) {
-                Bitmap blurBit = BitmapUtils.doBlur(bitmap, 2, true);
-                mNavigationView.setBackgroundDrawable(BitmapUtils.bitmapToDrawable(blurBit));
+                mBoundsView.setVisibility(View.VISIBLE);
+                Bitmap blurBit = BitmapUtils.doBlur(bitmap, 5, false);
+                mNavigationView.setBackgroundDrawable(new BitmapDrawable(blurBit));
             } else {
                 mNavigationView.setBackgroundResource(R.drawable.side_nav_bar);
+                mBoundsView.setVisibility(View.GONE);
             }
         }
     }
